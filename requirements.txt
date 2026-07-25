@@ -1,0 +1,11 @@
+streamlit
+anthropic
+scikit-learn
+numpy
+pandas
+pdfplumber
+python-docx
+reportlab
+matplotlib
+requests
+beautifulsoup4

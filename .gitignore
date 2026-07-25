@@ -1,0 +1,10 @@
+documents/
+venv/
+__pycache__/
+*.pyc
+.env
+old_scrapers/
+logs/
+*.log
+.streamlit/secrets.toml
+.env
