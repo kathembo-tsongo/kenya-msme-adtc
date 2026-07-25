@@ -1,0 +1,31 @@
+id,category,question,must_contain,must_not_contain
+1,Business Registration,How do I register a sole proprietorship in Kenya and how much does it cost?,BRS|eCitizen|KES 950|sole proprietorship,I don't know|no information
+2,Business Registration,What is the difference between a sole proprietorship and a limited liability company in Kenya?,liability|limited company|sole proprietorship,I don't know|no information
+3,Business Registration,How do I register a partnership business in Kenya through BRS?,BRS|partnership|register,I don't know|no information
+4,Business Registration,What documents do I need to register a business name in Kenya on eCitizen?,eCitizen|national ID|KRA PIN,I don't know|no information
+5,Business Registration,How do I convert my sole proprietorship to a limited company in Kenya?,limited company|BRS|convert,I don't know|no information
+6,Taxation,What is Turnover Tax in Kenya and who qualifies to pay it?,Turnover Tax|TOT|KES|KRA,I don't know|no information
+7,Taxation,When is a business required to register for VAT in Kenya?,VAT|5 million|KES|KRA,I don't know|no information
+8,Taxation,How does a small business pay PAYE to KRA for its employees?,PAYE|KRA|employee|salary,I don't know|no information
+9,Taxation,What are the penalties for late filing of tax returns in Kenya?,penalty|KRA|late|fine,I don't know|no information
+10,Taxation,What is eTIMS and why does my business need it?,eTIMS|invoice|KRA|electronic,I don't know|no information
+11,Financing,How do I apply for the Hustler Fund and what are the eligibility requirements?,Hustler Fund|M-PESA|national ID,I don't know|no information
+12,Financing,What loans does the Youth Enterprise Development Fund offer and who qualifies?,YEDF|youth|18|35|loan,I don't know|no information
+13,Financing,How can a woman-owned business access the Women Enterprise Fund?,WEF|women|loan|fund,I don't know|no information
+14,Financing,What is the difference between the Hustler Fund personal loan and business loan?,Hustler Fund|personal|business|loan,I don't know|no information
+15,Financing,How do SACCOs offer loans differently from commercial banks in Kenya?,SACCO|bank|interest|loan,I don't know|no information
+16,Permits & Licenses,What is the Unified Business Permit in Nairobi and how do I apply?,Unified Business Permit|Nairobi|county,I don't know|no information
+17,Permits & Licenses,What licenses does a food business in Kenya need to operate legally?,food|license|health|permit,I don't know|no information
+18,Permits & Licenses,What happens if I operate a business without a county permit in Kenya?,permit|penalty|county|closure,I don't know|no information
+19,Social Security,How do I register my business and employees for NSSF in Kenya?,NSSF|register|employee|employer,I don't know|no information
+20,Social Security,What is SHIF and how does it replace NHIF for my employees?,SHIF|NHIF|health|insurance,I don't know|no information
+21,Social Security,What is the NITA levy and which businesses are required to pay it?,NITA|levy|training|employer,I don't know|no information
+22,Trade & Markets,How can a Kenyan MSME export products to other African countries under AfCFTA?,AfCFTA|export|Africa|trade,I don't know|no information
+23,Trade & Markets,What services does KEPROBA offer to help Kenyan businesses export?,KEPROBA|export|branding|Kenya,I don't know|no information
+24,Trade & Markets,What preferential trade benefits does Kenya get from being in the EAC and COMESA?,EAC|COMESA|trade|tariff,I don't know|no information
+25,Digital Finance,How do I set up an M-Pesa Paybill or Till number for my business?,M-PESA|Paybill|Till|Safaricom,I don't know|no information
+26,Digital Finance,What is the difference between M-Pesa Paybill and Buy Goods Till?,Paybill|Buy Goods|Till|M-PESA,I don't know|no information
+27,Digital Finance,How do digital credit providers like mobile loan apps get regulated in Kenya?,CBK|digital credit|regulation|license,I don't know|no information
+28,Sector-Specific,What licenses does a pharmacy or chemist shop need to operate in Kenya?,Pharmacy|Poisons Board|license|register,I don't know|no information
+29,Sector-Specific,What licenses does a tech startup need from the Communications Authority?,Communications Authority|license|tech|CA,I don't know|no information
+30,Kiswahili,Ninawezaje kupata mkopo kutoka Hustler Fund na ninahitaji nini kustahili?,Hustler Fund|mkopo|M-PESA,I don't know

@@ -1,0 +1,145 @@
+{
+  "total_chunks": 36056,
+  "total_kbs": 9,
+  "knowledge_bases": {
+    "kb1_legal_regulatory": {
+      "name": "Legal & Regulatory",
+      "description": "Business registration, permits, licenses, county regulations",
+      "keywords": [
+        "register",
+        "permit",
+        "license",
+        "certificate",
+        "BRS",
+        "county",
+        "eCitizen"
+      ],
+      "chunks": 7685,
+      "sources": 66
+    },
+    "kb2_tax_kra": {
+      "name": "Tax & KRA",
+      "description": "KRA tax guides, eTIMS, VAT, PAYE, Turnover Tax",
+      "keywords": [
+        "tax",
+        "KRA",
+        "VAT",
+        "PAYE",
+        "eTIMS",
+        "turnover",
+        "income tax",
+        "pin"
+      ],
+      "chunks": 1755,
+      "sources": 24
+    },
+    "kb3_financing_credit": {
+      "name": "Financing & Credit",
+      "description": "Hustler Fund, YEDF, WEF, CBK, MFIs, SACCOs, loans",
+      "keywords": [
+        "loan",
+        "fund",
+        "financing",
+        "credit",
+        "sacco",
+        "bank",
+        "hustler",
+        "YEDF",
+        "WEF"
+      ],
+      "chunks": 3796,
+      "sources": 60
+    },
+    "kb4_social_security": {
+      "name": "Social Security",
+      "description": "NSSF, SHA, NITA, IRA, insurance contributions",
+      "keywords": [
+        "NSSF",
+        "SHA",
+        "insurance",
+        "NHIF",
+        "NITA",
+        "levy",
+        "pension",
+        "SHIF"
+      ],
+      "chunks": 1182,
+      "sources": 24
+    },
+    "kb5_digital_trade": {
+      "name": "Digital & Trade",
+      "description": "M-Pesa, AfCFTA, EAC, ICT, e-commerce, electricity",
+      "keywords": [
+        "mpesa",
+        "paybill",
+        "mobile money",
+        "export",
+        "trade",
+        "digital",
+        "AfCFTA",
+        "EAC"
+      ],
+      "chunks": 6537,
+      "sources": 54
+    },
+    "kb6_county_geospatial": {
+      "name": "County & Geospatial",
+      "description": "47 counties, KNBS statistics, research reports",
+      "keywords": [
+        "county",
+        "nairobi",
+        "mombasa",
+        "kisumu",
+        "nakuru",
+        "statistics",
+        "KNBS"
+      ],
+      "chunks": 5665,
+      "sources": 36
+    },
+    "kb7_culture_context": {
+      "name": "Culture & Context",
+      "description": "Jua Kali, chama, cultural context, TVET, skills, climate",
+      "keywords": [
+        "jua kali",
+        "chama",
+        "informal",
+        "culture",
+        "TVET",
+        "skills",
+        "climate",
+        "youth"
+      ],
+      "chunks": 8977,
+      "sources": 41
+    },
+    "kb9_bank_lending": {
+      "name": "Bank Lending & Credit",
+      "description": "Commercial bank SME lending criteria, loan products, credit assessment",
+      "keywords": [
+        "bank loan",
+        "lending criteria",
+        "credit assessment",
+        "collateral",
+        "KCB",
+        "Equity Bank"
+      ],
+      "chunks": 14,
+      "sources": 2
+    },
+    "kb8_national_policy_strategy": {
+      "name": "National Policy & Strategy",
+      "description": "Vision 2030, national strategies, World Bank, WEF, KIPPRA policy",
+      "keywords": [
+        "vision 2030",
+        "policy",
+        "strategy",
+        "national plan",
+        "World Bank",
+        "WEF"
+      ],
+      "chunks": 445,
+      "sources": 6
+    }
+  }
+}

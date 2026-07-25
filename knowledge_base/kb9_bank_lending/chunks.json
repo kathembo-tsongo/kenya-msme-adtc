@@ -1,0 +1,101 @@
+{
+  "kb_id": "kb9_bank_lending",
+  "kb_name": "Bank Lending & Credit",
+  "description": "Commercial bank SME lending criteria, loan products, credit assessment",
+  "keywords": [
+    "bank loan",
+    "lending criteria",
+    "credit assessment",
+    "collateral",
+    "KCB",
+    "Equity Bank"
+  ],
+  "chunks": [
+    "SOURCE: https://co-opbank.co.ke/business/ KB: kb9_bank_lending SCRAPED: July 2026 Business Current Account in Kenya Sign in to Internet Banking Open menu Home Personal Banking Main Menu Personal Banking Accounts Borrow Ways to Bank Cards Executive Banking Business Banking Main Menu Business Banking Accounts Borrow Ways to Bank Cards Trade Finance E-commerce Corporate & Institutional Banking Main Menu Corporate & Institutional Banking Key Segments Custody & Investor Services Cards Trade Finance G",
+    "enu Corporate & Institutional Banking Key Segments Custody & Investor Services Cards Trade Finance Groups Co-operatives Investing Our Partnerships Money Transfer Investor Relations AGM 2026 Executive Banking YEA Sustainability KESONIA Sign in to Internet Banking We have suitable solutions to help your business grow We are the financial partner who will walk with you in every stage in your business journey Home / Business Banking Haba na Haba Account Build your business resilience as you grow you",
+    "journey Home / Business Banking Haba na Haba Account Build your business resilience as you grow your business by opening a Haba na Haba Access Account. Tell Me More MSME Current Account Do you need a business current account? This is the account for you. Tell Me More Media Center New Co-opPay Card Introducing Co-opPay. The prepaid card that puts safety, convenience and control in your child’s pocket money × How can I help you?",
+    "SOURCE: Compiled from Kenya Bankers Association (kba.co.ke), CBK Banking Supervision Reports, and published bank product information. Verified July 2026. KB: kb9_bank_lending THEME: Lending Criteria and Products of Commercial Banks COMPILED BY: Kathembo Tsongo Dieudonne, Strathmore University DATE: July 2026 KENYA COMMERCIAL BANK SME LENDING — GUIDE FOR MSME OPERATORS REGULATOR: CENTRAL BANK OF KENYA (CBK) All commercial banks in Kenya are licensed and regulated by CBK. CBK Website: cbk.go.ke CB",
+    "NYA (CBK) All commercial banks in Kenya are licensed and regulated by CBK. CBK Website: cbk.go.ke CBK Bank Supervision Report: Published annually at cbk.go.ke/bank-supervision-report Kenya currently has 38 licensed commercial banks (CBK, 2024). TOP SME LENDERS IN KENYA Source: Kenya Bankers Association (kba.co.ke) 1. KCB Bank Kenya — kcbgroup.com/ke 2. Equity Bank Kenya — equitybank.co.ke 3. Co-operative Bank — co-opbank.co.ke 4. NCBA Bank — ncbagroup.com 5. Absa Bank Kenya — absa.co.ke 6. Stand",
+    "erative Bank — co-opbank.co.ke 4. NCBA Bank — ncbagroup.com 5. Absa Bank Kenya — absa.co.ke 6. Standard Chartered Kenya — sc.com/ke 7. DTB Kenya — dtbbank.com 8. I&M Bank — imbank.com 9. Family Bank — familybank.co.ke 10. Prime Bank — primebank.co.ke GENERAL SME LOAN REQUIREMENTS (ALL BANKS) Source: Kenya Bankers Association SME Framework Mandatory documents: - National ID of all directors/owners - Business registration certificate (from BRS/eCitizen) - KRA PIN certificate (business and personal",
+    "- Business registration certificate (from BRS/eCitizen) - KRA PIN certificate (business and personal) - 6-12 months bank statements - Completed loan application form Additional for loans above KES 500,000: - Tax compliance certificate (from KRA iTax) - County business permit - Business financial statements - Cash flow projections (12 months) - Collateral documentation THE 5 Cs CREDIT ASSESSMENT FRAMEWORK Source: Kenya Bankers Association, CBK Prudential Guidelines Banks assess all SME loans usin",
+    "AMEWORK Source: Kenya Bankers Association, CBK Prudential Guidelines Banks assess all SME loans using five criteria: 1. CHARACTER — Are you trustworthy? - CRB credit history (Metropol, CRB Africa, Creditinfo) - Bank account conduct (bounced cheques = negative) - Length of banking relationship 2. CAPACITY — Can you repay? - Monthly business revenue vs loan repayment - Debt service coverage ratio (minimum 1.25x) - Existing loan obligations 3. CAPITAL — Do you have investment in the business? - Own",
+    "inimum 1.25x) - Existing loan obligations 3. CAPITAL — Do you have investment in the business? - Owner's equity contribution - Personal savings and assets - Business net worth 4. COLLATERAL — What security do you offer? Primary: Land title deed, commercial property Secondary: Vehicle logbook, equipment, machinery Alternative: LPOs, invoices, insurance policies No collateral: Group guarantees, SACCO shares 5. CONDITIONS — External business environment - Industry sector outlook - Economic conditio",
+    "O shares 5. CONDITIONS — External business environment - Industry sector outlook - Economic conditions - Purpose and use of loan funds INTEREST RATES (CBK Base Rate: check cbk.go.ke for current rate) Commercial banks: CBK rate + 4-7% per annum Microfinance institutions: 18-36% per annum Mobile loans: Very expensive — use only for short-term emergencies SACCOs: 12-15% per annum (most affordable formal option) Hustler Fund: 8% per annum (cheapest government option) COLLATERAL REQUIREMENTS Source:",
+    "mal option) Hustler Fund: 8% per annum (cheapest government option) COLLATERAL REQUIREMENTS Source: CBK Prudential Guidelines on Credit Title deed (land/property): Most preferred by all banks Vehicle logbook: Accepted by most banks LPO from government/large company: Accepted for LPO financing No collateral options: - Hustler Fund: hustlerfund.go.ke (no collateral required) - YEDF: yedf.go.ke (minimal collateral) - SACCO loans (member deposits as security) - Group loans (mutual guarantee) TOP REA",
+    "mal collateral) - SACCO loans (member deposits as security) - Group loans (mutual guarantee) TOP REASONS FOR SME LOAN REJECTION Source: Kenya Bankers Association SME Report 1. Negative CRB listing — clear before applying (metropol.co.ke) 2. Insufficient cash flow — build 6 months consistent revenue first 3. Inadequate collateral — explore no-collateral alternatives 4. Poor bank account conduct — maintain clean account 6+ months 5. Incomplete documentation — prepare all documents before applying",
+    "aintain clean account 6+ months 5. Incomplete documentation — prepare all documents before applying 6. Business less than 6 months old — wait until established 7. Outstanding taxes — get KRA tax compliance certificate first CONTACT INFORMATION Kenya Bankers Association: kba.co.ke | info@kba.co.ke CBK Banking Supervision: cbk.go.ke | 020 2860000 KCB SME Banking: kcbgroup.com/ke/business | 0711 087 000 Equity Bank Business: equitybank.co.ke/business | 0763 063 000 Co-op Bank SME: co-opbank.co.ke |",
+    "000 Equity Bank Business: equitybank.co.ke/business | 0763 063 000 Co-op Bank SME: co-opbank.co.ke | 0703 027 000"
+  ],
+  "metadata": [
+    {
+      "filename": "coop_bank_business_2026.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "coop_bank_business_2026.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "coop_bank_business_2026.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    },
+    {
+      "filename": "kenya_bank_sme_lending_guide.txt",
+      "kb": "kb9_bank_lending",
+      "kb_name": "Bank Lending & Credit"
+    }
+  ]
+}
