@@ -44,7 +44,23 @@ SCOPE_INSTRUCTION = (
     "just because no source material was retrieved for this specific turn — only "
     "say you lack information if you genuinely don't know the answer, not by default.\n"
     "4. Only use retrieved material when it actually pertains to the question; ignore "
-    "it if it doesn't.\n\n"
+    "it if it doesn't.\n"
+    "4b. If retrieved source material contains numbers, rates, or tables that seem "
+    "confusing, contradictory, or hard to parse cleanly (common with tables extracted "
+    "from PDFs), do NOT guess or combine fragments into a made-up figure. Prefer a "
+    "clearly-stated fact from the digest below over an ambiguous number from a messy "
+    "retrieved table. If genuinely uncertain, say the exact figure should be confirmed "
+    "directly with the relevant agency rather than stating a possibly-wrong number "
+    "confidently.\n"
+    "4c. Do NOT invent worked examples, sample calculations, or hypothetical figures "
+    "(e.g. \'a business earning X would pay Y\') unless the user explicitly asks for "
+    "a calculation with specific numbers. State the fact/rate itself clearly and stop "
+    "-- do not add fabricated arithmetic to illustrate it.\n"
+    "5. If the user writes in Kiswahili, respond fluently and naturally in Kiswahili, "
+    "using correct Kenyan business/regulatory terminology (e.g. Mamlaka ya Mapato "
+    "Kenya (KRA), Usajili wa Biashara, Kodi ya Ongezeko la Thamani (VAT)). If the "
+    "user mixes Kiswahili and English (Sheng-style), respond in the same natural "
+    "mixed style rather than switching entirely to one language.\n\n"
     "FORMATTING RULES:\n"
     "- Use **bold** for key terms, amounts, deadlines, and agency names.\n"
     "- Use bullet points or numbered lists whenever an answer has 2 or more distinct "
@@ -57,6 +73,66 @@ SCOPE_INSTRUCTION = (
     "- Never write a long unbroken paragraph when the content has a natural list or "
     "step-by-step shape."
 )
+
+
+
+SWAHILI_TO_ENGLISH = {
+    "biashara": "business",
+    "kodi": "tax",
+    "usajili": "registration",
+    "leseni": "license permit",
+    "mfanyakazi": "employee",
+    "wafanyakazi": "employees",
+    "mshahara": "salary wage",
+    "malipo": "payment",
+    "faida": "profit",
+    "mtaji": "capital",
+    "mkopo": "loan credit",
+    "fedha": "finance money",
+    "kampuni": "company",
+    "duka": "shop retail",
+    "ushuru": "duty tax",
+    "hifadhi ya jamii": "social security NSSF",
+    "bima": "insurance",
+    "kanuni": "regulation",
+    "sheria": "law",
+    "kaunti": "county",
+    "ajira": "employment",
+    "pensheni": "pension",
+    "riba": "interest rate",
+    "akaunti": "account",
+    "mizani": "balance",
+    "mauzo": "sales revenue",
+    "gharama": "cost expense",
+}
+
+def expand_swahili_terms(query: str) -> str:
+    """Append English equivalents of recognized Swahili business terms
+    to improve retrieval against the English-only source corpus."""
+    query_lower = query.lower()
+    additions = []
+    for sw_term, en_term in SWAHILI_TO_ENGLISH.items():
+        if sw_term in query_lower:
+            additions.append(en_term)
+    if additions:
+        return query + " " + " ".join(additions)
+    return query
+
+
+DIGEST_OVERRIDE_KEYWORDS = [
+    "nssf", "national social security fund",
+    "annual leave", "leave entitlement", "leave days",
+    "minimum share capital", "share capital requirement",
+    "yedf", "youth enterprise development fund", "rausha", "inua loan", "vuka loan",
+]
+
+
+def matches_digest_topic(query: str) -> bool:
+    """Check if a query is about a topic we've already hard-verified in the
+    fact digest -- for these, skip retrieval entirely rather than risk a
+    messy PDF table confusing the model into inventing wrong numbers."""
+    query_lower = query.lower()
+    return any(kw in query_lower for kw in DIGEST_OVERRIDE_KEYWORDS)
 
 
 def retrieve(query: str, top_k: int = TOP_K):
@@ -79,8 +155,15 @@ def retrieve(query: str, top_k: int = TOP_K):
 
 
 def build_retrieval_query(messages, current_query):
-    """Combine the current question with the prior user turn for context,
-    so short follow-ups like 'what about Kenya?' retrieve meaningfully."""
+    """Combine the current question with the prior user turn ONLY when the
+    current question is short/vague (e.g. 'what about Kenya?') and would
+    otherwise retrieve poorly on its own. A well-formed, specific question
+    should be searched as-is -- blending in an unrelated prior topic dilutes
+    the query and weakens retrieval precision."""
+    VAGUE_WORD_THRESHOLD = 6
+    if len(current_query.split()) > VAGUE_WORD_THRESHOLD:
+        return current_query
+
     user_turns = [m["content"] for m in messages if m.get("role") == "user"]
     if len(user_turns) >= 2:
         return user_turns[-2] + " " + current_query
@@ -101,6 +184,51 @@ def health():
     return jsonify({"status": "ok", "chunks_loaded": len(chunks)})
 
 
+def is_swahili(text: str) -> bool:
+    """Heuristic Swahili detection based on common Swahili word presence."""
+    text_lower = text.lower()
+    common_swahili_words = [
+        "ninahitaji", "kuhusu", "biashara", "nini", "vipi", "wapi", "gani",
+        "kwa", "na", "ya", "wa", "je", "ninataka", "naomba", "nusu",
+        "kodi", "usajili", "mfanyakazi", "mshahara", "kampuni", "sheria",
+    ]
+    return any(w in text_lower for w in common_swahili_words)
+
+
+def call_llama(messages, temperature=0.6, max_tokens=400):
+    resp = requests.post(
+        f"{LLAMA_SERVER_URL}/v1/chat/completions",
+        json={
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+            "repeat_penalty": 1.3,
+            "top_p": 0.9,
+        },
+    )
+    return resp.json()["choices"][0]["message"]["content"]
+
+
+def translate_to_swahili(english_text: str) -> str:
+    translation_messages = [
+        {
+            "role": "system",
+            "content": (
+                "You are a professional English-to-Kiswahili translator specializing "
+                "in Kenyan business and regulatory terminology. Translate the following "
+                "text into natural, fluent, grammatically correct Kiswahili. Keep "
+                "acronyms, agency names, currency amounts, and percentages as-is "
+                "(e.g. NSSF, KRA, KES, 6%). Preserve any markdown formatting "
+                "(**bold**, bullet points, numbered lists) exactly as structured. "
+                "Output ONLY the Kiswahili translation, nothing else -- no preamble, "
+                "no explanation."
+            ),
+        },
+        {"role": "user", "content": english_text},
+    ]
+    return call_llama(translation_messages, temperature=0.3, max_tokens=500)
+
+
 @app.route("/v1/chat/completions", methods=["POST"])
 def chat_completions():
     payload = request.get_json()
@@ -110,10 +238,17 @@ def chat_completions():
     if not user_messages:
         return jsonify({"error": "no user message found"}), 400
     query = user_messages[-1]["content"]
+    query_is_swahili = False  # Swahili translation disabled for now -- see is_swahili() for the detection logic if re-enabling
 
-    retrieval_query = build_retrieval_query(messages, query)
-    retrieved = retrieve(retrieval_query)
-    context_block = build_context_block(retrieved)
+    if matches_digest_topic(query):
+        retrieved = []
+        context_block = SCOPE_INSTRUCTION + "\n\n(This question matches a topic already covered by verified facts above -- rely on those facts directly rather than any external material.)"
+        print(f"[RAG] Query: {query[:80]!r} — matched digest-override topic, skipping retrieval")
+    else:
+        retrieval_query = build_retrieval_query(messages, query)
+        retrieval_query = expand_swahili_terms(retrieval_query)
+        retrieved = retrieve(retrieval_query)
+        context_block = build_context_block(retrieved)
 
     augmented_messages = list(messages)
     insert_at = len(augmented_messages) - 1
@@ -122,25 +257,34 @@ def chat_completions():
         "content": context_block,
     })
 
+    if query_is_swahili:
+        # Force an English-language answer first, where the model is reliable
+        augmented_messages.insert(insert_at + 1, {
+            "role": "system",
+            "content": "IMPORTANT: Answer the following question in English, even though it was asked in Kiswahili. A translation step will happen separately.",
+        })
+
     if retrieved:
         print(f"[RAG] Query: {query[:80]!r} (retrieval query: {retrieval_query[:80]!r}) — "
               f"retrieved {len(retrieved)} chunks (top score {retrieved[0]['score']:.3f}) "
-              f"from: {', '.join(sorted(set(r['kb'] for r in retrieved)))}")
+              f"from: {', '.join(sorted(set(r['kb'] for r in retrieved)))} "
+              f"[swahili_detected={query_is_swahili}]")
     else:
-        print(f"[RAG] Query: {query[:80]!r} — no relevant chunks found above threshold")
+        print(f"[RAG] Query: {query[:80]!r} — no relevant chunks found above threshold "
+              f"[swahili_detected={query_is_swahili}]")
 
-    forward_payload = dict(payload)
-    forward_payload["messages"] = augmented_messages
+    english_answer = call_llama(augmented_messages, temperature=payload.get("temperature", 0.6),
+                                  max_tokens=payload.get("max_tokens", 400))
 
-    resp = requests.post(
-        f"{LLAMA_SERVER_URL}/v1/chat/completions",
-        json=forward_payload,
-        stream=payload.get("stream", False),
-    )
+    if query_is_swahili:
+        final_answer = translate_to_swahili(english_answer)
+        print(f"[Translation] Converted English answer to Kiswahili ({len(final_answer)} chars)")
+    else:
+        final_answer = english_answer
 
-    if payload.get("stream"):
-        return Response(resp.iter_content(chunk_size=None), content_type=resp.headers.get("content-type"))
-    return jsonify(resp.json())
+    return jsonify({
+        "choices": [{"message": {"role": "assistant", "content": final_answer}}]
+    })
 
 
 if __name__ == "__main__":
