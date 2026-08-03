@@ -25,6 +25,13 @@ NUMERIC_RE = re.compile(
     re.IGNORECASE,
 )
 
+DEFERRAL_PATTERNS = re.compile(
+    r"^(I'm (sorry|unable to)|I don't have|I do not have|I need (you|more)|"
+    r"Unfortunately|I apologize|Based on the source|According to the source|"
+    r"The source (material|text))",
+    re.IGNORECASE,
+)
+
 DEGENERATE_PATTERNS = re.compile(
     r"\b(corrupt(ed)?|unreadable|can't (read|extract)|cannot (read|extract)|"
     r"doesn't contain clear|improperly formatted|garbled|not legible)\b",
@@ -41,7 +48,7 @@ def extract_numeric_tokens(text: str) -> set[str]:
 
 
 def is_degenerate(assistant_msg: str) -> bool:
-    return bool(DEGENERATE_PATTERNS.search(assistant_msg))
+    return bool(DEGENERATE_PATTERNS.search(assistant_msg)) or bool(DEFERRAL_PATTERNS.match(assistant_msg.strip()))
 
 
 LIST_MARKER_RE = re.compile(r"(?m)^\s*(?:[-*]\s*)?\d{1,2}\.\s+")
@@ -79,7 +86,11 @@ def main():
             total += 1
 
             user_msg = next((m["content"] for m in record["messages"] if m["role"] == "user"), "")
-            assistant_msg = next((m["content"] for m in record["messages"] if m["role"] == "assistant"), "")
+            assistant_msg = next((m["content"] for m in record["messages"] if m["role"] == "assistant"), "") or ""
+            if not assistant_msg.strip():
+                discarded += 1
+                discard_f.write(json.dumps(record, ensure_ascii=False) + "\n")
+                continue
             source_text = record["_meta"].get("source_text", "")
 
             if is_degenerate(assistant_msg):

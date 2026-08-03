@@ -12,7 +12,7 @@ FINAL_FILE = Path("finetune_data/training_data_final.jsonl")
 
 # Indices (0-based, matching the order in flagged_for_review.jsonl / the
 # _readable.txt export) to EXCLUDE as genuine fabrications after manual review.
-EXCLUDED_FLAGGED_INDICES = {4}  # update this set after checking #4's full source
+EXCLUDED_FLAGGED_INDICES = set()  # spot-check came back clean, nothing to exclude this round
 
 def main():
     clean = [json.loads(line) for line in open(CLEAN_FILE)]
