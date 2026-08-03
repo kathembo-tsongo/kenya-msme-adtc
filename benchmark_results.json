@@ -1,0 +1,58 @@
+[
+  {
+    "prompt": "What percentage of my employee's salary goes to NSSF?",
+    "predicted_tps": 17.46097021579953,
+    "predicted_n": 29,
+    "prompt_tps": 92.3928107523492,
+    "wall_time": 1.9304225444793701
+  },
+  {
+    "prompt": "How do I register a business name in Kenya?",
+    "predicted_tps": 17.082773245618778,
+    "predicted_n": 109,
+    "prompt_tps": 73.9524633565544,
+    "wall_time": 6.590334177017212
+  },
+  {
+    "prompt": "What is the VAT registration threshold for a small business?",
+    "predicted_tps": 16.962845008364805,
+    "predicted_n": 80,
+    "prompt_tps": 117.17405473493031,
+    "wall_time": 4.859130144119263
+  },
+  {
+    "prompt": "What are the requirements for a Tax Compliance Certificate?",
+    "predicted_tps": 16.10309199495168,
+    "predicted_n": 136,
+    "prompt_tps": 83.3318452646679,
+    "wall_time": 8.620028734207153
+  },
+  {
+    "prompt": "How many days of annual leave must I give my employees?",
+    "predicted_tps": 15.174506828528074,
+    "predicted_n": 33,
+    "prompt_tps": 89.74101797987689,
+    "wall_time": 2.3707947731018066
+  },
+  {
+    "prompt": "What is the Youth Enterprise Development Fund and who qualifies?",
+    "predicted_tps": 16.85506840034877,
+    "predicted_n": 197,
+    "prompt_tps": 116.50513714839114,
+    "wall_time": 11.830970764160156
+  },
+  {
+    "prompt": "What documents do I need to open a business bank account?",
+    "predicted_tps": 17.07621507077514,
+    "predicted_n": 148,
+    "prompt_tps": 101.96343336370994,
+    "wall_time": 8.831658124923706
+  },
+  {
+    "prompt": "What are my obligations under the Social Health Insurance Act?",
+    "predicted_tps": 17.248359875715366,
+    "predicted_n": 93,
+    "prompt_tps": 76.45961403186837,
+    "wall_time": 5.5962443351745605
+  }
+]
