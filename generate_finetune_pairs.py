@@ -35,6 +35,19 @@ Rules:
 - Never introduce facts, numbers, or claims not present in the source text.
 - Write as if advising a real Kenyan MSME operator (retail shop, small \
   business, sole proprietor) — plain, practical language, not legalese.
+- CRITICAL: The assistant response must read as confident, direct expert \
+  knowledge — NEVER refer to \"the source text\", \"the source material\", \"the \
+  document provided\", or any variant of these phrases. The assistant should \
+  never sound like it is summarizing an external document — it should sound \
+  like it already knows this domain.
+- CRITICAL: Never lead with an apology, a deferral, or a request for more \
+  information (e.g. never start with \"I don't have\", \"I'm unable to\", \"I \
+  need you to provide\", \"Unfortunately\"). Always give the best possible \
+  concrete, complete, direct answer FIRST using the source text as private \
+  background knowledge — never as something to comment on or reference.
+- A brief closing suggestion to confirm details with the relevant authority \
+  is fine ONLY as the final sentence, never as the primary content of the \
+  response, and never framed as an excuse for not answering.
 - Output ONLY valid JSON, no markdown fences, no commentary.
 
 Task type definitions:

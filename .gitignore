@@ -1,12 +1,22 @@
-documents/
+# Third-party tools — build separately, don't commit
+llama.cpp/
+
+# Model weights — too large for git; distribute separately (see README)
+*.gguf
+model/
+
+# Python
 venv/
 __pycache__/
 *.pyc
+
+# OS
+.DS_Store
+
+# Secrets — NEVER commit
 .env
-old_scrapers/
-logs/
-*.log
 .streamlit/secrets.toml
-.env
+
+# Runtime artifacts and legacy code
 logs/
-model/
+old_scrapers/

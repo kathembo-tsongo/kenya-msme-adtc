@@ -11,10 +11,10 @@ import json
 import re
 from pathlib import Path
 
-INPUT_FILE = Path("finetune_data/training_data.jsonl")
-CLEAN_FILE = Path("finetune_data/training_data_clean.jsonl")
-FLAGGED_FILE = Path("finetune_data/flagged_for_review.jsonl")
-DISCARD_FILE = Path("finetune_data/discarded_degenerate.jsonl")
+INPUT_FILE = Path("finetune_data/compound_scenarios.jsonl")
+CLEAN_FILE = Path("finetune_data/compound_scenarios_clean.jsonl")
+FLAGGED_FILE = Path("finetune_data/compound_scenarios_flagged.jsonl")
+DISCARD_FILE = Path("finetune_data/compound_scenarios_discarded.jsonl")
 
 NUMERIC_RE = re.compile(
     r"\b(?:KES|Ksh|Sh\.?)\s?[\d,]+(?:\.\d+)?\b"
