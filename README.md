@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 ### 2. Get the model file
 
-Download msme-qwen2.5-1.5b-Q4_K_M.gguf (about 935MB) from: [ADD HOSTING LINK HERE]
+Run `bash download_model.sh` -- this downloads the model automatically from Hugging Face (kathembo-tsongo/qwen-msme-gguf, idempotent, safe to re-run).
 
 Place it at model/msme-qwen2.5-1.5b-Q4_K_M.gguf
 
@@ -55,7 +55,7 @@ cd ..
 
 ### 4. Build the RAG retrieval index
 
-Requires documents/ (the source knowledge base) to be present -- see [ADD HOSTING LINK HERE] if not already in this repo.
+Requires documents/ (the source knowledge base). Run `bash download_corpus.sh` -- this downloads and extracts the corpus automatically from Hugging Face (idempotent, safe to re-run).
 
 python3 build_index.py
 
