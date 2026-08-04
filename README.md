@@ -2,6 +2,16 @@
 
 An offline, on-device advisory assistant for Kenyan MSME (micro, small, and medium enterprise) owners, covering tax, business registration, financing, and regulatory compliance. Built for the Africa Deep Tech Challenge 2026 (Corporate/Enterprise track).
 
+## Repository Scope
+
+This repository was adapted from a broader academic thesis project (Kenya MSME
+Advisor, a RAG advisory chatbot originally using a cloud LLM). Files from that
+earlier project that are not part of this specific ADTC submission -- data
+scraping scripts, a Streamlit web application, an admin/research dashboard --
+have been moved into `legacy/` for reference and are not required to run or
+evaluate this submission. Everything needed for the ADTC submission (the
+offline model, RAG retrieval, and web UI) lives in the repository root.
+
 ## Architecture
 
 Browser (webui/index.html)
