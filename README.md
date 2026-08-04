@@ -4,8 +4,8 @@ An offline, on-device advisory assistant for Kenyan MSME (micro, small, and medi
 
 ## Repository Scope
 
-This repository was adapted from a broader academic thesis project (Kenya MSME
-Advisor, a RAG advisory chatbot originally using a cloud LLM). Files from that
+This repository was adapted from my broader academic thesis project (Kenya MSME
+Advisor, a RAG advisory chatbot originally using a cloud LLM). This is the project I am currently working on as my final Master's project. Files from that
 earlier project that are not part of this specific ADTC submission -- data
 scraping scripts, a Streamlit web application, an admin/research dashboard --
 have been moved into `legacy/` for reference and are not required to run or
