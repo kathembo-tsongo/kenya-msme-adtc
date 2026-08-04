@@ -47,12 +47,20 @@ def read_text_file(path: Path) -> str:
 
 
 def read_document(path: Path) -> str:
-    """Read any document, detecting real PDF content regardless of extension."""
+    """Read any document, detecting real PDF content regardless of extension.
+    Falls back to a sibling _ocr.txt file if normal PDF extraction returns
+    little/no text (scanned/image-only PDFs with no text layer)."""
     with open(path, "rb") as f:
         raw_start = f.read(2000)
 
     if path.suffix.lower() == ".pdf" or is_pdf_content(raw_start):
-        return extract_pdf_text(path)
+        text = extract_pdf_text(path)
+        if len(text.strip()) < 20:
+            ocr_path = path.with_name(path.stem + "_ocr.txt")
+            if ocr_path.exists():
+                print(f"    Using OCR fallback for {path.name}")
+                return read_text_file(ocr_path)
+        return text
     else:
         return read_text_file(path)
 
