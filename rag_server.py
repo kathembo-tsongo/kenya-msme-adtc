@@ -56,6 +56,26 @@ SCOPE_INSTRUCTION = (
     "(e.g. \'a business earning X would pay Y\') unless the user explicitly asks for "
     "a calculation with specific numbers. State the fact/rate itself clearly and stop "
     "-- do not add fabricated arithmetic to illustrate it.\n"
+    "4d. Do NOT invent specific phone numbers, USSD menu sequences/sub-codes, email "
+    "addresses, reference numbers, or step-by-step menu prompts beyond what is "
+    "explicitly given to you in the verified facts or retrieved material. If you know "
+    "a general contact method (e.g. \'dial *254#\' or \'visit itax.kra.go.ke\') but "
+    "not the specific sub-menu steps or an exact phone number, state only the general "
+    "method you actually know and stop there -- do not add plausible-sounding specific "
+    "digits or menu options you are not certain of.\n"
+    "4e. Do NOT invent specific website URLs beyond well-known official domains you are "
+    "certain of (e.g. itax.kra.go.ke, ecitizen.go.ke, youthfund.go.ke, brs.go.ke). Never "
+    "add extra path segments or subpages you are not certain exist (e.g. do not write "
+    "\'brs.go.ke/some-specific-subpage\' unless that exact path was given to you).\n"
+    "4f. STRICT RULE ON CLASSIFICATIONS AND THRESHOLDS: never state a specific numeric "
+    "business-size classification, category name, floor-area figure, or employee-count "
+    "band (e.g. \'Medium Retailer\', \'35 square meters\', \'5-20 employees\') unless "
+    "that EXACT figure or category name is explicitly present, word-for-word, in the "
+    "verified facts digest above or the retrieved source material for THIS turn. If no "
+    "such exact figure is present, do not classify the business by size at all -- "
+    "simply describe the general licensing/registration process without inventing a "
+    "category. It is always better to omit a classification than to state one you "
+    "cannot point to in the given material.\n"
     "5. IMPORTANT -- this assistant exists specifically to save MSME owners the time and "
     "cost of visiting government offices or paying for consultancy just to get basic "
     "procedural information. When the retrieved source material contains concrete, "
@@ -85,7 +105,24 @@ SCOPE_INSTRUCTION = (
     "- KRA PIN registration: apply free via iTax (itax.kra.go.ke) using your national "
     "ID; required before registering for VAT, PAYE, or any other tax obligation.\n"
     "- VAT registration: mandatory once annual taxable turnover exceeds KES 5,000,000; "
-    "register via iTax.\n\n"
+    "register via iTax.\n"
+    "- Terminating an employee in Kenya: governed by the Employment Act 2007. You must "
+    "have a valid, fair reason (e.g. misconduct, poor performance, redundancy) and "
+    "follow due process -- give the employee notice (per their contract, or the "
+    "statutory minimum), explain the reason in writing, and give them a genuine chance "
+    "to respond/be heard before the decision is finalized. Skipping notice or the "
+    "hearing step, even with a valid reason, can make a dismissal unfair/unlawful. "
+    "For redundancy specifically, additional rules apply (e.g. notifying the labour "
+    "office, selection criteria, severance pay). Recommend consulting the exact notice "
+    "period in their contract or the Employment Act itself for precise timelines.\n"
+    "- Business/trade licenses in Kenya: administered at the COUNTY level (not "
+    "nationally), so exact categories, fees, and thresholds vary by county -- do not "
+    "state a specific size classification (e.g. square meters, employee-count bands) "
+    "as if it is a fixed national standard, because it is not. The general process is: "
+    "register your business name first (eCitizen/BRS), then apply for a single business "
+    "permit through your specific county government's business licensing office (e.g. "
+    "Nairobi City County has its own portal/office). Advise the user to confirm exact "
+    "category and fee with their specific county, since it genuinely varies.\n\n"
     "FORMATTING RULES:\n"
     "- Use **bold** for key terms, amounts, deadlines, and agency names.\n"
     "- Use bullet points or numbered lists whenever an answer has 2 or more distinct "
@@ -152,7 +189,9 @@ DIGEST_OVERRIDE_KEYWORDS = [
     "apply for a loan", "apply for financing", "get a loan", "startup loan",
     "hustler fund", "how can i apply for a loan", "loan to start", "women enterprise fund",
     "register a business name", "business name registration", "kra pin", "vat registration",
-    "vat threshold",
+    "vat threshold", "terminate an employee", "termination", "dismissal", "dismiss an employee",
+    "redundancy", "fire an employee", "firing an employee",
+    "license", "licence", "business permit", "trade license", "single business permit",
 ]
 
 
@@ -235,7 +274,11 @@ def call_llama(messages, temperature=0.6, max_tokens=400):
             "top_p": 0.9,
         },
     )
-    return resp.json()["choices"][0]["message"]["content"]
+    data = resp.json()
+    if "choices" not in data:
+        print(f"[ERROR] llama-server returned unexpected response: {data}")
+        return "I'm having trouble generating a response right now -- please try rephrasing your question or ask again in a moment."
+    return data["choices"][0]["message"]["content"]
 
 
 def translate_to_swahili(english_text: str) -> str:
