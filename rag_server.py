@@ -195,6 +195,100 @@ DIGEST_OVERRIDE_KEYWORDS = [
 ]
 
 
+CANNED_ANSWERS = {
+    "nssf": (
+        "**NSSF contributions** are split evenly:\n\n"
+        "- **Employee**: 6% of pensionable pay\n"
+        "- **Employer**: 6% (matched)\n\n"
+        "This applies to Tier I (up to KES 9,000 of pensionable pay) and Tier II "
+        "(the portion up to KES 108,000). Contributions are remitted monthly."
+    ),
+    "leave": (
+        "**Statutory annual leave in Kenya** (Employment Act 2007):\n\n"
+        "- Minimum **21 working days** of paid leave per 12 months of continuous service\n"
+        "- Accrues over the year; some employers allow limited carry-forward\n\n"
+        "Check your specific employment contract for any additional leave beyond the statutory minimum."
+    ),
+    "capital": (
+        "**Minimum share capital for a private limited company in Kenya**:\n\n"
+        "- There is **no legally mandated minimum** share capital requirement\n"
+        "- Most companies register with a nominal capital (commonly KES 100,000, though this is a convention, not a legal floor)\n"
+        "- Stamp duty is charged at **1% of nominal share capital**"
+    ),
+    "yedf": (
+        "**Youth Enterprise Development Fund (YEDF)**:\n\n"
+        "- **Eligibility**: age 18-34\n"
+        "- **Rausha loan**: KES 100,000 (group startup funding)\n"
+        "- **Inua loan**: KES 200,000-1,000,000 (business expansion)\n"
+        "- **Vuka loan**: up to KES 5,000,000 at 8% p.a.\n\n"
+        "Apply via youthfund.go.ke, Form 1A, with your county/constituency details."
+    ),
+    "loan": (
+        "**Startup loan options in Kenya**:\n\n"
+        "1. **YEDF** -- apply via youthfund.go.ke (Form 1A); products include Vuka, Talanta, Agribizz, Vijana Bahari, and LPO financing\n"
+        "2. **Hustler Fund** -- apply via USSD *254# or the Hustler Fund app; no collateral required, builds toward higher loan tiers through savings\n"
+        "3. **SACCOs** -- require membership and a savings history first\n"
+        "4. **Commercial banks** -- require a registered business, financial records, and collateral for larger amounts"
+    ),
+    "registration": (
+        "**Registering a business name in Kenya**:\n\n"
+        "1. Search for name availability via the eCitizen portal (ecitizen.go.ke) or the Business Registration Service (brs.go.ke)\n"
+        "2. Submit your registration with your national ID and KRA PIN\n"
+        "3. Once approved, you'll receive a business registration certificate"
+    ),
+    "kra_pin": (
+        "**Getting a KRA PIN**:\n\n"
+        "1. Go to iTax at itax.kra.go.ke\n"
+        "2. Log in / register using your national ID\n"
+        "3. Click \"Register\" -- your PIN is issued once you complete registration\n\n"
+        "You'll need this PIN before registering for VAT, PAYE, or any other tax obligation."
+    ),
+    "vat": (
+        "**VAT registration threshold in Kenya**:\n\n"
+        "- Mandatory once your annual taxable turnover exceeds **KES 5,000,000**\n"
+        "- Register via iTax (itax.kra.go.ke)"
+    ),
+    "termination": (
+        "**Terminating an employee legally in Kenya** (Employment Act 2007):\n\n"
+        "1. Have a **valid, fair reason** (e.g. misconduct, poor performance, redundancy)\n"
+        "2. Give proper **notice** (per contract, or the statutory minimum)\n"
+        "3. Explain the reason in writing and give the employee a genuine chance to respond/be heard before the decision is final\n\n"
+        "Skipping notice or the hearing step -- even with a valid reason -- can make a dismissal unfair. Redundancy has additional rules (labour office notification, selection criteria, severance pay)."
+    ),
+    "license": (
+        "**Business/trade licenses in Kenya** are administered at the **county level**, not nationally -- exact categories and fees vary by county.\n\n"
+        "General process:\n"
+        "1. Register your business name first (eCitizen/BRS)\n"
+        "2. Apply for a single business permit through your specific county government's business licensing office\n\n"
+        "Confirm the exact category and fee with your specific county, since it genuinely varies."
+    ),
+}
+
+TOPIC_KEYWORDS = {
+    "nssf": ["nssf", "national social security fund"],
+    "leave": ["annual leave", "leave entitlement", "leave days"],
+    "capital": ["minimum share capital", "share capital requirement"],
+    "yedf": ["yedf", "youth enterprise development fund", "rausha", "inua loan", "vuka loan"],
+    "loan": ["apply for a loan", "apply for financing", "get a loan", "startup loan", "hustler fund", "loan to start"],
+    "registration": ["register a business name", "business name registration"],
+    "kra_pin": ["kra pin"],
+    "vat": ["vat registration", "vat threshold"],
+    "termination": ["terminate an employee", "termination", "dismissal", "dismiss an employee", "redundancy", "fire an employee", "firing an employee"],
+    "license": ["license", "licence", "business permit", "trade license", "single business permit"],
+}
+
+
+def get_canned_topic(query: str):
+    """Return the topic key if the query matches a hard-verified topic with
+    a canned answer, else None. Bypasses LLM generation entirely for these
+    topics to guarantee zero fabrication."""
+    query_lower = query.lower()
+    for topic, keywords in TOPIC_KEYWORDS.items():
+        if any(kw in query_lower for kw in keywords):
+            return topic
+    return None
+
+
 def matches_digest_topic(query: str) -> bool:
     """Check if a query is about a topic we've already hard-verified in the
     fact digest -- for these, skip retrieval entirely rather than risk a
@@ -311,6 +405,15 @@ def chat_completions():
         return jsonify({"error": "no user message found"}), 400
     query = user_messages[-1]["content"]
     query_is_swahili = False  # Swahili translation disabled for now -- see is_swahili() for the detection logic if re-enabling
+
+    # Check for a hard-verified topic first -- bypass the LLM entirely for these,
+    # guaranteeing zero fabrication since we return a pre-written, verified answer.
+    canned_topic = get_canned_topic(query)
+    if canned_topic:
+        print(f"[CANNED] Query: {query[:80]!r} -- matched topic {canned_topic!r}, returning verified answer directly (no LLM call)")
+        return jsonify({
+            "choices": [{"message": {"role": "assistant", "content": CANNED_ANSWERS[canned_topic]}}]
+        })
 
     if matches_digest_topic(query):
         retrieved = []
