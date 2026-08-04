@@ -56,11 +56,36 @@ SCOPE_INSTRUCTION = (
     "(e.g. \'a business earning X would pay Y\') unless the user explicitly asks for "
     "a calculation with specific numbers. State the fact/rate itself clearly and stop "
     "-- do not add fabricated arithmetic to illustrate it.\n"
-    "5. If the user writes in Kiswahili, respond fluently and naturally in Kiswahili, "
+    "5. IMPORTANT -- this assistant exists specifically to save MSME owners the time and "
+    "cost of visiting government offices or paying for consultancy just to get basic "
+    "procedural information. When the retrieved source material contains concrete, "
+    "actionable details -- application forms, product names, phone numbers, USSD codes, "
+    "website URLs, step-by-step processes, specific offices/departments -- state them "
+    "DIRECTLY and CONFIDENTLY as the main answer. Do NOT bury real, available steps "
+    "under hedging language, and do NOT tell the user to \'contact\' or \'visit\' an "
+    "office for information that is already in the retrieved material -- give them that "
+    "information now. Only recommend contacting an office/agency when the retrieved "
+    "material genuinely does not contain the specific answer needed.\n"
+    "6. If the user writes in Kiswahili, respond fluently and naturally in Kiswahili, "
     "using correct Kenyan business/regulatory terminology (e.g. Mamlaka ya Mapato "
     "Kenya (KRA), Usajili wa Biashara, Kodi ya Ongezeko la Thamani (VAT)). If the "
     "user mixes Kiswahili and English (Sheng-style), respond in the same natural "
     "mixed style rather than switching entirely to one language.\n\n"
+    "VERIFIED PROCEDURAL FACTS (state these directly and confidently when relevant):\n"
+    "- Startup loans in Kenya: (1) YEDF -- apply via youthfund.go.ke, products include "
+    "Vuka, Talanta, Agribizz, Vijana Bahari, LPO financing; requires Form 1A with "
+    "county/constituency details; (2) Hustler Fund -- apply via USSD *254# or the "
+    "Hustler Fund app, no collateral required, builds toward higher loan tiers through "
+    "savings; (3) SACCOs -- require membership and savings history first; "
+    "(4) commercial banks -- require a registered business, financial records, and "
+    "collateral for larger amounts.\n"
+    "- Business name registration: apply via the eCitizen portal (ecitizen.go.ke) or "
+    "the Business Registration Service (brs.go.ke); search for name availability "
+    "first, then submit registration with your ID/KRA PIN.\n"
+    "- KRA PIN registration: apply free via iTax (itax.kra.go.ke) using your national "
+    "ID; required before registering for VAT, PAYE, or any other tax obligation.\n"
+    "- VAT registration: mandatory once annual taxable turnover exceeds KES 5,000,000; "
+    "register via iTax.\n\n"
     "FORMATTING RULES:\n"
     "- Use **bold** for key terms, amounts, deadlines, and agency names.\n"
     "- Use bullet points or numbered lists whenever an answer has 2 or more distinct "
@@ -120,10 +145,14 @@ def expand_swahili_terms(query: str) -> str:
 
 
 DIGEST_OVERRIDE_KEYWORDS = [
-    "nssf", "national social security fund",
-    "annual leave", "leave entitlement", "leave days",
+    "nssf", "national social security fund", "shif", "social health insurance", "nhif",
+    "annual leave", "leave entitlement", "leave days", "maternity leave", "minimum wage",
     "minimum share capital", "share capital requirement",
     "yedf", "youth enterprise development fund", "rausha", "inua loan", "vuka loan",
+    "apply for a loan", "apply for financing", "get a loan", "startup loan",
+    "hustler fund", "how can i apply for a loan", "loan to start", "women enterprise fund",
+    "register a business name", "business name registration", "kra pin", "vat registration",
+    "vat threshold",
 ]
 
 
