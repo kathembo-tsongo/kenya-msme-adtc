@@ -29,7 +29,7 @@ advisory answers.
 
 **Fine-tuning:** LoRA (rank 16) on 3,308 conversational examples covering Kenyan
 MSME tax, registration, financing, and social security topics, sourced from
-verified regulatory documents. 
+verified regulatory documents.
 
 **Quantization:** Q4_K_M -- final model is 934.69 MiB (5.08 bits per weight),
 leaving substantial headroom under the 7GB ceiling.
@@ -67,7 +67,7 @@ on regulatory specifics before any mitigation.
 
 **Hardware:** Target is the ADTC Standard Laptop (Intel i5 10th-12th gen or AMD
 Ryzen 5, 8GB DDR4, integrated graphics only). Development and testing were
-performed on a personal laptop (Intel i7-1065G7, 14.7GB RAM);.
+performed on a personal laptop (Intel i7-1065G7, 14.7GB RAM).
 
 **Connectivity:** Zero runtime network dependencies. All inference, retrieval,
 and generation happen locally via llama.cpp and a local Flask proxy server.
@@ -107,8 +107,8 @@ step did not reliably improve results. We also found and fixed a detection bug
 (substring matching caused "Kenya" to falsely trigger Kiswahili routing, since
 it contains the two-letter word "ya"). Given the underlying fluency ceiling, we
 made the deliberate decision to ship English-only rather than present unreliable
-Kiswahili output to real users. Genuine Kiswahili support would require dedicated training data -- a
-documented direction for future work.
+Kiswahili output to real users. Genuine Kiswahili support would require dedicated
+training data -- a documented direction for future work.
 
 ## Benchmarks
 
@@ -149,24 +149,24 @@ extraction failures.
 ## What We Learned
 
 **Test for behavior, not just loss.** A training loss of 1.39 looked
-good on paper, but the model had learned the wrong behavior pattern —
+good on paper, but the model had learned the wrong behavior pattern --
 hedging instead of answering. Always test actual outputs against real
 user questions before assuming the model is working.
 
 **Fabrication is a system design problem, not just a prompting problem.**
 Stricter instructions reduced hallucination but didn't eliminate it.
 The only reliable fix for high-stakes facts was to remove the model
-from the loop entirely — a verified-answer layer that guarantees
+from the loop entirely -- a verified-answer layer that guarantees
 accuracy where it matters most.
 
 **Infrastructure bugs hide real data bugs.** The PDF extraction issue
 (354,000 meaningless chunks) masked everything downstream. Fixing
-infrastructure first — proper extraction, verified file integrity,
-OCR fallback — was what made the knowledge base actually usable.
+infrastructure first -- proper extraction, verified file integrity,
+OCR fallback -- was what made the knowledge base actually usable.
 
 **Offline-first forces better engineering decisions.** Every design
-choice — TF-IDF over semantic embeddings, verified answers over
-generation, quantization targets — was forced by the offline and
+choice -- TF-IDF over semantic embeddings, verified answers over
+generation, quantization targets -- was forced by the offline and
 memory constraints. Those constraints made the system more focused,
 more reliable, and more honest about what it can and can't do.
 
@@ -174,10 +174,11 @@ more reliable, and more honest about what it can and can't do.
 
 | Metric | Result | Target |
 |--------|--------|--------|
-| Generation speed | 16.75–17.53 tokens/sec | ≥ 15.0 tokens/sec ✅ |
-| Model size (Q4_K_M) | 934.69 MiB | ≤ 7GB ✅ |
-| Full app memory | ~3.3GB combined | ≤ 7GB ✅ |
-| Parameters | 1,543,714,304 | 1.5B declared ✅ |
-| RAG corpus | 18,307 chunks / 323 docs | Zero extraction failures ✅ |
-| CPU temp (own test) | 77°C plateau | < 85°C ✅ |
-| CPU temp (profiler) | 98–99°C peak | ⚠️ Reported honestly |
+| Generation speed (Sperf) | 17.28 tokens/sec | >= 15.0 tokens/sec |
+| Efficiency Score (Seff) | 76.35 (RAM efficiency %) | Higher is better |
+| Model size (Q4_K_M) | 934.69 MiB | <= 7GB |
+| Full app memory | ~3.3GB combined | <= 7GB |
+| Parameters | 1,543,714,304 | 1.5B declared |
+| RAG corpus | 18,307 chunks / 323 docs | Zero extraction failures |
+| CPU temp (own test) | 77C plateau | < 85C |
+| CPU temp (profiler) | 98-99C peak | Reported honestly |
