@@ -145,3 +145,39 @@ metadata.json).
 
 **Retrieval corpus:** 18,307 chunks across all 323 source documents, zero
 extraction failures.
+
+## What We Learned
+
+**Test for behavior, not just loss.** A training loss of 1.39 looked
+good on paper, but the model had learned the wrong behavior pattern —
+hedging instead of answering. Always test actual outputs against real
+user questions before assuming the model is working.
+
+**Fabrication is a system design problem, not just a prompting problem.**
+Stricter instructions reduced hallucination but didn't eliminate it.
+The only reliable fix for high-stakes facts was to remove the model
+from the loop entirely — a verified-answer layer that guarantees
+accuracy where it matters most.
+
+**Infrastructure bugs hide real data bugs.** The PDF extraction issue
+(354,000 meaningless chunks) masked everything downstream. Fixing
+infrastructure first — proper extraction, verified file integrity,
+OCR fallback — was what made the knowledge base actually usable.
+
+**Offline-first forces better engineering decisions.** Every design
+choice — TF-IDF over semantic embeddings, verified answers over
+generation, quantization targets — was forced by the offline and
+memory constraints. Those constraints made the system more focused,
+more reliable, and more honest about what it can and can't do.
+
+## Performance Summary
+
+| Metric | Result | Target |
+|--------|--------|--------|
+| Generation speed | 16.75–17.53 tokens/sec | ≥ 15.0 tokens/sec ✅ |
+| Model size (Q4_K_M) | 934.69 MiB | ≤ 7GB ✅ |
+| Full app memory | ~3.3GB combined | ≤ 7GB ✅ |
+| Parameters | 1,543,714,304 | 1.5B declared ✅ |
+| RAG corpus | 18,307 chunks / 323 docs | Zero extraction failures ✅ |
+| CPU temp (own test) | 77°C plateau | < 85°C ✅ |
+| CPU temp (profiler) | 98–99°C peak | ⚠️ Reported honestly |
