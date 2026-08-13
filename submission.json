@@ -22,11 +22,11 @@
     "test_prompts": [
       {
         "prompt_id": "tp_001",
-        "prompt": "What percentage of an employee's salary must a Kenyan MSME contribute to NSSF, and how is it split between employer and employee?"
+        "prompt": "What are the NSSF contribution rates for an employee earning KSh 30,000 per month?"
       },
       {
         "prompt_id": "tp_002",
-        "prompt": "What are the eligibility requirements and loan amounts under Kenya's Youth Enterprise Development Fund (YEDF)?"
+        "prompt": "What are the basic steps to register a small business in Kenya?"
       }
     ],
     "model": {
@@ -45,24 +45,24 @@
     "os": "Ubuntu 26.04 LTS"
   },
   "throughput": {
-    "tokens_per_second_generation": 17.53,
-    "first_token_latency_ms": 3685.5,
+    "tokens_per_second_generation": 17.39,
+    "first_token_latency_ms": 4298.87,
     "prompt_tokens": 512,
     "generated_tokens": 128
   },
   "memory": {
-    "peak_rss_mb": 1693.73,
-    "steady_state_rss_mb": 1586.37,
-    "peak_vms_mb": 2184.96
+    "peak_rss_mb": 1694.3,
+    "steady_state_rss_mb": 1613.57,
+    "peak_vms_mb": 2184.98
   },
   "accuracy": [],
   "cpu_thermal": {
-    "cpu_percent_p99": 65.1,
+    "cpu_percent_p99": 68.5,
     "core_temp_c_peak": 98.0,
     "throttled": true
   },
   "reproducibility": {
-    "git_commit_sha": "b9dc68b61793",
+    "git_commit_sha": "473d730cd1fe",
     "docker_image_digest": "unknown",
     "random_seed": 42
   },
