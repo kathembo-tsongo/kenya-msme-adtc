@@ -19,11 +19,11 @@
   "test_prompts": [
     {
       "prompt_id": "tp_001",
-      "prompt": "What percentage of an employee's salary must a Kenyan MSME contribute to NSSF, and how is it split between employer and employee?"
+      "prompt": "What are the NSSF contribution rates for an employee earning KSh 30,000 per month?"
     },
     {
       "prompt_id": "tp_002",
-      "prompt": "What are the eligibility requirements and loan amounts under Kenya's Youth Enterprise Development Fund (YEDF)?"
+      "prompt": "What are the basic steps to register a small business in Kenya?"
     }
   ],
   "model": {
