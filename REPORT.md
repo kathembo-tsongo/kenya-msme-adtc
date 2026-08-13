@@ -116,7 +116,7 @@ All measurements below were taken on a personal development machine (Intel
 i7-1065G7 @ 1.30GHz, 14.7GB RAM, Ubuntu, CPU-only inference via llama.cpp)
 unless noted otherwise.
 
-**Throughput:** Mean generation speed of 16.75-17.53 tokens/second across two
+**Throughput:** Mean generation speed of 17.28-17.53 tokens/second across two
 independent measurement methods (a custom 8-prompt benchmark script, and the
 official adtc-profiler tool's llama-bench integration), consistently
 exceeding the ADTC reference of 15.0 TPS.
