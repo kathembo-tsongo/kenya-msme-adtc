@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.1.0",
+  "profiler_version": "adtc-profiler 0.1.0",
+  "submission": {
+    "team_id": "kathembo-tsongo",
+    "domain": "corporate_enterprise",
+    "language_scope": [
+      "en"
+    ],
+    "african_alpha_claim": false,
+    "budget_laptop_claim": true,
+    "submitter": {
+      "name": "Kathembo Tsongo Dieudonne",
+      "email": "kathembo.dieudonne@strathmore.edu",
+      "github_handle": "kathembo-tsongo"
+    },
+    "cross_disciplinary_pairing": {
+      "discipline": "legal_technology",
+      "load_bearing": true,
+      "description": "The model grounds MSME advisory answers in actual Kenyan legal and regulatory source documents (Acts, tax code, social security law) via retrieval-augmented generation, making complex compliance requirements accessible to small business owners who cannot afford professional legal or tax counsel."
+    },
+    "test_prompts": [
+      {
+        "prompt_id": "tp_001",
+        "prompt": "What are the NSSF contribution rates for an employee earning KSh 30,000 per month?"
+      },
+      {
+        "prompt_id": "tp_002",
+        "prompt": "What are the basic steps to register a small business in Kenya?"
+      }
+    ],
+    "model": {
+      "name": "msme-qwen2.5-1.5b-Q4_K_M",
+      "runtime": "llama.cpp",
+      "quantization": "GGUF Q4_K_M",
+      "parameters_estimate": "1.5B",
+      "packaging": "binary_bundle"
+    }
+  },
+  "environment": {
+    "measured_on": "participant_laptop",
+    "cpu_model": "Intel(R) Core(TM) i7-1065G7 CPU @ 1.30GHz",
+    "ram_gb": 14.7,
+    "gpu": "NVIDIA GeForce MX250",
+    "os": "Ubuntu 26.04 LTS"
+  },
+  "throughput": {
+    "tokens_per_second_generation": 17.34,
+    "first_token_latency_ms": 4680.86,
+    "prompt_tokens": 512,
+    "generated_tokens": 128
+  },
+  "memory": {
+    "peak_rss_mb": 1694.71,
+    "steady_state_rss_mb": 1608.09,
+    "peak_vms_mb": 2184.98
+  },
+  "accuracy": [],
+  "cpu_thermal": {
+    "cpu_percent_p99": 69.7,
+    "core_temp_c_peak": 99.0,
+    "throttled": true
+  },
+  "reproducibility": {
+    "git_commit_sha": "bde61d67062c",
+    "docker_image_digest": "unknown",
+    "random_seed": 42
+  },
+  "model_info": {
+    "params_count": 1543714304,
+    "context_length": 32768,
+    "architecture": "qwen2",
+    "claimed_params_estimate": "1.5B",
+    "params_match": true
+  }
+}
