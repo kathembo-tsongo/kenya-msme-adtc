@@ -26,7 +26,7 @@ if [ "$FILE_SIZE" -lt 500000000 ]; then
     exit 1
 fi
 
-EXPECTED_SHA256="6ad480be1fd3f56ba096aac5e5f2f7fd5196d34357a5e4f0d2bfaa618f02edc8"
+EXPECTED_SHA256="f2f680dadf5329c7efc751cc0c960a7bd382938bcdc63fe196aed41ce9276e72"
 ACTUAL_SHA256=$(sha256sum "$MODEL_DIR/$MODEL_FILE" | cut -d " " -f 1)
 if [ "$ACTUAL_SHA256" != "$EXPECTED_SHA256" ]; then
     echo "ERROR: checksum mismatch -- downloaded file is corrupted."
