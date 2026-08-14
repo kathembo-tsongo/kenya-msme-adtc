@@ -6,7 +6,7 @@ set -e
 
 MODEL_DIR="model"
 MODEL_FILE="msme-qwen2.5-1.5b-Q4_K_M.gguf"
-MODEL_URL="https://huggingface.co/kathembo-tsongo/qwen-msme-gguf/resolve/main/qwen-msme-v2-Q4_K_M.gguf"
+MODEL_URL="https://huggingface.co/kathembo-tsongo/qwen-msme-gguf/resolve/main/qwen-msme-v5-Q4_K_M.gguf"
 
 mkdir -p "$MODEL_DIR"
 
@@ -26,7 +26,7 @@ if [ "$FILE_SIZE" -lt 500000000 ]; then
     exit 1
 fi
 
-EXPECTED_SHA256="f2f680dadf5329c7efc751cc0c960a7bd382938bcdc63fe196aed41ce9276e72"
+EXPECTED_SHA256="62d36ba73e54586cc4606c82312def17c6b7daeb5e19cb483dcaf6f4a0eced61"
 ACTUAL_SHA256=$(sha256sum "$MODEL_DIR/$MODEL_FILE" | cut -d " " -f 1)
 if [ "$ACTUAL_SHA256" != "$EXPECTED_SHA256" ]; then
     echo "ERROR: checksum mismatch -- downloaded file is corrupted."
