@@ -51,8 +51,9 @@ PDFs (e.g., NSSF Act contribution tiers) sometimes produced worse, more confused
 answers than relying on a small set of independently-verified facts directly.
 For a specific set of high-frequency, high-stakes topics (NSSF rate, statutory
 annual leave, company share capital, YEDF eligibility, startup loan programs,
-business/KRA PIN registration, VAT threshold, and employee termination
-procedure), the application skips live retrieval entirely and relies on a
+business registration, KRA PIN registration, VAT threshold, employee
+termination procedure, and business licensing -- 10 topics in total), the
+application skips live retrieval entirely and relies on a
 hand-verified fact digest plus explicit "state concrete steps directly" and
 "never invent unverified specifics" instructions. Retrieval remains the default
 path for all other questions.
