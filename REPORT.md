@@ -99,6 +99,48 @@ model's trained weights and is not resolvable through prompting -- a known,
 lower-stakes limitation we chose to document rather than continue chasing, since
 the core guidance in these cases remains accurate.
 
+**Raw-model fabrication risk on the accuracy benchmark path:** It is worth
+distinguishing two separate mechanisms in this application. The digest-override
+described above lives in `rag_server.py` and only applies when a question is
+routed through our RAG proxy. The raw `.gguf` file also carries its own,
+smaller fact digest, baked directly into the model's chat template at
+fine-tuning time -- this is what actually loads when the model is run directly
+via `llama-cli`/`llama-server` or a tool like LM Studio, with no proxy in
+front of it. Since ADTC's automated accuracy sub-test runs the raw `.gguf`
+this way, only the baked-in digest protects it, not the RAG-side mitigations.
+
+Testing the raw model directly (beyond our two submitted test prompts)
+surfaced three real fabrications this way. First, a residual from the NSSF
+fix: the model correctly stated "6% employee + 6% employer" but then
+fabricated an unrelated currency total ("KSh 12,000") instead of stating the
+combined 12% rate -- fixed with an explicit instruction against inventing
+Shilling totals not directly computed from the stated rate. Second, the VAT
+registration threshold was stated as KES 500,000, a 10x error against the
+correct KES 5,000,000 (confirmed against KRA's own published guidance), and
+conflated KRA PIN registration with VAT registration into one invented flow.
+Third, and most strikingly, a question about PAYE income tax bands was
+answered by relabeling the unrelated NSSF Tier I/Tier II thresholds (KES
+9,000 / 108,000) as PAYE bands, with entirely invented rates and additional
+invented Tier III-VI thresholds -- a structural confusion between two
+distinct tax facts, not just an imprecise number.
+
+All three were fixed the same way as the original NSSF/leave/capital/YEDF
+digest: verifying the correct fact against an authoritative source (KRA's
+official guidance in these cases), then patching the baked-in chat template
+directly via `gguf_new_metadata.py` rather than re-running the full
+fine-tune/merge/quantize pipeline, and re-verifying the fix on the actual
+quantized `.gguf` before redeploying. We consider this an important, if
+uncomfortable, finding: it confirms that ad hoc spot-testing beyond the
+required two test prompts kept surfacing genuine fabrications, and that our
+raw-model digest -- now covering seven hand-verified topics (NSSF, annual
+leave, share capital, YEDF, VAT threshold, KRA PIN, PAYE bands) -- protects
+only those specific facts. Kenyan MSME regulation has many more checkable
+facts than we could exhaustively verify and digest-protect before submission;
+we prioritized the highest-stakes, most easily fact-checked figures most
+likely to fall within the corporate/enterprise domain the hidden accuracy
+prompts will be drawn from, and we are documenting this scope limitation
+honestly rather than implying broader coverage than we could verify.
+
 **Language scope:** We attempted Kiswahili support (direct generation and an
 English-then-translate approach) but found the base model's Kiswahili fluency
 insufficient -- outputs degenerated into repetitive, grammatically incoherent
