@@ -26,3 +26,5 @@ rag_index.pkl
 documents/
 documents.zip
 submission_retest.json
+# Local profiler test-run outputs -- not part of the submission
+submission_*.json
