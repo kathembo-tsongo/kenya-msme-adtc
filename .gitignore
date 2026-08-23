@@ -28,3 +28,8 @@ documents.zip
 submission_retest.json
 # Local profiler test-run outputs -- not part of the submission
 submission_*.json
+# Local scratch files from chat-template patching sessions -- not part of the submission
+current_template*.jinja
+patch_template*.py
+patched_chat_template*.jinja
+submission.json
