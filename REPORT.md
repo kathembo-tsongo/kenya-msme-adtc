@@ -280,6 +280,18 @@ alongside the corrected ones because it is a real part of how this
 number was produced, not because it reflects the submitted system's
 actual accuracy.
 
+## Repository Organization
+
+The `dev-tools/` folder contains the individual patch scripts used to
+apply each fix described in this report (fabrication corrections,
+the context-window fix, the language-detection bug fix, keyword
+priority fixes), roughly in the order they were written. The
+`benchmark-evidence/` folder contains the raw JSON output from the
+official `adtc-profiler` tool for the thermal before/after comparison
+and other benchmark runs referenced above. Both are kept as a direct,
+inspectable record of how each reported fix was verified, rather than
+summarized only in prose.
+
 ## What We Learned
 
 **Test for behavior, not just loss.** A training loss of 1.39 looked
