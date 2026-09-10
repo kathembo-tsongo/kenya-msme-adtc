@@ -2,9 +2,10 @@
   "team_id": "kathembo-tsongo",
   "domain": "corporate_enterprise",
   "language_scope": [
-    "en"
+    "en",
+    "sw"
   ],
-  "african_alpha_claim": false,
+  "african_alpha_claim": true,
   "budget_laptop_claim": true,
   "submitter": {
     "name": "Kathembo Tsongo Dieudonne",
