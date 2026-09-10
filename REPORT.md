@@ -269,9 +269,15 @@ script inherited from an earlier prototype that was silently calling a
 different, cloud-hosted model rather than our submitted on-device system).
 After fixing both and applying the digest-override expansion described
 above, three independent full runs scored 88.7%, 90.0%, and 89.3% --
-a stable result, not a single favorable sample. We report the flawed first
-measurement alongside the corrected ones because it is a real part of how
-this number was produced, not because it reflects the submitted system's
+a stable result, not a single favorable sample. This is not directly
+comparable to our official Gate 1 Accuracy Score of **61.27**: as
+explained above, that score's multiple-choice component evaluates the
+raw model's own weights via log-likelihood scoring, which our
+digest-override and RAG mitigations cannot reach, while this
+self-measured figure reflects only the qualitative chat path those
+mitigations do protect. We report the flawed first measurement
+alongside the corrected ones because it is a real part of how this
+number was produced, not because it reflects the submitted system's
 actual accuracy.
 
 ## What We Learned
