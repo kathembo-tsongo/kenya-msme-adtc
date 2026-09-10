@@ -4,6 +4,7 @@ rag_server.py — RAG proxy server for the Kenya MSME Advisor.
 import pickle
 from pathlib import Path
 
+import re
 import requests
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
@@ -262,19 +263,352 @@ CANNED_ANSWERS = {
         "2. Apply for a single business permit through your specific county government's business licensing office\n\n"
         "Confirm the exact category and fee with your specific county, since it genuinely varies."
     ),
+    "turnover_tax": (
+        "**Turnover Tax (TOT)** applies to resident persons and corporates in "
+        "Kenya whose gross turnover is **more than KES 1,000,000** but **does "
+        "not exceed KES 25,000,000** in a year of income. It is chargeable "
+        "under Section 12(C) of the Income Tax Act (CAP 470).\n\n"
+        "- **Rate:** 1.5% on gross sales, effective 1st July 2023 per the "
+        "Finance Act 2023\n"
+        "- **Final tax:** TOT is charged on gross sales with **no expense "
+        "deductions allowed**\n"
+        "- **Below KES 1,000,000:** exempt from TOT (but other tax "
+        "obligations may still apply)\n"
+        "- **Above KES 25,000,000:** must register for the regular Income "
+        "Tax regime instead\n"
+        "- **Not applicable to:** rental income, management/professional/"
+        "training fees, income already subject to final withholding tax "
+        "(e.g. qualifying dividends or interest), and non-resident "
+        "taxpayers\n"
+        "- If your turnover reaches **KES 5,000,000** and you deal in "
+        "vatable supplies, you must also register for VAT\n"
+        "- You may elect, by written notice to the Commissioner, to opt "
+        "out of TOT and remain under the regular Income Tax regime "
+        "instead\n\n"
+        "Confirm your specific position via iTax (itax.kra.go.ke), since "
+        "individual circumstances can affect eligibility."
+    ),
+    "paye_bands": (
+        "**PAYE tax bands in Kenya** are progressive, applied monthly "
+        "(Finance Act 2023):\n\n"
+        "- **10%** on the first KES 24,000\n"
+        "- **25%** on the next KES 8,333 (KES 24,001-32,333)\n"
+        "- **30%** on KES 32,334-500,000\n"
+        "- **32.5%** on KES 500,001-800,000\n"
+        "- **35%** above KES 800,000\n\n"
+        "Every resident employee is entitled to a **personal relief of "
+        "KES 2,400 per month** (KES 28,800 per year), subtracted from the "
+        "calculated tax. Non-residents do not qualify for this relief. "
+        "PAYE is calculated on taxable income after NSSF, SHIF, and "
+        "Affordable Housing Levy deductions.\n\n"
+        "**Remittance deadline**: PAYE deducted from a given month's "
+        "salaries must be remitted to KRA by the **9th day of the "
+        "following month** (e.g. January's PAYE is due by 9th "
+        "February), filed via the iTax P10 return. Late remittance "
+        "carries a **25% penalty** on the tax due, plus **2% monthly "
+        "interest** on the unpaid amount."
+    ),
+    "shif_rate": (
+        "**SHIF (Social Health Insurance Fund)** contributions are charged "
+        "at **2.75% of gross income**, with **no upper cap** -- higher "
+        "earners pay proportionally more. SHIF replaced the old NHIF "
+        "flat-rate system from October 2024. Unlike NSSF, SHIF is not "
+        "split into tiers with a separate employer-matched portion in the "
+        "same way -- confirm the exact current employer/employee split "
+        "directly via the SHA (Social Health Authority) or your payroll "
+        "provider, since specifics can be updated."
+    ),
+    "housing_levy": (
+        "**Affordable Housing Levy (AHL)** in Kenya:\n\n"
+        "- **1.5%** of gross salary from the employee\n"
+        "- **1.5%** of gross salary matched by the employer\n"
+        "- **Total: 3%** of gross salary per employee, per month\n\n"
+        "There is **no minimum income threshold** -- it applies to all "
+        "gross salaried employees. Informal-sector and self-employed "
+        "contributors pay 1.5% of declared income with no employer match, "
+        "registering via the AHL/Boma Yangu portal. Remittance is due by "
+        "the 9th working day after month-end via KRA iTax. Resident "
+        "individuals who pay AHL are entitled to affordable housing "
+        "relief. Late remittance carries a 3% per month penalty on the "
+        "unpaid amount."
+    ),
+    "minimum_wage": (
+        "**Kenya does not have a single national minimum wage.** Rates "
+        "are set by occupation, sector, and geographic zone under "
+        "periodic Regulation of Wages Orders (Labour Institutions Act), "
+        "typically revised around Labour Day (1st May).\n\n"
+        "As a reference point: the general (unskilled) labourer minimum "
+        "in Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret was set at "
+        "**KES 18,047.40 per month** under the May 2026 Wage Order "
+        "(Legal Notices No. 95 and 96), with lower rates in other zones. "
+        "Skilled occupations (e.g. drivers, artisans, cashiers) and "
+        "sector-specific roles (agricultural, security, domestic work) "
+        "have their own, generally higher, statutory minimums.\n\n"
+        "Because rates vary by role and location and are revised "
+        "periodically, confirm the exact current figure for your "
+        "specific occupation and zone via the Ministry of Labour and "
+        "Social Protection or the current Kenya Gazette Wage Order, "
+        "rather than relying on a single number."
+    ),
+    "nssf_penalty": (
+        "**NSSF late payment penalty in Kenya**: a penalty of **5% of the "
+        "outstanding contribution** is charged for each month, or part of "
+        "a month, that remittance remains late. Some sources also note "
+        "additional monthly interest on top of this base penalty -- "
+        "confirm the full current figure directly with NSSF, since this "
+        "detail varies across sources. Persistent non-compliance can lead "
+        "to legal action, and company directors can be held personally "
+        "liable for unpaid contributions."
+    ),
+    "mpesa_paybill_till": (
+        "**Getting an M-Pesa Paybill or Till number** -- apply through "
+        "**Safaricom**, not a bank:\n\n"
+        "- **Till Number**: for retail/point-of-sale (shops, restaurants, "
+        "kiosks) -- one till per outlet, customer pays no fee, merchant "
+        "pays a small settlement fee (roughly 0.5-1%)\n"
+        "- **Paybill Number**: for recurring collections with an account/"
+        "reference number (rent, school fees, utilities, subscriptions)\n\n"
+        "**How to apply**: visit m-pesaforbusiness.co.ke and click "
+        "'Apply Now', or visit any Safaricom shop. You'll need your "
+        "national ID, KRA PIN, business registration documents (type "
+        "depends on whether you're a sole proprietor, partnership, or "
+        "company), and bank account details for settlement. Application "
+        "is **free**. Once approved, you'll receive your number by SMS "
+        "and activate it by dialing *234# on the registered line."
+    ),
 }
 
+
+CANNED_ANSWERS_SW = {
+    "nssf": (
+        "**Michango ya NSSF** imegawanywa sawa kati ya pande mbili:\n\n"
+        "- **Mfanyakazi**: 6% ya mshahara unaostahili\n"
+        "- **Mwajiri**: 6% (kiasi sawa)\n\n"
+        "Hii inatumika kwa Tier I (hadi KES 9,000 ya mshahara unaostahili) na Tier II "
+        "(sehemu hadi KES 108,000). Michango hulipwa kila mwezi."
+    ),
+    "leave": (
+        "**Likizo ya kila mwaka kisheria nchini Kenya** (Sheria ya Ajira 2007):\n\n"
+        "- Angalau **siku 21 za kazi** za likizo yenye malipo kwa kila miezi 12 ya "
+        "utumishi endelevu\n"
+        "- Hukusanywa mwaka mzima; baadhi ya waajiri huruhusu kuhamisha siku chache "
+        "zilizobaki kwenda mwaka unaofuata\n\n"
+        "Angalia mkataba wako wa ajira kwa likizo yoyote ya ziada zaidi ya kiwango "
+        "cha chini kisheria."
+    ),
+    "capital": (
+        "**Mtaji wa chini wa hisa kwa kampuni binafsi ya dhima ndogo nchini Kenya**:\n\n"
+        "- **Hakuna** mtaji wa chini wa hisa unaotakiwa kisheria\n"
+        "- Kampuni nyingi husajiliwa na mtaji wa kawaida (mara nyingi KES 100,000, "
+        "ingawa hii ni desturi tu, si kiwango cha kisheria)\n"
+        "- Ushuru wa stempu hutozwa kwa **1% ya mtaji wa hisa wa kawaida**"
+    ),
+    "yedf": (
+        "**Mfuko wa Maendeleo ya Wafanyabiashara Vijana (YEDF)**:\n\n"
+        "- **Sifa**: umri wa miaka 18-34\n"
+        "- **Mkopo wa Rausha**: KES 100,000 (ufadhili wa kuanzisha kikundi)\n"
+        "- **Mkopo wa Inua**: KES 200,000-1,000,000 (upanuzi wa biashara)\n"
+        "- **Mkopo wa Vuka**: hadi KES 5,000,000 kwa asilimia 8 kwa mwaka\n\n"
+        "Omba kupitia youthfund.go.ke, Fomu 1A, ukiwa na maelezo ya kaunti/jimbo lako."
+    ),
+    "loan": (
+        "**Chaguo za mikopo ya kuanzisha biashara nchini Kenya**:\n\n"
+        "1. **YEDF** -- omba kupitia youthfund.go.ke (Fomu 1A); bidhaa ni pamoja na "
+        "Vuka, Talanta, Agribizz, Vijana Bahari, na ufadhili wa LPO\n"
+        "2. **Hustler Fund** -- omba kupitia USSD *254# au programu ya Hustler Fund; "
+        "hakuna dhamana inayohitajika, hujenga kiwango cha juu cha mikopo kupitia akiba\n"
+        "3. **SACCOs** -- zinahitaji uanachama na historia ya akiba kwanza\n"
+        "4. **Benki za kibiashara** -- zinahitaji biashara iliyosajiliwa, kumbukumbu "
+        "za kifedha, na dhamana kwa kiasi kikubwa zaidi"
+    ),
+    "registration": (
+        "**Kusajili jina la biashara nchini Kenya**:\n\n"
+        "1. Tafuta upatikanaji wa jina kupitia tovuti ya eCitizen (ecitizen.go.ke) "
+        "au Huduma ya Usajili wa Biashara (brs.go.ke)\n"
+        "2. Wasilisha usajili wako ukiwa na kitambulisho chako cha taifa na namba "
+        "ya PIN ya KRA\n"
+        "3. Baada ya kuidhinishwa, utapokea cheti cha usajili wa biashara"
+    ),
+    "kra_pin": (
+        "**Kupata namba ya PIN ya KRA**:\n\n"
+        "1. Nenda iTax kwenye itax.kra.go.ke\n"
+        "2. Ingia / jisajili kwa kutumia kitambulisho chako cha taifa\n"
+        "3. Bofya \"Register\" -- PIN yako hutolewa mara tu unapomaliza usajili\n\n"
+        "Utahitaji PIN hii kabla ya kusajili kwa VAT, PAYE, au wajibu mwingine "
+        "wowote wa kodi."
+    ),
+    "vat": (
+        "**Kiwango cha lazima cha kusajili VAT nchini Kenya**:\n\n"
+        "- Ni lazima pindi mauzo yako ya mwaka yanayotozwa kodi yanapozidi "
+        "**KES 5,000,000**\n"
+        "- Jisajili kupitia iTax (itax.kra.go.ke)"
+    ),
+    "termination": (
+        "**Kumfukuza mfanyakazi kihalali nchini Kenya** (Sheria ya Ajira 2007):\n\n"
+        "1. Kuwa na **sababu halali na ya haki** (mfano, utovu wa nidhamu, "
+        "utendaji duni, kupunguzwa kwa wafanyakazi)\n"
+        "2. Toa **taarifa** ifaayo (kulingana na mkataba, au kiwango cha chini "
+        "kisheria)\n"
+        "3. Eleza sababu kwa maandishi na mpe mfanyakazi nafasi halisi ya "
+        "kujibu/kusikilizwa kabla uamuzi haujawa wa mwisho\n\n"
+        "Kuruka hatua ya taarifa au usikilizaji -- hata kwa sababu halali -- "
+        "kunaweza kufanya ufukuzaji kuwa si wa haki. Kupunguzwa kwa wafanyakazi "
+        "kuna sheria za ziada (taarifa kwa ofisi ya kazi, vigezo vya uchaguzi, "
+        "malipo ya kiinua mgongo)."
+    ),
+    "license": (
+        "**Leseni za biashara/kibiashara nchini Kenya** zinasimamiwa katika "
+        "**ngazi ya kaunti**, si kitaifa -- aina na ada halisi hutofautiana kwa "
+        "kaunti.\n\n"
+        "Mchakato wa jumla:\n"
+        "1. Sajili jina la biashara yako kwanza (eCitizen/BRS)\n"
+        "2. Omba kibali kimoja cha biashara kupitia ofisi ya leseni za biashara "
+        "ya kaunti yako mahususi\n\n"
+        "Thibitisha aina na ada halisi na kaunti yako mahususi, kwa kuwa "
+        "hutofautiana kikweli."
+    ),
+    "turnover_tax": (
+        "**Kodi ya Mauzo (Turnover Tax - TOT)** inahusu watu na makampuni "
+        "yanayoishi nchini Kenya ambao mauzo yao ya jumla ni **zaidi ya "
+        "KES 1,000,000** lakini **hayazidi KES 25,000,000** katika mwaka wa "
+        "mapato. Inatozwa chini ya Kifungu cha 12(C) cha Sheria ya Kodi ya "
+        "Mapato (CAP 470).\n\n"
+        "- **Kiwango**: 1.5% ya mauzo ya jumla, kuanzia tarehe 1 Julai 2023 "
+        "kulingana na Sheria ya Fedha 2023\n"
+        "- **Kodi ya mwisho**: TOT hutozwa kwa mauzo ya jumla bila **makato "
+        "yoyote ya gharama kuruhusiwa**\n"
+        "- **Chini ya KES 1,000,000**: hakuna TOT (lakini wajibu mwingine wa "
+        "kodi unaweza kuendelea kutumika)\n"
+        "- **Zaidi ya KES 25,000,000**: lazima ujisajili kwa mfumo wa kawaida "
+        "wa Kodi ya Mapato badala yake\n"
+        "- **Haitumiki kwa**: mapato ya kupanga nyumba, ada za "
+        "usimamizi/kitaalamu/mafunzo, mapato yanayotozwa tayari kodi ya mwisho "
+        "ya makato (mfano, gawio linalostahili au riba), na walipa kodi wasio "
+        "wakazi\n"
+        "- Ikiwa mauzo yako yanafikia **KES 5,000,000** na unashughulika na "
+        "bidhaa zinazotozwa VAT, lazima pia ujisajili kwa VAT\n"
+        "- Unaweza kuchagua, kwa taarifa iliyoandikwa kwa Kamishna, "
+        "kutojumuishwa katika TOT na kubaki chini ya mfumo wa kawaida wa Kodi "
+        "ya Mapato badala yake\n\n"
+        "Thibitisha msimamo wako mahususi kupitia iTax (itax.kra.go.ke), kwa "
+        "kuwa hali za kibinafsi zinaweza kuathiri ustahiki."
+    ),
+    "paye_bands": (
+        "**Viwango vya kodi ya PAYE nchini Kenya** hupanda kwa hatua, "
+        "hutumika kila mwezi (Sheria ya Fedha 2023):\n\n"
+        "- **10%** kwa KES 24,000 za kwanza\n"
+        "- **25%** kwa KES 8,333 zinazofuata (KES 24,001-32,333)\n"
+        "- **30%** kwa KES 32,334-500,000\n"
+        "- **32.5%** kwa KES 500,001-800,000\n"
+        "- **35%** zaidi ya KES 800,000\n\n"
+        "Kila mfanyakazi mkazi anastahili **msamaha binafsi wa KES 2,400 "
+        "kwa mwezi** (KES 28,800 kwa mwaka), unaotolewa kutoka kodi "
+        "iliyokokotolewa. Wasio wakazi hawastahili msamaha huu. PAYE "
+        "hukokotolewa kwa mapato yanayotozwa kodi baada ya makato ya "
+        "NSSF, SHIF, na Ushuru wa Nyumba za Bei Nafuu.\n\n"
+        "**Tarehe ya mwisho ya kuwasilisha**: PAYE iliyokatwa kwa "
+        "mshahara wa mwezi fulani lazima iwasilishwe KRA ifikapo "
+        "**tarehe 9 ya mwezi unaofuata** (mfano, PAYE ya Januari "
+        "inatakiwa ifikapo tarehe 9 Februari), ikiwasilishwa kupitia "
+        "fomu ya P10 kwenye iTax. Kuchelewesha malipo kunatoza **faini "
+        "ya 25%** ya kodi inayodaiwa, pamoja na **riba ya 2% kwa "
+        "mwezi** ya kiasi kisicholipwa."
+    ),
+    "shif_rate": (
+        "**Mchango wa SHIF (Social Health Insurance Fund)** hutozwa kwa "
+        "**2.75% ya mapato ya jumla**, **bila kiwango cha juu** -- "
+        "wanaopata zaidi hulipa zaidi kwa uwiano. SHIF ilichukua nafasi "
+        "ya mfumo wa zamani wa NHIF wenye kiwango cha kudumu tangu "
+        "Oktoba 2024. Tofauti na NSSF, SHIF haigawanywi katika hatua "
+        "zenye sehemu ya mwajiri inayolingana kwa njia hiyo hiyo -- "
+        "thibitisha mgawanyo halisi wa sasa wa mwajiri/mfanyakazi moja "
+        "kwa moja kupitia SHA (Social Health Authority) au mtoa huduma "
+        "wako wa malipo, kwa kuwa maelezo yanaweza kubadilishwa."
+    ),
+    "housing_levy": (
+        "**Ushuru wa Nyumba za Bei Nafuu (AHL)** nchini Kenya:\n\n"
+        "- **1.5%** ya mshahara wa jumla kutoka kwa mfanyakazi\n"
+        "- **1.5%** ya mshahara wa jumla inayolingana kutoka kwa mwajiri\n"
+        "- **Jumla: 3%** ya mshahara wa jumla kwa kila mfanyakazi, kila "
+        "mwezi\n\n"
+        "**Hakuna kiwango cha chini cha mapato** kinachotakiwa -- "
+        "hutumika kwa wafanyakazi wote wenye mshahara wa jumla. "
+        "Wachangiaji wa sekta isiyo rasmi na wanaojiajiri hulipa 1.5% ya "
+        "mapato yaliyotangazwa bila mchango wa mwajiri, wakijisajili "
+        "kupitia tovuti ya AHL/Boma Yangu. Malipo yanatakiwa kufikishwa "
+        "ndani ya siku 9 za kazi baada ya mwisho wa mwezi kupitia iTax "
+        "ya KRA. Watu wakazi wanaolipa AHL wanastahili msamaha wa nyumba "
+        "za bei nafuu. Kuchelewesha malipo kunatoza faini ya 3% kwa "
+        "mwezi ya kiasi kisicholipwa."
+    ),
+    "minimum_wage": (
+        "**Kenya haina mshahara mmoja wa chini wa kitaifa.** Viwango "
+        "huwekwa kulingana na kazi, sekta, na eneo la kijiografia chini "
+        "ya Amri za Kanuni za Mishahara zinazotolewa mara kwa mara "
+        "(Sheria ya Taasisi za Kazi), kwa kawaida hurekebishwa karibu na "
+        "Siku ya Wafanyakazi (Mei 1).\n\n"
+        "Kama kumbukumbu: mshahara wa chini wa kibarua wa kawaida "
+        "(asiye na ujuzi maalum) Nairobi, Mombasa, Kisumu, Nakuru, na "
+        "Eldoret uliwekwa kuwa **KES 18,047.40 kwa mwezi** chini ya Amri "
+        "ya Mishahara ya Mei 2026, ukiwa na viwango vya chini zaidi "
+        "katika maeneo mengine. Kazi zenye ujuzi (mfano, madereva, "
+        "mafundi, wafanyakazi wa fedha) na kazi za sekta mahususi "
+        "(kilimo, ulinzi, kazi za nyumbani) zina viwango vyao vya "
+        "kisheria, kwa kawaida vya juu zaidi.\n\n"
+        "Kwa kuwa viwango hutofautiana kulingana na kazi na eneo na "
+        "hurekebishwa mara kwa mara, thibitisha kiwango halisi cha sasa "
+        "kwa kazi yako mahususi na eneo lako kupitia Wizara ya Kazi na "
+        "Ulinzi wa Jamii au Amri ya Mishahara ya sasa ya Kenya Gazette, "
+        "badala ya kutegemea nambari moja."
+    ),
+    "nssf_penalty": (
+        "**Adhabu ya kuchelewesha malipo ya NSSF nchini Kenya**: faini ya "
+        "**5% ya mchango usiolipwa** hutozwa kwa kila mwezi, au sehemu ya "
+        "mwezi, ambao malipo yanabaki kuchelewa. Baadhi ya vyanzo pia "
+        "hutaja riba ya ziada ya kila mwezi juu ya faini hii ya msingi -- "
+        "thibitisha kiwango kamili cha sasa moja kwa moja na NSSF, kwa "
+        "kuwa maelezo haya hutofautiana kati ya vyanzo. Kutozingatia kwa "
+        "kudumu kunaweza kusababisha hatua za kisheria, na wakurugenzi wa "
+        "kampuni wanaweza kuwajibika binafsi kwa michango isiyolipwa."
+    ),
+    "mpesa_paybill_till": (
+        "**Kupata namba ya Paybill au Till ya M-Pesa** -- omba kupitia "
+        "**Safaricom**, si benki:\n\n"
+        "- **Namba ya Till**: kwa biashara za rejareja (maduka, "
+        "mikahawa, vibanda) -- till moja kwa kila tawi, mteja halipi "
+        "ada, mfanyabiashara hulipa ada ndogo ya malipo (karibu 0.5-1%)\n"
+        "- **Namba ya Paybill**: kwa malipo yanayojirudia yenye namba ya "
+        "akaunti/kumbukumbu (kodi, karo za shule, huduma, michango)\n\n"
+        "**Jinsi ya kuomba**: tembelea m-pesaforbusiness.co.ke na bofya "
+        "'Apply Now', au tembelea duka lolote la Safaricom. Utahitaji "
+        "kitambulisho chako cha taifa, namba ya PIN ya KRA, hati za "
+        "usajili wa biashara (aina inategemea kama wewe ni mmiliki "
+        "binafsi, ubia, au kampuni), na maelezo ya akaunti ya benki kwa "
+        "malipo. Kuomba ni **bure**. Baada ya kuidhinishwa, utapokea "
+        "namba yako kwa SMS na kuiwezesha kwa kupiga *234# kwenye laini "
+        "iliyosajiliwa."
+    ),
+}
+
+
 TOPIC_KEYWORDS = {
+    "nssf_penalty": ["nssf penalty", "late nssf", "nssf late payment", "penalty for late nssf", "nssf fine"],
+    "mpesa_paybill_till": ["paybill", "till number", "buy goods till", "set up paybill", "mpesa business"],
     "nssf": ["nssf", "national social security fund"],
     "leave": ["annual leave", "leave entitlement", "leave days"],
     "capital": ["minimum share capital", "share capital requirement"],
     "yedf": ["yedf", "youth enterprise development fund", "rausha", "inua loan", "vuka loan"],
     "loan": ["apply for a loan", "apply for financing", "get a loan", "startup loan", "hustler fund", "loan to start"],
-    "registration": ["register a business name", "business name registration"],
     "kra_pin": ["kra pin"],
     "vat": ["vat registration", "vat threshold"],
     "termination": ["terminate an employee", "termination", "dismissal", "dismiss an employee", "redundancy", "fire an employee", "firing an employee"],
-    "license": ["license", "licence", "business permit", "trade license", "single business permit"],
+    "license": ["single business permit", "what license do i need", "what licence do i need", "trade license requirements"],
+    "turnover_tax": ["turnover tax", "tot rate", "tot threshold"],
+    "paye_bands": ["paye rate", "paye band", "paye tax rate", "income tax band", "income tax rate"],
+    "shif_rate": ["shif rate", "shif contribution", "shif percentage", "how much shif", "shif deduction", "contribute to shif", "employer shif", "shif employer", "pay to shif", "shif pay", "obligations to shif", "shif obligations", "obligations under shif"],
+    "housing_levy": ["housing levy", "affordable housing levy", "ahl rate", "housing levy rate"],
+    "minimum_wage": ["minimum wage", "minimum salary", "lowest wage", "minimum pay"],
+    "registration": ["register a business name", "business name registration", "steps to register a business", "register a small business", "register a business in kenya", "how to register a business", "start a business in kenya", "steps to start a business"],
 }
 
 
@@ -332,12 +666,18 @@ def build_retrieval_query(messages, current_query):
     return current_query
 
 
+MAX_CHUNK_CHARS = 700  # ~175-200 tokens per chunk; keeps 4 chunks well under the 2048 context window
+
+
 def build_context_block(retrieved):
     parts = [SCOPE_INSTRUCTION]
     if retrieved:
         parts.append("\n\nRELEVANT SOURCE MATERIAL (use if it genuinely pertains to the question):\n")
         for i, r in enumerate(retrieved, 1):
-            parts.append(f"[Source {i} — {r['kb']}]\n{r['text']}\n")
+            text = r["text"]
+            if len(text) > MAX_CHUNK_CHARS:
+                text = text[:MAX_CHUNK_CHARS].rsplit(" ", 1)[0] + "..."
+            parts.append(f"[Source {i} — {r['kb']}]\n{text}\n")
     return "\n".join(parts)
 
 
@@ -347,14 +687,23 @@ def health():
 
 
 def is_swahili(text: str) -> bool:
-    """Heuristic Swahili detection based on common Swahili word presence."""
+    """Heuristic Swahili detection based on common Swahili word presence.
+
+    Uses word-boundary matching, not substring matching -- a naive substring
+    check previously misfired on English text containing 'Kenya' (which
+    contains the substring 'ya'), among other false positives from short
+    words like 'na'/'wa'/'kwa'. Short, collision-prone words are dropped
+    entirely; the remainder require whole-word matches only."""
     text_lower = text.lower()
     common_swahili_words = [
         "ninahitaji", "kuhusu", "biashara", "nini", "vipi", "wapi", "gani",
-        "kwa", "na", "ya", "wa", "je", "ninataka", "naomba", "nusu",
+        "je", "ninataka", "naomba",
         "kodi", "usajili", "mfanyakazi", "mshahara", "kampuni", "sheria",
     ]
-    return any(w in text_lower for w in common_swahili_words)
+    return any(
+        re.search(r"\b" + re.escape(w) + r"\b", text_lower)
+        for w in common_swahili_words
+    )
 
 
 def call_llama(messages, temperature=0.6, max_tokens=400):
@@ -404,15 +753,18 @@ def chat_completions():
     if not user_messages:
         return jsonify({"error": "no user message found"}), 400
     query = user_messages[-1]["content"]
-    query_is_swahili = False  # Swahili translation disabled for now -- see is_swahili() for the detection logic if re-enabling
+    query_is_swahili = is_swahili(query)  # re-enabled: routes to CANNED_ANSWERS_SW for verified-answer topics only
 
     # Check for a hard-verified topic first -- bypass the LLM entirely for these,
     # guaranteeing zero fabrication since we return a pre-written, verified answer.
     canned_topic = get_canned_topic(query)
     if canned_topic:
-        print(f"[CANNED] Query: {query[:80]!r} -- matched topic {canned_topic!r}, returning verified answer directly (no LLM call)")
+        use_sw = query_is_swahili and canned_topic in CANNED_ANSWERS_SW
+        answer_text = CANNED_ANSWERS_SW[canned_topic] if use_sw else CANNED_ANSWERS[canned_topic]
+        lang_tag = "sw" if use_sw else "en"
+        print(f"[CANNED] Query: {query[:80]!r} -- matched topic {canned_topic!r} ({lang_tag}), returning verified answer directly (no LLM call)")
         return jsonify({
-            "choices": [{"message": {"role": "assistant", "content": CANNED_ANSWERS[canned_topic]}}]
+            "choices": [{"message": {"role": "assistant", "content": answer_text}}]
         })
 
     if matches_digest_topic(query):

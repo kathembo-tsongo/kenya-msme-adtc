@@ -1,4 +1,12 @@
-#!/bin/bash
+with open("start.sh", "r", encoding="utf-8") as f:
+    content = f.read()
+
+old_start = '''#!/bin/bash
+# Start Rafiki wa Biashara - Kenya MSME Advisor
+
+echo "Starting llama-server..."'''
+
+new_start = '''#!/bin/bash
 # Start Rafiki wa Biashara - Kenya MSME Advisor
 
 # Check CPU turbo boost state before benchmarking. Turbo boost caused a
@@ -25,16 +33,15 @@ if [ -f /sys/devices/system/cpu/intel_pstate/no_turbo ]; then
     fi
 fi
 
-echo "Starting llama-server..."
-./llama.cpp/build/bin/llama-server \
-  -m ./model/msme-qwen2.5-1.5b-Q4_K_M.gguf \
-  --port 8090 \
-  -c 4096 \
-  --threads 4 \
-  --temp 0.3 \
-  --no-mmap &
+echo "Starting llama-server..."'''
 
-sleep 3
-echo "Starting RAG proxy..."
-source venv/bin/activate
-python3 rag_server.py
+if old_start not in content:
+    print("ERROR: could not find the expected start.sh header. No changes made.")
+else:
+    content = content.replace(old_start, new_start)
+    with open("start.sh", "w", encoding="utf-8") as f:
+        f.write(content)
+    print("SUCCESS: turbo-boost check added to start.sh.")
+
+print("\n--- Updated start.sh ---")
+print(open("start.sh").read())

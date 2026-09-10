@@ -1,0 +1,305 @@
+
+############################################################
+# WARNING: CPU turbo boost is currently ENABLED.
+# This caused peak core temperatures of 96-100C in testing,
+# triggering the thermal penalty. Before generating any
+# official benchmark numbers, run:
+#
+#   echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
+#
+############################################################
+
+Starting llama-server...
+0.00.002.907 W DEPRECATED: --mmap and --no-mmap are deprecated. use --load-mode mmap instead
+0.00.003.157 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.003.848 W srv  llama_server: -----------------
+0.00.003.850 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.003.850 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.003.850 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.003.851 W srv  llama_server: -----------------
+0.00.005.277 I srv    load_model: loading model './model/msme-qwen2.5-1.5b-Q4_K_M.gguf'
+0.00.445.640 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.01.298.146 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 4096, kv_unified = 'true'
+0.01.302.878 I srv  llama_server: model loaded
+0.01.302.884 I srv  llama_server: listening on http://127.0.0.1:8090
+Starting RAG proxy...
+Loading RAG index...
+Loaded 18307 chunks from rag_index.pkl
+RAG proxy server starting on port 8091
+Forwarding to llama-server at http://localhost:8090
+ * Tip: There are .env files present. Install python-dotenv to use them.
+ * Serving Flask app 'rag_server'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8091
+ * Running on http://10.52.26.45:8091
+Press CTRL+C to quit
+[CANNED] Query: 'What is the minimum wage when I start a business in Kenya?' -- matched topic 'minimum_wage' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:35:41] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'What are the basic steps to register a small business in Kenya?' -- matched topic 'registration' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:35:41] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'How do I register a sole proprietorship in Kenya and how much does it cost?' (retrieval query: 'How do I register a sole proprietorship in Kenya and how much does it cost?') — retrieved 4 chunks (top score 0.291) from: kb1_legal_regulatory, kb3_financing_credit, kb6_county_geospatial [swahili_detected=False]
+0.44.254.118 I slot get_availabl: id  3 | task -1 | selected slot by LRU, t_last = -1
+0.44.254.206 I slot launch_slot_: id  3 | task 0 | processing task, is_child = 0
+1.00.209.705 I slot print_timing: id  3 | task 0 | prompt processing, n_tokens =   2048, progress = 0.73, t =  15.96 s / 128.36 tokens per second
+1.15.545.706 I slot print_timing: id  3 | task 0 | n_decoded =    100, tg =  13.47 t/s, tg_3s =  13.47 t/s
+1.17.286.383 I slot print_timing: id  3 | task 0 | prompt eval time =   23869.92 ms /  2798 tokens (    8.53 ms per token,   117.22 tokens per second)
+1.17.286.389 I slot print_timing: id  3 | task 0 |        eval time =    9162.20 ms /   123 tokens (   74.49 ms per token,    13.42 tokens per second)
+1.17.286.390 I slot print_timing: id  3 | task 0 |       total time =   33032.12 ms /  2921 tokens
+1.17.286.396 I slot print_timing: id  3 | task 0 |    graphs reused =        121
+1.17.286.603 I slot      release: id  3 | task 0 | stop processing: n_tokens = 2920, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:36:52] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What is the difference between a sole proprietorship and a limited liability com' (retrieval query: 'What is the difference between a sole proprietorship and a limited liability com') — retrieved 4 chunks (top score 0.316) from: kb1_legal_regulatory, kb5_digital_trade, kb6_county_geospatial [swahili_detected=False]
+1.18.361.581 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.745 (> 0.100 thold), f_keep = 0.675
+1.18.361.646 I slot launch_slot_: id  3 | task 125 | processing task, is_child = 0
+1.33.565.223 I slot print_timing: id  3 | task 125 | n_decoded =    100, tg =  13.83 t/s, tg_3s =  13.83 t/s
+1.36.590.576 I slot print_timing: id  3 | task 125 | n_decoded =    141, tg =  13.75 t/s, tg_3s =  13.55 t/s
+1.38.047.129 I slot print_timing: id  3 | task 125 | prompt eval time =    7972.34 ms /   675 tokens (   11.81 ms per token,    84.67 tokens per second)
+1.38.047.135 I slot print_timing: id  3 | task 125 |        eval time =   11713.09 ms /   161 tokens (   72.75 ms per token,    13.75 tokens per second)
+1.38.047.136 I slot print_timing: id  3 | task 125 |       total time =   19685.43 ms /   836 tokens
+1.38.047.138 I slot print_timing: id  3 | task 125 |    graphs reused =        280
+1.38.047.336 I slot      release: id  3 | task 125 | stop processing: n_tokens = 2806, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:37:13] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'How do I register a partnership business in Kenya through BRS?' (retrieval query: 'How do I register a partnership business in Kenya through BRS?') — retrieved 4 chunks (top score 0.260) from: kb1_legal_regulatory [swahili_detected=False]
+1.39.113.069 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.747 (> 0.100 thold), f_keep = 0.704
+1.39.113.132 I slot launch_slot_: id  3 | task 287 | processing task, is_child = 0
+1.54.526.638 I slot print_timing: id  3 | task 287 | n_decoded =    100, tg =  13.83 t/s, tg_3s =  13.83 t/s
+1.57.542.329 I slot print_timing: id  3 | task 287 | n_decoded =    141, tg =  13.76 t/s, tg_3s =  13.60 t/s
+1.58.927.750 I slot print_timing: id  3 | task 287 | prompt eval time =    8185.23 ms /   669 tokens (   12.24 ms per token,    81.73 tokens per second)
+1.58.927.756 I slot print_timing: id  3 | task 287 |        eval time =   11629.31 ms /   160 tokens (   72.68 ms per token,    13.76 tokens per second)
+1.58.927.757 I slot print_timing: id  3 | task 287 |       total time =   19814.54 ms /   829 tokens
+1.58.927.759 I slot print_timing: id  3 | task 287 |    graphs reused =        438
+1.58.927.951 I slot      release: id  3 | task 287 | stop processing: n_tokens = 2804, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:37:34] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'What documents do I need to register a business name in Kenya on eCitizen?' -- matched topic 'registration' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:37:35] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'How do I convert my sole proprietorship to a limited company in Kenya?' (retrieval query: 'How do I convert my sole proprietorship to a limited company in Kenya?') — retrieved 4 chunks (top score 0.392) from: kb5_digital_trade, kb6_county_geospatial [swahili_detected=False]
+2.00.986.039 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.773 (> 0.100 thold), f_keep = 0.703
+2.00.986.109 I slot launch_slot_: id  3 | task 448 | processing task, is_child = 0
+2.14.621.745 I slot print_timing: id  3 | task 448 | n_decoded =    100, tg =  13.86 t/s, tg_3s =  13.86 t/s
+2.17.626.308 I slot print_timing: id  3 | task 448 | n_decoded =    141, tg =  13.80 t/s, tg_3s =  13.65 t/s
+2.20.688.136 I slot print_timing: id  3 | task 448 | n_decoded =    183, tg =  13.78 t/s, tg_3s =  13.72 t/s
+2.21.664.753 I slot print_timing: id  3 | task 448 | prompt eval time =    6421.80 ms /   578 tokens (   11.11 ms per token,    90.01 tokens per second)
+2.21.664.759 I slot print_timing: id  3 | task 448 |        eval time =   14256.79 ms /   196 tokens (   72.74 ms per token,    13.75 tokens per second)
+2.21.664.760 I slot print_timing: id  3 | task 448 |       total time =   20678.58 ms /   774 tokens
+2.21.664.761 I slot print_timing: id  3 | task 448 |    graphs reused =        631
+2.21.664.973 I slot      release: id  3 | task 448 | stop processing: n_tokens = 2744, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:37:57] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'What is Turnover Tax in Kenya and who qualifies to pay it?' -- matched topic 'turnover_tax' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:37:58] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'When is a business required to register for VAT in Kenya?' (retrieval query: 'When is a business required to register for VAT in Kenya?') — retrieved 4 chunks (top score 0.280) from: kb2_tax_kra [swahili_detected=False]
+2.23.740.533 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.738 (> 0.100 thold), f_keep = 0.718
+2.23.740.583 I slot launch_slot_: id  3 | task 645 | processing task, is_child = 0
+2.39.033.224 I slot print_timing: id  3 | task 645 | n_decoded =    100, tg =  13.77 t/s, tg_3s =  13.77 t/s
+2.42.037.393 I slot print_timing: id  3 | task 645 | n_decoded =    140, tg =  13.63 t/s, tg_3s =  13.31 t/s
+2.43.362.299 I slot print_timing: id  3 | task 645 | prompt eval time =    8028.10 ms /   698 tokens (   11.50 ms per token,    86.94 tokens per second)
+2.43.362.304 I slot print_timing: id  3 | task 645 |        eval time =   11593.57 ms /   158 tokens (   73.38 ms per token,    13.63 tokens per second)
+2.43.362.305 I slot print_timing: id  3 | task 645 |       total time =   19621.67 ms /   856 tokens
+2.43.362.306 I slot print_timing: id  3 | task 645 |    graphs reused =        786
+2.43.362.473 I slot      release: id  3 | task 645 | stop processing: n_tokens = 2826, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:38:19] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'How does a small business pay PAYE to KRA for its employees?' (retrieval query: 'How does a small business pay PAYE to KRA for its employees?') — retrieved 4 chunks (top score 0.191) from: kb1_legal_regulatory, kb2_tax_kra [swahili_detected=False]
+2.44.428.984 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.717 (> 0.100 thold), f_keep = 0.697
+2.44.429.037 I slot launch_slot_: id  3 | task 804 | processing task, is_child = 0
+3.01.110.931 I slot print_timing: id  3 | task 804 | n_decoded =    100, tg =  13.78 t/s, tg_3s =  13.78 t/s
+3.04.178.873 I slot print_timing: id  3 | task 804 | n_decoded =    141, tg =  13.66 t/s, tg_3s =  13.36 t/s
+3.07.210.159 I slot print_timing: id  3 | task 804 | n_decoded =    182, tg =  13.63 t/s, tg_3s =  13.53 t/s
+3.07.978.489 I slot print_timing: id  3 | task 804 | prompt eval time =    9427.58 ms /   778 tokens (   12.12 ms per token,    82.52 tokens per second)
+3.07.978.495 I slot print_timing: id  3 | task 804 |        eval time =   14121.82 ms /   192 tokens (   73.55 ms per token,    13.60 tokens per second)
+3.07.978.495 I slot print_timing: id  3 | task 804 |       total time =   23549.41 ms /   970 tokens
+3.07.978.496 I slot print_timing: id  3 | task 804 |    graphs reused =        975
+3.07.978.684 I slot      release: id  3 | task 804 | stop processing: n_tokens = 2940, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:38:43] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What are the penalties for late filing of tax returns in Kenya?' (retrieval query: 'What are the penalties for late filing of tax returns in Kenya?') — retrieved 4 chunks (top score 0.338) from: kb2_tax_kra [swahili_detected=False]
+3.09.062.752 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.740 (> 0.100 thold), f_keep = 0.670
+3.09.062.798 I slot launch_slot_: id  3 | task 997 | processing task, is_child = 0
+3.24.507.380 I slot print_timing: id  3 | task 997 | n_decoded =    100, tg =  13.79 t/s, tg_3s =  13.79 t/s
+3.27.508.518 I slot print_timing: id  3 | task 997 | n_decoded =    140, tg =  13.66 t/s, tg_3s =  13.33 t/s
+3.30.532.604 I slot print_timing: id  3 | task 997 | n_decoded =    181, tg =  13.63 t/s, tg_3s =  13.56 t/s
+3.32.644.782 I slot print_timing: id  3 | task 997 | prompt eval time =    8194.14 ms /   691 tokens (   11.86 ms per token,    84.33 tokens per second)
+3.32.644.789 I slot print_timing: id  3 | task 997 |        eval time =   15387.79 ms /   209 tokens (   73.63 ms per token,    13.58 tokens per second)
+3.32.644.790 I slot print_timing: id  3 | task 997 |       total time =   23581.93 ms /   900 tokens
+3.32.644.791 I slot print_timing: id  3 | task 997 |    graphs reused =       1181
+3.32.645.005 I slot      release: id  3 | task 997 | stop processing: n_tokens = 2870, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:39:08] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What is eTIMS and why does my business need it?' (retrieval query: 'What is eTIMS and why does my business need it?') — retrieved 4 chunks (top score 0.202) from: kb2_tax_kra [swahili_detected=False]
+3.33.721.863 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.789 (> 0.100 thold), f_keep = 0.689
+3.33.721.932 I slot launch_slot_: id  3 | task 1207 | processing task, is_child = 0
+3.47.248.845 I slot print_timing: id  3 | task 1207 | n_decoded =    100, tg =  13.26 t/s, tg_3s =  13.26 t/s
+3.50.272.654 I slot print_timing: id  3 | task 1207 | n_decoded =    141, tg =  13.34 t/s, tg_3s =  13.56 t/s
+3.53.290.324 I slot print_timing: id  3 | task 1207 | n_decoded =    182, tg =  13.40 t/s, tg_3s =  13.59 t/s
+3.54.638.711 I slot print_timing: id  3 | task 1207 | prompt eval time =    5983.72 ms /   527 tokens (   11.35 ms per token,    88.07 tokens per second)
+3.54.638.716 I slot print_timing: id  3 | task 1207 |        eval time =   14933.00 ms /   200 tokens (   74.66 ms per token,    13.39 tokens per second)
+3.54.638.717 I slot print_timing: id  3 | task 1207 |       total time =   20916.71 ms /   727 tokens
+3.54.638.718 I slot print_timing: id  3 | task 1207 |    graphs reused =       1378
+3.54.638.918 I 127.0.0.1 - - [10/Sep/2026 12:39:30] "POST /v1/chat/completions HTTP/1.1" 200 -
+slot      release: id  3 | task 1207 | stop processing: n_tokens = 2702, truncated = 0
+[CANNED] Query: 'How do I apply for the Hustler Fund and what are the eligibility requirements?' -- matched topic 'loan' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:39:31] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'What loans does the Youth Enterprise Development Fund offer and who qualifies?' -- matched topic 'yedf' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:39:32] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'How can a woman-owned business access the Women Enterprise Fund?' — matched digest-override topic, skipping retrieval
+[RAG] Query: 'How can a woman-owned business access the Women Enterprise Fund?' — no relevant chunks found above threshold [swahili_detected=False]
+3.57.676.086 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.977 (> 0.100 thold), f_keep = 0.721
+3.57.676.176 I slot launch_slot_: id  3 | task 1408 | processing task, is_child = 0
+4.05.222.184 I slot print_timing: id  3 | task 1408 | n_decoded =    100, tg =  14.54 t/s, tg_3s =  14.54 t/s
+4.08.267.860 I slot print_timing: id  3 | task 1408 | n_decoded =    144, tg =  14.51 t/s, tg_3s =  14.45 t/s
+4.11.277.840 I slot print_timing: id  3 | task 1408 | n_decoded =    187, tg =  14.46 t/s, tg_3s =  14.29 t/s
+4.12.460.052 I slot print_timing: id  3 | task 1408 | prompt eval time =     669.52 ms /    46 tokens (   14.55 ms per token,    68.71 tokens per second)
+4.12.460.058 I slot print_timing: id  3 | task 1408 |        eval time =   14114.28 ms /   204 tokens (   69.19 ms per token,    14.45 tokens per second)
+4.12.460.059 I slot print_timing: id  3 | task 1408 |       total time =   14783.80 ms /   250 tokens
+4.12.460.060 I slot print_timing: id  3 | task 1408 |    graphs reused =       1579
+4.12.460.187 I slot      release: id  3 | task 1408 | stop processing: n_tokens = 2197, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:39:48] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'What is the difference between the Hustler Fund personal loan and business loan?' -- matched topic 'loan' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:39:49] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'How do SACCOs offer loans differently from commercial banks in Kenya?' (retrieval query: 'How do SACCOs offer loans differently from commercial banks in Kenya?') — retrieved 4 chunks (top score 0.195) from: kb3_financing_credit [swahili_detected=False]
+4.14.528.906 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.696 (> 0.100 thold), f_keep = 0.887
+4.14.528.969 I slot launch_slot_: id  3 | task 1613 | processing task, is_child = 0
+4.31.748.557 I slot print_timing: id  3 | task 1613 | n_decoded =    100, tg =  13.59 t/s, tg_3s =  13.59 t/s
+4.34.787.223 I slot print_timing: id  3 | task 1613 | n_decoded =    140, tg =  13.47 t/s, tg_3s =  13.16 t/s
+4.37.855.463 I slot print_timing: id  3 | task 1613 | n_decoded =    181, tg =  13.44 t/s, tg_3s =  13.36 t/s
+4.40.857.837 I slot print_timing: id  3 | task 1613 | n_decoded =    220, tg =  13.36 t/s, tg_3s =  12.99 t/s
+4.43.312.576 I slot print_timing: id  3 | task 1613 | prompt eval time =    9861.15 ms /   850 tokens (   11.60 ms per token,    86.20 tokens per second)
+4.43.312.582 I slot print_timing: id  3 | task 1613 |        eval time =   18922.40 ms /   252 tokens (   75.09 ms per token,    13.32 tokens per second)
+4.43.312.583 I slot print_timing: id  3 | task 1613 |       total time =   28783.55 ms /  1102 tokens
+4.43.312.584 I slot print_timing: id  3 | task 1613 |    graphs reused =       1828
+4.43.312.748 I slot      release: id  3 | task 1613 | stop processing: n_tokens = 3049, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:40:18] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What is the Unified Business Permit in Nairobi and how do I apply?' — matched digest-override topic, skipping retrieval
+[RAG] Query: 'What is the Unified Business Permit in Nairobi and how do I apply?' — no relevant chunks found above threshold [swahili_detected=False]
+4.44.340.009 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.976 (> 0.100 thold), f_keep = 0.639
+4.44.340.113 I slot launch_slot_: id  3 | task 1866 | processing task, is_child = 0
+4.52.035.741 I slot print_timing: id  3 | task 1866 | n_decoded =    100, tg =  14.33 t/s, tg_3s =  14.33 t/s
+4.55.047.064 I slot print_timing: id  3 | task 1866 | n_decoded =    143, tg =  14.32 t/s, tg_3s =  14.28 t/s
+4.57.818.478 I slot print_timing: id  3 | task 1866 | prompt eval time =     718.76 ms /    48 tokens (   14.97 ms per token,    66.78 tokens per second)
+4.57.818.493 I slot print_timing: id  3 | task 1866 |        eval time =   12759.55 ms /   183 tokens (   69.72 ms per token,    14.34 tokens per second)
+4.57.818.494 I slot print_timing: id  3 | task 1866 |       total time =   13478.31 ms /   231 tokens
+4.57.818.495 I slot print_timing: id  3 | task 1866 |    graphs reused =       2008
+4.57.818.623 I slot      release: id  3 | task 1866 | stop processing: n_tokens = 2178, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:40:33] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What licenses does a food business in Kenya need to operate legally?' — matched digest-override topic, skipping retrieval
+[RAG] Query: 'What licenses does a food business in Kenya need to operate legally?' — no relevant chunks found above threshold [swahili_detected=False]
+4.58.845.086 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.991 (> 0.100 thold), f_keep = 0.908
+4.58.845.165 I slot launch_slot_: id  3 | task 2050 | processing task, is_child = 0
+5.05.373.859 I slot print_timing: id  3 | task 2050 | prompt eval time =     289.07 ms /    17 tokens (   17.00 ms per token,    58.81 tokens per second)
+5.05.373.867 I slot print_timing: id  3 | task 2050 |        eval time =    6239.56 ms /    90 tokens (   69.33 ms per token,    14.42 tokens per second)
+5.05.373.868 I slot print_timing: id  3 | task 2050 |       total time =    6528.63 ms /   107 tokens
+5.05.373.870 I slot print_timing: id  3 | task 2050 |    graphs reused =       2095
+5.05.374.053 I slot      release: id  3 | task 2050 | stop processing: n_tokens = 2084, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:40:41] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What happens if I operate a business without a county permit in Kenya?' (retrieval query: 'What happens if I operate a business without a county permit in Kenya?') — retrieved 4 chunks (top score 0.182) from: kb1_legal_regulatory [swahili_detected=False]
+5.06.434.325 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.754 (> 0.100 thold), f_keep = 0.935
+5.06.434.415 I slot launch_slot_: id  3 | task 2141 | processing task, is_child = 0
+5.21.239.242 I slot print_timing: id  3 | task 2141 | n_decoded =    100, tg =  13.81 t/s, tg_3s =  13.81 t/s
+5.23.607.963 I slot print_timing: id  3 | task 2141 | prompt eval time =    7564.06 ms /   637 tokens (   11.87 ms per token,    84.21 tokens per second)
+5.23.607.970 I slot print_timing: id  3 | task 2141 |        eval time =    9609.41 ms /   132 tokens (   72.80 ms per token,    13.74 tokens per second)
+5.23.607.972 I slot print_timing: id  3 | task 2141 |       total time =   17173.47 ms /   769 tokens
+5.23.607.973 I slot print_timing: id  3 | task 2141 |    graphs reused =       2225
+5.23.608.133 I slot      release: id  3 | task 2141 | stop processing: n_tokens = 2716, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:40:59] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'How do I register my business and employees for NSSF in Kenya?' -- matched topic 'nssf' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:41:00] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What is SHIF and how does it replace NHIF for my employees?' — matched digest-override topic, skipping retrieval
+[RAG] Query: 'What is SHIF and how does it replace NHIF for my employees?' — no relevant chunks found above threshold [swahili_detected=False]
+5.25.630.226 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.975 (> 0.100 thold), f_keep = 0.717
+5.25.630.293 I slot launch_slot_: id  3 | task 2274 | processing task, is_child = 0
+5.33.202.469 I slot print_timing: id  3 | task 2274 | n_decoded =    100, tg =  14.56 t/s, tg_3s =  14.56 t/s
+5.36.238.295 I slot print_timing: id  3 | task 2274 | n_decoded =    143, tg =  14.44 t/s, tg_3s =  14.16 t/s
+5.38.112.753 I slot print_timing: id  3 | task 2274 | prompt eval time =     704.25 ms /    49 tokens (   14.37 ms per token,    69.58 tokens per second)
+5.38.112.758 I slot print_timing: id  3 | task 2274 |        eval time =   11778.16 ms /   170 tokens (   69.28 ms per token,    14.43 tokens per second)
+5.38.112.759 I slot print_timing: id  3 | task 2274 |       total time =   12482.41 ms /   219 tokens
+5.38.112.760 I slot print_timing: id  3 | task 2274 |    graphs reused =       2392
+5.38.112.923 I slot      release: id  3 | task 2274 | stop processing: n_tokens = 2166, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:41:13] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What is the NITA levy and which businesses are required to pay it?' (retrieval query: 'What is the NITA levy and which businesses are required to pay it?') — retrieved 4 chunks (top score 0.256) from: kb4_social_security, kb5_digital_trade [swahili_detected=False]
+5.39.184.450 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.728 (> 0.100 thold), f_keep = 0.899
+5.39.184.560 I slot launch_slot_: id  3 | task 2445 | processing task, is_child = 0
+5.56.272.814 I slot print_timing: id  3 | task 2445 | n_decoded =    100, tg =  12.48 t/s, tg_3s =  12.48 t/s
+5.59.309.950 I slot print_timing: id  3 | task 2445 | n_decoded =    140, tg =  12.67 t/s, tg_3s =  13.17 t/s
+6.02.357.363 I slot print_timing: id  3 | task 2445 | n_decoded =    181, tg =  12.84 t/s, tg_3s =  13.45 t/s
+6.04.501.471 I slot print_timing: id  3 | task 2445 | prompt eval time =    9072.62 ms /   727 tokens (   12.48 ms per token,    80.13 tokens per second)
+6.04.501.479 I slot print_timing: id  3 | task 2445 |        eval time =   16244.23 ms /   210 tokens (   77.35 ms per token,    12.93 tokens per second)
+6.04.501.480 I slot print_timing: id  3 | task 2445 |       total time =   25316.85 ms /   937 tokens
+6.04.501.481 I slot print_timing: id  3 | task 2445 |    graphs reused =       2599
+6.04.501.690 I slot      release: id  3 | task 2445 | stop processing: n_tokens = 2884, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:41:40] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'How can a Kenyan MSME export products to other African countries under AfCFTA?' (retrieval query: 'How can a Kenyan MSME export products to other African countries under AfCFTA?') — retrieved 4 chunks (top score 0.211) from: kb5_digital_trade, kb7_culture_context, kb8_national_policy_strategy [swahili_detected=False]
+6.05.570.313 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.728 (> 0.100 thold), f_keep = 0.683
+6.05.570.368 I slot launch_slot_: id  3 | task 2656 | processing task, is_child = 0
+6.21.023.028 I slot print_timing: id  3 | task 2656 | n_decoded =    100, tg =  14.00 t/s, tg_3s =  14.00 t/s
+6.24.083.019 I slot print_timing: id  3 | task 2656 | n_decoded =    142, tg =  13.92 t/s, tg_3s =  13.73 t/s
+6.27.101.430 I slot print_timing: id  3 | task 2656 | n_decoded =    183, tg =  13.84 t/s, tg_3s =  13.58 t/s
+6.30.113.765 I slot print_timing: id  3 | task 2656 | n_decoded =    224, tg =  13.80 t/s, tg_3s =  13.61 t/s
+6.30.626.525 I slot print_timing: id  3 | task 2656 | prompt eval time =    8311.56 ms /   736 tokens (   11.29 ms per token,    88.55 tokens per second)
+6.30.626.531 I slot print_timing: id  3 | task 2656 |        eval time =   16744.54 ms /   231 tokens (   72.49 ms per token,    13.80 tokens per second)
+6.30.626.532 I slot print_timing: id  3 | task 2656 |       total time =   25056.10 ms /   967 tokens
+6.30.626.533 I slot print_timing: id  3 | task 2656 |    graphs reused =       2827
+6.30.626.739 I slot      release: id  3 | task 2656 | stop processing: n_tokens = 2937, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:42:06] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What services does KEPROBA offer to help Kenyan businesses export?' (retrieval query: 'What services does KEPROBA offer to help Kenyan businesses export?') — retrieved 4 chunks (top score 0.153) from: kb1_legal_regulatory, kb8_national_policy_strategy [swahili_detected=False]
+6.31.686.838 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.756 (> 0.100 thold), f_keep = 0.671
+6.31.686.906 I slot launch_slot_: id  3 | task 2888 | processing task, is_child = 0
+6.46.187.357 I slot print_timing: id  3 | task 2888 | n_decoded =    100, tg =  13.98 t/s, tg_3s =  13.98 t/s
+6.49.193.381 I slot print_timing: id  3 | task 2888 | n_decoded =    142, tg =  13.98 t/s, tg_3s =  13.97 t/s
+6.52.218.142 I slot print_timing: id  3 | task 2888 | n_decoded =    184, tg =  13.95 t/s, tg_3s =  13.89 t/s
+6.55.112.374 I slot print_timing: id  3 | task 2888 | prompt eval time =    7345.70 ms /   635 tokens (   11.57 ms per token,    86.45 tokens per second)
+6.55.112.381 I slot print_timing: id  3 | task 2888 |        eval time =   16079.71 ms /   224 tokens (   71.78 ms per token,    13.93 tokens per second)
+6.55.112.381 I slot print_timing: id  3 | task 2888 |       total time =   23425.41 ms /   859 tokens
+6.55.112.382 I slot print_timing: id  3 | task 2888 |    graphs reused =       3048
+6.55.112.546 I slot      release: id  3 | task 2888 | stop processing: n_tokens = 2829, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:42:30] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What preferential trade benefits does Kenya get from being in the EAC and COMESA' (retrieval query: 'What preferential trade benefits does Kenya get from being in the EAC and COMESA') — retrieved 4 chunks (top score 0.232) from: kb5_digital_trade, kb7_culture_context [swahili_detected=False]
+6.56.171.729 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.755 (> 0.100 thold), f_keep = 0.697
+6.56.171.781 I slot launch_slot_: id  3 | task 3113 | processing task, is_child = 0
+7.10.648.238 I slot print_timing: id  3 | task 3113 | n_decoded =    100, tg =  14.10 t/s, tg_3s =  14.10 t/s
+7.13.692.204 I slot print_timing: id  3 | task 3113 | n_decoded =    142, tg =  14.01 t/s, tg_3s =  13.80 t/s
+7.16.423.570 I slot print_timing: id  3 | task 3113 | prompt eval time =    7382.95 ms /   641 tokens (   11.52 ms per token,    86.82 tokens per second)
+7.16.423.576 I slot print_timing: id  3 | task 3113 |        eval time =   12868.78 ms /   180 tokens (   71.49 ms per token,    13.99 tokens per second)
+7.16.423.577 I slot print_timing: id  3 | task 3113 |       total time =   20251.74 ms /   821 tokens
+7.16.423.578 I slot print_timing: id  3 | task 3113 |    graphs reused =       3226
+7.16.423.735 I slot      release: id  3 | task 3113 | stop processing: n_tokens = 2791, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:42:52] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'How do I set up an M-Pesa Paybill or Till number for my business?' -- matched topic 'mpesa_paybill_till' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:42:53] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'What is the difference between M-Pesa Paybill and Buy Goods Till?' -- matched topic 'mpesa_paybill_till' (en), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:42:54] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'How do digital credit providers like mobile loan apps get regulated in Kenya?' (retrieval query: 'How do digital credit providers like mobile loan apps get regulated in Kenya?') — retrieved 4 chunks (top score 0.344) from: kb3_financing_credit [swahili_detected=False]
+7.19.492.578 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.662 (> 0.100 thold), f_keep = 0.706
+7.19.492.672 I slot launch_slot_: id  3 | task 3294 | processing task, is_child = 0
+7.37.929.075 I slot print_timing: id  3 | task 3294 | n_decoded =    100, tg =  13.61 t/s, tg_3s =  13.61 t/s
+7.40.961.978 I slot print_timing: id  3 | task 3294 | n_decoded =    140, tg =  13.49 t/s, tg_3s =  13.19 t/s
+7.43.984.825 I slot print_timing: id  3 | task 3294 | n_decoded =    180, tg =  13.43 t/s, tg_3s =  13.23 t/s
+7.47.014.969 I slot print_timing: id  3 | task 3294 | n_decoded =    220, tg =  13.39 t/s, tg_3s =  13.20 t/s
+7.47.919.244 I slot print_timing: id  3 | task 3294 | prompt eval time =   11089.35 ms /  1008 tokens (   11.00 ms per token,    90.90 tokens per second)
+7.47.919.251 I slot print_timing: id  3 | task 3294 |        eval time =   17337.17 ms /   232 tokens (   74.73 ms per token,    13.38 tokens per second)
+7.47.919.253 I slot print_timing: id  3 | task 3294 |       total time =   28426.52 ms /  1240 tokens
+7.47.919.254 I slot print_timing: id  3 | task 3294 |    graphs reused =       3455
+7.47.919.517 I slot      release: id  3 | task 3294 | stop processing: n_tokens = 3210, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:43:23] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What licenses does a pharmacy or chemist shop need to operate in Kenya?' — matched digest-override topic, skipping retrieval
+[RAG] Query: 'What licenses does a pharmacy or chemist shop need to operate in Kenya?' — no relevant chunks found above threshold [swahili_detected=False]
+7.48.947.930 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.975 (> 0.100 thold), f_keep = 0.607
+7.48.947.999 I slot launch_slot_: id  3 | task 3527 | processing task, is_child = 0
+7.56.414.566 I slot print_timing: id  3 | task 3527 | n_decoded =    100, tg =  14.77 t/s, tg_3s =  14.77 t/s
+7.57.575.442 I slot print_timing: id  3 | task 3527 | prompt eval time =     696.14 ms /    49 tokens (   14.21 ms per token,    70.39 tokens per second)
+7.57.575.447 I slot print_timing: id  3 | task 3527 |        eval time =    7931.24 ms /   117 tokens (   67.79 ms per token,    14.75 tokens per second)
+7.57.575.448 I slot print_timing: id  3 | task 3527 |       total time =    8627.38 ms /   166 tokens
+7.57.575.449 I slot print_timing: id  3 | task 3527 |    graphs reused =       3569
+7.57.575.578 I slot      release: id  3 | task 3527 | stop processing: n_tokens = 2113, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:43:33] "POST /v1/chat/completions HTTP/1.1" 200 -
+[RAG] Query: 'What licenses does a tech startup need from the Communications Authority?' — matched digest-override topic, skipping retrieval
+[RAG] Query: 'What licenses does a tech startup need from the Communications Authority?' — no relevant chunks found above threshold [swahili_detected=False]
+7.58.599.313 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 0.993 (> 0.100 thold), f_keep = 0.938
+7.58.599.406 I slot launch_slot_: id  3 | task 3645 | processing task, is_child = 0
+8.05.595.073 I slot print_timing: id  3 | task 3645 | n_decoded =    100, tg =  14.79 t/s, tg_3s =  14.79 t/s
+8.08.658.226 I slot print_timing: id  3 | task 3645 | n_decoded =    145, tg =  14.76 t/s, tg_3s =  14.69 t/s
+8.09.685.028 I slot print_timing: id  3 | task 3645 | prompt eval time =     232.09 ms /    13 tokens (   17.85 ms per token,    56.01 tokens per second)
+8.09.685.035 I slot print_timing: id  3 | task 3645 |        eval time =   10853.47 ms /   160 tokens (   67.83 ms per token,    14.74 tokens per second)
+8.09.685.036 I slot print_timing: id  3 | task 3645 |       total time =   11085.57 ms /   173 tokens
+8.09.685.038 I slot print_timing: id  3 | task 3645 |    graphs reused =       3726
+8.09.685.197 I slot      release: id  3 | task 3645 | stop processing: n_tokens = 2153, truncated = 0
+127.0.0.1 - - [10/Sep/2026 12:43:45] "POST /v1/chat/completions HTTP/1.1" 200 -
+[CANNED] Query: 'Ninawezaje kupata mkopo kutoka Hustler Fund na ninahitaji nini kustahili?' -- matched topic 'loan' (sw), returning verified answer directly (no LLM call)
+127.0.0.1 - - [10/Sep/2026 12:43:46] "POST /v1/chat/completions HTTP/1.1" 200 -
