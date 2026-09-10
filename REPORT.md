@@ -311,17 +311,33 @@ generation, quantization targets -- was forced by the offline and
 memory constraints. Those constraints made the system more focused,
 more reliable, and more honest about what it can and can't do.
 
+
 ## Performance Summary
 
 | Metric | Result | Target |
 |--------|--------|--------|
 | Generation speed (Sperf) | 16.0-17.7 tokens/sec | >= 15.0 tokens/sec |
-| Efficiency Score (Seff) | ~76% (RAM efficiency, official profiler) | Higher is better |
+| Efficiency Score (Seff), raw model | ~76% (RAM efficiency, official profiler) | Higher is better |
+| Full application memory (model + RAG server) | ~3.3GB combined* | <= 7GB |
 | Model size (Q4_K_M) | 934.69 MiB | <= 7GB |
-| Full app memory | ~3.3GB combined | <= 7GB |
 | Parameters | 1,543,714,304 | 1.5B declared |
 | RAG corpus | 18,307 chunks / 323 docs | Zero extraction failures |
-| Self-measured accuracy (30-question set) | 88.7-90.0% (3 runs) | -- |
-| CPU temp, turbo disabled (official profiler) | 59C, throttled: false | < 85C |
-| CPU temp, turbo enabled (official profiler, pre-fix) | 96-100C, throttled: true | Root cause found and fixed |
+| CPU temperature (official profiler, current) | 59C, throttled: false | < 85C |
+| Official Gate 1 Accuracy Score | 61.27 | -- |
+| Self-measured accuracy, chat path only (30-question set)** | 88.7-90.0% (3 runs) | -- |
 | Digest-override topics | 17 (EN + Kiswahili) | -- |
+
+*The official Efficiency Score (Seff) is calculated from the raw model's
+memory footprint alone (~1.7GB), matching how the reference profiler
+measures it via `llama-bench` with no server wrapper. ~3.3GB is the actual
+combined footprint of the deployed application (model server + Flask RAG
+proxy) that a real user would run -- still comfortably under the 7GB
+ceiling, but reported separately since the two numbers measure different
+things and are not interchangeable.
+
+**Not directly comparable to the official score above -- see "Two
+distinct accuracy-evaluation paths" for why. This reflects only the
+qualitative/chat component we can influence via the digest-override
+layer; the official score's multiple-choice component tests raw model
+log-likelihood, which this measurement does not touch and which our
+mitigations cannot reach.
