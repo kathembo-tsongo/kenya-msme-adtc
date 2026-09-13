@@ -33,3 +33,5 @@ current_template*.jinja
 patch_template*.py
 patched_chat_template*.jinja
 submission.json
+server_output.log
+.~lock.*#
