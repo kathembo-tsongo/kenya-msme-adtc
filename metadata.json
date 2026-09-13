@@ -36,6 +36,5 @@
   },
   "_runtime": {
     "model_path": "model/msme-qwen2.5-1.5b-Q4_K_M.gguf"
-  },
-  "git_commit_sha": "8ad132c6256d5d2ab47e0cb270c5637d3799e0c1"
+  }
 }

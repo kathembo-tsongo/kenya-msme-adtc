@@ -81,6 +81,8 @@ on regulatory specifics before any mitigation.
 
 ## Model Provenance
 
+**Repository state.** This report and the accompanying submission reflect git commit `8ad132c6256d5d2ab47e0cb270c5637d3799e0c1` on the `main` branch. (Note: the ADTC reference profiler's schema places reproducibility metadata such as commit SHAs in a separate `reproducibility` object outside `metadata.json`'s `submission` schema, which has `additionalProperties: false` and no slot for it -- we state it here in prose instead, and have raised this apparent discrepancy between the written Gate 2 guidelines and the published schema with the organizing team.)
+
 **Base model.** [Qwen/Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct), loaded via `transformers.AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct")` at training time (main branch, no pinned revision).
 
 **Fine-tuning method.** LoRA, rank 16 (`r=16, lora_alpha=32, lora_dropout=0.05, bias="none", target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]`), trained via TRL's `SFTTrainer` for 2 epochs, batch size 4 with gradient accumulation 4, learning rate 2e-4 (cosine schedule, 3% warmup), on a Colab T4 GPU. Final training loss: **1.3941499436567277** at global step 394. Full configuration, training call, and logged output are preserved in the training notebook (`provenance/My_Offline_AI_advicer_for_kenyan_msmes.ipynb`) and `provenance/trainer_state.json`.
@@ -286,6 +288,45 @@ only the fixed number, because the process -- reproducing the profiler's
 exact invocation, isolating turbo boost as the variable, and confirming the
 fix with the same official tool used for scoring -- is itself evidence that
 the fix is real and not a coincidence of one lucky measurement.
+
+**First-token latency -- a real trade-off from disabling turbo boost, and why
+we are not trimming the system prompt to compensate.** Disabling turbo boost
+(see Thermal, above) eliminates the thermal penalty risk entirely, but is not
+free: it roughly doubles first-token latency, since prompt processing is
+compute-bound and directly benefits from turbo's burst clock speed. We
+measured this directly and controlled for confounds: with turbo enabled,
+first-token latency averaged 3.7 seconds (but carries thermal risk); with
+turbo disabled, it averaged 7.5-7.8 seconds across repeated runs, including
+on an otherwise idle system, ruling out background load as the cause.
+Generation throughput itself is unaffected either way (16-17 tokens/sec).
+
+Two things are worth noting about this trade-off rather than treating it as
+simply solved or simply accepted. First, the ADTC profiler's own schema
+distinguishes `participant_laptop` from `audit_cloud_vm` measurement
+environments -- the real Gate 2 audit most likely runs on server-grade cloud
+infrastructure with adequate cooling, not this specific thin-chassis
+development laptop. If so, the thermal throttling that makes disabling turbo
+necessary here may not occur in the actual audit environment at all, making
+this entire trade-off specific to our own local testing rather than the
+environment that determines scoring. We flag this as a reasonable
+expectation, not a certainty, since we cannot directly verify the audit
+environment's thermal behavior.
+
+Second, we considered and rejected shortening our system prompt
+(`SCOPE_INSTRUCTION`) as a way to reduce prefill length and therefore
+latency independent of turbo settings. Nearly every sub-rule in that prompt
+corresponds directly to a specific fabrication pattern found and fixed during
+development (fabricated phone numbers, invented URLs, fabricated business-size
+classifications, garbled-table numeric confusion, invented worked examples) --
+it is a record of real, previously-observed failures, not verbose padding.
+Cutting it to save latency risks silently reintroducing exactly the
+fabrication risks this report documents fixing, and doing so under deadline
+pressure without a full re-test of every previously-fixed case is a trade we
+are not willing to make. We consider a guaranteed 10-point thermal penalty a
+larger cost to Stotal than several seconds of added latency, and prefer
+expanding verified-answer coverage (which removes queries from the slow
+generative path entirely, dropping response time to near-zero) as the safer
+lever for improving perceived responsiveness going forward.
 
 **Model size:** 934.69 MiB (Q4_K_M quantization, 5.08 bits/weight), verified
 parameter count of 1,543,714,304 (matches the 1.5B estimate declared in
