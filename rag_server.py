@@ -1276,10 +1276,19 @@ TOPIC_KEYWORDS = {
 def get_canned_topic(query: str):
     """Return the topic key if the query matches a hard-verified topic with
     a canned answer, else None. Bypasses LLM generation entirely for these
-    topics to guarantee zero fabrication."""
+    topics to guarantee zero fabrication.
+
+    Checks exact substrings first, then falls back to a space-normalized
+    comparison (spaces stripped from both query and keyword) to tolerate
+    common spacing variants -- e.g. someone typing "ku sajili" instead of
+    "kusajili" for a Kiswahili compound verb form."""
     query_lower = query.lower()
+    query_nospace = query_lower.replace(" ", "")
     for topic, keywords in TOPIC_KEYWORDS.items():
         if any(kw in query_lower for kw in keywords):
+            return topic
+    for topic, keywords in TOPIC_KEYWORDS.items():
+        if any(kw.replace(" ", "") in query_nospace for kw in keywords):
             return topic
     return None
 
