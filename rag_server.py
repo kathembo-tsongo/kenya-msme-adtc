@@ -980,20 +980,6 @@ CANNED_ANSWERS_SW = {
         "ya kuomba tena. Ni **bure**, na ikitolewa ni halali kwa **miezi "
         "12**."
     ),
-    "probation_period": (
-        "Kwa mujibu wa **Kifungu cha 42 cha Sheria ya Ajira ya 2007**, "
-        "kipindi cha majaribio (probation) hakiwezi kuzidi **miezi 6** "
-        "mwanzoni, lakini kinaweza kuongezwa kwa kipindi kingine cha **si "
-        "zaidi ya miezi 6** kwa ridhaa ya maandishi ya mfanyakazi -- hivyo "
-        "muda wa juu unaowezekana ni **miezi 12** kwa jumla, si mwaka "
-        "mmoja moja kwa moja tangu mwanzo.\n\nWaajiri wengi hutumia "
-        "kipindi kifupi zaidi (kawaida miezi 3), wakihifadhi kipindi kizima "
-        "cha miezi 6 (au kilichoongezwa) kwa nafasi za juu zaidi au za "
-        "kitaalamu. Wafanyakazi walio kwenye majaribio hawapo chini ya "
-        "sharti la usikilizwaji wa haki la Kifungu cha 41 kabla ya "
-        "kufukuzwa, lakini uamuzi wowote lazima usiwe wa ubaguzi na uwe na "
-        "sababu halali."
-    ),
     "class_r_permit": (
         "Nenda kwenye tovuti ya **Kenya eFNS** kupitia eCitizen na uombe "
         "**Class R Permit** -- kibali maalum kwa raia wa Jumuiya ya Afrika "
@@ -1036,6 +1022,187 @@ CANNED_ANSWERS_SW = {
         "kufukuzwa, lakini uamuzi wowote lazima usiwe wa ubaguzi na uwe na "
         "sababu halali."
     ),
+    "unified_business_permit": (
+        "Katika Kaunti ya Nairobi hasa, hii ni **Unified Business Permit "
+        "(UBP)** -- leseni moja ya kila mwaka inayounganisha vibali "
+        "kadhaa vilivyokuwa tofauti (leseni ya biashara, ukaguzi wa moto, "
+        "cheti cha afya/chakula, kibali cha matangazo/alama) katika maombi "
+        "moja. Omba kupitia **NairobiPay (nairobiservices.go.ke)**, piga "
+        "***647#**, au tembelea City Hall Annex.\n\nAda inategemea aina na "
+        "ukubwa wa biashara yako (duka dogo huenda likilipa karibu KES "
+        "4,000 pamoja na KES 200 ya maombi; shughuli kubwa zaidi hulipa "
+        "zaidi) -- thibitisha ada halisi ya aina yako kwenye tovuti. "
+        "Inafuata mzunguko wa **Januari-Desemba**; maombi ya kuhuisha "
+        "kwa kawaida hufunguliwa Novemba, na malipo yanatarajiwa kabla ya "
+        "Machi 31 kuepuka adhabu zinazoongezeka."
+    ),
+    "pharmacy_license": (
+        "Kuendesha duka la dawa au kemisti kunahitaji leseni kutoka "
+        "**Pharmacy and Poisons Board (PPB)**, msimamizi wa kitaifa wa "
+        "dawa chini ya Sheria ya Dawa na Sumu (Cap 244) -- hii ni pamoja "
+        "na, si badala ya, Single Business Permit ya kaunti yako "
+        "(takriban KES 5,000-30,000).\n\n**Sharti muhimu**: kila mtu "
+        "mwenye maslahi ya kifedha katika duka la dawa lazima awe "
+        "mfamasia aliyesajiliwa au fundi wa dawa aliyeandikishwa -- kwa "
+        "kawaida huwezi kumiliki duka la dawa kama mwekezaji tu asiye "
+        "mfamasia. Msimamizi mfamasia aliyeteuliwa pia anahitaji leseni "
+        "yake ya kila mwaka ya kufanya kazi kutoka PPB.\n\n**Mchakato**: "
+        "sajili majengo yako na PPB, kisha pitisha ukaguzi wa majengo "
+        "unaoangalia rafu sahihi, mzunguko wa hewa, eneo la kutolea dawa "
+        "tofauti na counter ya mauzo, kabati la sumu lenye kufuli, jokofu "
+        "kwa bidhaa zinazohitaji baridi, na alama ya Msalaba wa Kijani. "
+        "Leseni hutolewa baada ya ukaguzi wenye mafanikio na lazima "
+        "zihuishwe kila mwaka (leseni zote za PPB huisha Desemba 31)."
+    ),
+    "ca_license": (
+        "Si kila kampuni ya teknolojia inahitaji hii -- **Communications "
+        "Authority of Kenya (CA)** inatoa leseni hasa kwa mawasiliano ya "
+        "simu, utangazaji, huduma za intaneti, na waendeshaji wa posta/"
+        "kurier, si biashara za kawaida za programu. Ikiwa kampuni yako "
+        "inajenga tu programu au tovuti bila kuendesha miundombinu ya "
+        "mawasiliano au kutoa huduma za maudhui/mtandao zinazodhibitiwa, "
+        "huenda usihitaji leseni ya CA kabisa.\n\nIkiwa unaangukia katika "
+        "kundi linalodhibitiwa, mfumo wa CA wa Unified Licensing "
+        "Framework unahusisha aina tatu kuu: **Network Facilities "
+        "Provider**, **Application Service Provider**, na **Content "
+        "Service Provider** (pamoja na leseni tofauti za utangazaji, "
+        "uidhinishaji wa vifaa, na huduma za posta/kurier). Maombi "
+        "yanahitaji barua kwa Mkurugenzi wa Leseni, cheti chako cha "
+        "usajili, hati za kampuni (CR12 kwa makampuni), na orodha ya "
+        "wakurugenzi."
+    ),
+    "nssf_registration": (
+        "**Kama mwajiri**, jisajili kupitia NSSF Employer Self-Service "
+        "portal (selfservice.nssf.or.ke) -- chagua 'Employer "
+        "Registration' ikiwa hujawahi kujisajili. Ni vyema kuwa na "
+        "**PIN yako ya KRA kwanza**, kwani utaihitaji wakati wa usajili. "
+        "Ukisha idhinishwa, unapewa namba ya mwajiri, mara nyingi papo "
+        "hapo.\n\n**Usajili ni wa lazima** kwa kila mwajiri mwenye "
+        "hata mfanyakazi mmoja anayepata KES 1,000 au zaidi kwa mwezi -- "
+        "hii inajumuisha wafanyakazi wa muda, wa kandarasi, na wa muda "
+        "mfupi, si wafanyakazi wa kudumu pekee. Kutojisajili ni kosa la "
+        "kisheria chini ya Sheria ya NSSF ya 2013.\n\n**Kwa kila "
+        "mfanyakazi**: wanaweza kujisajili wenyewe katika ofisi yoyote ya "
+        "NSSF wakiwa na kitambulisho chao cha taifa/pasipoti/Alien Card na "
+        "barua ya utambulisho kutoka kwako kama mwajiri wao, baada ya "
+        "hapo watapokea namba ya uanachama wa NSSF utakayoihitaji kutuma "
+        "michango yao."
+    ),
+    "keproba": (
+        "**KEPROBA** (Kenya Export Promotion and Branding Agency) ni "
+        "shirika la serikali (lililoundwa 2019, likiunganisha Export "
+        "Promotion Council ya zamani na Brand Kenya Board) linalosaidia "
+        "wafanyabiashara wa Kenya kuuza nje na kuendeleza 'Brand "
+        "Kenya' kimataifa.\n\n**Kile kinachotolewa**: mwongozo wa "
+        "taratibu na nyaraka za usafirishaji, taarifa za soko na sharti "
+        "za kuingia katika nchi lengwa, ujenzi wa uwezo kupitia mafunzo "
+        "ya usafirishaji, ujumbe wa kibiashara na ushiriki katika "
+        "maonyesho ya biashara, na msaada wa **maendeleo ya bidhaa na "
+        "branding** -- ikiwa ni pamoja na ufungashaji, uwekaji lebo, na "
+        "uwekaji nafasi ya chapa kwa wanunuzi wa kimataifa. Wasiliana "
+        "kupitia ofisi za KEPROBA au makeitkenya.go.ke."
+    ),
+    "no_permit_penalty": (
+        "Kuendesha biashara bila kibali halali cha kaunti ni kinyume cha "
+        "sheria nchini Kenya, chini ya **Sheria ya Serikali za Kaunti ya "
+        "2012** pamoja na Sheria ya Fedha na Leseni za Biashara za kaunti "
+        "yako.\n\n**Madhara yanaweza kujumuisha**:\n"
+        "- **Faini**: mara nyingi kati ya KES 50,000-200,000, ingawa hii "
+        "inatofautiana sana kwa kaunti\n"
+        "- **Amri za kufunga**: wakaguzi wa kaunti wanaweza kutoa amri ya "
+        "kufunga mara moja, wakifunga biashara yako mpaka utii\n"
+        "- **Kifungo kinachowezekana**: katika hali mbaya au za "
+        "kurudia, wakurugenzi/wamiliki wanaweza kukabiliwa na mashtaka ya "
+        "jinai binafsi\n"
+        "- **Malipo ya nyuma ya adhabu**: juu ya ada ya kibali chenyewe "
+        "ukisha tii\n\n"
+        "Kaunti nyingi huruhusu muda wa neema (kawaida siku 30-60 baada "
+        "ya kuisha) kabla ya adhabu kuanza kwa kibali kilichoisha muda -- "
+        "lakini kuendesha bila kibali kabisa tangu mwanzo kunabeba hatari "
+        "kamili tangu siku ya kwanza."
+    ),
+    "sole_prop_vs_limited": (
+        "Tofauti kuu ni **dhima na utengano**. **Umiliki binafsi** si "
+        "chombo tofauti cha kisheria kutoka kwako -- wewe na biashara ni "
+        "kitu kimoja kisheria, ikimaanisha unabeba **dhima kamili "
+        "binafsi** kwa madeni ya biashara, na unatumia **PIN yako "
+        "binafsi ya KRA**. Ni haraka na nafuu kuanzisha, bila mtaji wa "
+        "chini.\n\n**Kampuni ya kikomo** ni mtu tofauti wa kisheria "
+        "kutoka kwa wamiliki wake -- dhima ya wanahisa kwa kawaida "
+        "inakomea kwa kiasi walichowekeza katika hisa, na kampuni "
+        "inapata **PIN yake tofauti ya KRA**, akaunti yake ya benki, na "
+        "inaweza kuingia mikataba au kushtakiwa kwa jina lake. **Hakuna "
+        "mtaji wa chini wa hisa unaotakiwa kisheria**, ingawa inahusisha "
+        "makaratasi zaidi (Memorandum/Articles of Association, fomu za "
+        "CR1/CR2/CR8) na uzingatiaji unaoendelea (marejesho ya kila "
+        "mwaka kwa BRS) kuliko umiliki binafsi."
+    ),
+    "late_filing_penalty": (
+        "Adhabu zinategemea marejesho gani na kama ni kuchelewa "
+        "kuwasilisha au kuchelewa kulipa -- zote zinatumika kwa wajibu wa "
+        "KRA chini ya **Sheria ya Taratibu za Kodi ya 2015**:\n\n"
+        "- **Kodi ya mapato binafsi**: KES 2,000 kwa marejesho kwa "
+        "kuchelewa kuwasilisha\n"
+        "- **Kodi ya mapato ya kampuni/ubia**: KES 20,000 au 5% ya kodi "
+        "inayodaiwa, kikubwa kati ya hivyo, kwa kuchelewa kuwasilisha; "
+        "kuchelewa kulipa kunaongeza 5% zaidi pamoja na riba ya 1% kwa "
+        "mwezi\n"
+        "- **PAYE**: kuchelewa kuwasilisha ni 25% ya kodi inayodaiwa au "
+        "KES 10,000, kikubwa kati ya hivyo\n"
+        "- **VAT**: kuchelewa kuwasilisha ni 5% ya kodi inayodaiwa au "
+        "KES 10,000, kikubwa kati ya hivyo\n\n"
+        "**Hata kama huna mapato au mauzo, lazima uwasilishe marejesho "
+        "ya nil** -- kutofanya hivyo kunasababisha adhabu ile ile ya "
+        "moja kwa moja."
+    ),
+    "etims_general": (
+        "**eTIMS** (electronic Tax Invoice Management System) ni mfumo "
+        "wa KRA wa kutengeneza risiti/ankara za kielektroniki "
+        "zinazokubalika kikodi -- unahitajika kwa biashara "
+        "zilizosajiliwa VAT, na kwa mtu yeyote anayetaka gharama za "
+        "biashara zikubaliwe kikodi, kwani KRA hukubali tu ankara "
+        "zilizotengenezwa na eTIMS kama uthibitisho halali wa "
+        "ununuzi.\n\n**Kwa nini biashara yako inahitaji**: bila ankara "
+        "za eTIMS, gharama zako za biashara huenda zisikubaliwe kikodi, "
+        "na wateja wanaohitaji kudai VAT yao wenyewe hawawezi kufanya "
+        "hivyo kutoka ankara isiyo ya eTIMS. Kwa biashara ndogo, chaguo "
+        "la bure la **eTIMS Lite** (kupitia tovuti au USSD *222#) ni "
+        "njia rahisi zaidi ya kutii bila kununua vifaa."
+    ),
+    "sacco_vs_bank": (
+        "**SACCOs** kwa kawaida hutoa mikopo nafuu zaidi kuliko benki za "
+        "kibiashara -- mara nyingi **10-14% kwa mwaka**, mara nyingi "
+        "ikiwekwa na mkutano mkuu wa mwaka wa SACCO badala ya kubadilika "
+        "na Kiwango cha Benki Kuu. Mikopo ya **benki** za kibiashara "
+        "kwa kawaida ni **13-20%+ kwa mwaka** na hubadilika na mabadiliko "
+        "ya CBK.\n\n**Ubadilishanaji muhimu**: SACCOs zinahitaji "
+        "**kujiunga na kujenga historia ya akiba kwanza** (kawaida "
+        "miezi 3-6) kabla ya kukopa, na kiasi cha mkopo mara nyingi "
+        "hukomea kama mara 3-5 ya akiba yako. Benki kwa kawaida "
+        "hazihitaji uanachama/akiba ya awali na zinaweza kutoa kiasi "
+        "kikubwa zaidi, hasa dhidi ya dhamana -- lakini kwa kiwango cha "
+        "juu zaidi."
+    ),
+    "food_business_license": (
+        "Biashara ya chakula (mkahawa, cafe, mkate, duka) inahitaji "
+        "tabaka kadhaa, juu ya kibali chako cha kawaida cha kaunti "
+        "(Single/Unified Business Permit):\n\n"
+        "- **Cheti cha Afya/Usafi wa Chakula**: kinatolewa na idara ya "
+        "afya ya kaunti, kikithibitisha majengo yako yanafikia viwango "
+        "vya usafi -- kawaida KES 2,000-5,000, kinahitajika kabla ya "
+        "kufungua\n"
+        "- **Cheti cha Afya cha Mshughulikiaji wa Chakula**: kinahitajika "
+        "kwa **kila mfanyakazi binafsi** anayeshughulikia chakula, "
+        "kinapatikana baada ya uchunguzi wa afya (karibu KES 1,000 kwa "
+        "mtu)\n"
+        "- **Cheti cha Usalama wa Moto**: cha lazima kwa biashara zote, "
+        "kinahitaji vizima moto na ukaguzi wa idara ya moto ya kaunti\n"
+        "- **Mahususi kwa mikahawa**: usajili na **Tourism Regulatory "
+        "Authority (TRA)** chini ya Sheria ya Utalii ya 2011, ikiwa "
+        "unaendesha kama mkahawa\n\n"
+        "Ikiwa unatengeneza au kufunga bidhaa za chakula kwa mauzo, "
+        "utahitaji pia uthibitisho wa **KEBS** (Standardization Mark)."
+    ),
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) "
         "inatenga **asilimia 30 ya manunuzi yote ya serikali** kwa "
@@ -1069,7 +1236,7 @@ CANNED_ANSWERS_SW = {
 TOPIC_KEYWORDS = {
     "nssf_penalty": ["nssf penalty", "late nssf", "nssf late payment", "penalty for late nssf", "nssf fine", "adhabu ya nssf", "faini ya nssf kuchelewa"],
     "mpesa_paybill_till": ["paybill", "till number", "buy goods till", "set up paybill", "mpesa business", "namba ya paybill", "namba ya till", "kuweka paybill"],
-    "nssf_registration": ["register my business and employees", "nssf registration", "register for nssf", "register my employees for nssf"],
+    "nssf_registration": ["register my business and employees", "nssf registration", "register for nssf", "register my employees for nssf", "kusajili wafanyakazi nssf", "kujisajili nssf"],
     "nssf": ["nssf", "national social security fund"],
     "leave": ["annual leave", "leave entitlement", "leave days", "likizo ya mwaka", "siku za likizo", "haki ya likizo"],
     "capital": ["minimum share capital", "share capital requirement", "mtaji wa chini", "mtaji unaohitajika"],
@@ -1080,6 +1247,7 @@ TOPIC_KEYWORDS = {
     "kra_pin": ["how do i get a kra pin", "kra pin registration", "apply for kra pin", "get a kra pin", "kra pin for my business", "namba ya pin ya kra", "kupata pin ya kra", "jinsi ya kupata pin"],
     "vat": ["vat registration", "vat threshold", "register for vat", "required to register for vat", "do i need to register for vat", "vat registration threshold", "kusajili vat", "ni lini nasajili vat", "kikomo cha vat"],
     "termination": ["terminate an employee", "termination", "dismissal", "dismiss an employee", "redundancy", "fire an employee", "firing an employee", "kumfukuza mfanyakazi", "kuachisha kazi", "kufukuza mfanyakazi"],
+    "food_business_license": ["food business need to operate", "licenses does a food business", "restaurant license kenya", "food business licenses", "licenses for a restaurant", "leseni ya mkahawa", "leseni ya biashara ya chakula", "leseni gani kwa biashara ya chakula"],
     "license": ["single business permit", "what license do i need", "what licence do i need", "trade license requirements", "leseni ya biashara", "kibali cha biashara", "ninahitaji leseni gani"],
     "turnover_tax": ["turnover tax", "tot rate", "tot threshold", "kodi ya mauzo", "kodi ya turnover"],
     "paye_bands": ["paye rate", "paye band", "paye tax rate", "income tax band", "income tax rate", "kiwango cha paye", "ushuru wa paye", "kodi ya mshahara"],
@@ -1092,16 +1260,15 @@ TOPIC_KEYWORDS = {
     "agpo": ["agpo", "government procurement opportunities", "government tenders for youth", "30% government procurement", "access to government procurement", "zabuni za serikali", "manunuzi ya serikali"],
     "employee_compliance_checklist": ["employee compliance", "statutory deductions", "legal documentation and statutory", "compliance under the kenyan employment act", "documentation and statutory deductions", "three permanent staff", "permanent staff members", "statutory deductions a small trading enterprise"],
     "wef": ["women enterprise fund", "wef loan", "tuinuke chama loan", "woman-owned business access", "woman-owned business fund", "women group loan kenya", "constituency women enterprise scheme", "mfuko wa wanawake", "mkopo wa wanawake"],
-    "unified_business_permit": ["unified business permit", "ubp nairobi", "nairobi business permit"],
-    "pharmacy_license": ["pharmacy license", "chemist shop license", "poisons board", "pharmacy and poisons board", "open a pharmacy", "chemist shop kenya", "pharmacy need to operate", "chemist shop need to operate", "licenses does a pharmacy", "licenses does a chemist"],
-    "ca_license": ["communications authority", "ca license kenya", "telecommunications license kenya"],
-    "keproba": ["keproba", "kenya export promotion", "export promotion and branding agency", "brand kenya agency"],
-    "no_permit_penalty": ["without a county permit", "operate a business without", "without a permit", "penalty for operating without", "no business permit"],
-    "sole_prop_vs_limited": ["difference between a sole proprietorship", "sole proprietorship and a limited company", "sole proprietorship vs limited company", "sole proprietorship or a limited company"],
-    "late_filing_penalty": ["penalties for late filing", "late filing of tax returns", "penalty for late filing", "what happens if i file late", "late tax return penalty"],
-    "etims_general": ["what is etims", "why does my business need etims", "why do i need etims"],
-    "sacco_vs_bank": ["saccos offer loans differently", "sacco vs bank", "sacco or bank loan", "difference between sacco and bank", "saccos differently from commercial banks"],
-    "food_business_license": ["food business need to operate", "licenses does a food business", "restaurant license kenya", "food business licenses", "licenses for a restaurant"],
+    "unified_business_permit": ["unified business permit", "ubp nairobi", "nairobi business permit", "leseni ya nairobi", "kibali cha biashara nairobi"],
+    "pharmacy_license": ["pharmacy license", "chemist shop license", "poisons board", "pharmacy and poisons board", "open a pharmacy", "chemist shop kenya", "pharmacy need to operate", "chemist shop need to operate", "licenses does a pharmacy", "licenses does a chemist", "leseni ya duka la dawa", "kufungua duka la dawa"],
+    "ca_license": ["communications authority", "ca license kenya", "telecommunications license kenya", "mamlaka ya mawasiliano", "leseni ya mawasiliano"],
+    "keproba": ["keproba", "kenya export promotion", "export promotion and branding agency", "brand kenya agency", "usafirishaji nje ya nchi", "kuuza bidhaa nje"],
+    "no_permit_penalty": ["without a county permit", "operate a business without", "without a permit", "penalty for operating without", "no business permit", "bila kibali cha kaunti", "adhabu ya kutokuwa na kibali"],
+    "sole_prop_vs_limited": ["difference between a sole proprietorship", "sole proprietorship and a limited company", "sole proprietorship vs limited company", "sole proprietorship or a limited company", "tofauti kati ya umiliki binafsi na kampuni"],
+    "late_filing_penalty": ["penalties for late filing", "late filing of tax returns", "penalty for late filing", "what happens if i file late", "late tax return penalty", "adhabu ya kuchelewa kuwasilisha", "kuchelewa kuwasilisha marejesho"],
+    "etims_general": ["what is etims", "why does my business need etims", "why do i need etims", "etims ni nini", "kwa nini nahitaji etims"],
+    "sacco_vs_bank": ["saccos offer loans differently", "sacco vs bank", "sacco or bank loan", "difference between sacco and bank", "saccos differently from commercial banks", "tofauti kati ya sacco na benki"],
     "registration": ["register a business name", "business name registration", "steps to register a business", "register a small business", "register a business in kenya", "how to register a business", "start a business in kenya", "steps to start a business", "kusajili biashara", "naweza kusajili biashara", "jinsi ya kusajili biashara", "kuanzisha biashara", "nataka kusajili"],
 }
 
