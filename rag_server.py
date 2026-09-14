@@ -246,7 +246,7 @@ CANNED_ANSWERS = {
     ),
     "vat": (
         "**VAT registration threshold in Kenya**:\n\n"
-        "- Mandatory once your annual taxable turnover exceeds **KES 5,000,000**\n"
+        "- Mandatory once your annual taxable turnover exceeds **KES 5,000,000 (5 million)**\n"
         "- Register via iTax (itax.kra.go.ke)"
     ),
     "termination": (
@@ -375,6 +375,332 @@ CANNED_ANSWERS = {
         "company), and bank account details for settlement. Application "
         "is **free**. Once approved, you'll receive your number by SMS "
         "and activate it by dialing *234# on the registered line."
+    ),
+    "class_r_permit": (
+        "Go to the **Kenya eFNS portal** on eCitizen and apply for a **Class R "
+        "Permit** -- the special permit for East African Community nationals "
+        "(Burundi, DR Congo, Rwanda, South Sudan, Tanzania, Uganda), covering "
+        "residing, working, trading, or running a business in Kenya. The "
+        "permit itself is **free** (KES 0 processing, KES 0 issuance), "
+        "gazetted under the Kenya Citizenship and Immigration Amendment "
+        "Regulations 2024. You will separately need a **Foreigner Certificate "
+        "(Alien Card)**, which costs **KES 5,000 per year**.\n\nTypical "
+        "documents: valid passport, cover letter, KRA PIN if doing business, "
+        "and a police clearance certificate (required specifically for "
+        "small-scale traders). Apply online, then print the completed forms "
+        "and submit them physically at the Immigration offices (Nyayo House, "
+        "Nairobi)."
+    ),
+    "tcc_application": (
+        "Log in to **itax.kra.go.ke** with your business KRA PIN (not a "
+        "director's personal PIN), go to the **'Certificates'** menu, and "
+        "select **'Apply for Tax Compliance Certificate (TCC)'**. Review your "
+        "auto-filled details, select your reason for applying, and click "
+        "Submit.\n\nIf your returns and payments are up to date, it's often "
+        "approved within a day or two and emailed to you. If something is "
+        "outstanding (an unfiled return, unpaid balance, or eTIMS "
+        "non-compliance), the system flags it so you can resolve it before "
+        "reapplying. It is **free**, and once issued it is valid for **12 "
+        "months**."
+    ),
+    "probation_period": (
+        "Under **Section 42 of the Employment Act 2007**, a probationary "
+        "period cannot exceed **6 months initially**, but it may be extended "
+        "for a further period of **not more than 6 months** with the "
+        "employee's written consent -- making the maximum possible aggregate "
+        "**12 months**, not a straight 1-year probation from the start.\n\n"
+        "Most employers use a shorter period (commonly 3 months) as standard "
+        "practice, reserving the full 6-month (or extended) period for more "
+        "senior or technical roles. Probationary employees are excluded from "
+        "Section 41's fair-hearing requirement before termination, but any "
+        "dismissal must still be non-discriminatory and for a legitimate "
+        "reason."
+    ),
+    "agpo": (
+        "**AGPO** (Access to Government Procurement Opportunities) reserves "
+        "**30% of all government procurement** for enterprises owned by "
+        "youth (aged 18-35), women, and persons with disabilities, each "
+        "requiring **at least 70% ownership** and **100% of leadership** "
+        "from that group.\n\nTo register: have your business legally "
+        "registered (sole proprietorship, partnership, or company), gather "
+        "your registration certificate, KRA PIN/VAT certificate, Tax "
+        "Compliance Certificate, and (for companies) your CR12 or (for "
+        "partnerships) your partnership deed, then register directly at "
+        "**agpo.go.ke**. Once certified, your status applies across all "
+        "procuring entities -- national ministries, counties, and "
+        "parastatals."
+    ),
+    "hustler_fund_business": (
+        "The basic **Personal Loan** tier (KES 500 to KES 50,000, 8% per "
+        "annum, repayable in 14 days) can be used for business or personal "
+        "needs, accessible via *254# on your **M-PESA**-registered line -- you'll need ""a valid **Kenyan national ID** and an active SIM card, no collateral required. ""\n\nFor business specifically, Hustler "
+        "Fund also offers group-based **Biashara/Enterprise loans** (for "
+        "chamas, cooperatives, or registered groups) and higher-tier loans "
+        "for **registered businesses with a KRA PIN**, both at the same 8% "
+        "per annum rate but with larger amounts and longer repayment periods "
+        "than the personal tier. Your loan limit and access to higher tiers "
+        "grows with consistent on-time repayment history."
+    ),
+    "sole_prop_to_llc": (
+        "Kenya doesn't have a single-step way to convert a business -- there's no direct 'conversion' process, practically, it's two "
+        "separate actions: **(1) cease your existing business name** by filing "
+        "**Form BN6** on eCitizen, and **(2) register a new private limited "
+        "company** using **Forms CR1, CR2, CR8** plus Articles/Memorandum of "
+        "Association (BRS provides standard templates, or you can customize "
+        "them). You can typically reserve and reuse the same business name, "
+        "now with 'Limited' or 'Ltd' added.\n\n"
+        "**On KRA PIN specifically**: your sole proprietorship used your "
+        "**personal KRA PIN**. The new company needs its **own separate "
+        "company PIN**, applied for via iTax by selecting 'Non-Individual' as "
+        "the taxpayer type -- and every director/shareholder must already "
+        "have their own individual KRA PIN before the company PIN application "
+        "can go through.\n\n"
+        "**On fees**: expect two separate government charges -- business name "
+        "cessation, and private limited company registration (roughly KES "
+        "10,650-10,750 based on current BRS fee schedules, though I'd confirm "
+        "the exact current figure on eCitizen directly). Note there is **no "
+        "legal minimum share capital** requirement, though many people choose "
+        "a nominal figure like KES 100,000 as practice. A clean conversion "
+        "with all documents in order typically takes **5-10 working days**."
+    ),
+    "wef": (
+        "The **Women Enterprise Fund (WEF)** is a real, distinct government agency "
+        "(established 2007, under the Ministry of Public Service, Youth & Gender "
+        "Affairs) -- not to be confused with YEDF (youth-focused) or the Hustler "
+        "Fund. **Eligibility: any Kenyan woman aged 18 or older**, applying "
+        "individually or as part of a registered group.\n\n"
+        "**Key products**:\n"
+        "- **Tuinuke Chama Loan** (via the Constituency Women Enterprise Scheme): "
+        "for registered women's groups of 10-30 members (at least 70% women, "
+        "100% women in leadership), registered with Social Services for at "
+        "least 3 months, with a bank/SACCO account -- low-cost with a small "
+        "administration charge\n"
+        "- **LPO Financing**: for individual women-owned businesses needing to "
+        "fulfill purchase orders or tenders\n\n"
+        "Apply through WEF's regional offices, or online at wef.go.ke."
+    ),
+    "unified_business_permit": (
+        "In Nairobi County specifically, this is the **Unified Business Permit "
+        "(UBP)** -- a single annual license that bundles what used to be "
+        "several separate approvals (trade license, fire inspection, food/"
+        "health certificate, advertisement/signage permit) into one "
+        "application. Apply via the **NairobiPay self-service portal "
+        "(nairobiservices.go.ke)**, dial ***647#**, or visit City Hall Annex "
+        "in person.\n\nThe fee depends on your business category and size "
+        "(a small shop might pay around KES 4,000 plus a KES 200 application "
+        "fee; larger operations pay significantly more) -- confirm your "
+        "exact category's fee on the portal. It runs on a **January-"
+        "December annual cycle**; renewal applications typically open in "
+        "November, with payment expected by around March 31 to avoid "
+        "escalating late penalties. Other counties (Mombasa, Meru, Kisumu, "
+        "and several others) use eCitizen instead of a county-specific "
+        "portal for their equivalent single business permit."
+    ),
+    "pharmacy_license": (
+        "Operating a pharmacy or chemist shop requires licensing from the "
+        "**Pharmacy and Poisons Board (PPB)**, the national medicines "
+        "regulator under the Pharmacy and Poisons Act (Cap 244) -- this is "
+        "in addition to, not instead of, your county Single Business Permit "
+        "(roughly KES 5,000-30,000).\n\n**Key requirement**: everyone "
+        "holding a financial interest in the pharmacy must be a registered "
+        "pharmacist or enrolled pharmaceutical technologist -- you generally "
+        "can't own a pharmacy purely as a non-pharmacist investor. The "
+        "designated superintendent pharmacist also needs their own annual "
+        "practicing license from PPB.\n\n**Process**: register your "
+        "premises with PPB, then pass a premises inspection covering proper "
+        "shelving, ventilation, a dispensing area separate from the sales "
+        "counter, a lockable poisons cabinet, a refrigerator for cold-chain "
+        "products, and Green Cross signage. Licenses are issued after a "
+        "successful inspection and must be renewed annually (all PPB "
+        "licenses expire December 31)."
+    ),
+    "ca_license": (
+        "Not every tech startup needs this -- the **Communications "
+        "Authority of Kenya (CA)** specifically licenses telecommunications, "
+        "broadcasting, internet service provision, and postal/courier "
+        "operators, not general software or app businesses. If your startup "
+        "purely builds an app or website without operating telecom "
+        "infrastructure or providing regulated content/network services, you "
+        "likely don't need a CA license at all.\n\nIf you DO fall into a "
+        "regulated category, CA's Unified Licensing Framework covers three "
+        "main types: **Network Facilities Provider**, **Application Service "
+        "Provider**, and **Content Service Provider** (plus separate "
+        "licenses for broadcasting, equipment type-approval, and courier/"
+        "postal services). Applications need a cover letter to the Director "
+        "of Licensing, your certificate of registration, company documents "
+        "(CR12 for companies), and a list of directors -- foreign-owned "
+        "companies need at least 30% Kenyan shareholding. Processing runs on "
+        "a first-come-first-served basis with a stated turnaround of around "
+        "135 days."
+    ),
+    "nssf_registration": (
+        "**As an employer**, register via the NSSF Employer Self-Service "
+        "portal (selfservice.nssf.or.ke) -- select 'Employer Registration' "
+        "if you've never registered before. It's worth getting your **KRA "
+        "PIN first**, since you'll need it during registration. Once "
+        "approved, you're issued an employer number, often on the spot.\n\n"
+        "**Registration is mandatory** for every employer with even one "
+        "employee earning KES 1,000 or more per month -- this includes "
+        "casual, temporary, and part-time workers, not just permanent "
+        "staff. Skipping registration is a legal offense under the NSSF Act "
+        "2013.\n\n**For each employee**: they can register in person at any "
+        "NSSF office with their national ID/passport/Alien Card and an "
+        "introduction letter from you as their employer, after which they "
+        "receive an NSSF membership number you'll need to remit their "
+        "contributions."
+    ),
+    "keproba": (
+        "**KEPROBA** (Kenya Export Promotion and Branding Agency) is a "
+        "state corporation (formed 2019, merging the former Export "
+        "Promotion Council and Brand Kenya Board) that supports Kenyan "
+        "exporters and promotes 'Brand Kenya' internationally.\n\n"
+        "**What it actually offers**: guidance on export procedures and "
+        "documentation, market intelligence and market-entry requirements "
+        "for target countries, capacity-building through export training "
+        "and coaching, organized trade missions and trade fair "
+        "participation, and support with **product development and "
+        "branding** -- including packaging, labelling, and brand "
+        "positioning to help your goods resonate with international "
+        "buyers. It particularly prioritizes bringing youth- and "
+        "women-led producer groups into the export process. Reach out "
+        "through KEPROBA's offices or makeitkenya.go.ke to access these "
+        "services."
+    ),
+    "no_permit_penalty": (
+        "Operating without a valid county business permit is illegal in "
+        "Kenya, under the **County Governments Act 2012** combined with "
+        "each county's own Finance Act and Trade Licensing Act (Nairobi's "
+        "trade licensing, for example, falls under its own County Trade "
+        "Licensing Act).\n\n**Consequences can include**:\n"
+        "- **Fines**: commonly cited in the range of KES 50,000-200,000, "
+        "though this varies significantly by county -- confirm your "
+        "specific county's penalty schedule\n"
+        "- **Closure orders**: county inspectors can issue an immediate "
+        "closure order, shutting your business until you comply\n"
+        "- **Possible imprisonment**: in serious or repeated cases, "
+        "directors/owners can face criminal prosecution personally, not "
+        "just the business\n"
+        "- **Back-payment of penalties**: on top of the permit fee itself "
+        "once you do comply\n\n"
+        "Most counties allow a grace period (commonly 30-60 days after "
+        "expiry) before penalties kick in for a *lapsed* permit -- but "
+        "operating with no permit at all from the start carries the fuller "
+        "risk above from day one."
+    ),
+    "sole_prop_vs_limited": (
+        "The core difference is **liability and separateness**. A **sole "
+        "proprietorship** isn't a separate legal entity from you -- you and "
+        "the business are the same in law, meaning you carry **unlimited "
+        "personal liability** for business debts, and you use your own "
+        "**personal KRA PIN**. It's fast and cheap to set up, with no "
+        "minimum capital.\n\nA **limited company** is a separate legal "
+        "person from its owners -- shareholders' liability is generally "
+        "limited to what they've invested in shares, and the company gets "
+        "its **own separate KRA PIN**, its own bank account, and can enter "
+        "contracts, sue, or be sued in its own name. There's **no legal "
+        "minimum share capital** required to register one, though it "
+        "involves more paperwork (Memorandum/Articles of Association, "
+        "CR1/CR2/CR8 forms) and ongoing compliance (annual returns to BRS) "
+        "than a sole proprietorship. Many businesses start as sole "
+        "proprietorships and convert to a limited company as they grow, "
+        "specifically to gain that liability protection."
+    ),
+    "late_filing_penalty": (
+        "Penalties depend on which return and whether it's late filing or "
+        "late payment -- both apply to KRA obligations under the **Tax "
+        "Procedures Act 2015**:\n\n"
+        "- **Individual income tax**: KES 2,000 per return for late filing\n"
+        "- **Company/partnership income tax**: KES 20,000 or 5% of the tax "
+        "due, whichever is higher, for late filing; late payment adds "
+        "another 5% plus 1% monthly interest on the unpaid amount\n"
+        "- **PAYE**: late filing is 25% of the tax due or KES 10,000, "
+        "whichever is higher; late payment is 5% plus 1% monthly interest\n"
+        "- **VAT**: late filing is 5% of the tax due or KES 10,000, "
+        "whichever is higher; late payment adds 5% plus 1% monthly "
+        "interest\n\n"
+        "**Even with zero income or sales, you must still file a nil "
+        "return** -- skipping it triggers the same automatic penalty as "
+        "any other missed return. Penalties apply automatically the day "
+        "after the deadline, with no prior warning, so it's always better "
+        "to file on time even if you can't pay yet (unpaid tax only draws "
+        "interest, which is far less costly than filing-plus-payment "
+        "penalties combined)."
+    ),
+    "etims_general": (
+        "**eTIMS** (electronic Tax Invoice Management System) is KRA's "
+        "system for generating tax-compliant, verifiable electronic "
+        "invoices/receipts -- it's required for VAT-registered businesses, "
+        "and for anyone wanting business expenses to be tax-deductible, "
+        "since KRA only accepts eTIMS-generated invoices as valid proof of "
+        "purchase.\n\n**Why your business needs it**: without eTIMS "
+        "invoices, your business expenses may not be deductible for tax "
+        "purposes, and customers who need to claim their own input VAT or "
+        "expense deductions can't do so from a non-eTIMS invoice -- making "
+        "it harder to sell to other VAT-registered businesses.\n\nFor "
+        "smaller businesses, the free **eTIMS Lite** option (via web "
+        "portal or USSD *222#) is the simplest way to comply without "
+        "buying equipment. Non-compliance penalties can reach up to **KES "
+        "1,000,000 or 10% of the tax involved**, whichever is higher."
+    ),
+    "sacco_vs_bank": (
+        "**SACCOs** typically offer meaningfully cheaper loans than "
+        "commercial banks -- commonly **10-14% per annum** (reducing "
+        "balance), often fixed by the SACCO's own annual general meeting "
+        "rather than fluctuating with the Central Bank Rate. Commercial "
+        "**bank** loans typically run **13-20%+ per annum** and move with "
+        "CBK rate changes.\n\n**Key trade-off**: SACCOs require you to "
+        "**join and build a savings history first** (commonly 3-6 months) "
+        "before you can borrow, and loan amounts are often capped as a "
+        "multiple of your savings (roughly 3-5x). Banks generally don't "
+        "require prior membership/savings and can lend larger, more "
+        "flexible amounts, especially against collateral -- but at a "
+        "higher rate. SACCO members also earn dividends on their shares "
+        "and savings, which partially offsets the cost of borrowing, a "
+        "benefit a bank account doesn't offer."
+    ),
+    "food_business_license": (
+        "A food business (restaurant, cafe, bakery, shop) needs several "
+        "layers, on top of your standard county business permit "
+        "(Single/Unified Business Permit):\n\n"
+        "- **Health/Food Hygiene Certificate**: issued by your county "
+        "health department, confirming your premises meet hygiene "
+        "standards -- typically KES 2,000-5,000, required before opening\n"
+        "- **Food Handler's Health Certificate**: required for **every "
+        "individual employee** who handles food, obtained after a medical "
+        "check-up (roughly KES 1,000 per person)\n"
+        "- **Fire Safety Certificate**: mandatory for all businesses, "
+        "requiring fire extinguishers and a county fire department "
+        "inspection, renewed annually\n"
+        "- **Restaurant-specific**: registration with the **Tourism "
+        "Regulatory Authority (TRA)** under the Tourism Act 2011, if you "
+        "operate as a restaurant\n\n"
+        "If you manufacture or package food products for sale (not just "
+        "serve food on-site), you'll also need **KEBS** certification "
+        "(Standardization Mark) specific to packaged/processed goods."
+    ),
+    "employee_compliance_checklist": (
+        "For a trading enterprise with permanent staff, here's what to maintain:\n\n"
+        "**Employment contracts**: a written contract (or at minimum a written "
+        "statement of particulars, required within 2 months of start date for "
+        "any employment lasting more than 3 months) covering start date, job "
+        "description, salary, working hours, and leave entitlement.\n\n"
+        "**Statutory deductions, per employee, per month**:\n"
+        "- **NSSF**: 6% employee + 6% employer (matched), Tier I up to KES "
+        "9,000, Tier II up to KES 108,000\n"
+        "- **PAYE**: progressive bands from 10% to 35%, less KES 2,400 "
+        "personal relief\n"
+        "- **SHIF** (Social Health Insurance Fund -- this replaced NHIF in "
+        "October 2024): 2.75% of gross pay, employee-side only, no cap\n"
+        "- **Housing Levy**: 1.5% employee + 1.5% employer, no minimum "
+        "income threshold\n\n"
+        "**Leave records**: minimum 21 working days of annual leave per 12 "
+        "months of service (Employment Act Section 28).\n\n"
+        "**Payroll records**: document each employee's monthly salary and "
+        "all deductions above, and remit them on time -- NSSF, PAYE, SHIF, "
+        "and Housing Levy all follow the same 9th-of-the-following-month "
+        "deadline. Keep these records available for inspection, and confirm "
+        "your county's specific retention-period requirement, since this "
+        "isn't fully standardized nationally."
     ),
 }
 
@@ -588,19 +914,91 @@ CANNED_ANSWERS_SW = {
         "namba yako kwa SMS na kuiwezesha kwa kupiga *234# kwenye laini "
         "iliyosajiliwa."
     ),
+    "class_r_permit": (
+        "Nenda kwenye tovuti ya **Kenya eFNS** kupitia eCitizen na uombe "
+        "**Class R Permit** -- kibali maalum kwa raia wa Jumuiya ya Afrika "
+        "Mashariki (Burundi, DR Congo, Rwanda, Sudan Kusini, Tanzania, "
+        "Uganda), kinachoruhusu kuishi, kufanya kazi, kufanya biashara, au "
+        "kuendesha kampuni nchini Kenya. Kibali chenyewe ni **bure** (KES 0), "
+        "kilichowekwa kisheria chini ya Kenya Citizenship and Immigration "
+        "Amendment Regulations 2024. Utahitaji pia **Foreigner Certificate "
+        "(Alien Card)**, ambayo inagharimu **KES 5,000 kwa mwaka**.\n\n"
+        "Hati zinazohitajika kwa kawaida: pasipoti halali, barua ya maombi, "
+        "PIN ya KRA endapo unafanya biashara, na cheti cha uthibitisho wa "
+        "polisi (kwa wafanyabiashara wadogo). Omba mtandaoni, kisha "
+        "chapisha fomu na uwasilishe kwa mkono katika ofisi za Uhamiaji "
+        "(Nyayo House, Nairobi)."
+    ),
+    "tcc_application": (
+        "Ingia kwenye **itax.kra.go.ke** ukitumia PIN ya KRA ya biashara "
+        "(si PIN binafsi ya mkurugenzi), nenda kwenye menyu ya "
+        "**'Certificates'**, kisha chagua **'Apply for Tax Compliance "
+        "Certificate (TCC)'**. Kagua taarifa zilizojazwa kiotomatiki, chagua "
+        "sababu ya kuomba, kisha bofya Submit.\n\nIkiwa marejesho na malipo "
+        "yako yako sawa, mara nyingi huidhinishwa ndani ya siku moja au "
+        "mbili na kutumwa kwa barua pepe. Ikiwa kuna jambo lililobaki "
+        "(marejesho ambayo hayajawasilishwa, malipo yaliyobaki, au "
+        "kutokamilisha eTIMS), mfumo utakuonyesha ili ulishughulikie kabla "
+        "ya kuomba tena. Ni **bure**, na ikitolewa ni halali kwa **miezi "
+        "12**."
+    ),
+    "probation_period": (
+        "Kwa mujibu wa **Kifungu cha 42 cha Sheria ya Ajira ya 2007**, "
+        "kipindi cha majaribio (probation) hakiwezi kuzidi **miezi 6** "
+        "mwanzoni, lakini kinaweza kuongezwa kwa kipindi kingine cha **si "
+        "zaidi ya miezi 6** kwa ridhaa ya maandishi ya mfanyakazi -- hivyo "
+        "muda wa juu unaowezekana ni **miezi 12** kwa jumla, si mwaka "
+        "mmoja moja kwa moja tangu mwanzo.\n\nWaajiri wengi hutumia "
+        "kipindi kifupi zaidi (kawaida miezi 3), wakihifadhi kipindi kizima "
+        "cha miezi 6 (au kilichoongezwa) kwa nafasi za juu zaidi au za "
+        "kitaalamu. Wafanyakazi walio kwenye majaribio hawapo chini ya "
+        "sharti la usikilizwaji wa haki la Kifungu cha 41 kabla ya "
+        "kufukuzwa, lakini uamuzi wowote lazima usiwe wa ubaguzi na uwe na "
+        "sababu halali."
+    ),
+    "agpo": (
+        "**AGPO** (Access to Government Procurement Opportunities) "
+        "inatenga **asilimia 30 ya manunuzi yote ya serikali** kwa "
+        "makampuni yanayomilikiwa na vijana (miaka 18-35), wanawake, na "
+        "watu wenye ulemavu, kila kundi likihitajika kuwa na **umiliki wa "
+        "asilimia 70 angalau** na **uongozi wa asilimia 100** kutoka kwa "
+        "kundi hilo.\n\nKujiandikisha: hakikisha biashara yako imesajiliwa "
+        "kisheria (umiliki binafsi, ubia, au kampuni), kusanya cheti cha "
+        "usajili, PIN/cheti cha VAT cha KRA, Tax Compliance Certificate, na "
+        "(kwa makampuni) CR12 au (kwa ubia) hati ya ubia, kisha jisajili "
+        "moja kwa moja kwenye **agpo.go.ke**. Ukisha idhinishwa, hadhi yako "
+        "inatumika katika taasisi zote za manunuzi -- wizara za kitaifa, "
+        "kaunti, na mashirika ya umma."
+    ),
+    "hustler_fund_business": (
+        "Kiwango cha msingi cha **Personal Loan** (KES 500 hadi KES "
+        "50,000, riba ya asilimia 8 kwa mwaka, kurejeshwa ndani ya siku "
+        "14) kinaweza kutumika kwa biashara au mahitaji binafsi, "
+        "kinapatikana kupitia *254# kwenye laini yako iliyosajiliwa ya **M-PESA** -- utahitaji ""**kitambulisho cha taifa cha Kenya** na SIM kadi inayotumika, hakuna dhamana inayohitajika. ""\n\nKwa biashara hasa, Hustler Fund "
+        "pia inatoa mikopo ya **Biashara/Enterprise** kwa vikundi (chama, "
+        "ushirika, au vikundi vilivyosajiliwa) na mikopo ya kiwango cha "
+        "juu zaidi kwa **biashara zilizosajiliwa zenye PIN ya KRA**, zote "
+        "kwa riba ile ile ya asilimia 8 kwa mwaka lakini kwa kiasi kikubwa "
+        "zaidi na muda mrefu zaidi wa kurejesha kuliko kiwango cha "
+        "binafsi. Kiwango chako cha mkopo na uwezo wa kufikia viwango vya "
+        "juu zaidi hukua kwa historia thabiti ya kurejesha kwa wakati."
+    ),
 }
 
 
 TOPIC_KEYWORDS = {
     "nssf_penalty": ["nssf penalty", "late nssf", "nssf late payment", "penalty for late nssf", "nssf fine"],
     "mpesa_paybill_till": ["paybill", "till number", "buy goods till", "set up paybill", "mpesa business"],
+    "nssf_registration": ["register my business and employees", "nssf registration", "register for nssf", "register my employees for nssf"],
     "nssf": ["nssf", "national social security fund"],
     "leave": ["annual leave", "leave entitlement", "leave days"],
     "capital": ["minimum share capital", "share capital requirement"],
     "yedf": ["yedf", "youth enterprise development fund", "rausha", "inua loan", "vuka loan"],
+    "hustler_fund_business": ["hustler fund business", "hustler fund for my business", "hustler fund biashara loan", "business tier hustler fund", "hustler fund enterprise loan", "personal loan and business loan", "hustler fund personal loan and business", "difference between the hustler fund", "apply for the hustler fund", "hustler fund and what are the eligibility", "eligibility requirements for the hustler fund", "mkopo kutoka hustler fund", "kupata mkopo kutoka hustler fund", "hustler fund na ninahitaji", "ninahitaji nini kustahili"],
     "loan": ["apply for a loan", "apply for financing", "get a loan", "startup loan", "hustler fund", "loan to start"],
-    "kra_pin": ["kra pin"],
-    "vat": ["vat registration", "vat threshold"],
+    "sole_prop_to_llc": ["transition into a limited", "convert my sole proprietorship", "converting sole proprietorship", "convert a sole proprietorship", "sole proprietorship into a limited", "sole proprietorship to a limited", "convert business name to company", "business name to limited company", "sole prop to llc", "sole proprietorship to llc"],
+    "kra_pin": ["how do i get a kra pin", "kra pin registration", "apply for kra pin", "get a kra pin", "kra pin for my business"],
+    "vat": ["vat registration", "vat threshold", "register for vat", "required to register for vat", "do i need to register for vat", "vat registration threshold"],
     "termination": ["terminate an employee", "termination", "dismissal", "dismiss an employee", "redundancy", "fire an employee", "firing an employee"],
     "license": ["single business permit", "what license do i need", "what licence do i need", "trade license requirements"],
     "turnover_tax": ["turnover tax", "tot rate", "tot threshold"],
@@ -608,6 +1006,22 @@ TOPIC_KEYWORDS = {
     "shif_rate": ["shif rate", "shif contribution", "shif percentage", "how much shif", "shif deduction", "contribute to shif", "employer shif", "shif employer", "pay to shif", "shif pay", "obligations to shif", "shif obligations", "obligations under shif"],
     "housing_levy": ["housing levy", "affordable housing levy", "ahl rate", "housing levy rate"],
     "minimum_wage": ["minimum wage", "minimum salary", "lowest wage", "minimum pay"],
+    "class_r_permit": ["class r permit", "eac permit", "east african community permit", "foreigner certificate", "alien card", "ugandan need to trade", "ugandan trader", "tanzanian trader", "rwandan trader", "burundian trader", "eac national", "east african citizen business", "foreign trader permit kenya"],
+    "tcc_application": ["tax compliance certificate", "apply for tcc", "tcc application", "how to get tcc", "tax compliance certificate application"],
+    "probation_period": ["probation period", "probation length", "how long can probation", "maximum probation", "probation extension"],
+    "agpo": ["agpo", "government procurement opportunities", "government tenders for youth", "30% government procurement", "access to government procurement"],
+    "employee_compliance_checklist": ["employee compliance", "statutory deductions", "legal documentation and statutory", "compliance under the kenyan employment act", "documentation and statutory deductions", "three permanent staff", "permanent staff members", "statutory deductions a small trading enterprise"],
+    "wef": ["women enterprise fund", "wef loan", "tuinuke chama loan", "woman-owned business access", "woman-owned business fund", "women group loan kenya", "constituency women enterprise scheme"],
+    "unified_business_permit": ["unified business permit", "ubp nairobi", "nairobi business permit"],
+    "pharmacy_license": ["pharmacy license", "chemist shop license", "poisons board", "pharmacy and poisons board", "open a pharmacy", "chemist shop kenya", "pharmacy need to operate", "chemist shop need to operate", "licenses does a pharmacy", "licenses does a chemist"],
+    "ca_license": ["communications authority", "ca license kenya", "telecommunications license kenya"],
+    "keproba": ["keproba", "kenya export promotion", "export promotion and branding agency", "brand kenya agency"],
+    "no_permit_penalty": ["without a county permit", "operate a business without", "without a permit", "penalty for operating without", "no business permit"],
+    "sole_prop_vs_limited": ["difference between a sole proprietorship", "sole proprietorship and a limited company", "sole proprietorship vs limited company", "sole proprietorship or a limited company"],
+    "late_filing_penalty": ["penalties for late filing", "late filing of tax returns", "penalty for late filing", "what happens if i file late", "late tax return penalty"],
+    "etims_general": ["what is etims", "why does my business need etims", "why do i need etims"],
+    "sacco_vs_bank": ["saccos offer loans differently", "sacco vs bank", "sacco or bank loan", "difference between sacco and bank", "saccos differently from commercial banks"],
+    "food_business_license": ["food business need to operate", "licenses does a food business", "restaurant license kenya", "food business licenses", "licenses for a restaurant"],
     "registration": ["register a business name", "business name registration", "steps to register a business", "register a small business", "register a business in kenya", "how to register a business", "start a business in kenya", "steps to start a business"],
 }
 
