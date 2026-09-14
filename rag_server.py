@@ -987,13 +987,13 @@ CANNED_ANSWERS_SW = {
 
 
 TOPIC_KEYWORDS = {
-    "nssf_penalty": ["nssf penalty", "late nssf", "nssf late payment", "penalty for late nssf", "nssf fine"],
-    "mpesa_paybill_till": ["paybill", "till number", "buy goods till", "set up paybill", "mpesa business"],
+    "nssf_penalty": ["nssf penalty", "late nssf", "nssf late payment", "penalty for late nssf", "nssf fine", "adhabu ya nssf", "faini ya nssf kuchelewa"],
+    "mpesa_paybill_till": ["paybill", "till number", "buy goods till", "set up paybill", "mpesa business", "namba ya paybill", "namba ya till", "kuweka paybill"],
     "nssf_registration": ["register my business and employees", "nssf registration", "register for nssf", "register my employees for nssf"],
     "nssf": ["nssf", "national social security fund"],
     "leave": ["annual leave", "leave entitlement", "leave days", "likizo ya mwaka", "siku za likizo", "haki ya likizo"],
-    "capital": ["minimum share capital", "share capital requirement"],
-    "yedf": ["yedf", "youth enterprise development fund", "rausha", "inua loan", "vuka loan"],
+    "capital": ["minimum share capital", "share capital requirement", "mtaji wa chini", "mtaji unaohitajika"],
+    "yedf": ["yedf", "youth enterprise development fund", "rausha", "inua loan", "vuka loan", "mfuko wa vijana", "mkopo wa yedf"],
     "hustler_fund_business": ["hustler fund business", "hustler fund for my business", "hustler fund biashara loan", "business tier hustler fund", "hustler fund enterprise loan", "personal loan and business loan", "hustler fund personal loan and business", "difference between the hustler fund", "apply for the hustler fund", "hustler fund and what are the eligibility", "eligibility requirements for the hustler fund", "mkopo kutoka hustler fund", "kupata mkopo kutoka hustler fund", "hustler fund na ninahitaji", "ninahitaji nini kustahili"],
     "loan": ["apply for a loan", "apply for financing", "get a loan", "startup loan", "hustler fund", "loan to start", "mkopo wa biashara", "jinsi ya kupata mkopo", "kupata mkopo wa kuanzisha"],
     "sole_prop_to_llc": ["transition into a limited", "convert my sole proprietorship", "converting sole proprietorship", "convert a sole proprietorship", "sole proprietorship into a limited", "sole proprietorship to a limited", "convert business name to company", "business name to limited company", "sole prop to llc", "sole proprietorship to llc"],
@@ -1002,9 +1002,9 @@ TOPIC_KEYWORDS = {
     "termination": ["terminate an employee", "termination", "dismissal", "dismiss an employee", "redundancy", "fire an employee", "firing an employee", "kumfukuza mfanyakazi", "kuachisha kazi", "kufukuza mfanyakazi"],
     "license": ["single business permit", "what license do i need", "what licence do i need", "trade license requirements", "leseni ya biashara", "kibali cha biashara", "ninahitaji leseni gani"],
     "turnover_tax": ["turnover tax", "tot rate", "tot threshold", "kodi ya mauzo", "kodi ya turnover"],
-    "paye_bands": ["paye rate", "paye band", "paye tax rate", "income tax band", "income tax rate"],
-    "shif_rate": ["shif rate", "shif contribution", "shif percentage", "how much shif", "shif deduction", "contribute to shif", "employer shif", "shif employer", "pay to shif", "shif pay", "obligations to shif", "shif obligations", "obligations under shif"],
-    "housing_levy": ["housing levy", "affordable housing levy", "ahl rate", "housing levy rate"],
+    "paye_bands": ["paye rate", "paye band", "paye tax rate", "income tax band", "income tax rate", "kiwango cha paye", "ushuru wa paye", "kodi ya mshahara"],
+    "shif_rate": ["shif rate", "shif contribution", "shif percentage", "how much shif", "shif deduction", "contribute to shif", "employer shif", "shif employer", "pay to shif", "shif pay", "obligations to shif", "shif obligations", "obligations under shif", "kiwango cha shif", "mchango wa shif"],
+    "housing_levy": ["housing levy", "affordable housing levy", "ahl rate", "housing levy rate", "ushuru wa nyumba", "levy ya nyumba"],
     "minimum_wage": ["minimum wage", "minimum salary", "lowest wage", "minimum pay", "mshahara wa chini kabisa", "kima cha chini cha mshahara"],
     "class_r_permit": ["class r permit", "eac permit", "east african community permit", "foreigner certificate", "alien card", "ugandan need to trade", "ugandan trader", "tanzanian trader", "rwandan trader", "burundian trader", "eac national", "east african citizen business", "foreign trader permit kenya"],
     "tcc_application": ["tax compliance certificate", "apply for tcc", "tcc application", "how to get tcc", "tax compliance certificate application"],
@@ -1111,8 +1111,10 @@ def is_swahili(text: str) -> bool:
     text_lower = text.lower()
     common_swahili_words = [
         "ninahitaji", "kuhusu", "biashara", "nini", "vipi", "wapi", "gani",
-        "je", "ninataka", "naomba",
+        "je", "ninataka", "naomba", "ngapi", "nataka",
         "kodi", "usajili", "mfanyakazi", "mshahara", "kampuni", "sheria",
+        "ushuru", "mwezi", "kiasi", "leseni", "ada", "pesa", "mkopo",
+        "kibali", "ruhusa", "malipo", "faida", "huduma", "mwaka",
     ]
     return any(
         re.search(r"\b" + re.escape(w) + r"\b", text_lower)
