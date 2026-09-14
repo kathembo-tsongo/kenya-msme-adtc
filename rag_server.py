@@ -702,6 +702,24 @@ CANNED_ANSWERS = {
         "your county's specific retention-period requirement, since this "
         "isn't fully standardized nationally."
     ),
+    "business_insurance": (
+        "Kenya's insurance industry is regulated by the **Insurance "
+        "Regulatory Authority (IRA)**, not KRA -- KRA is the tax "
+        "authority and has no role in insurance.\n\n**Compulsory "
+        "insurance, if you have employees**: cover under the **Work "
+        "Injury Benefits Act (WIBA)**, protecting employees injured or "
+        "disabled at work -- this is legally required, not optional. If "
+        "your business uses any motor vehicle, **motor third-party "
+        "liability insurance** is also compulsory.\n\n**Common optional "
+        "cover worth considering**: public liability insurance (covers "
+        "injury to customers/visitors on your premises), property/fire "
+        "insurance (covers your stock, equipment, and premises), and "
+        "business interruption cover (covers lost income if you have to "
+        "close temporarily, e.g. after a fire).\n\nCoverage details, "
+        "exclusions, and pricing vary significantly by insurer -- confirm "
+        "specifics with a **licensed insurer or broker** (check the IRA's "
+        "list of licensed providers at ira.go.ke), not KRA."
+    ),
 }
 
 
@@ -1230,6 +1248,24 @@ CANNED_ANSWERS_SW = {
         "binafsi. Kiwango chako cha mkopo na uwezo wa kufikia viwango vya "
         "juu zaidi hukua kwa historia thabiti ya kurejesha kwa wakati."
     ),
+    "business_insurance": (
+        "Sekta ya bima nchini Kenya inasimamiwa na **Insurance Regulatory "
+        "Authority (IRA)**, si KRA -- KRA ni mamlaka ya kodi na haihusiki "
+        "na bima kabisa.\n\n**Bima ya lazima, ikiwa una wafanyakazi**: "
+        "bima chini ya **Work Injury Benefits Act (WIBA)**, inayolinda "
+        "wafanyakazi wanaoumia au kulemazwa kazini -- hii ni ya lazima "
+        "kisheria, si hiari. Ikiwa biashara yako inatumia gari lolote, "
+        "**bima ya dhima ya mtu wa tatu ya gari** pia ni ya "
+        "lazima.\n\n**Bima za hiari zinazofaa kuzingatiwa**: bima ya "
+        "dhima ya umma (inashughulikia jeraha kwa wateja/wageni katika "
+        "majengo yako), bima ya mali/moto (inashughulikia bidhaa, vifaa, "
+        "na majengo yako), na bima ya usumbufu wa biashara (inashughulikia "
+        "mapato yaliyopotea ikiwa utalazimika kufunga kwa muda, kwa "
+        "mfano baada ya moto).\n\nMaelezo ya bima, vizuizi, na bei "
+        "hutofautiana sana kwa kampuni ya bima -- thibitisha maelezo na "
+        "**kampuni ya bima au wakala aliyeidhinishwa** (angalia orodha ya "
+        "IRA ya watoa huduma walioidhinishwa kwenye ira.go.ke), si KRA."
+    ),
 }
 
 
@@ -1269,6 +1305,7 @@ TOPIC_KEYWORDS = {
     "late_filing_penalty": ["penalties for late filing", "late filing of tax returns", "penalty for late filing", "what happens if i file late", "late tax return penalty", "adhabu ya kuchelewa kuwasilisha", "kuchelewa kuwasilisha marejesho"],
     "etims_general": ["what is etims", "why does my business need etims", "why do i need etims", "etims ni nini", "kwa nini nahitaji etims"],
     "sacco_vs_bank": ["saccos offer loans differently", "sacco vs bank", "sacco or bank loan", "difference between sacco and bank", "saccos differently from commercial banks", "tofauti kati ya sacco na benki"],
+    "business_insurance": ["insurance does a", "business insurance", "insurance for my business", "what insurance", "bima ya biashara", "bima gani", "nahitaji bima"],
     "registration": ["register a business name", "business name registration", "steps to register a business", "register a small business", "register a business in kenya", "how to register a business", "start a business in kenya", "steps to start a business", "kusajili biashara", "naweza kusajili biashara", "jinsi ya kusajili biashara", "kuanzisha biashara", "nataka kusajili"],
 }
 

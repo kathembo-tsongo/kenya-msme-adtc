@@ -29,7 +29,7 @@ echo "Starting llama-server..."
 ./llama.cpp/build/bin/llama-server \
   -m ./model/msme-qwen2.5-1.5b-Q4_K_M.gguf \
   --port 8090 \
-  -c 4096 \
+  -c 8192 \
   --threads 4 \
   --temp 0.3 \
   --no-mmap &
