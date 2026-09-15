@@ -27,6 +27,7 @@ matrix = index["matrix"]
 chunks = index["chunks"]
 print(f"Loaded {len(chunks)} chunks from {INDEX_PATH}")
 
+# My Digest
 SCOPE_INSTRUCTION = (
     "You are Rafiki wa Biashara, an assistant specifically built to help Kenyan "
     "MSME (micro, small, and medium enterprise) owners with tax, registration, "
@@ -209,6 +210,19 @@ CANNED_ANSWERS = {
         "- Minimum **21 working days** of paid leave per 12 months of continuous service\n"
         "- Accrues over the year; some employers allow limited carry-forward\n\n"
         "Check your specific employment contract for any additional leave beyond the statutory minimum."
+    ),
+    "maternity_paternity_leave": (
+        "**Maternity leave** (Section 29, Employment Act 2007): female employees "
+        "are entitled to **3 months (90 calendar days)** of maternity leave with "
+        "**full pay** -- this can be taken before or after childbirth. Annual "
+        "leave and sick leave continue accruing normally during maternity leave; "
+        "she's entitled to return to the same or an equivalent position "
+        "afterward.\n\n**Paternity leave** (Section 29(8)): male employees are "
+        "entitled to **2 weeks (14 days)** of paternity leave, also with full "
+        "pay, around the birth of their child.\n\nBoth are separate from, and "
+        "don't reduce, the standard 21-working-day annual leave entitlement. "
+        "Dismissing or disadvantaging an employee for taking either is illegal "
+        "under the Employment Act."
     ),
     "capital": (
         "**Minimum share capital for a private limited company in Kenya**:\n\n"
@@ -739,6 +753,21 @@ CANNED_ANSWERS_SW = {
         "zilizobaki kwenda mwaka unaofuata\n\n"
         "Angalia mkataba wako wa ajira kwa likizo yoyote ya ziada zaidi ya kiwango "
         "cha chini kisheria."
+    ),
+    "maternity_paternity_leave": (
+        "**Likizo ya uzazi** (Kifungu cha 29, Sheria ya Ajira 2007): "
+        "wafanyakazi wa kike wanastahili **miezi 3 (siku 90 za kalenda)** za "
+        "likizo ya uzazi yenye **malipo kamili** -- inaweza kuchukuliwa kabla "
+        "au baada ya kujifungua. Likizo ya kila mwaka na likizo ya ugonjwa "
+        "huendelea kukusanywa kawaida wakati wa likizo ya uzazi; anastahili "
+        "kurudi kwenye nafasi ile ile au sawa baada ya "
+        "hapo.\n\n**Likizo ya baba** (Kifungu cha 29(8)): wafanyakazi wa "
+        "kiume wanastahili **wiki 2 (siku 14)** za likizo ya baba, pia "
+        "yenye malipo kamili, karibu na kuzaliwa kwa mtoto.\n\nZote mbili "
+        "ni tofauti na, na hazipunguzi, haki ya kawaida ya likizo ya "
+        "siku 21 za kazi kwa mwaka. Kumfukuza au kumnyima mfanyakazi haki "
+        "kwa kuchukua yoyote kati ya hizi ni kinyume cha sheria chini ya "
+        "Sheria ya Ajira."
     ),
     "capital": (
         "**Mtaji wa chini wa hisa kwa kampuni binafsi ya dhima ndogo nchini Kenya**:\n\n"
@@ -1274,7 +1303,8 @@ TOPIC_KEYWORDS = {
     "mpesa_paybill_till": ["paybill", "till number", "buy goods till", "set up paybill", "mpesa business", "namba ya paybill", "namba ya till", "kuweka paybill"],
     "nssf_registration": ["register my business and employees", "nssf registration", "register for nssf", "register my employees for nssf", "kusajili wafanyakazi nssf", "kujisajili nssf"],
     "nssf": ["nssf", "national social security fund"],
-    "leave": ["annual leave", "leave entitlement", "leave days", "likizo ya mwaka", "siku za likizo", "haki ya likizo"],
+    "maternity_paternity_leave": ["maternity leave", "paternity leave", "maternity leave entitlement", "likizo ya uzazi", "likizo ya baba"],
+    "leave": ["annual leave", "leave days", "likizo ya mwaka", "siku za likizo", "annual leave entitlement"],
     "capital": ["minimum share capital", "share capital requirement", "mtaji wa chini", "mtaji unaohitajika"],
     "yedf": ["yedf", "youth enterprise development fund", "rausha", "inua loan", "vuka loan", "mfuko wa vijana", "mkopo wa yedf"],
     "hustler_fund_business": ["hustler fund business", "hustler fund for my business", "hustler fund biashara loan", "business tier hustler fund", "hustler fund enterprise loan", "personal loan and business loan", "hustler fund personal loan and business", "difference between the hustler fund", "apply for the hustler fund", "hustler fund and what are the eligibility", "eligibility requirements for the hustler fund", "mkopo kutoka hustler fund", "kupata mkopo kutoka hustler fund", "hustler fund na ninahitaji", "ninahitaji nini kustahili"],
