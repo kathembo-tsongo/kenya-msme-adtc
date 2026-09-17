@@ -96,7 +96,7 @@ on regulatory specifics before any mitigation.
 - `My_Offline_AI_advicer_for_kenyan_msmes.ipynb` -- full training notebook (data prep, LoRA training, merge, GGUF conversion, quantization), with cell outputs intact
 - `trainer_state.json` -- per-step training metrics
 - `training_data_v4_merged.jsonl` -- the complete training dataset (3,308 records)
-- Colab execution link: https://colab.research.google.com/drive/1jpcZW0uXTLsfxPQCT2AYnKfoLRiyrdIV?usp=sharing
+- Colab execution link: [https://colab.research.google.com/drive/1jpcZW0uXTLsfxPQCT2AYnKfoLRiyrdIV?usp=sharing](https://colab.research.google.com/drive/1jpcZW0uXTLsfxPQCT2AYnKfoLRiyrdIV?usp=sharing)
 
 **SHA256 checksums:**
 
