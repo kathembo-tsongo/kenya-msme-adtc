@@ -81,7 +81,7 @@ on regulatory specifics before any mitigation.
 
 ## Model Provenance
 
-**Repository state.** This report and the accompanying submission reflect git commit `6006f1e1f313114862a84ff866dcc16138b98e71` on the `main` branch. (Note: the ADTC reference profiler's schema places reproducibility metadata such as commit SHAs in a separate `reproducibility` object outside `metadata.json`'s `submission` schema, which has `additionalProperties: false` and no slot for it -- we state it here in prose instead, and have raised this apparent discrepancy between the written Gate 2 guidelines and the published schema with the organizing team.)
+**Repository state.** This report and the accompanying submission reflect git commit `a00effc9bced8552112347173d66acff23f30b1d` on the `main` branch. (Note: the ADTC reference profiler's schema places reproducibility metadata such as commit SHAs in a separate `reproducibility` object outside `metadata.json`'s `submission` schema, which has `additionalProperties: false` and no slot for it -- we state it here in prose instead, and have raised this apparent discrepancy between the written Gate 2 guidelines and the published schema with the organizing team.)
 
 **Base model.** [Qwen/Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct), loaded via `transformers.AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct")` at training time (main branch, no pinned revision).
 
