@@ -101,7 +101,7 @@ on regulatory specifics before any mitigation.
 **SHA256 checksums:**
 
     adapter_model.safetensors:      962a625b15ef4a7b8c67a38982dcb395b065b87cba1604170597a751704ec623
-    msme-qwen2.5-1.5b-Q4_K_M.gguf:  62d36ba73e54586cc4606c82312def17c6b7daeb5e19cb483dcaf6f4a0eced61
+    msme-qwen2.5-1.5b-Q4_K_M.gguf:  9db039ebc56c279555fa4e09e77f0be5ed82328ed3e6e8fe4e19621c13792ae5  (updated Sept 18, see addendum below)
     training_data_v4_merged.jsonl:  f238a4290e0d5a173147c20a52a503cd718149489693c995c245ec99bde016b8
 
 **Before/after comparison.** Two identical prompts run through the unmodified base model (`Qwen/Qwen2.5-1.5B-Instruct-GGUF`, official Q4_K_M release) and our fine-tuned model, both without RAG or the digest-override layer, isolating the fine-tuning's effect specifically:
@@ -113,6 +113,14 @@ on regulatory specifics before any mitigation.
 *Prompt: "What is Turnover Tax in Kenya and who qualifies to pay it?"*
 - **Base model:** conflates Turnover Tax entirely with VAT, states a fabricated "KES 100,000" threshold and a fictional "18%... progressive" rate, and invents a non-existent "Goods and Services Tax (GST)."
 - **Fine-tuned model:** correctly uses Kenya-specific terminology and a real regulatory figure (KES 5,000,000), though it still conflates Turnover Tax's identity with VAT's threshold -- a partial improvement, not a full fix, and the exact reason our digest-override layer (see Hybrid Grounding Strategy, above) provides a hand-verified answer for this specific topic rather than relying on generation alone.
+
+**Post-Gate-2 accuracy pass (September 18, 2026).** Following the Gate 2 due-diligence call, we conducted a systematic accuracy audit using a base-model-vs-fine-tuned-model comparison methodology (identical prompts run against the unmodified `Qwen2.5-1.5B-Instruct-GGUF` and our model, both without RAG). This surfaced several confirmed fabrications outside our original digest's coverage: incorrect or incoherent answers on Corporation Tax rate, Withholding Tax rate, Capital Gains Tax (a fabricated one-year holding-period rule), WIBA (confused with a fictional "Women Industrial Business Association" rather than the real Work Injury Benefits Act), Excise Duty, Stamp Duty (conflating the land-transfer rate with the share-transfer rate), Rental Income Tax, and a self-contradicting Turnover Tax deduction claim.
+
+Each fact was independently verified against KRA's official published guidance before being added directly to the model's chat-template digest (`tokenizer.chat_template`), using the same `gguf_new_metadata.py` patching method documented above for the original anti-fabrication fixes. Two rounds of patching were required: an initial, descriptively-worded addition was insufficient to override the model's competing prior knowledge on two facts (Stamp Duty, Rental Income); a second pass using explicit contradiction-naming language ("this rate applies to X, not Y -- do not state Y") successfully corrected both. All ten new facts were verified via live testing after each patch, with full regression testing against the original digest facts (NSSF, PAYE, VAT) confirming no degradation.
+
+One fact (the NITA training levy) could not be stated with full confidence: independent legal-source research found genuine disagreement over whether the current rate is KES 50/month (the original 2007 rate) or KES 600/year (per a 2020 amendment, with a 2022 Act that may have reverted this). Rather than assert an unverified figure, the digest instructs the model to state that the rate has changed through multiple amendments and to direct the user to confirm the current figure with NITA or KRA directly -- an explicit, honest hedge rather than a guessed number.
+
+The updated model was re-verified via a fresh git clone and `download_model.sh` run, confirming the new SHA256 checksum resolves correctly end-to-end.
 
 We report this second example's residual imprecision rather than omitting it: fine-tuning measurably shifted outputs toward domain-specific knowledge, but did not eliminate cross-topic confusion between related tax categories on its own -- which is precisely the gap our verified-answer layer is designed to close.
 
