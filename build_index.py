@@ -76,6 +76,10 @@ def chunk_text(text: str, kb_name: str, source_file: str):
         end = start + CHUNK_SIZE
         chunk = text[start:end].strip()
         if chunk:
+            alnum_count = sum(c.isalnum() for c in chunk)
+            if alnum_count < 0.5 * len(chunk) or alnum_count < 100:
+                start += CHUNK_SIZE - CHUNK_OVERLAP
+                continue
             chunks.append({
                 "text": chunk,
                 "kb": kb_name,
