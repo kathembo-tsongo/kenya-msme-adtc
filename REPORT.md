@@ -122,6 +122,25 @@ One fact (the NITA training levy) could not be stated with full confidence: inde
 
 The updated model was re-verified via a fresh git clone and `download_model.sh` run, confirming the new SHA256 checksum resolves correctly end-to-end.
 
+**Model retraining update (September 19, 2026).** Following further testing, the submitted model was switched to a fresh fine-tuning run trained on an expanded dataset, `training_data_v5.jsonl` (3,429 examples), rather than the original `training_data_v3_final.jsonl`. The LoRA configuration is identical to the original run (rank 16, alpha 32, dropout 0.05, same 7 target modules), trained for 2 epochs on a Colab T4 GPU, reaching **global_step 430** with a final mean training loss of **1.3378484437632006** -- both a slight improvement over the original run's step-394 loss of 1.3941499436567277. One notable difference: this run's LoRA adapter weights were saved in fp32 precision (73,911,112 bytes) rather than the original run's fp16 (36,981,856 bytes) -- the same number of trainable parameters (18,464,768), stored with double the numerical precision per value, consistent with the fp32-adapter stability fix documented during this project's earlier NaN-weights debugging.
+
+The trained adapter was merged into the base model, converted to GGUF, and quantized to Q4_K_M using the same process documented above. The previously-verified chat-template digest (16,915 characters, covering NSSF, PAYE, VAT, Corporation Tax, Withholding Tax, Capital Gains Tax, WIBA, and other verified facts) was re-applied directly to this new model file using `gguf_new_metadata.py` -- since the chat template is independent of model weights, the exact same, already-tested digest content could be transferred without modification.
+
+This combination (new weights + existing digest) was tested through the full application stack (`rag_server.py`, not just the raw model file) against a battery of high-risk questions found to fabricate in earlier testing, and showed no fabrication on any tested question -- a cleaner result than the original weights showed on the same questions.
+
+**Updated proof-of-training files** (in `provenance-v6/`):
+- `adapter_model.safetensors` -- the trained LoRA adapter (checkpoint-430, fp32)
+- `adapter_config.json` -- LoRA configuration
+- `trainer_state.json` -- per-step training metrics, confirming global_step 430, epoch 2.0
+
+**Updated SHA256 checksums:**
+
+    msme-qwen2.5-1.5b-v6-Q4_K_M-digest-v9.gguf:  e88ec13968800a5e193974a6f132ab4e47658f61474063d7f2f8f3f56b34fca2
+    provenance-v6/adapter_model.safetensors:      0bf2d91bcf34099c02bc68e46ad60e19d6789f02f2464e59e66ec7b7f7407bb1
+    future-training-data/training_data_v5.jsonl:  3b88c7819410b1e6ddca771f4c0c43497450999fdc7b2acbaa0d2925e09840a2
+
+**Note on the Colab notebook:** the training notebook linked above now displays this v6 run's output (`global_step=430`) as its current, live cell output. This is consistent with the model actually submitted -- the notebook and the submission now describe the same training run, resolving an earlier internal inconsistency that existed when the notebook had been re-run after the original v3-based submission.
+
 We report this second example's residual imprecision rather than omitting it: fine-tuning measurably shifted outputs toward domain-specific knowledge, but did not eliminate cross-topic confusion between related tax categories on its own -- which is precisely the gap our verified-answer layer is designed to close.
 
 *Prompt (Kiswahili): "Kiwango cha VAT ni kiasi gani nchini Kenya?"*
