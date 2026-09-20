@@ -718,9 +718,9 @@ CANNED_ANSWERS = {
         "**Payroll records**: document each employee's monthly salary and "
         "all deductions above, and remit them on time -- NSSF, PAYE, SHIF, "
         "and Housing Levy all follow the same 9th-of-the-following-month "
-        "deadline. Keep these records available for inspection, and confirm "
-        "your county's specific retention-period requirement, since this "
-        "isn't fully standardized nationally."
+        "deadline. Keep these records available for inspection, and keep "
+        "each employee's written contract and particulars for five years "
+        "after their employment ends (Employment Act)."
     ),
     "business_insurance": (
         "Kenya's insurance industry is regulated by the **Insurance "
