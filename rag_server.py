@@ -261,6 +261,7 @@ CANNED_ANSWERS = {
     "vat": (
         "**VAT registration threshold in Kenya**:\n\n"
         "- Mandatory once your annual taxable turnover exceeds **KES 5,000,000 (5 million)**\n"
+        "- The standard VAT rate is **16%**, charged on your taxable sales\n"
         "- Register via iTax (itax.kra.go.ke)"
     ),
     "termination": (
@@ -819,6 +820,7 @@ CANNED_ANSWERS_SW = {
         "**Kiwango cha lazima cha kusajili VAT nchini Kenya**:\n\n"
         "- Ni lazima pindi mauzo yako ya mwaka yanayotozwa kodi yanapozidi "
         "**KES 5,000,000**\n"
+        "- Kiwango cha kawaida cha VAT ni **16%**, kinachotozwa kwenye mauzo yako yanayotozwa kodi\n"
         "- Jisajili kupitia iTax (itax.kra.go.ke)"
     ),
     "termination": (
@@ -1316,7 +1318,7 @@ TOPIC_KEYWORDS = {
     "loan": ["apply for a loan", "apply for financing", "get a loan", "startup loan", "hustler fund", "loan to start", "mkopo wa biashara", "jinsi ya kupata mkopo", "kupata mkopo wa kuanzisha"],
     "sole_prop_to_llc": ["transition into a limited", "convert my sole proprietorship", "converting sole proprietorship", "convert a sole proprietorship", "sole proprietorship into a limited", "sole proprietorship to a limited", "convert business name to company", "business name to limited company", "sole prop to llc", "sole proprietorship to llc", "kubadilisha biashara kuwa kampuni", "kutoka umiliki binafsi kwenda kampuni"],
     "kra_pin": ["how do i get a kra pin", "kra pin registration", "apply for kra pin", "get a kra pin", "kra pin for my business", "namba ya pin ya kra", "kupata pin ya kra", "jinsi ya kupata pin"],
-    "vat": ["vat registration", "vat threshold", "register for vat", "required to register for vat", "do i need to register for vat", "vat registration threshold", "kusajili vat", "ni lini nasajili vat", "kikomo cha vat"],
+    "vat": ["vat registration", "vat threshold", "register for vat", "required to register for vat", "do i need to register for vat", "vat registration threshold", "kusajili vat", "ni lini nasajili vat", "kikomo cha vat", "vat rate", "rate of vat", "how much is vat", "kiwango cha vat", "asilimia ya vat"],
     "termination": ["terminate an employee", "termination", "dismissal", "dismiss an employee", "redundancy", "fire an employee", "firing an employee", "kumfukuza mfanyakazi", "kuachisha kazi", "kufukuza mfanyakazi"],
     "food_business_license": ["food business need to operate", "licenses does a food business", "restaurant license kenya", "food business licenses", "licenses for a restaurant", "leseni ya mkahawa", "leseni ya biashara ya chakula", "leseni gani kwa biashara ya chakula"],
     "license": ["single business permit", "what license do i need", "what licence do i need", "trade license requirements", "leseni ya biashara", "kibali cha biashara", "ninahitaji leseni gani"],
@@ -1329,7 +1331,7 @@ TOPIC_KEYWORDS = {
     "tcc_application": ["tax compliance certificate", "apply for tcc", "tcc application", "how to get tcc", "tax compliance certificate application", "cheti cha ulipaji kodi", "kupata tcc"],
     "probation_period": ["probation period", "probation length", "how long can probation", "maximum probation", "probation extension", "kipindi cha majaribio", "muda wa majaribio kazini"],
     "agpo": ["agpo", "government procurement opportunities", "government tenders for youth", "30% government procurement", "access to government procurement", "zabuni za serikali", "manunuzi ya serikali"],
-    "employee_compliance_checklist": ["employee compliance", "statutory deductions", "legal documentation and statutory", "compliance under the kenyan employment act", "documentation and statutory deductions", "three permanent staff", "permanent staff members", "statutory deductions a small trading enterprise", "payroll obligations", "payroll requirements", "payroll compliance", "employer obligations", "obligations as an employer", "obligations of an employer", "employer responsibilities", "responsibilities as an employer", "first employee", "hire my first", "hiring my first", "hired my first"],
+    "employee_compliance_checklist": ["employee compliance", "statutory deductions", "legal documentation and statutory", "compliance under the kenyan employment act", "documentation and statutory deductions", "three permanent staff", "permanent staff members", "statutory deductions a small trading enterprise", "payroll obligations", "payroll requirements", "payroll compliance", "employer obligations", "obligations as an employer", "obligations of an employer", "employer responsibilities", "responsibilities as an employer", "first employee", "hire my first", "hiring my first", "hired my first", "mfanyakazi wa kwanza", "nikimwajiri", "kumwajiri mfanyakazi", "majukumu ya mwajiri", "wajibu wa mwajiri", "wajibu wangu kama mwajiri"],
     "compliance_software": ["compliance software", "accounting software", "payroll software", "tax software", "software to help", "software that will help", "software that can help", "software for my business", "any software"],
     "regulations_not_exhaustive": ["are those all the", "are these all the", "is that all the regulations", "is that all the requirements", "is that all i need", "is that everything i need"],
     "relocation_county": ["to another county", "to a different county", "to a new county", "switch my city", "switch my county", "city or state", "relocate my business to"],
@@ -1450,6 +1452,9 @@ def is_swahili(text: str) -> bool:
         "kodi", "usajili", "mfanyakazi", "mshahara", "kampuni", "sheria",
         "ushuru", "mwezi", "kiasi", "leseni", "ada", "pesa", "mkopo",
         "kibali", "ruhusa", "malipo", "faida", "huduma", "mwaka",
+        "lini", "ninapaswa", "kusajili", "kiwango", "nifanyeje", "nikimwajiri",
+        "mwajiri", "asilimia", "mchango", "michango", "jinsi", "ninaweza",
+        "naweza", "nchini", "tafadhali",
     ]
     return any(
         re.search(r"\b" + re.escape(w) + r"\b", text_lower)
