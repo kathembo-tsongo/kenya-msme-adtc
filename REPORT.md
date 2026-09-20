@@ -101,7 +101,7 @@ on regulatory specifics before any mitigation.
 **SHA256 checksums:**
 
     adapter_model.safetensors:      962a625b15ef4a7b8c67a38982dcb395b065b87cba1604170597a751704ec623
-    msme-qwen2.5-1.5b-Q4_K_M.gguf:  9db039ebc56c279555fa4e09e77f0be5ed82328ed3e6e8fe4e19621c13792ae5  (updated Sept 18, see addendum below)
+    msme-qwen2.5-1.5b-Q4_K_M.gguf:  9db039ebc56c279555fa4e09e77f0be5ed82328ed3e6e8fe4e19621c13792ae5  (v9-digest build on the original weights; superseded by the v6+v9 build listed under "Updated SHA256 checksums" below)
     training_data_v4_merged.jsonl:  f238a4290e0d5a173147c20a52a503cd718149489693c995c245ec99bde016b8
 
 **Before/after comparison.** Two identical prompts run through the unmodified base model (`Qwen/Qwen2.5-1.5B-Instruct-GGUF`, official Q4_K_M release) and our fine-tuned model, both without RAG or the digest-override layer, isolating the fine-tuning's effect specifically:
