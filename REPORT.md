@@ -324,7 +324,7 @@ exact invocation, isolating turbo boost as the variable, and confirming the
 fix with the same official tool used for scoring -- is itself evidence that
 the fix is real and not a coincidence of one lucky measurement.
 
-**Reproducibility note on the thermal figures (added September 20, 2026).** The organizers have since told us that their tooling does not enable, disable or manage Turbo Boost, the CPU governor or any power setting, and that the profiler only reads temperature during the run. The 59-61C figures above were therefore obtained with a non-default setting (turbo boost disabled) that the evaluation will not apply. The official-profiler runs we saved for the submitted builds with turbo boost on (submission_v9.json and submission_v6_v9.json) both measured a 98C peak with `throttled: true`, consistent with the Gate 1 measurement of 98-99C; a run limited to 2 threads (submission_2thread.json) measured 99C, so thread count did not help. We therefore do not claim that the submission stays under the 85C threshold on default settings: whether it does depends on the evaluation hardware's cooling. We had expected the audit might run in a cloud VM (the profiler schema has an audit_cloud_vm environment), but the Gate 2 guidelines refer to the ADTC Standard Laptop, so we do not rely on that expectation.
+**Reproducibility note on the thermal figures (added September 20, 2026).** The organizers have since told us that their tooling does not enable, disable or manage Turbo Boost, the CPU governor or any power setting, and that the profiler only reads temperature during the run. The 59-61C figures above were therefore obtained with a non-default setting (turbo boost disabled) that the evaluation will not apply. The official-profiler runs we saved for the submitted builds with turbo boost on (submission_v9.json and submission_v6_v9.json) both measured a 98C peak with `throttled: true`, consistent with the Gate 1 measurement of 98-99C; a run limited to 2 threads (submission_2thread.json) measured 99C, so thread count did not help. We therefore do not claim that the submission stays under the 85C threshold on default settings: whether it does depends on the evaluation hardware's cooling. We had expected the audit might run in a cloud VM (the profiler schema has an audit_cloud_vm environment), but the Gate 2 guidelines refer to the ADTC Standard Laptop, so we do not rely on that expectation. In three consecutive audit-mode runs of the profiler on a clean clone of the final submission, with turbo boost at its default, the peak temperature was 98C, 86C and 95C (all at or above the 85C threshold, so all flagged as throttled), at 17.65-17.91 tokens/sec and about 1,695 MB peak RSS. The spread shows that the reading depends on the machine's thermal state.
 
 **First-token latency -- a real trade-off from disabling turbo boost, and why
 we are not trimming the system prompt to compensate.** Disabling turbo boost
@@ -446,7 +446,7 @@ more reliable, and more honest about what it can and can't do.
 
 | Metric | Result | Target |
 |--------|--------|--------|
-| Generation speed (Sperf) | 15.3-17.7 tokens/sec | >= 15.0 tokens/sec |
+| Generation speed (Sperf) | 15.3-17.9 tokens/sec | >= 15.0 tokens/sec |
 | Efficiency Score (Seff), raw model | ~76% (RAM efficiency, official profiler) | Higher is better |
 | Full application memory (model + RAG server) | ~3.3GB combined* | <= 7GB |
 | Model size (Q4_K_M) | 934.69 MiB | <= 7GB |
