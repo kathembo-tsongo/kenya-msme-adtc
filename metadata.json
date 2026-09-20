@@ -15,7 +15,7 @@
   "cross_disciplinary_pairing": {
     "discipline": "legal_technology",
     "load_bearing": true,
-    "description": "The model grounds MSME advisory answers in actual Kenyan legal and regulatory source documents (Acts, tax code, social security law) via retrieval-augmented generation, making complex compliance requirements accessible to small business owners who cannot afford professional legal or tax counsel."
+    "description": "The model was fine-tuned on question-answer examples built from actual Kenyan legal and regulatory source documents (Acts, tax code, social security law) and carries a digest of verified compliance facts in its GGUF chat template, making complex compliance requirements accessible to small business owners who cannot afford professional legal or tax counsel. An optional application in this repository (rag_server.py) additionally retrieves passages from a corpus of those documents (retrieval-augmented generation), but the GGUF itself does not depend on it."
   },
   "test_prompts": [
     {
