@@ -324,10 +324,11 @@ exact invocation, isolating turbo boost as the variable, and confirming the
 fix with the same official tool used for scoring -- is itself evidence that
 the fix is real and not a coincidence of one lucky measurement.
 
+**Reproducibility note on the thermal figures (added September 20, 2026).** The organizers have since told us that their tooling does not enable, disable or manage Turbo Boost, the CPU governor or any power setting, and that the profiler only reads temperature during the run. The 59-61C figures above were therefore obtained with a non-default setting (turbo boost disabled) that the evaluation will not apply. The official-profiler runs we saved for the submitted builds with turbo boost on (submission_v9.json and submission_v6_v9.json) both measured a 98C peak with `throttled: true`, consistent with the Gate 1 measurement of 98-99C; a run limited to 2 threads (submission_2thread.json) measured 99C, so thread count did not help. We therefore do not claim that the submission stays under the 85C threshold on default settings: whether it does depends on the evaluation hardware's cooling. We had expected the audit might run in a cloud VM (the profiler schema has an audit_cloud_vm environment), but the Gate 2 guidelines refer to the ADTC Standard Laptop, so we do not rely on that expectation.
+
 **First-token latency -- a real trade-off from disabling turbo boost, and why
 we are not trimming the system prompt to compensate.** Disabling turbo boost
-(see Thermal, above) eliminates the thermal penalty risk entirely, but is not
-free: it roughly doubles first-token latency, since prompt processing is
+(see Thermal, above) eliminated the throttling on our laptop (a setting the evaluation does not apply -- see the reproducibility note in Thermal), but was not free: it roughly doubles first-token latency, since prompt processing is
 compute-bound and directly benefits from turbo's burst clock speed. We
 measured this directly and controlled for confounds: with turbo enabled,
 first-token latency averaged 3.7 seconds (but carries thermal risk); with
@@ -451,7 +452,8 @@ more reliable, and more honest about what it can and can't do.
 | Model size (Q4_K_M) | 934.69 MiB | <= 7GB |
 | Parameters | 1,543,714,304 | 1.5B declared |
 | RAG corpus | 18,307 chunks / 323 docs | Zero extraction failures |
-| CPU temperature (official profiler, current) | 61C, throttled: false | < 85C |
+| CPU temperature (official profiler, turbo boost on, saved runs of the submitted builds) | 98C, throttled: true | < 85C |
+| CPU temperature (official profiler, turbo boost disabled -- a non-default setting on our laptop that the evaluation does not apply) | 59-61C, throttled: false | < 85C |
 | Official Gate 1 Accuracy Score | 61.27 | -- |
 | Official Gate 1 Performance Score | 26.13 (above semifinalist median 24.50) | -- |
 | Official Gate 1 Efficiency Score | 84.69 (at semifinalist median 84.65) | -- |
