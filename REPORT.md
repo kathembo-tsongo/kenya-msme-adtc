@@ -50,7 +50,7 @@ Fine-tuning without retrieval, which the audit above ruled out. A larger digest,
 - **Fine-tuning method:** `lora`
 - **Training datasets:** `training_data_v5.jsonl` (3,610 records, used for the submitted weights) and `training_data_v4_merged.jsonl` (3,308 records, used for an earlier first run). Both are synthetic conversational datasets I generated from the regulatory source documents I collected. No third-party dataset was used.
 
-On field layout: on September 21, 2026 the public adtc-profiler (commit 12be4f3) rejected the template's root `provenance` object with "Additional properties are not allowed", but accepted `model.base_model_commit_sha`. So that is the only provenance field in `metadata.json`, and the rest is stated here.
+On field layout: on September 21, 2026 the public adtc-profiler (commit 12be4f3) rejected the template's root `provenance` object with "Additional properties are not allowed", but accepted `model.base_model_commit_sha`. So that is the only provenance field in `metadata.json`, and the rest is stated here. This matches the organizers' own template of September 20 (commit `c191615`), which specifies `model.base_model_commit_sha`; the later template commit `538d793` (September 21) moves the field into a root `provenance` object that the public profiler does not yet accept. The template's `provenance` object, in exactly its template form, is saved as `provenance/provenance.json`, ready to move into `metadata.json` once the profiler accepts it.
 
 ### Repository state
 
