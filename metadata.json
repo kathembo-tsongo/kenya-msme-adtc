@@ -20,11 +20,11 @@
   "test_prompts": [
     {
       "prompt_id": "tp_001",
-      "prompt": "What are the NSSF contribution rates for an employee earning KSh 30,000 per month?"
+      "prompt": "How many days of annual leave is an employee entitled to in Kenya?"
     },
     {
       "prompt_id": "tp_002",
-      "prompt": "What is the VAT rate?"
+      "prompt": "What is the turnover tax rate for small businesses in Kenya?"
     }
   ],
   "model": {
