@@ -32,7 +32,8 @@
     "runtime": "llama.cpp",
     "quantization": "GGUF Q4_K_M",
     "parameters_estimate": "1.5B",
-    "packaging": "binary_bundle"
+    "packaging": "binary_bundle",
+    "base_model_commit_sha": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
   },
   "_runtime": {
     "model_path": "model/msme-qwen2.5-1.5b-Q4_K_M.gguf"
