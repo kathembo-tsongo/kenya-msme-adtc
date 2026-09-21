@@ -81,17 +81,26 @@ on regulatory specifics before any mitigation.
 
 ## Model Provenance
 
-**Repository state.** This report and the accompanying submission reflect git commit `1eddb722fa5f3afd9a2c9230046638201a00c5e9` on the `main` branch (the last commit that changed code or the model; later commits change only documentation). (Note: the ADTC reference profiler's schema places reproducibility metadata such as commit SHAs in a separate `reproducibility` object outside `metadata.json`'s `submission` schema, which has `additionalProperties: false` and no slot for it -- we state it here in prose instead, and have raised this apparent discrepancy between the written Gate 2 guidelines and the published schema with the organizing team.)
+**Summary (matches `metadata.json`).**
 
-**Base model.** [Qwen/Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct), loaded via `transformers.AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct")` at training time (main branch, no pinned revision).
+- **Base model source:** `huggingface:Qwen/Qwen2.5-1.5B-Instruct`
+- **Base model commit SHA:** `989aa7980e4cf806f80c7fef2b1adb7bc71aa306` (in `metadata.json` as `model.base_model_commit_sha`)
+- **Fine-tuning method:** `lora`
+- **Training datasets:** `training_data_v5.jsonl` (3,610 records; used for the submitted weights) and `training_data_v4_merged.jsonl` (3,308 records; used for an earlier first run). Both are original synthetic datasets generated from this project's verified regulatory source documents; checksums are below.
 
-**Fine-tuning method.** LoRA, rank 16 (`r=16, lora_alpha=32, lora_dropout=0.05, bias="none", target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]`), trained via TRL's `SFTTrainer` for 2 epochs, batch size 4 with gradient accumulation 4, learning rate 2e-4 (cosine schedule, 3% warmup), on a Colab T4 GPU. Final training loss: **1.3941499436567277** at global step 394. Full configuration, training call, and logged output are preserved in the training notebook (`provenance/My_Offline_AI_advicer_for_kenyan_msmes.ipynb`) and `provenance/trainer_state.json`.
+The submitted weights come from a second training run (checkpoint-430, dataset `training_data_v5.jsonl`). The paragraphs that follow first describe the first run (checkpoint-394; its files are in `provenance/original-run/`), and the later section "Updated proof-of-training files" describes the submitted run (its files are directly in `provenance/`). On field layout: when we tested on September 21, 2026, the public adtc-profiler (commit 12be4f3) rejected the template's root `provenance` object but accepts `model.base_model_commit_sha`, so only that field is in `metadata.json`; the other facts are stated here.
 
-**Training dataset.** 3,308 synthetic conversational examples covering Kenyan MSME tax, registration, financing, and social security topics, generated from the project's own verified regulatory source documents (see Data Extraction, below) rather than any third-party licensed dataset. No external dataset license applies; the dataset is original work produced for this project and is included in full at `provenance/training_data_v4_merged.jsonl` (3,308 records, SHA256 checksum below).
+**Repository state.** This report and the accompanying submission reflect git commit `1eddb722fa5f3afd9a2c9230046638201a00c5e9` on the `main` branch (the last commit that changed code or the model; later commits change only documentation, `download_model.sh`, `metadata.json` and the `provenance/` folder). (The profiler records this repository's own commit automatically in the `reproducibility` object of its output report; per the updated submission template that value does not belong in `metadata.json`. The base model's commit is given below and in `metadata.json` as `model.base_model_commit_sha`.)
+
+**Base model.** [Qwen/Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct), loaded via `transformers.AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B-Instruct")` at training time (main branch, no pinned revision; at that time `main` resolved to commit `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`, the repository's most recent commit, dated 2024-09-25, before our training runs).
+
+**Fine-tuning method.** LoRA, rank 16 (`r=16, lora_alpha=32, lora_dropout=0.05, bias="none", target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"]`), trained via TRL's `SFTTrainer` for 2 epochs, batch size 4 with gradient accumulation 4, learning rate 2e-4 (cosine schedule, 3% warmup), on a Colab T4 GPU. Final training loss: **1.3941499436567277** at global step 394. Full configuration, training call, and logged output are preserved in the training notebook (`provenance/My_Offline_AI_advicer_for_kenyan_msmes.ipynb`) and `provenance/original-run/trainer_state.json`.
+
+**Training dataset (first run).** 3,308 synthetic conversational examples covering Kenyan MSME tax, registration, financing, and social security topics, generated from the project's own verified regulatory source documents (see Data Extraction, below) rather than any third-party licensed dataset. No external dataset license applies; the dataset is original work produced for this project and is included in full at `provenance/original-run/training_data_v4_merged.jsonl` (3,308 records, SHA256 checksum below).
 
 **Merge and quantization.** The LoRA adapter (`checkpoint-394`) was merged into the base model via `peft.PeftModel.from_pretrained()` + `merge_and_unload()`, converted to GGUF via `llama.cpp`'s `convert_hf_to_gguf.py`, and quantized to Q4_K_M via `llama-quantize`. All three steps, including their real logged output, are preserved in the same training notebook.
 
-**Proof-of-training files** (in `provenance/`):
+**Proof-of-training files, first run** (in `provenance/original-run/`, except the notebook, which is in `provenance/`):
 - `adapter_model.safetensors` + `adapter_config.json` -- the trained LoRA adapter
 - `My_Offline_AI_advicer_for_kenyan_msmes.ipynb` -- full training notebook (data prep, LoRA training, merge, GGUF conversion, quantization), with cell outputs intact
 - `trainer_state.json` -- per-step training metrics
@@ -128,7 +137,7 @@ The trained adapter was merged into the base model, converted to GGUF, and quant
 
 This combination (new weights + existing digest) was tested through the full application stack (`rag_server.py`, not just the raw model file) against a battery of high-risk questions found to fabricate in earlier testing, and showed no fabrication on any tested question -- a cleaner result than the original weights showed on the same questions.
 
-**Updated proof-of-training files** (in `provenance-v6/`):
+**Updated proof-of-training files, submitted run** (in `provenance/`; the folder also holds `training_log.txt`, `dataset_info.md` and `merge_and_quantization.md`; the dataset `training_data_v5.jsonl` is in `future-training-data/`):
 - `adapter_model.safetensors` -- the trained LoRA adapter (checkpoint-430, fp32)
 - `adapter_config.json` -- LoRA configuration
 - `trainer_state.json` -- per-step training metrics, confirming global_step 430, epoch 2.0
@@ -136,8 +145,10 @@ This combination (new weights + existing digest) was tested through the full app
 **Updated SHA256 checksums:**
 
     msme-qwen2.5-1.5b-v6-Q4_K_M-digest-v9.gguf:  e88ec13968800a5e193974a6f132ab4e47658f61474063d7f2f8f3f56b34fca2
-    provenance-v6/adapter_model.safetensors:      0bf2d91bcf34099c02bc68e46ad60e19d6789f02f2464e59e66ec7b7f7407bb1
+    provenance/adapter_model.safetensors:      0bf2d91bcf34099c02bc68e46ad60e19d6789f02f2464e59e66ec7b7f7407bb1
     future-training-data/training_data_v5.jsonl:  3b88c7819410b1e6ddca771f4c0c43497450999fdc7b2acbaa0d2925e09840a2
+
+**Pinned download and hand check.** `download_model.sh` pins the model file to Hugging Face commit `c73de544d83d85040cd3984fd180c718725200e3`; the template's download script does not verify hashes. After `bash download_model.sh`, `sha256sum model/msme-qwen2.5-1.5b-Q4_K_M.gguf` should print `e88ec13968800a5e193974a6f132ab4e47658f61474063d7f2f8f3f56b34fca2`.
 
 **Note on the Colab notebook:** the training notebook linked above now displays this v6 run's output (`global_step=430`) as its current, live cell output. This is consistent with the model actually submitted -- the notebook and the submission now describe the same training run, resolving an earlier internal inconsistency that existed when the notebook had been re-run after the original v3-based submission.
 
@@ -368,7 +379,7 @@ lever for improving perceived responsiveness going forward.
 parameter count of 1,543,714,304 (matches the 1.5B estimate declared in
 metadata.json).
 
-**Retrieval corpus:** 18,307 chunks across all 323 source documents, zero
+**Retrieval corpus:** 18,307 chunks extracted from all 323 source documents (the application's current index loads 15,775 chunks; commit a00effc added a filter to the index build that drops chunks that are less than half alphanumeric or contain fewer than 100 alphanumeric characters), zero
 extraction failures.
 
 **Accuracy (self-measured, English test set):** We built an internal
@@ -451,7 +462,7 @@ more reliable, and more honest about what it can and can't do.
 | Full application memory (model + RAG server) | ~3.3GB combined* | <= 7GB |
 | Model size (Q4_K_M) | 934.69 MiB | <= 7GB |
 | Parameters | 1,543,714,304 | 1.5B declared |
-| RAG corpus | 18,307 chunks / 323 docs | Zero extraction failures |
+| RAG corpus | 18,307 chunks extracted from 323 docs; 15,775 in the application's current index | Zero extraction failures |
 | CPU temperature (official profiler, turbo boost on, saved runs of the submitted builds) | 98C, throttled: true | < 85C |
 | CPU temperature (official profiler, turbo boost disabled -- a non-default setting on our laptop that the evaluation does not apply) | 59-61C, throttled: false | < 85C |
 | Official Gate 1 Accuracy Score | 61.27 | -- |
