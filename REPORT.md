@@ -160,19 +160,19 @@ All measurements are from my development laptop (Intel i7-1065G7 at 1.30 GHz, 14
 
 ### Throughput and memory
 
-Generation speed is 16-18 tokens per second in my saved profiler runs. The latest three runs on a clean clone of the final submission gave 17.65, 17.90 and 17.91, above the 15.0 reference. Peak memory for the model file alone is about 1,695 MB, which is roughly 76% efficiency against the 7 GB ceiling by the profiler's formula. The full application (model server plus retrieval proxy) uses about 3.3 GB combined. Both are under 7 GB, but they measure different things.
+Generation speed is 16-18 tokens per second in my saved profiler runs. The latest three runs on a clean clone of the final submission gave 17.72, 17.61 and 17.64, above the 15.0 reference. Peak memory for the model file alone is about 1,695 MB, which is roughly 76% efficiency against the 7 GB ceiling by the profiler's formula. The full application (model server plus retrieval proxy) uses about 3.3 GB combined. Both are under 7 GB, but they measure different things.
 
 ### Temperature
 
 Early on, my own sustained-load test plateaued at 77 C, while the profiler's benchmark measured a peak of 98-99 C and flagged throttling. I traced the difference to turbo boost: the profiler's workload is a burst of prompt processing, heavier than my manual tests, and it triggers a heat spike that a thin laptop chassis cannot shed quickly. With turbo boost disabled (`echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo`) the peak fell from 96-100 C to 59-61 C with no throttling and no measurable change in generation speed (16.03 against 16.08 tokens per second in matched tests, and 16.12 with `throttled: false` in a profiler run).
 
-The competition organizers later told me that their tooling does not enable, disable or manage turbo boost, the CPU governor or any power setting, and that the profiler only reads temperature during the run. So the 59-61 C results come from a setting the evaluation will not apply, and I do not claim the submission stays under 85 C on default settings. With turbo boost at its default, my saved profiler runs of the submitted builds (`submission_v9.json`, `submission_v6_v9.json`) both peaked at 98 C, and a run limited to two threads peaked at 99 C, so thread count does not help. Three consecutive runs on a clean clone of the final submission peaked at 98, 86 and 95 C. All are at or above the 85 C threshold and were flagged as throttled, and the spread shows the reading depends on the machine's thermal state.
+The competition organizers later told me that their tooling does not enable, disable or manage turbo boost, the CPU governor or any power setting, and that the profiler only reads temperature during the run. So the 59-61 C results come from a setting the evaluation will not apply, and I do not claim the submission stays under 85 C on default settings. With turbo boost at its default, my saved profiler runs of the submitted builds (`submission_v9.json`, `submission_v6_v9.json`) both peaked at 98 C, and a run limited to two threads peaked at 99 C, so thread count does not help. Three consecutive runs on a clean clone of the final submission peaked at 99, 94 and 88 C. All are at or above the 85 C threshold and were flagged as throttled, and the spread shows the reading depends on the machine's thermal state.
 
 The profiler's documentation says audit mode runs in cloud VMs, where temperature sensors are often unavailable, but the submission rules refer to a standard laptop profile. I cannot check which applies, so I do not rely on either. Whether the thermal penalty applies depends on the evaluation hardware.
 
 ### First-token latency
 
-With turbo boost enabled, first-token latency averages about 3.6 seconds. With it disabled it roughly doubles to 7.5-7.8 seconds, because prompt processing is compute-bound. This held on an idle machine, so background load was not the cause. Generation speed is unaffected either way.
+With turbo boost enabled, first-token latency was 3.7, 4.6 and 4.6 seconds in my three latest runs, and 3.6 seconds in an earlier one. With it disabled it rises to 7.5-7.8 seconds, because prompt processing is compute-bound. This held on an idle machine, so background load was not the cause. Generation speed is unaffected either way.
 
 I considered shortening the application's system prompt to reduce prefill time and decided against it. Nearly every rule in it corresponds to a specific fabrication I had observed, and I could not re-test every earlier case in the time available. I prefer to widen the set of verified answers, which removes those questions from the slow generation path altogether.
 
@@ -257,7 +257,7 @@ Next: turn my test scripts (a 16-prompt greedy stress test and a figure-checking
 - Questions that match no verified topic go to the 1.5B model, which can produce inaccurate steps and can refer to "source material" the user never provided.
 - Output at temperature 0 is not exactly reproducible on my setup.
 - My accuracy figures for the application come from my own question sets, which I also used while fixing problems, so they are optimistic.
-- Whether the thermal penalty applies depends on the evaluation hardware. On my laptop with default settings, the profiler reads 86-99 C and flags throttling.
+- Whether the thermal penalty applies depends on the evaluation hardware. On my laptop with default settings, the profiler reads 88-99 C and flags throttling.
 
 ## What I Learned
 
@@ -272,13 +272,13 @@ Next: turn my test scripts (a 16-prompt greedy stress test and a figure-checking
 
 | Metric | Result | Reference |
 |---|---|---|
-| Generation speed (profiler, CPU only) | 16-18 tokens/s in saved runs; latest three 17.65, 17.90, 17.91 | 15.0 |
-| First-token latency (profiler, default settings) | about 3.6 s | none |
+| Generation speed (profiler, CPU only) | 16-18 tokens/s in saved runs; latest three 17.72, 17.61, 17.64 | 15.0 |
+| First-token latency (profiler, default settings) | 3.6-4.6 s (latest three runs: 3.7, 4.6, 4.6) | none |
 | Peak memory, model file (profiler) | about 1,695 MB (about 76% efficiency) | 7 GB limit |
 | Memory, full application | about 3.3 GB | 7 GB limit |
 | Model file | 986,062,592 bytes (about 940 MiB) | none |
 | Parameters | 1,543,714,304 | 1.5B declared |
-| CPU temperature, default settings | 86-98 C in three runs, flagged throttled | 85 C |
+| CPU temperature, default settings | 88-99 C in three runs, flagged throttled | 85 C |
 | CPU temperature, turbo boost disabled | 59-61 C, not throttled (a setting the evaluation does not apply) | 85 C |
 | Annual leave test prompt (`tp_001`), 21 days, model file | figure right in 8 of 8 runs; wrong or misleading detail in 7 of 8 | none |
 | Turnover tax test prompt (`tp_002`), 1.5%, model file | figure right in 8 of 8 runs; wrong or odd detail in 4 of 8 | none |
