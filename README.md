@@ -59,12 +59,12 @@ Requires documents/ (the source knowledge base). Run `bash download_corpus.sh` -
 
 python3 build_index.py
 
-This produces rag_index.pkl (18,307 chunks indexed, zero extraction failures across all 323 source documents).
+This produces rag_index.pkl from all 323 source documents with zero extraction failures: 18,307 chunks are extracted, and the application's current index holds 15,775 after low-content chunks are filtered out (see REPORT.md).
 
 ### 5. Run the stack
 
 Terminal 1 -- start the model server:
-./llama.cpp/build/bin/llama-server -m ./model/msme-qwen2.5-1.5b-Q4_K_M.gguf --port 8090 -c 4096
+./llama.cpp/build/bin/llama-server -m ./model/msme-qwen2.5-1.5b-Q4_K_M.gguf --port 8090 -c 8192
 
 Terminal 2 -- start the RAG proxy:
 source venv/bin/activate
@@ -72,16 +72,11 @@ python3 rag_server.py
 
 Then open webui/index.html directly in a browser.
 
-**Before benchmarking:** disable CPU turbo boost first. We found turbo boost
-causes a sharp power/heat spike during sustained inference on thin-chassis
-hardware, driving peak temperature to 96-100C (triggering the thermal
-penalty) with no measurable throughput benefit. Disabling it drops peak
-temperature to ~59C with no measurable cost (see REPORT.md, "Thermal --
-root cause found and fixed", for full measurements):
+**Thermal note:** with default settings, my laptop's profiler runs peaked at 88-99C and were flagged as throttled. Disabling CPU turbo boost brought the peak down to 59-61C with no throttling and no measurable change in generation speed, but it is a non-default setting that the evaluation does not apply (the organizers told me their tooling does not change power settings). I therefore do not claim the submission stays under 85C on default settings. See REPORT.md, "Benchmarks", "Temperature", for the measurements. To reproduce the turbo-disabled result:
 
     echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
 
-`start.sh` checks this automatically and prints a warning if it's off.
+`start.sh` prints a warning when turbo boost has not been disabled. Ignore it if you want to test default settings.
 
 ## Testing the raw model standalone (no RAG)
 
@@ -90,13 +85,13 @@ root cause found and fixed", for full measurements):
 ## Resource usage (measured)
 
 - Combined RAM (llama-server + rag_server.py): about 3.3GB
-- Model file size: 935MB (Q4_K_M quantization)
+- Model file size: about 940 MiB, 986,062,592 bytes (Q4_K_M quantization)
 
 ## Known limitations
 
-The fine-tuned model's standalone factual accuracy (no RAG) is uneven -- strongest on frequently-repeated training topics, weaker elsewhere, and this holds regardless of decoding temperature (tested at both 0.6 and 0.3 with comparable fabrication rates). A verified-answer digest in `rag_server.py` bypasses generation entirely for 37 hand-checked, high-risk topics (NSSF rate and late-payment penalty, PAYE bands/deadline/penalty, SHIF rate, VAT threshold, Turnover Tax, Affordable Housing Levy, Minimum Wage, YEDF, business registration, KRA PIN, and others), each available in both English and Kiswahili. The RAG layer substantially improves reliability elsewhere by grounding answers in actual source documents, and includes scope-boundary handling to avoid answering questions outside Kenya/MSME topics with unfounded confidence.
+The fine-tuned model's standalone factual accuracy (no RAG) is uneven -- strongest on frequently-repeated training topics, weaker elsewhere, and this holds regardless of decoding temperature (tested at both 0.6 and 0.3 with comparable fabrication rates). A verified-answer digest in `rag_server.py` bypasses generation entirely for more than 40 hand-checked, high-risk topics (NSSF rate and late-payment penalty, PAYE bands/deadline/penalty, SHIF rate, VAT threshold, Turnover Tax, Affordable Housing Levy, Minimum Wage, YEDF, business registration, KRA PIN, and others), most available in both English and Kiswahili (six are English-only). The RAG layer substantially improves reliability elsewhere by grounding answers in actual source documents, and includes scope-boundary handling to avoid answering questions outside Kenya/MSME topics with unfounded confidence.
 
-Note: this digest-override layer protects the chat/qualitative evaluation path only. The raw model's automated multiple-choice/log-likelihood scoring loads the `.gguf` directly and never renders a chat template, so it reflects the base model's own fine-tuned weights independent of this mitigation -- see REPORT.md ("Two distinct accuracy-evaluation paths") for the full explanation.
+Note: this digest-override layer protects the chat/qualitative evaluation path only. The raw model's automated multiple-choice/log-likelihood scoring loads the `.gguf` directly and never renders a chat template, so it reflects the base model's own fine-tuned weights independent of this mitigation -- see REPORT.md ("How the two evaluation paths see the system") for the full explanation.
 
 ## Sources
 
