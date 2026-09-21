@@ -68,7 +68,7 @@ I trained two LoRA runs with the same configuration: rank 16, `lora_alpha=32`, `
 |---|---|---|
 | Dataset | `training_data_v4_merged.jsonl`, 3,308 records | `training_data_v5.jsonl`, 3,610 records, 3,429 used for training |
 | Steps | 394 | 430 |
-| Final training loss, as logged | 1.3941 | 1.3378 |
+| Mean training loss over the run | 1.3941 (last logged step: 1.2827) | 1.3378 (last logged step: 1.2107) |
 | Adapter | fp16, 36,981,856 bytes | fp32, 73,911,112 bytes |
 | Files | `provenance/original-run/` | `provenance/` |
 
@@ -78,11 +78,11 @@ Before the second run succeeded, my first retraining attempts failed. The adapte
 
 ### Merge and quantization
 
-The adapter was merged into the base model with `peft.PeftModel.from_pretrained()` and `merge_and_unload()`, converted to GGUF with llama.cpp's `convert_hf_to_gguf.py`, and quantized to Q4_K_M with `llama-quantize`. The notebook `provenance/My_Offline_AI_advicer_for_kenyan_msmes.ipynb` keeps the cell outputs, and there is a Colab link: [colab.research.google.com/drive/1jpcZW0uXTLsfxPQCT2AYnKfoLRiyrdIV](https://colab.research.google.com/drive/1jpcZW0uXTLsfxPQCT2AYnKfoLRiyrdIV?usp=sharing). The notebook now shows the output of the submitted run (`global_step=430`).
+The adapter was merged into the base model with `peft.PeftModel.from_pretrained()` and `merge_and_unload()`, converted to GGUF with llama.cpp's `convert_hf_to_gguf.py`, and quantized to Q4_K_M with `llama-quantize`. The notebook `provenance/My_Offline_AI_advicer_for_kenyan_msmes.ipynb` is included, and there is a Colab link: [colab.research.google.com/drive/1jpcZW0uXTLsfxPQCT2AYnKfoLRiyrdIV](https://colab.research.google.com/drive/1jpcZW0uXTLsfxPQCT2AYnKfoLRiyrdIV?usp=sharing). The notebook in the repository keeps the cell outputs of the first run (`global_step=394`). The log of the submitted run (`global_step=430`) is in `provenance/trainer_state.json` and `provenance/training_log.txt`.
 
 After quantization I wrote the fact digest into the chat template with `gguf_new_metadata.py`. This changes metadata only, not the weights, so the same digest could be applied to the new file without changes. On September 18 I extended it by ten facts (Corporation Tax, Withholding Tax, Capital Gains Tax, WIBA, Excise Duty, Stamp Duty, Rental Income Tax, the Turnover Tax deduction rule, Digital Service Tax and the NITA levy). Each came from a base-model comparison that found wrong answers, and each was checked against KRA's published guidance first. Two facts (Stamp Duty and Rental Income) needed a second patch that named the wrong answer explicitly ("this rate applies to X, not Y"). For NITA, sources disagree on the current levy (KES 50 a month under the 2007 rate, or KES 600 a year after a 2020 amendment that a 2022 Act may have reversed), so the digest tells the model to say the rate has changed and to check with NITA or KRA.
 
-The provenance folder holds `adapter_model.safetensors` and `adapter_config.json` for the submitted run, `trainer_state.json`, `training_log.txt`, `dataset_info.md`, `merge_and_quantization.md`, the notebook, and `original-run/` for the first run.
+The provenance folder holds `adapter_model.safetensors` and `adapter_config.json` for the submitted run, `trainer_state.json`, `training_log.txt`, `dataset_info.md`, `merge_and_quantization.md`, the notebook (whose cell outputs are from the first run), and `original-run/` for the first run.
 
 ### Checksums
 
