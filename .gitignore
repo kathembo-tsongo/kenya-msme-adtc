@@ -1,64 +1,60 @@
-# Third-party tools — build separately, don't commit
-llama.cpp/
 
-# Model weights — too large for git; distribute separately (see README)
-*.gguf
-model/
-
-# Python
-venv/
-__pycache__/
-*.pyc
-
-# OS
-.DS_Store
-
-# Secrets — NEVER commit
-.env
-**/secrets.toml
-
-# Runtime artifacts and legacy code
-logs/
-old_scrapers/
-
-# Generated RAG artifacts — rebuild via build_index.py, or download from README link
-rag_index.pkl
-documents/
-documents.zip
-submission_retest.json
-# Local profiler test-run outputs -- not part of the submission
-submission_*.json
-# Local scratch files from chat-template patching sessions -- not part of the submission
-current_template*.jinja
-patch_template*.py
-patched_chat_template*.jinja
-submission.json
-server_output.log
 .~lock.*#
-Preparation of Gate 2.docx
-Report_adtc.docx
-*.docx
-*.bak*
-*.log
-patch_*.py
-raw_*.py
-gate1_recheck*
-greedy_*
-gf_*.txt
-update_report_*.py
 apply_chunk_filter.py
+*.bak*
 before_after*
 both_paths*
 confirm_two*
+current_full_digest_template.jinja
+current_template*.jinja
 digest_in_gguf.txt
-fix_*.py
+documents/
+documents.zip
+*.docx
+.DS_Store
+.env
+eval_routing.csv
 final_check.py
+fix_*.py
+gate1_recheck*
+# Generated RAG artifacts — rebuild via build_index.py, or download from README link
+gf_*.txt
+*.gguf
+greedy_*
+images/
+llama.cpp/
+# Local profiler test-run outputs -- not part of the submission
+# Local scratch files from chat-template patching sessions -- not part of the submission
+*.log
+logs/
+model/
+# Model weights — too large for git; distribute separately (see README)
+old_scrapers/
+# OS
+patched_chat_template*.jinja
+patch_*.py
+patch_template*.py
+Preparation of Gate 2.docx
+provenance/.ipynb_checkpoints/
+*.pyc
+__pycache__/
+# Python
+rafiki_pack.db
+rag_index.pkl
+raw_*.json
+raw_*.py
+raw_*.txt
+recheck_gate1.py
+Report_adtc.docx
+# Runtime artifacts and legacy code
+# Secrets — NEVER commit
+**/secrets.toml
+server_output.log
 shape_probe.py
 start_v6_test.sh
+submission_*.json
+submission_retest.json
 test_q67.py
-recheck_gate1.py
-current_full_digest_template.jinja
-images/
-provenance/.ipynb_checkpoints/
-raw_*.txt
-raw_*.json
+# Third-party tools — build separately, don't commit
+update_report_*.py
+venv/
