@@ -19,6 +19,7 @@ import argparse
 import ast
 import datetime as dt
 import hashlib
+import json
 import os
 import pickle
 import re
@@ -28,11 +29,13 @@ import sys
 import warnings
 from collections import defaultdict
 
+import query_pack as qp
+
 WANTED = ["CANNED_ANSWERS", "CANNED_ANSWERS_SW", "TOPIC_KEYWORDS", "DIGEST_OVERRIDE_KEYWORDS"]
 TEXT_KEYS = ("text", "content", "chunk", "page_content")
 SOURCE_KEYS = ("source", "file", "filename", "doc", "document", "path")
 KB_KEYS = ("kb", "category", "collection", "folder")
-PACK_FORMAT = "1"
+PACK_FORMAT = "2"   # 2: adds the routing `config` table
 
 
 # ---------------------------------------------------------------- extraction
@@ -172,6 +175,10 @@ def write_pack(out, lit, chunks, meta, general):
         CREATE INDEX idx_topic_keywords_priority ON topic_keywords(priority);
         CREATE TABLE digest_override_keywords(keyword TEXT NOT NULL);
         CREATE TABLE general_topics(topic TEXT PRIMARY KEY);
+        CREATE TABLE config(key TEXT PRIMARY KEY, value TEXT NOT NULL);
+        CREATE TABLE config_list(key TEXT NOT NULL, pos INTEGER NOT NULL, item TEXT NOT NULL);
+        CREATE TABLE config_num(key TEXT PRIMARY KEY, value REAL NOT NULL);
+        CREATE TABLE config_str(key TEXT PRIMARY KEY, value TEXT NOT NULL);
         CREATE TABLE chunks(id INTEGER PRIMARY KEY, kb TEXT, source TEXT, body TEXT NOT NULL);
         CREATE VIRTUAL TABLE chunks_fts USING fts4(content="chunks", body, tokenize=porter);
         CREATE VIRTUAL TABLE canned_fts USING fts4(body, tokenize=porter);
@@ -199,6 +206,19 @@ def write_pack(out, lit, chunks, meta, general):
 
     for topic in general:
         db.execute("INSERT INTO general_topics VALUES (?)", (topic,))
+
+    # Routing word lists and thresholds, from query_pack.py (the single source of truth).
+    # The phone reads these, so a routing fix ships as a new pack, not a new app.
+    for key, value in qp.config_values().items():
+        db.execute("INSERT INTO config VALUES (?,?)", (key, json.dumps(value, ensure_ascii=False)))
+        # the same values in flat tables, so the Kotlin router needs no JSON parser
+        if isinstance(value, list):
+            db.executemany("INSERT INTO config_list VALUES (?,?,?)",
+                           [(key, i, item) for i, item in enumerate(value)])
+        elif isinstance(value, dict):
+            db.executemany("INSERT INTO config_num VALUES (?,?)", list(value.items()))
+        else:
+            db.execute("INSERT INTO config_str VALUES (?,?)", (key, value))
 
     db.executemany("INSERT INTO chunks(kb, source, body) VALUES (?,?,?)",
                    [(kb, src, text) for text, src, kb in chunks])

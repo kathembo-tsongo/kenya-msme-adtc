@@ -58,3 +58,4 @@ test_q67.py
 # Third-party tools — build separately, don't commit
 update_report_*.py
 venv/
+laptop.txt

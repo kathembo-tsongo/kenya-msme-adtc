@@ -22,6 +22,7 @@ Usage:
     python3 query_pack.py --info
 """
 import argparse
+import json
 import math
 import re
 import sqlite3
@@ -80,6 +81,53 @@ pochi safaricom ecitizen brs cbk kebs nema kephis keproba
 kodi ushuru leseni kibali vibali usajili sajili kusajili kujisajili adhabu faini sheria
 mkopo mikopo riba bima mshahara wafanyakazi mfanyakazi likizo serikali kaunti
 """.split())
+
+
+# ---------------------------------------------------------------- shared config
+# The constants above are the defaults. build_pack.py writes them into the pack's
+# `config` table, and route() loads them back from whatever pack it is given. The
+# Android router reads the same table, so Python and phone can never drift apart.
+def config_values():
+    """Everything the router depends on, as JSON-serialisable values."""
+    return {
+        "stopwords": sorted(STOPWORDS),
+        "small_talk": sorted(SMALL_TALK),
+        "factual_words": sorted(FACTUAL_WORDS),
+        "referential": list(REFERENTIAL),
+        "app_info_regex": APP_INFO.pattern,
+        "clarification_regex": CLARIFICATION.pattern,
+        "thresholds": dict(
+            k1=K1, b=B, strong_norm=STRONG_NORM, strong_coverage=STRONG_COVERAGE,
+            strong_focus_tf=STRONG_FOCUS_TF, partial_norm=PARTIAL_NORM,
+            partial_coverage=PARTIAL_COVERAGE, canned_search_norm=CANNED_SEARCH_NORM,
+            canned_search_coverage=CANNED_SEARCH_COVERAGE, min_specific_idf=MIN_SPECIFIC_IDF),
+    }
+
+
+_loaded_from = None
+
+
+def load_config(db):
+    """Override the module defaults with the pack's config table (once per pack)."""
+    global _loaded_from, STOPWORDS, SMALL_TALK, FACTUAL_WORDS, REFERENTIAL, APP_INFO, CLARIFICATION
+    global K1, B, STRONG_NORM, STRONG_COVERAGE, STRONG_FOCUS_TF, PARTIAL_NORM, PARTIAL_COVERAGE
+    global CANNED_SEARCH_NORM, CANNED_SEARCH_COVERAGE, MIN_SPECIFIC_IDF
+    if _loaded_from is db:
+        return
+    _loaded_from = db
+    try:
+        cfg = {k: json.loads(v) for k, v in db.execute("SELECT key, value FROM config")}
+    except sqlite3.OperationalError:
+        return  # older pack without a config table: keep the defaults
+    STOPWORDS, SMALL_TALK = set(cfg["stopwords"]), set(cfg["small_talk"])
+    FACTUAL_WORDS, REFERENTIAL = set(cfg["factual_words"]), list(cfg["referential"])
+    APP_INFO, CLARIFICATION = re.compile(cfg["app_info_regex"]), re.compile(cfg["clarification_regex"])
+    t = cfg["thresholds"]
+    K1, B = t["k1"], t["b"]
+    STRONG_NORM, STRONG_COVERAGE, STRONG_FOCUS_TF = t["strong_norm"], t["strong_coverage"], t["strong_focus_tf"]
+    PARTIAL_NORM, PARTIAL_COVERAGE = t["partial_norm"], t["partial_coverage"]
+    CANNED_SEARCH_NORM, CANNED_SEARCH_COVERAGE = t["canned_search_norm"], t["canned_search_coverage"]
+    MIN_SPECIFIC_IDF = t["min_specific_idf"]
 
 
 # ---------------------------------------------------------------- text helpers
@@ -256,6 +304,7 @@ ACTION = {
 
 def route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
     """Decide how the app answers one question. Returns a dict; 'kind' is a key of ACTION."""
+    load_config(db)
     r = dict(kind="", topic="", also_matched=[], confidence="", focus="", hits=[], answer="",
              followup=None, suggest="")
     terms = query_terms(query)
@@ -318,6 +367,14 @@ def route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
 
 
 # ---------------------------------------------------------------- CLI
+def parity_line(query, r):
+    """One comparable line per question. RouterSelfTest.kt logs exactly this format."""
+    f = r.get("followup")
+    top = r["hits"][0]["docid"] if r["hits"] else (f["hits"][0]["docid"] if f and f["hits"] else "")
+    return "|".join(["P", query, r["kind"], r["topic"], r["suggest"], r["confidence"],
+                     r["focus"], f["confidence"] if f else "", str(top)])
+
+
 def show_hits(hits, focus):
     for i, h in enumerate(hits, 1):
         print(f"  #{i} score {h['score']:.1f} norm {h['norm']:.0%} cov {h['coverage']:.0%} "
@@ -334,8 +391,18 @@ def main():
     ap.add_argument("--prev-query", help="previous question, to test follow-ups")
     ap.add_argument("-k", type=int, default=3)
     ap.add_argument("--info", action="store_true")
+    ap.add_argument("--parity", metavar="FILE",
+                    help="route each line of FILE and print one 'P|...' line per question -- "
+                         "the same format the phone's self-test logs, so the two can be diffed")
     args = ap.parse_args()
     db = sqlite3.connect(args.db)
+
+    if args.parity:
+        with open(args.parity, encoding="utf-8") as f:
+            for q in (line.strip() for line in f):
+                if q and not q.startswith("#"):
+                    print(parity_line(q, route(db, q, args.lang)))
+        return
 
     if args.info or not args.query:
         for k, v in db.execute("SELECT key, value FROM meta ORDER BY key"):
