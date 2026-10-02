@@ -51,6 +51,17 @@ def lang_of(value, question):
     return "sw" if w & {"na", "ya", "kwa", "ni", "je", "gani", "nini", "vipi", "biashara", "naweza"} else "en"
 
 
+# Equivalent wording accepted by the lenient score only. The test CSV is never edited.
+# Each entry: expected word -> words that carry the same meaning in a correct answer.
+EQUIV = {
+    "license": ["licence", "permit", "certificate"],
+    "fine": ["penalty", "penalties"],
+    "regulation": ["regulated", "regulates", "regulator", "regulatory"],
+    "buy goods": ["till"],
+    "salary": ["salaries", "wage", "wages", "emoluments"],
+}
+
+
 def check(r, must, must_not):
     if not must and not must_not:
         return ""
@@ -59,6 +70,10 @@ def check(r, must, must_not):
     present = [m for m in must_not if m in text]
     if not missing and not present:
         return "PASS"
+    # Lenient pass: every missing word has a listed equivalent in the answer (strict score unchanged).
+    via = {m: next((e for e in EQUIV.get(m, []) if e in text), None) for m in missing}
+    if not present and missing and all(via.values()):
+        return "PASS~ " + ", ".join(f"{m}->{e}" for m, e in via.items())
     return "FAIL" + (f" missing={missing}" if missing else "") + (f" forbidden={present}" if present else "")
 
 
@@ -152,7 +167,8 @@ def main():
             print(f"  {n:>3}  {n / len(subset):>4.0%}  {k}")
         checks = [r["check"] for r in subset if r["check"]]
         if checks:
-            print(f"  must_contain checks: {sum(c == 'PASS' for c in checks)}/{len(checks)} pass")
+            print(f"  must_contain checks: {sum(c == 'PASS' for c in checks)}/{len(checks)} pass (strict)"
+                  f"  |  {sum(c.startswith('PASS') for c in checks)}/{len(checks)} with listed equivalents")
 
     ms = [r["ms"] for r in rows]
     print("=" * 70)
