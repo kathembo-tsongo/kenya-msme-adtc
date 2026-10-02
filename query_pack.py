@@ -38,6 +38,7 @@ CANNED_SEARCH_NORM, CANNED_SEARCH_COVERAGE = 0.4, 0.6
 MIN_SPECIFIC_IDF = 4.5   # a follow-up only fires for words at least this specific
 
 STOPWORDS = set("""
+kufungua fungua kuanzisha anzisha
 a an and are as at be by can do does for from how i if in is it me my of on or
 should the to what when where which who why will with you your we our there this
 that need much many get am was were has have had so but not no yes just also
