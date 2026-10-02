@@ -264,6 +264,12 @@ CANNED_ANSWERS = {
         "- The standard VAT rate is **16%**, charged on your taxable sales\n"
         "- Register via iTax (itax.kra.go.ke)"
     ),
+    "vat_penalty": (
+        "**Penalties for late VAT filing and payment in Kenya**:\n\n"
+        "- **Late filing of a VAT return**: 5% of the tax due or KES 10,000, whichever is higher\n"
+        "- **Late payment of VAT**: 5% of the tax due, plus interest of 1% per month\n\n"
+        "File and pay through iTax (itax.kra.go.ke)."
+    ),
     "termination": (
         "**Terminating an employee legally in Kenya** (Employment Act 2007):\n\n"
         "1. Have a **valid, fair reason** (e.g. misconduct, poor performance, redundancy)\n"
@@ -825,6 +831,12 @@ CANNED_ANSWERS_SW = {
         "- Kiwango cha kawaida cha VAT ni **16%**, kinachotozwa kwenye mauzo yako yanayotozwa kodi\n"
         "- Jisajili kupitia iTax (itax.kra.go.ke)"
     ),
+    "vat_penalty": (
+        "**Adhabu za kuchelewa kuwasilisha na kulipa VAT nchini Kenya**:\n\n"
+        "- **Kuchelewa kuwasilisha ritani ya VAT**: 5% ya kodi inayodaiwa au KES 10,000, kiasi kilicho kikubwa zaidi\n"
+        "- **Kuchelewa kulipa VAT**: 5% ya kodi inayodaiwa, pamoja na riba ya 1% kwa mwezi\n\n"
+        "Wasilisha na ulipe kupitia iTax (itax.kra.go.ke)."
+    ),
     "termination": (
         "**Kumfukuza mfanyakazi kihalali nchini Kenya** (Sheria ya Ajira 2007):\n\n"
         "1. Kuwa na **sababu halali na ya haki** (mfano, utovu wa nidhamu, "
@@ -1321,6 +1333,7 @@ TOPIC_KEYWORDS = {
     "sole_prop_to_llc": ["transition into a limited", "convert my sole proprietorship", "converting sole proprietorship", "convert a sole proprietorship", "sole proprietorship into a limited", "sole proprietorship to a limited", "convert business name to company", "business name to limited company", "sole prop to llc", "sole proprietorship to llc", "kubadilisha biashara kuwa kampuni", "kutoka umiliki binafsi kwenda kampuni"],
     "kra_pin": ["how do i get a kra pin", "kra pin registration", "apply for kra pin", "get a kra pin", "kra pin for my business", "namba ya pin ya kra", "kupata pin ya kra", "jinsi ya kupata pin"],
     "vat": ["vat registration", "vat threshold", "register for vat", "required to register for vat", "do i need to register for vat", "vat registration threshold", "kusajili vat", "ni lini nasajili vat", "kikomo cha vat", "vat rate", "rate of vat", "how much is vat", "kiwango cha vat", "asilimia ya vat"],
+    "vat_penalty": ["vat penalty", "vat penalties", "penalty for late vat", "late filing of vat", "vat late filing", "vat returns late", "vat return late", "late vat return", "late vat returns", "late payment of vat", "vat late payment", "adhabu ya vat", "faini ya vat"],
     "termination": ["terminate an employee", "termination", "dismissal", "dismiss an employee", "redundancy", "fire an employee", "firing an employee", "kumfukuza mfanyakazi", "kuachisha kazi", "kufukuza mfanyakazi"],
     "food_business_license": ["food business need to operate", "licenses does a food business", "restaurant license kenya", "food business licenses", "licenses for a restaurant", "leseni ya mkahawa", "leseni ya biashara ya chakula", "leseni gani kwa biashara ya chakula"],
     "license": ["single business permit", "what license do i need", "what licence do i need", "trade license requirements", "leseni ya biashara", "kibali cha biashara", "ninahitaji leseni gani"],
