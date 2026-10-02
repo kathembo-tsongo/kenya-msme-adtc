@@ -232,7 +232,7 @@ CANNED_ANSWERS = {
     ),
     "yedf": (
         "**Youth Enterprise Development Fund (YEDF)**:\n\n"
-        "- **Eligibility**: age 18-34\n"
+        "- **Eligibility**: age 18-34 (that is, under 35, the Constitution's definition of youth, Article 260)\n"
         "- **Rausha loan**: KES 100,000 (group startup funding)\n"
         "- **Inua loan**: KES 200,000-1,000,000 (business expansion)\n"
         "- **Vuka loan**: up to KES 5,000,000 at 8% p.a.\n\n"
@@ -448,7 +448,7 @@ CANNED_ANSWERS = {
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) reserves "
         "**30% of all government procurement** for enterprises owned by "
-        "youth (aged 18-35), women, and persons with disabilities, each "
+        "youth (aged 18-34, that is, under 35), women, and persons with disabilities, each "
         "requiring **at least 70% ownership** and **100% of leadership** "
         "from that group.\n\nTo register: have your business legally "
         "registered (sole proprietorship, partnership, or company), gather "
@@ -800,7 +800,7 @@ CANNED_ANSWERS_SW = {
     ),
     "yedf": (
         "**Mfuko wa Maendeleo ya Wafanyabiashara Vijana (YEDF)**:\n\n"
-        "- **Sifa**: umri wa miaka 18-34\n"
+        "- **Sifa**: umri wa miaka 18-34 (yaani chini ya miaka 35, kwa mujibu wa Katiba, Kifungu cha 260)\n"
         "- **Mkopo wa Rausha**: KES 100,000 (ufadhili wa kuanzisha kikundi)\n"
         "- **Mkopo wa Inua**: KES 200,000-1,000,000 (upanuzi wa biashara)\n"
         "- **Mkopo wa Vuka**: hadi KES 5,000,000 kwa asilimia 8 kwa mwaka\n\n"
@@ -1040,7 +1040,7 @@ CANNED_ANSWERS_SW = {
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) "
         "inatenga **asilimia 30 ya manunuzi yote ya serikali** kwa "
-        "makampuni yanayomilikiwa na vijana (miaka 18-35), wanawake, na "
+        "makampuni yanayomilikiwa na vijana (miaka 18-34, yaani chini ya 35), wanawake, na "
         "watu wenye ulemavu, kila kundi likihitajika kuwa na **umiliki wa "
         "asilimia 70 angalau** na **uongozi wa asilimia 100** kutoka kwa "
         "kundi hilo.\n\nKujiandikisha: hakikisha biashara yako imesajiliwa "
@@ -1290,7 +1290,7 @@ CANNED_ANSWERS_SW = {
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) "
         "inatenga **asilimia 30 ya manunuzi yote ya serikali** kwa "
-        "makampuni yanayomilikiwa na vijana (miaka 18-35), wanawake, na "
+        "makampuni yanayomilikiwa na vijana (miaka 18-34, yaani chini ya 35), wanawake, na "
         "watu wenye ulemavu, kila kundi likihitajika kuwa na **umiliki wa "
         "asilimia 70 angalau** na **uongozi wa asilimia 100** kutoka kwa "
         "kundi hilo.\n\nKujiandikisha: hakikisha biashara yako imesajiliwa "
