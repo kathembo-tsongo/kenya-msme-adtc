@@ -329,6 +329,14 @@ CANNED_ANSWERS = {
         "carries a **25% penalty** on the tax due, plus **2% monthly "
         "interest** on the unpaid amount."
     ),
+    "paye_remit": (
+        "**How an employer pays PAYE to KRA**:\n\n"
+        "- Deduct PAYE from each employee's salary at the current individual income tax rates\n"
+        "- File the PAYE return on iTax (itax.kra.go.ke): download the Excel return, fill and validate it, then upload the zipped file\n"
+        "- Remit the tax deducted **on or before the 9th day of the following month**\n"
+        "- **Late filing**: 25% of the tax due or KES 10,000, whichever is higher\n"
+        "- **Late payment**: 5% of the tax due, plus interest of 1% per month until paid in full"
+    ),
     "shif_rate": (
         "**SHIF (Social Health Insurance Fund)** contributions are charged "
         "at **2.75% of gross income**, with **no upper cap** -- higher "
@@ -908,6 +916,14 @@ CANNED_ANSWERS_SW = {
         "ya 25%** ya kodi inayodaiwa, pamoja na **riba ya 2% kwa "
         "mwezi** ya kiasi kisicholipwa."
     ),
+    "paye_remit": (
+        "**Jinsi mwajiri anavyolipa PAYE kwa KRA**:\n\n"
+        "- Kata PAYE kutoka kwa mshahara wa kila mfanyakazi kwa viwango vya sasa vya Kodi ya Mapato\n"
+        "- Wasilisha ritani ya PAYE kupitia iTax (itax.kra.go.ke): pakua fomu ya Excel, ijaze na uithibitishe, kisha upakie faili iliyobanwa (zip)\n"
+        "- Lipa kodi iliyokatwa **kabla au tarehe 9 ya mwezi unaofuata**\n"
+        "- **Kuchelewa kuwasilisha**: 25% ya kodi inayodaiwa au KES 10,000, kiasi kilicho kikubwa zaidi\n"
+        "- **Kuchelewa kulipa**: 5% ya kodi inayodaiwa, pamoja na riba ya 1% kwa mwezi hadi ilipwe yote"
+    ),
     "shif_rate": (
         "**Mchango wa SHIF (Social Health Insurance Fund)** hutozwa kwa "
         "**2.75% ya mapato ya jumla**, **bila kiwango cha juu** -- "
@@ -1339,6 +1355,7 @@ TOPIC_KEYWORDS = {
     "license": ["kufungua duka", "open a shop", "start a shop", "single business permit", "what license do i need", "what licence do i need", "trade license requirements", "leseni ya biashara", "kibali cha biashara", "ninahitaji leseni gani"],
     "turnover_tax": ["turnover tax", "tot rate", "tot threshold", "kodi ya mauzo", "kodi ya turnover"],
     "paye_bands": ["paye rate", "paye band", "paye tax rate", "income tax band", "income tax rate", "kiwango cha paye", "ushuru wa paye", "kodi ya mshahara"],
+    "paye_remit": ["pay paye", "remit paye", "file paye", "paye return", "paye returns", "submit paye", "paye due date", "when is paye due", "deadline for paye", "paye deadline", "paye penalty", "late paye", "late payment of paye", "kulipa paye", "kuwasilisha paye"],
     "shif_rate": ["what is shif", "shif replace nhif", "shif replaced nhif", "replace nhif", "replaced nhif", "nhif to shif", "from nhif", "shif vs nhif", "shif and nhif", "nhif and shif", "what happened to nhif", "is nhif still", "shif ni nini", "nhif imebadilishwa", "shif rate", "shif contribution", "shif percentage", "how much shif", "shif deduction", "contribute to shif", "employer shif", "shif employer", "pay to shif", "shif pay", "obligations to shif", "shif obligations", "obligations under shif", "kiwango cha shif", "mchango wa shif"],
     "housing_levy": ["housing levy", "affordable housing levy", "ahl rate", "housing levy rate", "ushuru wa nyumba", "levy ya nyumba"],
     "minimum_wage": ["minimum wage", "minimum salary", "lowest wage", "minimum pay", "mshahara wa chini kabisa", "kima cha chini cha mshahara"],
