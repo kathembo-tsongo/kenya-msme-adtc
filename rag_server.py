@@ -1149,9 +1149,11 @@ CANNED_ANSWERS_SW = {
     ),
     "etims_general": (
         (
+        (
         '**eTIMS** (electronic Tax Invoice Management System) ni mfumo wa KRA wa kutengeneza risiti/ankara za kielektroniki zinazokubalika kikodi -- unahitajika kwa watu wote wanaofanya biashara isipokuwa waliosamehewa (Kanuni za Taratibu za Kodi (Ankara za Kielektroniki), 2024), na KRA hukubali tu ankara zilizotengenezwa na eTIMS kama uthibitisho halali wa ununuzi wa kukata gharama za biashara.\n'
         '\n'
-        '**Kwa nini biashara yako inahitaji**: bila ankara za eTIMS, gharama zako za biashara huenda zisikubaliwe kikodi, na wateja wanaohitaji kudai VAT yao wenyewe hawawezi kufanya hivyo kutoka ankara isiyo ya eTIMS. Kwa biashara ndogo, chaguo la bure la **eTIMS Lite** (kupitia tovuti au USSD *222#) ni njia rahisi zaidi ya kutii bila kununua vifaa.'
+        '**Kwa nini biashara yako inahitaji**: bila ankara za eTIMS, gharama zako za biashara huenda zisikubaliwe kikodi, na wateja wanaohitaji kudai VAT yao wenyewe hawawezi kufanya hivyo kutoka ankara isiyo ya eTIMS. Kwa biashara ndogo, chaguo la bure la **eTIMS Lite** kwenye tovuti ya eTIMS ya KRA ni njia rahisi zaidi ya kutii bila kununua vifaa. Kutotii kunatozwa adhabu ya **mara mbili ya kodi inayodaiwa**.'
+    )
     )
     ),
     "sacco_vs_bank": (
