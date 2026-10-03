@@ -225,17 +225,13 @@ CANNED_ANSWERS = {
         "under the Employment Act."
     ),
     "capital": (
-        (
         '**Minimum share capital for a private limited company in Kenya**:\n'
         '\n'
         '- There is **no legally mandated minimum** share capital requirement\n'
         '- Most companies register with a nominal capital (commonly KES 100,000, though this is a convention, not a legal floor)\n'
         '- No stamp duty is charged on the initial nominal share capital at registration (exempt since Legal Notice 60 of 2016); stamp duty of **1%** applies if you later **increase** the share capital'
-    )
     ),
     "yedf": (
-        (
-        (
         '**Youth Enterprise Development Fund (YEDF)**:\n'
         '\n'
         "- **Eligibility**: age 18-34 (that is, under 35, the Constitution's definition of youth, Article 260)\n"
@@ -243,8 +239,6 @@ CANNED_ANSWERS = {
         '- **Other loans**: YEDF also offers other products, such as the Agri-Biz loan for agribusiness. Products and amounts change, so check the current list at youthfund.go.ke\n'
         '\n'
         'Apply at a YEDF office at your county headquarters, or start at youthfund.go.ke.'
-    )
-    )
     ),
     "loan": (
         "**Startup loan options in Kenya**:\n\n"
@@ -318,7 +312,6 @@ CANNED_ANSWERS = {
         "individual circumstances can affect eligibility."
     ),
     "paye_bands": (
-        (
         '**PAYE tax bands in Kenya** are progressive, applied monthly (Finance Act 2023):\n'
         '\n'
         '- **10%** on the first KES 24,000\n'
@@ -330,7 +323,6 @@ CANNED_ANSWERS = {
         'Every resident employee is entitled to a **personal relief of KES 2,400 per month** (KES 28,800 per year), subtracted from the calculated tax. Non-residents do not qualify for this relief. PAYE is calculated on taxable income after NSSF, SHIF, and Affordable Housing Levy deductions.\n'
         '\n'
         "**Remittance deadline**: PAYE deducted from a given month's salaries must be remitted to KRA by the **9th day of the following month** (e.g. January's PAYE is due by 9th February), filed via the iTax P10 return. **Late filing** of the PAYE return: the higher of **25%** of the tax due or **KES 10,000**. **Late payment**: **5%** of the tax due, plus interest of **1% per month** until paid in full."
-    )
     ),
     "paye_remit": (
         "**How an employer pays PAYE to KRA**:\n\n"
@@ -351,7 +343,6 @@ CANNED_ANSWERS = {
         "provider, since specifics can be updated."
     ),
     "housing_levy": (
-        (
         '**Affordable Housing Levy (AHL)** in Kenya:\n'
         '\n'
         '- **1.5%** of gross salary from the employee\n'
@@ -359,16 +350,13 @@ CANNED_ANSWERS = {
         '- **Total: 3%** of gross salary per employee, per month\n'
         '\n'
         'There is **no minimum income threshold** -- it applies to all gross salaried employees. Informal-sector and self-employed contributors pay 1.5% of declared income with no employer match, registering via the AHL/Boma Yangu portal. Remittance is due by the 9th working day after month-end via KRA iTax. The levy deducted from salary is an allowable deduction when calculating PAYE. Late remittance carries a 3% per month penalty on the unpaid amount.'
-    )
     ),
     "minimum_wage": (
-        (
         '**Kenya does not have a single national minimum wage.** Rates are set by occupation, sector, and geographic zone under periodic Regulation of Wages Orders (Labour Institutions Act), typically revised around Labour Day (1st May).\n'
         '\n'
         'As a reference point: the general (unskilled) labourer minimum in Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret was set at **KES 18,047.40 per month** (exclusive of housing allowance) under the May 2026 Wage Order (Legal Notices No. 95 and 96), with lower rates in other zones. Skilled occupations (e.g. drivers, artisans, cashiers) and sector-specific roles (agricultural, security, domestic work) have their own, generally higher, statutory minimums.\n'
         '\n'
         'Because rates vary by role and location and are revised periodically, confirm the exact current figure for your specific occupation and zone via the Ministry of Labour and Social Protection or the current Kenya Gazette Wage Order, rather than relying on a single number.'
-    )
     ),
     "nssf_penalty": (
         "**NSSF late payment penalty in Kenya**: a penalty of **5% of the "
@@ -451,15 +439,11 @@ CANNED_ANSWERS = {
         "parastatals."
     ),
     "hustler_fund_business": (
-        (
-        (
         'The Hustler Fund **Personal Finance loan** gives **KES 500 to KES 50,000**, depending on your credit score, at interest **capped at 8% per annum** (pro-rated), repayable in **14 days**. It can be used for business or personal needs, and no collateral is required.\n'
         '\n'
         '**To access it**: dial ***254#** on your registered line. You need to be a Kenyan citizen aged 18 or above, with a valid national ID, an active mobile money account (M-PESA, Airtel Money or T-Kash), and a SIM card that has been active for at least 90 days.\n'
         '\n'
         'The Fund has also announced Micro, SME and Start-up loan products; check *254# or the official Hustler Fund channels for what is currently available. Your loan limit depends on your scoring.'
-    )
-    )
     ),
     "sole_prop_to_llc": (
         "Kenya doesn't have a single-step way to convert a business -- there's no direct 'conversion' process, practically, it's two "
@@ -484,8 +468,6 @@ CANNED_ANSWERS = {
         "with all documents in order typically takes **5-10 working days**."
     ),
     "wef": (
-        (
-        (
         'The **Women Enterprise Fund (WEF)** is a government fund that lends to Kenyan women -- separate from YEDF (for youth) and the Hustler Fund.\n'
         '\n'
         "**Tuinuke loan** (for women's groups):\n"
@@ -497,24 +479,18 @@ CANNED_ANSWERS = {
         '- A one-time **administrative fee of 6%** is charged upfront\n'
         '\n'
         'WEF also has products for individual women-owned businesses; check the current list and apply at a WEF office or at wef.go.ke.'
-    )
-    )
     ),
     "unified_business_permit": (
-        (
         'In Nairobi County specifically, this is the **Unified Business Permit (UBP)** -- a single annual license that bundles what used to be several separate approvals (trade license, fire inspection, food/health certificate, advertisement/signage permit) into one application. Apply via the **NairobiPay self-service portal (nairobiservices.go.ke)**, dial ***647#**, or visit City Hall Annex in person.\n'
         '\n'
         "The fee depends on your business category and size, and is set by the county's Finance Act -- confirm your exact category's fee on the portal before you pay. It runs on a **January-December annual cycle**; the permit is renewed every year; check the portal for the current deadline, since late payment attracts penalties. Other counties (Mombasa, Meru, Kisumu, and several others) use eCitizen instead of a county-specific portal for their equivalent single business permit."
-    )
     ),
     "pharmacy_license": (
-        (
         'Operating a pharmacy or chemist shop requires licensing from the **Pharmacy and Poisons Board (PPB)**, the national medicines regulator under the Pharmacy and Poisons Act (Cap 244) -- this is in addition to, not instead of, your county Single Business Permit (the fee varies by county).\n'
         '\n'
         "**Key requirement**: everyone holding a financial interest in the pharmacy must be a registered pharmacist or enrolled pharmaceutical technologist -- you generally can't own a pharmacy purely as a non-pharmacist investor. The designated superintendent pharmacist also needs their own annual practicing license from PPB.\n"
         '\n'
         '**Process**: register your premises with PPB, then pass a premises inspection covering proper shelving, ventilation, a dispensing area separate from the sales counter, a lockable poisons cabinet, a refrigerator for cold-chain products, and Green Cross signage. Licenses are issued after a successful inspection and must be renewed annually (all PPB licenses expire December 31).'
-    )
     ),
     "ca_license": (
         "Not every tech startup needs this -- the **Communications "
@@ -569,7 +545,6 @@ CANNED_ANSWERS = {
         "services."
     ),
     "no_permit_penalty": (
-        (
         "Operating without a valid county business permit is illegal in Kenya, under the **County Governments Act 2012** combined with each county's own Finance Act and Trade Licensing Act (Nairobi's trade licensing, for example, falls under its own County Trade Licensing Act).\n"
         '\n'
         '**Consequences can include**:\n'
@@ -579,7 +554,6 @@ CANNED_ANSWERS = {
         '- **Back-payment of penalties**: on top of the permit fee itself once you do comply\n'
         '\n'
         "Some counties allow a grace period after a permit expires before penalties apply -- check your county's rules -- but operating with no permit at all from the start carries the fuller risk above from day one."
-    )
     ),
     "sole_prop_vs_limited": (
         "The core difference is **liability and separateness**. A **sole "
@@ -626,27 +600,23 @@ CANNED_ANSWERS = {
     "barber_salon_taxes": 'Tax obligations for a barber or salon business in Kenya depend on your annual turnover and on whether you employ staff -- not on the trade itself:\n\n- **Turnover Tax (TOT)**: 1.5% of gross sales if your annual turnover is more than KES 1,000,000 but does not exceed KES 25,000,000. It is charged on gross sales with **no expense deductions**. For example, KES 2,000,000 of annual sales means KES 30,000 of TOT (2,000,000 x 1.5%). Below KES 1,000,000 you are exempt from TOT.\n- **VAT**: if your turnover reaches KES 5,000,000 and you deal in vatable supplies, you must also register for VAT.\n- **If you employ staff**: PAYE (bands from 10% to 35%, less KES 2,400 monthly personal relief), NSSF (6% employee + 6% employer), SHIF (2.75% of gross pay) and the Housing Levy (1.5% employee + 1.5% employer) -- ask about your "payroll obligations" for the full list.\n- **County permit**: a single business permit from your county government; the category and fee vary by county.\n\nWhere you operate affects your county permit and fees, but the national tax rules above are the same in every county. Confirm your specific position via iTax (itax.kra.go.ke).',
     "sole_prop_llc_mistakes": "Common mistakes when moving from a sole proprietorship to a limited company:\n\n- **Expecting a direct conversion**: Kenya has no one-step conversion. It is two separate actions -- cease your business name (Form BN6 on eCitizen) and register a new private limited company (Forms CR1, CR2, CR8 plus the Articles/Memorandum of Association).\n- **Carrying over your personal KRA PIN**: the new company needs its own separate company PIN, applied for via iTax as a 'Non-Individual' taxpayer.\n- **Applying for the company PIN too early**: every director and shareholder must already have their own individual KRA PIN before the company PIN application can go through.\n- **Budgeting for only one charge**: expect two separate government charges -- business name cessation and company registration.\n- **Delaying because of share capital**: there is no legal minimum share capital requirement.\n\nConfirm the current forms and fees directly on eCitizen before you file.",
     "etims_general": (
-        (
         "**eTIMS** (electronic Tax Invoice Management System) is KRA's system for generating tax-compliant, verifiable electronic invoices/receipts -- it's required for all persons carrying on business unless exempted (Tax Procedures (Electronic Tax Invoice) Regulations, 2024), and KRA only accepts eTIMS-generated invoices as valid proof of purchase for deducting business expenses.\n"
         '\n'
         "**Why your business needs it**: without eTIMS invoices, your business expenses may not be deductible for tax purposes, and customers who need to claim their own input VAT or expense deductions can't do so from a non-eTIMS invoice -- making it harder to sell to other VAT-registered businesses.\n"
         '\n'
         'For smaller businesses, the free **eTIMS Lite** option on the KRA eTIMS portal is the simplest way to comply without buying equipment. Non-compliance carries a penalty of **two times the tax due** (Tax Procedures (Electronic Tax Invoice) Regulations, 2024).'
-    )
     ),
     "sacco_vs_bank": (
-        (
-        "**SACCO loans vs bank loans in Kenya**:\n\n"
-        "- **Who can borrow**: a SACCO lends only to its **members**; a bank lends to any customer who qualifies\n"
-        "- **What secures the loan**: SACCO loans are based on your **savings with the SACCO**; banks rely more on collateral and credit checks\n"
-        "- **Interest**: each SACCO and each bank sets its own loan rate. Ask for the **annual interest rate** and whether it is charged on a **reducing balance or a flat rate** -- at the same rate, a flat rate costs more\n"
-        "- **Before borrowing from a SACCO**: you usually need to join and build savings first\n"
-        "- **Dividends**: SACCO members can earn dividends on their shares and interest on deposits, which a bank loan does not offer\n"
-        "- **Check the SACCO is licensed** on the SASRA website (sasra.go.ke)"
-    )
+        '**SACCO loans vs bank loans in Kenya**:\n'
+        '\n'
+        '- **Who can borrow**: a SACCO lends only to its **members**; a bank lends to any customer who qualifies\n'
+        '- **What secures the loan**: SACCO loans are based on your **savings with the SACCO**; banks rely more on collateral and credit checks\n'
+        '- **Interest**: each SACCO and each bank sets its own loan rate. Ask for the **annual interest rate** and whether it is charged on a **reducing balance or a flat rate** -- at the same rate, a flat rate costs more\n'
+        '- **Before borrowing from a SACCO**: you usually need to join and build savings first\n'
+        '- **Dividends**: SACCO members can earn dividends on their shares and interest on deposits, which a bank loan does not offer\n'
+        '- **Check the SACCO is licensed** on the SASRA website (sasra.go.ke)'
     ),
     "food_business_license": (
-        (
         'A food business (restaurant, cafe, bakery, shop) needs several layers, on top of your standard county business permit (Single/Unified Business Permit):\n'
         '\n'
         '- **Health/Food Hygiene Certificate**: issued by your county health department, confirming your premises meet hygiene standards, required before opening (the fee varies by county)\n'
@@ -655,7 +625,6 @@ CANNED_ANSWERS = {
         '- **Restaurant-specific**: registration with the **Tourism Regulatory Authority (TRA)** under the Tourism Act 2011, if you operate as a restaurant\n'
         '\n'
         "If you manufacture or package food products for sale (not just serve food on-site), you'll also need **KEBS** certification (Standardization Mark) specific to packaged/processed goods."
-    )
     ),
     "employee_compliance_checklist": (
         "For a trading enterprise with permanent staff, here's what to maintain:\n\n"
@@ -737,17 +706,13 @@ CANNED_ANSWERS_SW = {
         "Sheria ya Ajira."
     ),
     "capital": (
-        (
         '**Mtaji wa chini wa hisa kwa kampuni binafsi ya dhima ndogo nchini Kenya**:\n'
         '\n'
         '- **Hakuna** mtaji wa chini wa hisa unaotakiwa kisheria\n'
         '- Kampuni nyingi husajiliwa na mtaji wa kawaida (mara nyingi KES 100,000, ingawa hii ni desturi tu, si kiwango cha kisheria)\n'
         '- Hakuna ushuru wa stempu kwa mtaji wa awali wa hisa wakati wa kusajili kampuni (msamaha tangu Tangazo la Kisheria Na. 60 la 2016); ushuru wa stempu wa **1%** hutozwa ukiongeza mtaji wa hisa baadaye'
-    )
     ),
     "yedf": (
-        (
-        (
         '**Mfuko wa Maendeleo ya Biashara za Vijana (YEDF)**:\n'
         '\n'
         '- **Sifa**: umri wa miaka 18-34 (yaani chini ya miaka 35, kwa mujibu wa Katiba, Kifungu cha 260)\n'
@@ -755,8 +720,6 @@ CANNED_ANSWERS_SW = {
         '- **Mikopo mingine**: YEDF pia hutoa bidhaa nyingine, kama mkopo wa Agri-Biz kwa biashara za kilimo. Bidhaa na viwango hubadilika, hivyo angalia orodha ya sasa kwenye youthfund.go.ke\n'
         '\n'
         'Omba katika ofisi ya YEDF iliyo makao makuu ya kaunti yako, au anza kwenye youthfund.go.ke.'
-    )
-    )
     ),
     "loan": (
         "**Chaguo za mikopo ya kuanzisha biashara nchini Kenya**:\n\n"
@@ -848,7 +811,6 @@ CANNED_ANSWERS_SW = {
         "kuwa hali za kibinafsi zinaweza kuathiri ustahiki."
     ),
     "paye_bands": (
-        (
         '**Viwango vya kodi ya PAYE nchini Kenya** hupanda kwa hatua, hutumika kila mwezi (Sheria ya Fedha 2023):\n'
         '\n'
         '- **10%** kwa KES 24,000 za kwanza\n'
@@ -860,7 +822,6 @@ CANNED_ANSWERS_SW = {
         'Kila mfanyakazi mkazi anastahili **msamaha binafsi wa KES 2,400 kwa mwezi** (KES 28,800 kwa mwaka), unaotolewa kutoka kodi iliyokokotolewa. Wasio wakazi hawastahili msamaha huu. PAYE hukokotolewa kwa mapato yanayotozwa kodi baada ya makato ya NSSF, SHIF, na Ushuru wa Nyumba za Bei Nafuu.\n'
         '\n'
         '**Tarehe ya mwisho ya kuwasilisha**: PAYE iliyokatwa kwa mshahara wa mwezi fulani lazima iwasilishwe KRA ifikapo **tarehe 9 ya mwezi unaofuata** (mfano, PAYE ya Januari inatakiwa ifikapo tarehe 9 Februari), ikiwasilishwa kupitia fomu ya P10 kwenye iTax. **Kuchelewa kuwasilisha** ritani ya PAYE: **25%** ya kodi inayodaiwa au **KES 10,000**, kiasi kilicho kikubwa zaidi. **Kuchelewa kulipa**: **5%** ya kodi inayodaiwa, pamoja na riba ya **1% kwa mwezi** hadi ilipwe yote.'
-    )
     ),
     "paye_remit": (
         "**Jinsi mwajiri anavyolipa PAYE kwa KRA**:\n\n"
@@ -882,7 +843,6 @@ CANNED_ANSWERS_SW = {
         "wako wa malipo, kwa kuwa maelezo yanaweza kubadilishwa."
     ),
     "housing_levy": (
-        (
         '**Ushuru wa Nyumba za Bei Nafuu (AHL)** nchini Kenya:\n'
         '\n'
         '- **1.5%** ya mshahara wa jumla kutoka kwa mfanyakazi\n'
@@ -890,7 +850,6 @@ CANNED_ANSWERS_SW = {
         '- **Jumla: 3%** ya mshahara wa jumla kwa kila mfanyakazi, kila mwezi\n'
         '\n'
         '**Hakuna kiwango cha chini cha mapato** kinachotakiwa -- hutumika kwa wafanyakazi wote wenye mshahara wa jumla. Wachangiaji wa sekta isiyo rasmi na wanaojiajiri hulipa 1.5% ya mapato yaliyotangazwa bila mchango wa mwajiri, wakijisajili kupitia tovuti ya AHL/Boma Yangu. Malipo yanatakiwa kufikishwa ndani ya siku 9 za kazi baada ya mwisho wa mwezi kupitia iTax ya KRA. Ushuru unaokatwa kutoka kwa mshahara ni makato yanayoruhusiwa wakati wa kukokotoa PAYE. Kuchelewesha malipo kunatoza faini ya 3% kwa mwezi ya kiasi kisicholipwa.'
-    )
     ),
     "minimum_wage": (
         "**Kenya haina mshahara mmoja wa chini wa kitaifa.** Viwango "
@@ -962,8 +921,6 @@ CANNED_ANSWERS_SW = {
         "nyaraka zote sahihi kwa kawaida huchukua **siku 5-10 za kazi**."
     ),
     "wef": (
-        (
-        (
         '**Mfuko wa Biashara za Wanawake (WEF)** ni mfuko wa serikali unaokopesha wanawake wa Kenya -- tofauti na YEDF (kwa vijana) na Hustler Fund.\n'
         '\n'
         '**Mkopo wa Tuinuke** (kwa vikundi vya wanawake):\n'
@@ -975,8 +932,6 @@ CANNED_ANSWERS_SW = {
         '- **Ada ya usimamizi ya 6%** hutozwa mara moja mwanzoni\n'
         '\n'
         'WEF pia ina bidhaa kwa biashara za wanawake binafsi; angalia orodha ya sasa na uombe katika ofisi ya WEF au kwenye wef.go.ke.'
-    )
-    )
     ),
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) "
@@ -1048,20 +1003,16 @@ CANNED_ANSWERS_SW = {
         "sababu halali."
     ),
     "unified_business_permit": (
-        (
         'Katika Kaunti ya Nairobi hasa, hii ni **Unified Business Permit (UBP)** -- leseni moja ya kila mwaka inayounganisha vibali kadhaa vilivyokuwa tofauti (leseni ya biashara, ukaguzi wa moto, cheti cha afya/chakula, kibali cha matangazo/alama) katika maombi moja. Omba kupitia **NairobiPay (nairobiservices.go.ke)**, piga ***647#**, au tembelea City Hall Annex.\n'
         '\n'
         'Ada inategemea aina na ukubwa wa biashara yako, na huwekwa na Sheria ya Fedha ya kaunti -- thibitisha ada halisi ya aina yako kwenye tovuti kabla ya kulipa. Inafuata mzunguko wa **Januari-Desemba**; kibali huhuishwa kila mwaka; angalia tarehe ya mwisho ya sasa kwenye tovuti, kwa kuwa kuchelewa kulipa kunavutia adhabu.'
-    )
     ),
     "pharmacy_license": (
-        (
         'Kuendesha duka la dawa au kemisti kunahitaji leseni kutoka **Pharmacy and Poisons Board (PPB)**, msimamizi wa kitaifa wa dawa chini ya Sheria ya Dawa na Sumu (Cap 244) -- hii ni pamoja na, si badala ya, Single Business Permit ya kaunti yako (ada inatofautiana kwa kaunti).\n'
         '\n'
         '**Sharti muhimu**: kila mtu mwenye maslahi ya kifedha katika duka la dawa lazima awe mfamasia aliyesajiliwa au fundi wa dawa aliyeandikishwa -- kwa kawaida huwezi kumiliki duka la dawa kama mwekezaji tu asiye mfamasia. Msimamizi mfamasia aliyeteuliwa pia anahitaji leseni yake ya kila mwaka ya kufanya kazi kutoka PPB.\n'
         '\n'
         '**Mchakato**: sajili majengo yako na PPB, kisha pitisha ukaguzi wa majengo unaoangalia rafu sahihi, mzunguko wa hewa, eneo la kutolea dawa tofauti na counter ya mauzo, kabati la sumu lenye kufuli, jokofu kwa bidhaa zinazohitaji baridi, na alama ya Msalaba wa Kijani. Leseni hutolewa baada ya ukaguzi wenye mafanikio na lazima zihuishwe kila mwaka (leseni zote za PPB huisha Desemba 31).'
-    )
     ),
     "ca_license": (
         "Si kila kampuni ya teknolojia inahitaji hii -- **Communications "
@@ -1112,7 +1063,6 @@ CANNED_ANSWERS_SW = {
         "kupitia ofisi za KEPROBA au makeitkenya.go.ke."
     ),
     "no_permit_penalty": (
-        (
         'Kuendesha biashara bila kibali halali cha kaunti ni kinyume cha sheria nchini Kenya, chini ya **Sheria ya Serikali za Kaunti ya 2012** pamoja na Sheria ya Fedha na Leseni za Biashara za kaunti yako.\n'
         '\n'
         '**Madhara yanaweza kujumuisha**:\n'
@@ -1122,7 +1072,6 @@ CANNED_ANSWERS_SW = {
         '- **Malipo ya nyuma ya adhabu**: juu ya ada ya kibali chenyewe ukisha tii\n'
         '\n'
         'Baadhi ya kaunti huruhusu muda wa neema baada ya kibali kuisha kabla ya adhabu kuanza -- angalia sheria za kaunti yako -- lakini kuendesha bila kibali kabisa tangu mwanzo kunabeba hatari kamili tangu siku ya kwanza.'
-    )
     ),
     "sole_prop_vs_limited": (
         "Tofauti kuu ni **dhima na utengano**. **Umiliki binafsi** si "
@@ -1159,27 +1108,21 @@ CANNED_ANSWERS_SW = {
         "moja kwa moja."
     ),
     "etims_general": (
-        (
-        (
         '**eTIMS** (electronic Tax Invoice Management System) ni mfumo wa KRA wa kutengeneza risiti/ankara za kielektroniki zinazokubalika kikodi -- unahitajika kwa watu wote wanaofanya biashara isipokuwa waliosamehewa (Kanuni za Taratibu za Kodi (Ankara za Kielektroniki), 2024), na KRA hukubali tu ankara zilizotengenezwa na eTIMS kama uthibitisho halali wa ununuzi wa kukata gharama za biashara.\n'
         '\n'
         '**Kwa nini biashara yako inahitaji**: bila ankara za eTIMS, gharama zako za biashara huenda zisikubaliwe kikodi, na wateja wanaohitaji kudai VAT yao wenyewe hawawezi kufanya hivyo kutoka ankara isiyo ya eTIMS. Kwa biashara ndogo, chaguo la bure la **eTIMS Lite** kwenye tovuti ya eTIMS ya KRA ni njia rahisi zaidi ya kutii bila kununua vifaa. Kutotii kunatozwa adhabu ya **mara mbili ya kodi inayodaiwa**.'
-    )
-    )
     ),
     "sacco_vs_bank": (
-        (
-        "**Mikopo ya SACCO dhidi ya mikopo ya benki nchini Kenya**:\n\n"
-        "- **Nani anaweza kukopa**: SACCO hukopesha **wanachama** wake pekee; benki hukopesha mteja yeyote anayestahili\n"
-        "- **Kinachodhamini mkopo**: mikopo ya SACCO hutegemea **akiba yako katika SACCO**; benki hutegemea zaidi dhamana na ukaguzi wa historia ya mikopo\n"
-        "- **Riba**: kila SACCO na kila benki huweka kiwango chake cha riba. Uliza **kiwango cha riba kwa mwaka** na kama kinatozwa kwa **salio linalopungua au kiwango cha kudumu (flat rate)** -- kwa kiwango kilekile, kiwango cha kudumu hugharimu zaidi\n"
-        "- **Kabla ya kukopa kutoka SACCO**: kwa kawaida unahitaji kujiunga na kuweka akiba kwanza\n"
-        "- **Gawio**: wanachama wa SACCO wanaweza kupata gawio kwa hisa zao na riba kwa akiba, jambo ambalo mkopo wa benki hautoi\n"
-        "- **Hakikisha SACCO ina leseni** kwenye tovuti ya SASRA (sasra.go.ke)"
-    )
+        '**Mikopo ya SACCO dhidi ya mikopo ya benki nchini Kenya**:\n'
+        '\n'
+        '- **Nani anaweza kukopa**: SACCO hukopesha **wanachama** wake pekee; benki hukopesha mteja yeyote anayestahili\n'
+        '- **Kinachodhamini mkopo**: mikopo ya SACCO hutegemea **akiba yako katika SACCO**; benki hutegemea zaidi dhamana na ukaguzi wa historia ya mikopo\n'
+        '- **Riba**: kila SACCO na kila benki huweka kiwango chake cha riba. Uliza **kiwango cha riba kwa mwaka** na kama kinatozwa kwa **salio linalopungua au kiwango cha kudumu (flat rate)** -- kwa kiwango kilekile, kiwango cha kudumu hugharimu zaidi\n'
+        '- **Kabla ya kukopa kutoka SACCO**: kwa kawaida unahitaji kujiunga na kuweka akiba kwanza\n'
+        '- **Gawio**: wanachama wa SACCO wanaweza kupata gawio kwa hisa zao na riba kwa akiba, jambo ambalo mkopo wa benki hautoi\n'
+        '- **Hakikisha SACCO ina leseni** kwenye tovuti ya SASRA (sasra.go.ke)'
     ),
     "food_business_license": (
-        (
         'Biashara ya chakula (mkahawa, cafe, mkate, duka) inahitaji tabaka kadhaa, juu ya kibali chako cha kawaida cha kaunti (Single/Unified Business Permit):\n'
         '\n'
         '- **Cheti cha Afya/Usafi wa Chakula**: kinatolewa na idara ya afya ya kaunti, kikithibitisha majengo yako yanafikia viwango vya usafi, kinahitajika kabla ya kufungua (ada inatofautiana kwa kaunti)\n'
@@ -1188,7 +1131,6 @@ CANNED_ANSWERS_SW = {
         '- **Mahususi kwa mikahawa**: usajili na **Tourism Regulatory Authority (TRA)** chini ya Sheria ya Utalii ya 2011, ikiwa unaendesha kama mkahawa\n'
         '\n'
         'Ikiwa unatengeneza au kufunga bidhaa za chakula kwa mauzo, utahitaji pia uthibitisho wa **KEBS** (Standardization Mark).'
-    )
     ),
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) "
@@ -1205,15 +1147,11 @@ CANNED_ANSWERS_SW = {
         "kaunti, na mashirika ya umma."
     ),
     "hustler_fund_business": (
-        (
-        (
         '**Mkopo wa Personal Finance** wa Hustler Fund hutoa **KES 500 hadi KES 50,000**, kulingana na alama zako za mkopo, kwa riba **isiyozidi 8% kwa mwaka** (hukokotolewa kwa uwiano), unaolipwa ndani ya **siku 14**. Unaweza kutumika kwa biashara au mahitaji binafsi, bila dhamana.\n'
         '\n'
         '**Kuupata**: piga ***254#** kwenye laini yako iliyosajiliwa. Unahitaji kuwa raia wa Kenya mwenye umri wa miaka 18 au zaidi, kitambulisho halali cha taifa, akaunti hai ya pesa za simu (M-PESA, Airtel Money au T-Kash), na laini iliyotumika kwa angalau siku 90.\n'
         '\n'
         'Mfuko pia umetangaza mikopo ya Micro, SME na Start-up; angalia *254# au njia rasmi za Hustler Fund kujua kinachopatikana sasa. Kiwango chako cha mkopo kinategemea alama zako.'
-    )
-    )
     ),
     "business_insurance": (
         "Sekta ya bima nchini Kenya inasimamiwa na **Insurance Regulatory "
