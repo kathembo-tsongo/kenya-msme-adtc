@@ -310,24 +310,19 @@ CANNED_ANSWERS = {
         "individual circumstances can affect eligibility."
     ),
     "paye_bands": (
-        "**PAYE tax bands in Kenya** are progressive, applied monthly "
-        "(Finance Act 2023):\n\n"
-        "- **10%** on the first KES 24,000\n"
-        "- **25%** on the next KES 8,333 (KES 24,001-32,333)\n"
-        "- **30%** on KES 32,334-500,000\n"
-        "- **32.5%** on KES 500,001-800,000\n"
-        "- **35%** above KES 800,000\n\n"
-        "Every resident employee is entitled to a **personal relief of "
-        "KES 2,400 per month** (KES 28,800 per year), subtracted from the "
-        "calculated tax. Non-residents do not qualify for this relief. "
-        "PAYE is calculated on taxable income after NSSF, SHIF, and "
-        "Affordable Housing Levy deductions.\n\n"
-        "**Remittance deadline**: PAYE deducted from a given month's "
-        "salaries must be remitted to KRA by the **9th day of the "
-        "following month** (e.g. January's PAYE is due by 9th "
-        "February), filed via the iTax P10 return. Late remittance "
-        "carries a **25% penalty** on the tax due, plus **2% monthly "
-        "interest** on the unpaid amount."
+        (
+        '**PAYE tax bands in Kenya** are progressive, applied monthly (Finance Act 2023):\n'
+        '\n'
+        '- **10%** on the first KES 24,000\n'
+        '- **25%** on the next KES 8,333 (KES 24,001-32,333)\n'
+        '- **30%** on KES 32,334-500,000\n'
+        '- **32.5%** on KES 500,001-800,000\n'
+        '- **35%** above KES 800,000\n'
+        '\n'
+        'Every resident employee is entitled to a **personal relief of KES 2,400 per month** (KES 28,800 per year), subtracted from the calculated tax. Non-residents do not qualify for this relief. PAYE is calculated on taxable income after NSSF, SHIF, and Affordable Housing Levy deductions.\n'
+        '\n'
+        "**Remittance deadline**: PAYE deducted from a given month's salaries must be remitted to KRA by the **9th day of the following month** (e.g. January's PAYE is due by 9th February), filed via the iTax P10 return. **Late filing** of the PAYE return: the higher of **25%** of the tax due or **KES 10,000**. **Late payment**: **5%** of the tax due, plus interest of **1% per month** until paid in full."
+    )
     ),
     "paye_remit": (
         "**How an employer pays PAYE to KRA**:\n\n"
@@ -348,18 +343,15 @@ CANNED_ANSWERS = {
         "provider, since specifics can be updated."
     ),
     "housing_levy": (
-        "**Affordable Housing Levy (AHL)** in Kenya:\n\n"
-        "- **1.5%** of gross salary from the employee\n"
-        "- **1.5%** of gross salary matched by the employer\n"
-        "- **Total: 3%** of gross salary per employee, per month\n\n"
-        "There is **no minimum income threshold** -- it applies to all "
-        "gross salaried employees. Informal-sector and self-employed "
-        "contributors pay 1.5% of declared income with no employer match, "
-        "registering via the AHL/Boma Yangu portal. Remittance is due by "
-        "the 9th working day after month-end via KRA iTax. Resident "
-        "individuals who pay AHL are entitled to affordable housing "
-        "relief. Late remittance carries a 3% per month penalty on the "
-        "unpaid amount."
+        (
+        '**Affordable Housing Levy (AHL)** in Kenya:\n'
+        '\n'
+        '- **1.5%** of gross salary from the employee\n'
+        '- **1.5%** of gross salary matched by the employer\n'
+        '- **Total: 3%** of gross salary per employee, per month\n'
+        '\n'
+        'There is **no minimum income threshold** -- it applies to all gross salaried employees. Informal-sector and self-employed contributors pay 1.5% of declared income with no employer match, registering via the AHL/Boma Yangu portal. Remittance is due by the 9th working day after month-end via KRA iTax. The levy deducted from salary is an allowable deduction when calculating PAYE. Late remittance carries a 3% per month penalty on the unpaid amount.'
+    )
     ),
     "minimum_wage": (
         "**Kenya does not have a single national minimum wage.** Rates "
