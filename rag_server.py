@@ -1087,6 +1087,9 @@ CANNED_SOURCES = {
     'loan': ('YEDF, MSEA, WEF', 'https://msea.go.ke/wp-content/uploads/2024/11/Hustler-Fund-FAQs.pdf', '2026-10-03'),
     'class_r_permit': ('Government statement, 10 Sep 2026', 'https://thekenyatimes.com/national/mudavadi-class-r-permit/', '2026-10-03'),
     'sacco_vs_bank': ('SASRA', 'https://www.sasra.go.ke/frequently-asked-questions/', '2026-10-03'),
+    'vat': ('KRA (VAT guide)', 'https://www.kra.go.ke/images/publications/VAT_8112023.pdf', '2026-10-03'),
+    'tcc_application': ('KRA', 'https://www.kra.go.ke/business/business-compliance-penalties/business-how-to-file/tax-compliance', '2026-10-03'),
+    'nssf_penalty': ('NSSF', 'https://www.nssf.or.ke/?p=1094', '2026-10-03'),
 }
 
 TOPIC_KEYWORDS = {
