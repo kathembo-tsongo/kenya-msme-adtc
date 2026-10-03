@@ -677,20 +677,15 @@ CANNED_ANSWERS = {
         "1,000,000 or 10% of the tax involved**, whichever is higher."
     ),
     "sacco_vs_bank": (
-        "**SACCOs** typically offer meaningfully cheaper loans than "
-        "commercial banks -- commonly **10-14% per annum** (reducing "
-        "balance), often fixed by the SACCO's own annual general meeting "
-        "rather than fluctuating with the Central Bank Rate. Commercial "
-        "**bank** loans typically run **13-20%+ per annum** and move with "
-        "CBK rate changes.\n\n**Key trade-off**: SACCOs require you to "
-        "**join and build a savings history first** (commonly 3-6 months) "
-        "before you can borrow, and loan amounts are often capped as a "
-        "multiple of your savings (roughly 3-5x). Banks generally don't "
-        "require prior membership/savings and can lend larger, more "
-        "flexible amounts, especially against collateral -- but at a "
-        "higher rate. SACCO members also earn dividends on their shares "
-        "and savings, which partially offsets the cost of borrowing, a "
-        "benefit a bank account doesn't offer."
+        (
+        "**SACCO loans vs bank loans in Kenya**:\n\n"
+        "- **Who can borrow**: a SACCO lends only to its **members**; a bank lends to any customer who qualifies\n"
+        "- **What secures the loan**: SACCO loans are based on your **savings with the SACCO**; banks rely more on collateral and credit checks\n"
+        "- **Interest**: each SACCO and each bank sets its own loan rate. Ask for the **annual interest rate** and whether it is charged on a **reducing balance or a flat rate** -- at the same rate, a flat rate costs more\n"
+        "- **Before borrowing from a SACCO**: you usually need to join and build savings first\n"
+        "- **Dividends**: SACCO members can earn dividends on their shares and interest on deposits, which a bank loan does not offer\n"
+        "- **Check the SACCO is licensed** on the SASRA website (sasra.go.ke)"
+    )
     ),
     "food_business_license": (
         "A food business (restaurant, cafe, bakery, shop) needs several "
@@ -1254,18 +1249,15 @@ CANNED_ANSWERS_SW = {
         "njia rahisi zaidi ya kutii bila kununua vifaa."
     ),
     "sacco_vs_bank": (
-        "**SACCOs** kwa kawaida hutoa mikopo nafuu zaidi kuliko benki za "
-        "kibiashara -- mara nyingi **10-14% kwa mwaka**, mara nyingi "
-        "ikiwekwa na mkutano mkuu wa mwaka wa SACCO badala ya kubadilika "
-        "na Kiwango cha Benki Kuu. Mikopo ya **benki** za kibiashara "
-        "kwa kawaida ni **13-20%+ kwa mwaka** na hubadilika na mabadiliko "
-        "ya CBK.\n\n**Ubadilishanaji muhimu**: SACCOs zinahitaji "
-        "**kujiunga na kujenga historia ya akiba kwanza** (kawaida "
-        "miezi 3-6) kabla ya kukopa, na kiasi cha mkopo mara nyingi "
-        "hukomea kama mara 3-5 ya akiba yako. Benki kwa kawaida "
-        "hazihitaji uanachama/akiba ya awali na zinaweza kutoa kiasi "
-        "kikubwa zaidi, hasa dhidi ya dhamana -- lakini kwa kiwango cha "
-        "juu zaidi."
+        (
+        "**Mikopo ya SACCO dhidi ya mikopo ya benki nchini Kenya**:\n\n"
+        "- **Nani anaweza kukopa**: SACCO hukopesha **wanachama** wake pekee; benki hukopesha mteja yeyote anayestahili\n"
+        "- **Kinachodhamini mkopo**: mikopo ya SACCO hutegemea **akiba yako katika SACCO**; benki hutegemea zaidi dhamana na ukaguzi wa historia ya mikopo\n"
+        "- **Riba**: kila SACCO na kila benki huweka kiwango chake cha riba. Uliza **kiwango cha riba kwa mwaka** na kama kinatozwa kwa **salio linalopungua au kiwango cha kudumu (flat rate)** -- kwa kiwango kilekile, kiwango cha kudumu hugharimu zaidi\n"
+        "- **Kabla ya kukopa kutoka SACCO**: kwa kawaida unahitaji kujiunga na kuweka akiba kwanza\n"
+        "- **Gawio**: wanachama wa SACCO wanaweza kupata gawio kwa hisa zao na riba kwa akiba, jambo ambalo mkopo wa benki hautoi\n"
+        "- **Hakikisha SACCO ina leseni** kwenye tovuti ya SASRA (sasra.go.ke)"
+    )
     ),
     "food_business_license": (
         "Biashara ya chakula (mkahawa, cafe, mkate, duka) inahitaji "
