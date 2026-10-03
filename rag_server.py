@@ -241,11 +241,13 @@ CANNED_ANSWERS = {
         'Apply at a YEDF office at your county headquarters, or start at youthfund.go.ke.'
     ),
     "loan": (
-        "**Startup loan options in Kenya**:\n\n"
-        "1. **YEDF** -- apply via youthfund.go.ke (Form 1A); products include Vuka, Talanta, Agribizz, Vijana Bahari, and LPO financing\n"
-        "2. **Hustler Fund** -- apply via USSD *254# or the Hustler Fund app; no collateral required, builds toward higher loan tiers through savings\n"
-        "3. **SACCOs** -- require membership and a savings history first\n"
-        "4. **Commercial banks** -- require a registered business, financial records, and collateral for larger amounts"
+        '**Startup loan options in Kenya**:\n'
+        '\n'
+        '1. **YEDF** (for youth aged 18-34) -- products include the **Vuka loan** (up to KES 5,000,000 at 8%) and the Agri-Biz loan; check the current list at youthfund.go.ke\n'
+        '2. **Hustler Fund** -- dial ***254#**; the Personal Finance loan gives KES 500-50,000 at interest capped at 8% per annum, with no collateral\n'
+        "3. **Women Enterprise Fund** -- Tuinuke loans for registered women's groups; see wef.go.ke\n"
+        '4. **SACCOs** -- lend only to members, based on their savings\n'
+        '5. **Commercial banks** -- usually require a registered business, financial records, and collateral for larger amounts'
     ),
     "registration": (
         "**Registering a business name in Kenya**:\n\n"
@@ -369,35 +371,17 @@ CANNED_ANSWERS = {
         "liable for unpaid contributions."
     ),
     "mpesa_paybill_till": (
-        "**Getting an M-Pesa Paybill or Till number** -- apply through "
-        "**Safaricom**, not a bank:\n\n"
-        "- **Till Number**: for retail/point-of-sale (shops, restaurants, "
-        "kiosks) -- one till per outlet, customer pays no fee, merchant "
-        "pays a small settlement fee (roughly 0.5-1%)\n"
-        "- **Paybill Number**: for recurring collections with an account/"
-        "reference number (rent, school fees, utilities, subscriptions)\n\n"
-        "**How to apply**: visit m-pesaforbusiness.co.ke and click "
-        "'Apply Now', or visit any Safaricom shop. You'll need your "
-        "national ID, KRA PIN, business registration documents (type "
-        "depends on whether you're a sole proprietor, partnership, or "
-        "company), and bank account details for settlement. Application "
-        "is **free**. Once approved, you'll receive your number by SMS "
-        "and activate it by dialing *234# on the registered line."
+        '**Getting an M-Pesa Paybill or Till number** -- apply through **Safaricom**, not a bank:\n'
+        '\n'
+        "- **Till Number (Buy Goods)**: for retail and point-of-sale (shops, restaurants, kiosks); the merchant pays a transaction fee set in Safaricom's published tariff, which changes from time to time\n"
+        '- **Paybill Number**: for collections that need an account or reference number (rent, school fees, utilities, subscriptions)\n'
+        '\n'
+        "**How to apply**: visit m-pesaforbusiness.co.ke and click 'Apply Now', or visit a Safaricom shop. You'll need your national ID, KRA PIN, business registration documents (depending on whether you are a sole proprietor, partnership or company), and bank account details for settlement. Once approved, you receive your number and activation steps by SMS. Check the current charges on Safaricom's website before you choose."
     ),
     "class_r_permit": (
-        "Go to the **Kenya eFNS portal** on eCitizen and apply for a **Class R "
-        "Permit** -- the special permit for East African Community nationals "
-        "(Burundi, DR Congo, Rwanda, South Sudan, Tanzania, Uganda), covering "
-        "residing, working, trading, or running a business in Kenya. The "
-        "permit itself is **free** (KES 0 processing, KES 0 issuance), "
-        "gazetted under the Kenya Citizenship and Immigration Amendment "
-        "Regulations 2024. You will separately need a **Foreigner Certificate "
-        "(Alien Card)**, which costs **KES 5,000 per year**.\n\nTypical "
-        "documents: valid passport, cover letter, KRA PIN if doing business, "
-        "and a police clearance certificate (required specifically for "
-        "small-scale traders). Apply online, then print the completed forms "
-        "and submit them physically at the Immigration offices (Nyayo House, "
-        "Nairobi)."
+        'Go to the **Kenya eFNS portal** on eCitizen and apply for a **Class R Permit** -- the permit for East African Community nationals (Burundi, DR Congo, Rwanda, South Sudan, Tanzania, Uganda) to live, work, trade or run a business in Kenya. **The permit is free**: the government has confirmed that no one should charge an EAC citizen for it. If you stay beyond 90 days you must also register as a foreign national, which is a separate process -- check its current fee on eFNS.\n'
+        '\n'
+        'Typical documents: valid passport, cover letter, KRA PIN if doing business, and a police clearance certificate (required for small-scale traders). Apply online, then submit the completed forms at an Immigration office (Nyayo House, Nairobi).'
     ),
     "tcc_application": (
         "Log in to **itax.kra.go.ke** with your business KRA PIN (not a "
@@ -446,26 +430,11 @@ CANNED_ANSWERS = {
         'The Fund has also announced Micro, SME and Start-up loan products; check *254# or the official Hustler Fund channels for what is currently available. Your loan limit depends on your scoring.'
     ),
     "sole_prop_to_llc": (
-        "Kenya doesn't have a single-step way to convert a business -- there's no direct 'conversion' process, practically, it's two "
-        "separate actions: **(1) cease your existing business name** by filing "
-        "**Form BN6** on eCitizen, and **(2) register a new private limited "
-        "company** using **Forms CR1, CR2, CR8** plus Articles/Memorandum of "
-        "Association (BRS provides standard templates, or you can customize "
-        "them). You can typically reserve and reuse the same business name, "
-        "now with 'Limited' or 'Ltd' added.\n\n"
-        "**On KRA PIN specifically**: your sole proprietorship used your "
-        "**personal KRA PIN**. The new company needs its **own separate "
-        "company PIN**, applied for via iTax by selecting 'Non-Individual' as "
-        "the taxpayer type -- and every director/shareholder must already "
-        "have their own individual KRA PIN before the company PIN application "
-        "can go through.\n\n"
-        "**On fees**: expect two separate government charges -- business name "
-        "cessation, and private limited company registration (roughly KES "
-        "10,650-10,750 based on current BRS fee schedules, though I'd confirm "
-        "the exact current figure on eCitizen directly). Note there is **no "
-        "legal minimum share capital** requirement, though many people choose "
-        "a nominal figure like KES 100,000 as practice. A clean conversion "
-        "with all documents in order typically takes **5-10 working days**."
+        "Kenya has no single-step way to convert a sole proprietorship into a company. In practice it is two separate actions: **(1) cease your existing business name** by filing **Form BN6** on eCitizen, and **(2) register a new private limited company** using **Forms CR1, CR2, CR8** plus the Memorandum and Articles of Association (BRS provides standard templates). You can usually reserve and reuse the same name, now with 'Limited' or 'Ltd' added.\n"
+        '\n'
+        "**KRA PIN**: your sole proprietorship used your **personal KRA PIN**. The new company needs its **own company PIN**, applied for on iTax as a 'Non-Individual' taxpayer -- and every director and shareholder must already have their own individual KRA PIN.\n"
+        '\n'
+        '**Fees and time**: expect two government charges -- one for ceasing the business name and one for registering the company. Check the current fees on eCitizen before you apply, since they change. There is **no legal minimum share capital**.'
     ),
     "wef": (
         'The **Women Enterprise Fund (WEF)** is a government fund that lends to Kenyan women -- separate from YEDF (for youth) and the Hustler Fund.\n'
@@ -493,39 +462,16 @@ CANNED_ANSWERS = {
         '**Process**: register your premises with PPB, then pass a premises inspection covering proper shelving, ventilation, a dispensing area separate from the sales counter, a lockable poisons cabinet, a refrigerator for cold-chain products, and Green Cross signage. Licenses are issued after a successful inspection and must be renewed annually (all PPB licenses expire December 31).'
     ),
     "ca_license": (
-        "Not every tech startup needs this -- the **Communications "
-        "Authority of Kenya (CA)** specifically licenses telecommunications, "
-        "broadcasting, internet service provision, and postal/courier "
-        "operators, not general software or app businesses. If your startup "
-        "purely builds an app or website without operating telecom "
-        "infrastructure or providing regulated content/network services, you "
-        "likely don't need a CA license at all.\n\nIf you DO fall into a "
-        "regulated category, CA's Unified Licensing Framework covers three "
-        "main types: **Network Facilities Provider**, **Application Service "
-        "Provider**, and **Content Service Provider** (plus separate "
-        "licenses for broadcasting, equipment type-approval, and courier/"
-        "postal services). Applications need a cover letter to the Director "
-        "of Licensing, your certificate of registration, company documents "
-        "(CR12 for companies), and a list of directors -- foreign-owned "
-        "companies need at least 30% Kenyan shareholding. Processing runs on "
-        "a first-come-first-served basis with a stated turnaround of around "
-        "135 days."
+        "Not every tech startup needs this -- the **Communications Authority of Kenya (CA)** licenses telecommunications, broadcasting, internet service provision and postal/courier operators, not general software or app businesses. If your startup only builds an app or website, without running telecom infrastructure or providing regulated network or content services, you likely don't need a CA licence.\n"
+        '\n'
+        "If you do fall into a regulated category, CA's Unified Licensing Framework covers three main types: **Network Facilities Provider**, **Application Service Provider** and **Content Service Provider** (plus separate licences for broadcasting, equipment type-approval and courier/postal services). Applications need a cover letter to the Director of Licensing, your certificate of registration, company documents (CR12 for companies) and a list of directors. Foreign-owned companies must meet CA's local-ownership requirement -- confirm the current percentage, fees and processing times with CA (ca.go.ke) before you apply."
     ),
     "nssf_registration": (
-        "**As an employer**, register via the NSSF Employer Self-Service "
-        "portal (selfservice.nssf.or.ke) -- select 'Employer Registration' "
-        "if you've never registered before. It's worth getting your **KRA "
-        "PIN first**, since you'll need it during registration. Once "
-        "approved, you're issued an employer number, often on the spot.\n\n"
-        "**Registration is mandatory** for every employer with even one "
-        "employee earning KES 1,000 or more per month -- this includes "
-        "casual, temporary, and part-time workers, not just permanent "
-        "staff. Skipping registration is a legal offense under the NSSF Act "
-        "2013.\n\n**For each employee**: they can register in person at any "
-        "NSSF office with their national ID/passport/Alien Card and an "
-        "introduction letter from you as their employer, after which they "
-        "receive an NSSF membership number you'll need to remit their "
-        "contributions."
+        "**As an employer**, register on the NSSF Employer Self-Service portal (selfservice.nssf.or.ke) -- choose 'Employer Registration' if you have never registered. Get your **KRA PIN first**, since you'll need it during registration. Once approved, you receive an employer number.\n"
+        '\n'
+        '**Registration is mandatory** for every employer with one or more employees -- including casual, temporary and part-time workers, not only permanent staff. Failing to register is an offence under the NSSF Act 2013.\n'
+        '\n'
+        '**For each employee**: they register at any NSSF office with their national ID, passport or Alien Card and an introduction letter from you, and receive an NSSF membership number that you use when remitting their contributions.'
     ),
     "keproba": (
         "**KEPROBA** (Kenya Export Promotion and Branding Agency) is a "
@@ -722,14 +668,13 @@ CANNED_ANSWERS_SW = {
         'Omba katika ofisi ya YEDF iliyo makao makuu ya kaunti yako, au anza kwenye youthfund.go.ke.'
     ),
     "loan": (
-        "**Chaguo za mikopo ya kuanzisha biashara nchini Kenya**:\n\n"
-        "1. **YEDF** -- omba kupitia youthfund.go.ke (Fomu 1A); bidhaa ni pamoja na "
-        "Vuka, Talanta, Agribizz, Vijana Bahari, na ufadhili wa LPO\n"
-        "2. **Hustler Fund** -- omba kupitia USSD *254# au programu ya Hustler Fund; "
-        "hakuna dhamana inayohitajika, hujenga kiwango cha juu cha mikopo kupitia akiba\n"
-        "3. **SACCOs** -- zinahitaji uanachama na historia ya akiba kwanza\n"
-        "4. **Benki za kibiashara** -- zinahitaji biashara iliyosajiliwa, kumbukumbu "
-        "za kifedha, na dhamana kwa kiasi kikubwa zaidi"
+        '**Njia za mikopo ya kuanzisha biashara nchini Kenya**:\n'
+        '\n'
+        '1. **YEDF** (kwa vijana wa miaka 18-34) -- bidhaa ni pamoja na **mkopo wa Vuka** (hadi KES 5,000,000 kwa riba ya 8%) na mkopo wa Agri-Biz; angalia orodha ya sasa kwenye youthfund.go.ke\n'
+        '2. **Hustler Fund** -- piga ***254#**; mkopo wa Personal Finance hutoa KES 500-50,000 kwa riba isiyozidi 8% kwa mwaka, bila dhamana\n'
+        '3. **Women Enterprise Fund** -- mikopo ya Tuinuke kwa vikundi vya wanawake vilivyosajiliwa; tazama wef.go.ke\n'
+        '4. **SACCO** -- hukopesha wanachama pekee, kulingana na akiba yao\n'
+        '5. **Benki za biashara** -- kwa kawaida huhitaji biashara iliyosajiliwa, rekodi za fedha, na dhamana kwa kiasi kikubwa'
     ),
     "registration": (
         "**Kusajili jina la biashara nchini Kenya**:\n\n"
@@ -882,43 +827,19 @@ CANNED_ANSWERS_SW = {
         "kampuni wanaweza kuwajibika binafsi kwa michango isiyolipwa."
     ),
     "mpesa_paybill_till": (
-        "**Kupata namba ya Paybill au Till ya M-Pesa** -- omba kupitia "
-        "**Safaricom**, si benki:\n\n"
-        "- **Namba ya Till**: kwa biashara za rejareja (maduka, "
-        "mikahawa, vibanda) -- till moja kwa kila tawi, mteja halipi "
-        "ada, mfanyabiashara hulipa ada ndogo ya malipo (karibu 0.5-1%)\n"
-        "- **Namba ya Paybill**: kwa malipo yanayojirudia yenye namba ya "
-        "akaunti/kumbukumbu (kodi, karo za shule, huduma, michango)\n\n"
-        "**Jinsi ya kuomba**: tembelea m-pesaforbusiness.co.ke na bofya "
-        "'Apply Now', au tembelea duka lolote la Safaricom. Utahitaji "
-        "kitambulisho chako cha taifa, namba ya PIN ya KRA, hati za "
-        "usajili wa biashara (aina inategemea kama wewe ni mmiliki "
-        "binafsi, ubia, au kampuni), na maelezo ya akaunti ya benki kwa "
-        "malipo. Kuomba ni **bure**. Baada ya kuidhinishwa, utapokea "
-        "namba yako kwa SMS na kuiwezesha kwa kupiga *234# kwenye laini "
-        "iliyosajiliwa."
+        '**Kupata namba ya Paybill au Till ya M-Pesa** -- omba kupitia **Safaricom**, si benki:\n'
+        '\n'
+        '- **Namba ya Till (Buy Goods)**: kwa mauzo ya rejareja (maduka, mikahawa, vibanda); mfanyabiashara hulipa ada ya muamala iliyowekwa katika viwango vilivyochapishwa na Safaricom, ambavyo hubadilika mara kwa mara\n'
+        '- **Namba ya Paybill**: kwa makusanyo yanayohitaji namba ya akaunti au kumbukumbu (kodi ya nyumba, karo, huduma, usajili)\n'
+        '\n'
+        "**Jinsi ya kuomba**: tembelea m-pesaforbusiness.co.ke ubofye 'Apply Now', au tembelea duka la Safaricom. Utahitaji kitambulisho cha taifa, KRA PIN, hati za usajili wa biashara (kulingana na kama wewe ni mfanyabiashara binafsi, ubia au kampuni), na maelezo ya akaunti ya benki ya kupokea malipo. Ukishaidhinishwa, utapokea namba yako na hatua za kuiwasha kwa SMS. Angalia ada za sasa kwenye tovuti ya Safaricom kabla ya kuchagua."
     ),
     "sole_prop_to_llc": (
-        "Kenya haina mchakato wa hatua moja wa 'kubadilisha' -- kwa kweli, "
-        "ni hatua mbili tofauti: **(1) sitisha jina lako la biashara "
-        "lililopo** kwa kujaza **Fomu ya BN6** kwenye eCitizen, na **(2) "
-        "sajili kampuni mpya ya kikomo** ukitumia **Fomu za CR1, CR2, CR8** "
-        "pamoja na Memorandum/Articles of Association (BRS hutoa violezo "
-        "vya kawaida, au unaweza kuvibinafsisha). Kwa kawaida unaweza "
-        "kutumia jina lile lile la biashara, sasa likiwa na 'Limited' au "
-        "'Ltd'.\n\n**Kuhusu PIN ya KRA hasa**: biashara yako ya umiliki "
-        "binafsi ilitumia **PIN yako binafsi ya KRA**. Kampuni mpya "
-        "inahitaji **PIN yake tofauti**, unaomba kupitia iTax kwa kuchagua "
-        "'Non-Individual' kama aina ya mlipa kodi -- na kila mkurugenzi/"
-        "mwanahisa lazima awe na PIN yake binafsi ya KRA kabla ya maombi "
-        "ya PIN ya kampuni kuendelea.\n\n**Kuhusu ada**: tarajia malipo "
-        "mawili tofauti ya serikali -- kusitisha jina la biashara, na "
-        "usajili wa kampuni ya kikomo (takriban KES 10,650-10,750 kulingana "
-        "na ratiba za sasa za BRS, ingawa ningependekeza uthibitishe kiasi "
-        "halisi cha sasa moja kwa moja kwenye eCitizen). Kumbuka hakuna "
-        "**mtaji wa chini wa hisa unaotakiwa kisheria**, ingawa watu wengi "
-        "huchagua kiasi kama KES 100,000 kama mazoea. Mchakato safi wenye "
-        "nyaraka zote sahihi kwa kawaida huchukua **siku 5-10 za kazi**."
+        "Kenya haina njia ya hatua moja ya kubadilisha biashara ya mtu binafsi kuwa kampuni. Kwa vitendo ni hatua mbili tofauti: **(1) sitisha jina la biashara yako ya sasa** kwa kuwasilisha **Fomu BN6** kwenye eCitizen, na **(2) sajili kampuni mpya ya dhima ndogo** kwa kutumia **Fomu CR1, CR2, CR8** pamoja na Memorandum na Articles of Association (BRS hutoa violezo vya kawaida). Kwa kawaida unaweza kuhifadhi na kutumia jina lilelile, sasa likiwa na 'Limited' au 'Ltd'.\n"
+        '\n'
+        "**KRA PIN**: biashara yako ya mtu binafsi ilitumia **KRA PIN yako binafsi**. Kampuni mpya inahitaji **PIN yake ya kampuni**, inayoombwa kwenye iTax kama mlipa kodi wa 'Non-Individual' -- na kila mkurugenzi na mwanahisa lazima tayari awe na KRA PIN yake binafsi.\n"
+        '\n'
+        '**Ada na muda**: tarajia ada mbili za serikali -- moja ya kusitisha jina la biashara na moja ya kusajili kampuni. Angalia ada za sasa kwenye eCitizen kabla ya kuomba, kwa kuwa hubadilika. **Hakuna kiwango cha chini cha kisheria** cha mtaji wa hisa.'
     ),
     "wef": (
         '**Mfuko wa Biashara za Wanawake (WEF)** ni mfuko wa serikali unaokopesha wanawake wa Kenya -- tofauti na YEDF (kwa vijana) na Hustler Fund.\n'
@@ -961,19 +882,9 @@ CANNED_ANSWERS_SW = {
         "12**."
     ),
     "class_r_permit": (
-        "Nenda kwenye tovuti ya **Kenya eFNS** kupitia eCitizen na uombe "
-        "**Class R Permit** -- kibali maalum kwa raia wa Jumuiya ya Afrika "
-        "Mashariki (Burundi, DR Congo, Rwanda, Sudan Kusini, Tanzania, "
-        "Uganda), kinachoruhusu kuishi, kufanya kazi, kufanya biashara, au "
-        "kuendesha kampuni nchini Kenya. Kibali chenyewe ni **bure** (KES 0), "
-        "kilichowekwa kisheria chini ya Kenya Citizenship and Immigration "
-        "Amendment Regulations 2024. Utahitaji pia **Foreigner Certificate "
-        "(Alien Card)**, ambayo inagharimu **KES 5,000 kwa mwaka**.\n\n"
-        "Hati zinazohitajika kwa kawaida: pasipoti halali, barua ya maombi, "
-        "PIN ya KRA endapo unafanya biashara, na cheti cha uthibitisho wa "
-        "polisi (kwa wafanyabiashara wadogo). Omba mtandaoni, kisha "
-        "chapisha fomu na uwasilishe kwa mkono katika ofisi za Uhamiaji "
-        "(Nyayo House, Nairobi)."
+        'Nenda kwenye **tovuti ya eFNS** ya eCitizen uombe **Kibali cha Daraja R (Class R Permit)** -- kibali kwa raia wa Jumuiya ya Afrika Mashariki (Burundi, DR Congo, Rwanda, Sudan Kusini, Tanzania, Uganda) kuishi, kufanya kazi, kufanya biashara au kuendesha biashara nchini Kenya. **Kibali ni bure**: serikali imethibitisha kwamba hakuna anayepaswa kumtoza raia wa EAC kwa kibali hiki. Ukikaa zaidi ya siku 90 lazima pia ujisajili kama raia wa kigeni, mchakato tofauti -- angalia ada yake ya sasa kwenye eFNS.\n'
+        '\n'
+        'Hati za kawaida: pasipoti halali, barua ya maombi, KRA PIN ukifanya biashara, na cheti cha tabia njema kutoka polisi (kinachohitajika kwa wafanyabiashara wadogo). Omba mtandaoni, kisha wasilisha fomu zilizojazwa katika ofisi ya Uhamiaji (Nyayo House, Nairobi).'
     ),
     "tcc_application": (
         "Ingia kwenye **itax.kra.go.ke** ukitumia PIN ya KRA ya biashara "
@@ -1015,38 +926,16 @@ CANNED_ANSWERS_SW = {
         '**Mchakato**: sajili majengo yako na PPB, kisha pitisha ukaguzi wa majengo unaoangalia rafu sahihi, mzunguko wa hewa, eneo la kutolea dawa tofauti na counter ya mauzo, kabati la sumu lenye kufuli, jokofu kwa bidhaa zinazohitaji baridi, na alama ya Msalaba wa Kijani. Leseni hutolewa baada ya ukaguzi wenye mafanikio na lazima zihuishwe kila mwaka (leseni zote za PPB huisha Desemba 31).'
     ),
     "ca_license": (
-        "Si kila kampuni ya teknolojia inahitaji hii -- **Communications "
-        "Authority of Kenya (CA)** inatoa leseni hasa kwa mawasiliano ya "
-        "simu, utangazaji, huduma za intaneti, na waendeshaji wa posta/"
-        "kurier, si biashara za kawaida za programu. Ikiwa kampuni yako "
-        "inajenga tu programu au tovuti bila kuendesha miundombinu ya "
-        "mawasiliano au kutoa huduma za maudhui/mtandao zinazodhibitiwa, "
-        "huenda usihitaji leseni ya CA kabisa.\n\nIkiwa unaangukia katika "
-        "kundi linalodhibitiwa, mfumo wa CA wa Unified Licensing "
-        "Framework unahusisha aina tatu kuu: **Network Facilities "
-        "Provider**, **Application Service Provider**, na **Content "
-        "Service Provider** (pamoja na leseni tofauti za utangazaji, "
-        "uidhinishaji wa vifaa, na huduma za posta/kurier). Maombi "
-        "yanahitaji barua kwa Mkurugenzi wa Leseni, cheti chako cha "
-        "usajili, hati za kampuni (CR12 kwa makampuni), na orodha ya "
-        "wakurugenzi."
+        'Si kila kampuni changa ya teknolojia inahitaji hili -- **Mamlaka ya Mawasiliano ya Kenya (CA)** hutoa leseni kwa watoa huduma za mawasiliano ya simu, utangazaji, intaneti na posta/courier, si kwa biashara za programu au apps za kawaida. Ikiwa kampuni yako inatengeneza app au tovuti tu, bila kuendesha miundombinu ya mawasiliano au kutoa huduma za mtandao au maudhui zinazodhibitiwa, huenda huhitaji leseni ya CA.\n'
+        '\n'
+        'Ikiwa uko katika aina inayodhibitiwa, Mfumo wa Leseni wa Pamoja wa CA una aina tatu kuu: **Network Facilities Provider**, **Application Service Provider** na **Content Service Provider** (pamoja na leseni tofauti za utangazaji, idhini ya vifaa na huduma za posta/courier). Maombi yanahitaji barua kwa Mkurugenzi wa Leseni, cheti cha usajili, hati za kampuni (CR12 kwa makampuni) na orodha ya wakurugenzi. Makampuni yanayomilikiwa na wageni lazima yatimize sharti la umiliki wa ndani la CA -- thibitisha asilimia ya sasa, ada na muda wa kushughulikia na CA (ca.go.ke) kabla ya kuomba.'
     ),
     "nssf_registration": (
-        "**Kama mwajiri**, jisajili kupitia NSSF Employer Self-Service "
-        "portal (selfservice.nssf.or.ke) -- chagua 'Employer "
-        "Registration' ikiwa hujawahi kujisajili. Ni vyema kuwa na "
-        "**PIN yako ya KRA kwanza**, kwani utaihitaji wakati wa usajili. "
-        "Ukisha idhinishwa, unapewa namba ya mwajiri, mara nyingi papo "
-        "hapo.\n\n**Usajili ni wa lazima** kwa kila mwajiri mwenye "
-        "hata mfanyakazi mmoja anayepata KES 1,000 au zaidi kwa mwezi -- "
-        "hii inajumuisha wafanyakazi wa muda, wa kandarasi, na wa muda "
-        "mfupi, si wafanyakazi wa kudumu pekee. Kutojisajili ni kosa la "
-        "kisheria chini ya Sheria ya NSSF ya 2013.\n\n**Kwa kila "
-        "mfanyakazi**: wanaweza kujisajili wenyewe katika ofisi yoyote ya "
-        "NSSF wakiwa na kitambulisho chao cha taifa/pasipoti/Alien Card na "
-        "barua ya utambulisho kutoka kwako kama mwajiri wao, baada ya "
-        "hapo watapokea namba ya uanachama wa NSSF utakayoihitaji kutuma "
-        "michango yao."
+        "**Kama mwajiri**, jisajili kwenye tovuti ya NSSF Employer Self-Service (selfservice.nssf.or.ke) -- chagua 'Employer Registration' ikiwa hujawahi kusajiliwa. Pata **KRA PIN kwanza**, kwa kuwa utaihitaji wakati wa usajili. Ukishaidhinishwa, utapokea namba ya mwajiri.\n"
+        '\n'
+        '**Usajili ni wa lazima** kwa kila mwajiri mwenye mfanyakazi mmoja au zaidi -- pamoja na vibarua, wafanyakazi wa muda na wa muda mfupi, si wa kudumu pekee. Kutojisajili ni kosa chini ya Sheria ya NSSF ya 2013.\n'
+        '\n'
+        '**Kwa kila mfanyakazi**: hujisajili katika ofisi yoyote ya NSSF kwa kitambulisho cha taifa, pasipoti au Alien Card na barua ya utambulisho kutoka kwako, na hupata namba ya uanachama ya NSSF unayoitumia unapowasilisha michango yao.'
     ),
     "keproba": (
         "**KEPROBA** (Kenya Export Promotion and Branding Agency) ni "
