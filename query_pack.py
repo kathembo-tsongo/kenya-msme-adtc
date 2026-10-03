@@ -183,6 +183,15 @@ def canned_matches(db, query):
     return []
 
 
+def canned_source(db, topic):
+    """(source, url, checked) for a verified answer, or None (also for packs built before sources)."""
+    try:
+        return db.execute("SELECT source, url, checked FROM canned_sources WHERE topic = ?",
+                          (topic,)).fetchone()
+    except Exception:
+        return None
+
+
 def canned_answer(db, topic, lang):
     en, sw = db.execute("SELECT answer_en, answer_sw FROM canned WHERE topic = ?", (topic,)).fetchone()
     return ((sw or en) if lang == "sw" else (en or sw)), en, sw

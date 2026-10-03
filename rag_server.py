@@ -1063,6 +1063,32 @@ CANNED_ANSWERS_SW = {
 }
 
 
+# Where each verified answer was checked: topic -> (short source name, URL, date checked).
+# source_report.py lists verified answers with no entry here, or checked too long ago.
+CANNED_SOURCES = {
+    'paye_bands': ('KRA', 'https://www.kra.go.ke/individual/filing-paying/types-of-taxes/paye', '2026-10-03'),
+    'paye_remit': ('KRA', 'https://www.kra.go.ke/individual/filing-paying/types-of-taxes/paye', '2026-10-02'),
+    'housing_levy': ('KRA', 'https://www.kra.go.ke/news-center/public-notices/2099-collection-of-the-affordable-housing-levy-by-kenya-revenue-authority', '2026-10-03'),
+    'nssf': ('NSSF', 'https://gaa.go.ke/sites/default/files/2026-02/Notice%20To%20Employers%20%E2%80%94%20Year%204%20(2026)%20NSSF%20Contribution%20Rates%20.pdf', '2026-10-03'),
+    'shif_rate': ('Social Health Insurance Regulations 2024', 'https://www.ey.com/en_gl/technical/tax-alerts/kenya-employers-to-begin-making-contributions-to-social-health-insurance-fund', '2026-10-03'),
+    'turnover_tax': ('KRA', 'https://www.kra.go.ke/individual/filing-paying/types-of-taxes/turnover-tax-tot', '2026-10-03'),
+    'late_filing_penalty': ('KRA', 'https://www.kra.go.ke/business/business-compliance-penalties/business-how-to-file/business-offences-penalties', '2026-10-03'),
+    'vat_penalty': ('KRA', 'https://www.kra.go.ke/business/business-compliance-penalties/business-how-to-file/business-offences-penalties', '2026-10-02'),
+    'leave': ('Employment Act 2007', 'https://www.a-mla.org/en/country/pdf/1903', '2026-10-03'),
+    'maternity_paternity_leave': ('Employment Act 2007', 'https://www.a-mla.org/en/country/pdf/1903', '2026-10-03'),
+    'probation_period': ('Employment Act 2007', 'https://www.a-mla.org/en/country/pdf/1903', '2026-10-03'),
+    'minimum_wage': ('Kenya Gazette, LN 95 & 96 of 2026', 'https://www.grantthornton.co.ke/globalassets/1.-member-firms/kenya/insights/pdf/wages-guide-2026.pdf', '2026-10-03'),
+    'capital': ('Legal Notice 60 of 2016', 'https://taxsummaries.pwc.com/kenya/corporate/other-taxes', '2026-10-03'),
+    'etims_general': ('eTIMS Regulations 2024', 'https://www.rsm.global/kenya/news/kenya-tax-alert-tax-procedures-electronic-tax-invoice-regulations-2024', '2026-10-03'),
+    'agpo': ('National Treasury (AGPO)', 'https://tenders.go.ke/storage/Documents/1750773716675-agpo-registration-and-sensitization-of-suppliers-through-university-website.pdf', '2026-10-03'),
+    'wef': ('Women Enterprise Fund', 'https://wef.go.ke/tuinuke-loan/', '2026-10-03'),
+    'hustler_fund_business': ('MSEA (Hustler Fund FAQs)', 'https://msea.go.ke/wp-content/uploads/2024/11/Hustler-Fund-FAQs.pdf', '2026-10-03'),
+    'yedf': ('Youth Enterprise Development Fund', 'https://x.com/YouthFund_Ke/status/2018249406655475950', '2026-10-03'),
+    'loan': ('YEDF, MSEA, WEF', 'https://msea.go.ke/wp-content/uploads/2024/11/Hustler-Fund-FAQs.pdf', '2026-10-03'),
+    'class_r_permit': ('Government statement, 10 Sep 2026', 'https://thekenyatimes.com/national/mudavadi-class-r-permit/', '2026-10-03'),
+    'sacco_vs_bank': ('SASRA', 'https://www.sasra.go.ke/frequently-asked-questions/', '2026-10-03'),
+}
+
 TOPIC_KEYWORDS = {
     "nssf_penalty": ["nssf penalty", "late nssf", "nssf late payment", "penalty for late nssf", "nssf fine", "adhabu ya nssf", "faini ya nssf kuchelewa"],
     "mpesa_paybill_till": ["paybill", "till number", "buy goods till", "set up paybill", "mpesa business", "namba ya paybill", "namba ya till", "kuweka paybill"],

@@ -31,7 +31,7 @@ from collections import defaultdict
 
 import query_pack as qp
 
-WANTED = ["CANNED_ANSWERS", "CANNED_ANSWERS_SW", "TOPIC_KEYWORDS", "DIGEST_OVERRIDE_KEYWORDS"]
+WANTED = ["CANNED_ANSWERS", "CANNED_ANSWERS_SW", "TOPIC_KEYWORDS", "DIGEST_OVERRIDE_KEYWORDS", "CANNED_SOURCES"]
 TEXT_KEYS = ("text", "content", "chunk", "page_content")
 SOURCE_KEYS = ("source", "file", "filename", "doc", "document", "path")
 KB_KEYS = ("kb", "category", "collection", "folder")
@@ -184,6 +184,11 @@ def write_pack(out, lit, chunks, meta, general):
         CREATE VIRTUAL TABLE canned_fts USING fts4(body, tokenize=porter);
     """)
 
+    # Provenance: where each verified answer was checked (optional in rag_server.py).
+    db.execute("CREATE TABLE canned_sources(topic TEXT PRIMARY KEY, source TEXT NOT NULL, "
+               "url TEXT NOT NULL, checked TEXT NOT NULL)")
+    for topic, (source, url, checked) in lit.get("CANNED_SOURCES", {}).items():
+        db.execute("INSERT INTO canned_sources VALUES (?,?,?,?)", (topic, source, url, checked))
     en, sw = lit["CANNED_ANSWERS"], lit["CANNED_ANSWERS_SW"]
     for topic in list(en) + [t for t in sw if t not in en]:
         db.execute("INSERT INTO canned VALUES (?,?,?)", (topic, en.get(topic), sw.get(topic)))
