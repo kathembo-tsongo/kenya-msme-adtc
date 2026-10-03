@@ -501,39 +501,20 @@ CANNED_ANSWERS = {
         "Apply through WEF's regional offices, or online at wef.go.ke."
     ),
     "unified_business_permit": (
-        "In Nairobi County specifically, this is the **Unified Business Permit "
-        "(UBP)** -- a single annual license that bundles what used to be "
-        "several separate approvals (trade license, fire inspection, food/"
-        "health certificate, advertisement/signage permit) into one "
-        "application. Apply via the **NairobiPay self-service portal "
-        "(nairobiservices.go.ke)**, dial ***647#**, or visit City Hall Annex "
-        "in person.\n\nThe fee depends on your business category and size "
-        "(a small shop might pay around KES 4,000 plus a KES 200 application "
-        "fee; larger operations pay significantly more) -- confirm your "
-        "exact category's fee on the portal. It runs on a **January-"
-        "December annual cycle**; renewal applications typically open in "
-        "November, with payment expected by around March 31 to avoid "
-        "escalating late penalties. Other counties (Mombasa, Meru, Kisumu, "
-        "and several others) use eCitizen instead of a county-specific "
-        "portal for their equivalent single business permit."
+        (
+        'In Nairobi County specifically, this is the **Unified Business Permit (UBP)** -- a single annual license that bundles what used to be several separate approvals (trade license, fire inspection, food/health certificate, advertisement/signage permit) into one application. Apply via the **NairobiPay self-service portal (nairobiservices.go.ke)**, dial ***647#**, or visit City Hall Annex in person.\n'
+        '\n'
+        "The fee depends on your business category and size, and is set by the county's Finance Act -- confirm your exact category's fee on the portal before you pay. It runs on a **January-December annual cycle**; the permit is renewed every year; check the portal for the current deadline, since late payment attracts penalties. Other counties (Mombasa, Meru, Kisumu, and several others) use eCitizen instead of a county-specific portal for their equivalent single business permit."
+    )
     ),
     "pharmacy_license": (
-        "Operating a pharmacy or chemist shop requires licensing from the "
-        "**Pharmacy and Poisons Board (PPB)**, the national medicines "
-        "regulator under the Pharmacy and Poisons Act (Cap 244) -- this is "
-        "in addition to, not instead of, your county Single Business Permit "
-        "(roughly KES 5,000-30,000).\n\n**Key requirement**: everyone "
-        "holding a financial interest in the pharmacy must be a registered "
-        "pharmacist or enrolled pharmaceutical technologist -- you generally "
-        "can't own a pharmacy purely as a non-pharmacist investor. The "
-        "designated superintendent pharmacist also needs their own annual "
-        "practicing license from PPB.\n\n**Process**: register your "
-        "premises with PPB, then pass a premises inspection covering proper "
-        "shelving, ventilation, a dispensing area separate from the sales "
-        "counter, a lockable poisons cabinet, a refrigerator for cold-chain "
-        "products, and Green Cross signage. Licenses are issued after a "
-        "successful inspection and must be renewed annually (all PPB "
-        "licenses expire December 31)."
+        (
+        'Operating a pharmacy or chemist shop requires licensing from the **Pharmacy and Poisons Board (PPB)**, the national medicines regulator under the Pharmacy and Poisons Act (Cap 244) -- this is in addition to, not instead of, your county Single Business Permit (the fee varies by county).\n'
+        '\n'
+        "**Key requirement**: everyone holding a financial interest in the pharmacy must be a registered pharmacist or enrolled pharmaceutical technologist -- you generally can't own a pharmacy purely as a non-pharmacist investor. The designated superintendent pharmacist also needs their own annual practicing license from PPB.\n"
+        '\n'
+        '**Process**: register your premises with PPB, then pass a premises inspection covering proper shelving, ventilation, a dispensing area separate from the sales counter, a lockable poisons cabinet, a refrigerator for cold-chain products, and Green Cross signage. Licenses are issued after a successful inspection and must be renewed annually (all PPB licenses expire December 31).'
+    )
     ),
     "ca_license": (
         "Not every tech startup needs this -- the **Communications "
@@ -588,25 +569,17 @@ CANNED_ANSWERS = {
         "services."
     ),
     "no_permit_penalty": (
-        "Operating without a valid county business permit is illegal in "
-        "Kenya, under the **County Governments Act 2012** combined with "
-        "each county's own Finance Act and Trade Licensing Act (Nairobi's "
-        "trade licensing, for example, falls under its own County Trade "
-        "Licensing Act).\n\n**Consequences can include**:\n"
-        "- **Fines**: commonly cited in the range of KES 50,000-200,000, "
-        "though this varies significantly by county -- confirm your "
-        "specific county's penalty schedule\n"
-        "- **Closure orders**: county inspectors can issue an immediate "
-        "closure order, shutting your business until you comply\n"
-        "- **Possible imprisonment**: in serious or repeated cases, "
-        "directors/owners can face criminal prosecution personally, not "
-        "just the business\n"
-        "- **Back-payment of penalties**: on top of the permit fee itself "
-        "once you do comply\n\n"
-        "Most counties allow a grace period (commonly 30-60 days after "
-        "expiry) before penalties kick in for a *lapsed* permit -- but "
-        "operating with no permit at all from the start carries the fuller "
-        "risk above from day one."
+        (
+        "Operating without a valid county business permit is illegal in Kenya, under the **County Governments Act 2012** combined with each county's own Finance Act and Trade Licensing Act (Nairobi's trade licensing, for example, falls under its own County Trade Licensing Act).\n"
+        '\n'
+        '**Consequences can include**:\n'
+        "- **Fines**: the amount is set by each county's law and varies significantly -- confirm your county's penalty schedule\n"
+        '- **Closure orders**: county inspectors can issue an immediate closure order, shutting your business until you comply\n'
+        '- **Possible imprisonment**: in serious or repeated cases, directors/owners can face criminal prosecution personally, not just the business\n'
+        '- **Back-payment of penalties**: on top of the permit fee itself once you do comply\n'
+        '\n'
+        "Some counties allow a grace period after a permit expires before penalties apply -- check your county's rules -- but operating with no permit at all from the start carries the fuller risk above from day one."
+    )
     ),
     "sole_prop_vs_limited": (
         "The core difference is **liability and separateness**. A **sole "
@@ -680,24 +653,16 @@ CANNED_ANSWERS = {
     )
     ),
     "food_business_license": (
-        "A food business (restaurant, cafe, bakery, shop) needs several "
-        "layers, on top of your standard county business permit "
-        "(Single/Unified Business Permit):\n\n"
-        "- **Health/Food Hygiene Certificate**: issued by your county "
-        "health department, confirming your premises meet hygiene "
-        "standards -- typically KES 2,000-5,000, required before opening\n"
-        "- **Food Handler's Health Certificate**: required for **every "
-        "individual employee** who handles food, obtained after a medical "
-        "check-up (roughly KES 1,000 per person)\n"
-        "- **Fire Safety Certificate**: mandatory for all businesses, "
-        "requiring fire extinguishers and a county fire department "
-        "inspection, renewed annually\n"
-        "- **Restaurant-specific**: registration with the **Tourism "
-        "Regulatory Authority (TRA)** under the Tourism Act 2011, if you "
-        "operate as a restaurant\n\n"
-        "If you manufacture or package food products for sale (not just "
-        "serve food on-site), you'll also need **KEBS** certification "
-        "(Standardization Mark) specific to packaged/processed goods."
+        (
+        'A food business (restaurant, cafe, bakery, shop) needs several layers, on top of your standard county business permit (Single/Unified Business Permit):\n'
+        '\n'
+        '- **Health/Food Hygiene Certificate**: issued by your county health department, confirming your premises meet hygiene standards, required before opening (the fee varies by county)\n'
+        "- **Food Handler's Health Certificate**: required for **every individual employee** who handles food, obtained after a medical check-up\n"
+        '- **Fire Safety Certificate**: mandatory for all businesses, requiring fire extinguishers and a county fire department inspection, renewed annually\n'
+        '- **Restaurant-specific**: registration with the **Tourism Regulatory Authority (TRA)** under the Tourism Act 2011, if you operate as a restaurant\n'
+        '\n'
+        "If you manufacture or package food products for sale (not just serve food on-site), you'll also need **KEBS** certification (Standardization Mark) specific to packaged/processed goods."
+    )
     ),
     "employee_compliance_checklist": (
         "For a trading enterprise with permanent staff, here's what to maintain:\n\n"
@@ -1083,36 +1048,20 @@ CANNED_ANSWERS_SW = {
         "sababu halali."
     ),
     "unified_business_permit": (
-        "Katika Kaunti ya Nairobi hasa, hii ni **Unified Business Permit "
-        "(UBP)** -- leseni moja ya kila mwaka inayounganisha vibali "
-        "kadhaa vilivyokuwa tofauti (leseni ya biashara, ukaguzi wa moto, "
-        "cheti cha afya/chakula, kibali cha matangazo/alama) katika maombi "
-        "moja. Omba kupitia **NairobiPay (nairobiservices.go.ke)**, piga "
-        "***647#**, au tembelea City Hall Annex.\n\nAda inategemea aina na "
-        "ukubwa wa biashara yako (duka dogo huenda likilipa karibu KES "
-        "4,000 pamoja na KES 200 ya maombi; shughuli kubwa zaidi hulipa "
-        "zaidi) -- thibitisha ada halisi ya aina yako kwenye tovuti. "
-        "Inafuata mzunguko wa **Januari-Desemba**; maombi ya kuhuisha "
-        "kwa kawaida hufunguliwa Novemba, na malipo yanatarajiwa kabla ya "
-        "Machi 31 kuepuka adhabu zinazoongezeka."
+        (
+        'Katika Kaunti ya Nairobi hasa, hii ni **Unified Business Permit (UBP)** -- leseni moja ya kila mwaka inayounganisha vibali kadhaa vilivyokuwa tofauti (leseni ya biashara, ukaguzi wa moto, cheti cha afya/chakula, kibali cha matangazo/alama) katika maombi moja. Omba kupitia **NairobiPay (nairobiservices.go.ke)**, piga ***647#**, au tembelea City Hall Annex.\n'
+        '\n'
+        'Ada inategemea aina na ukubwa wa biashara yako, na huwekwa na Sheria ya Fedha ya kaunti -- thibitisha ada halisi ya aina yako kwenye tovuti kabla ya kulipa. Inafuata mzunguko wa **Januari-Desemba**; kibali huhuishwa kila mwaka; angalia tarehe ya mwisho ya sasa kwenye tovuti, kwa kuwa kuchelewa kulipa kunavutia adhabu.'
+    )
     ),
     "pharmacy_license": (
-        "Kuendesha duka la dawa au kemisti kunahitaji leseni kutoka "
-        "**Pharmacy and Poisons Board (PPB)**, msimamizi wa kitaifa wa "
-        "dawa chini ya Sheria ya Dawa na Sumu (Cap 244) -- hii ni pamoja "
-        "na, si badala ya, Single Business Permit ya kaunti yako "
-        "(takriban KES 5,000-30,000).\n\n**Sharti muhimu**: kila mtu "
-        "mwenye maslahi ya kifedha katika duka la dawa lazima awe "
-        "mfamasia aliyesajiliwa au fundi wa dawa aliyeandikishwa -- kwa "
-        "kawaida huwezi kumiliki duka la dawa kama mwekezaji tu asiye "
-        "mfamasia. Msimamizi mfamasia aliyeteuliwa pia anahitaji leseni "
-        "yake ya kila mwaka ya kufanya kazi kutoka PPB.\n\n**Mchakato**: "
-        "sajili majengo yako na PPB, kisha pitisha ukaguzi wa majengo "
-        "unaoangalia rafu sahihi, mzunguko wa hewa, eneo la kutolea dawa "
-        "tofauti na counter ya mauzo, kabati la sumu lenye kufuli, jokofu "
-        "kwa bidhaa zinazohitaji baridi, na alama ya Msalaba wa Kijani. "
-        "Leseni hutolewa baada ya ukaguzi wenye mafanikio na lazima "
-        "zihuishwe kila mwaka (leseni zote za PPB huisha Desemba 31)."
+        (
+        'Kuendesha duka la dawa au kemisti kunahitaji leseni kutoka **Pharmacy and Poisons Board (PPB)**, msimamizi wa kitaifa wa dawa chini ya Sheria ya Dawa na Sumu (Cap 244) -- hii ni pamoja na, si badala ya, Single Business Permit ya kaunti yako (ada inatofautiana kwa kaunti).\n'
+        '\n'
+        '**Sharti muhimu**: kila mtu mwenye maslahi ya kifedha katika duka la dawa lazima awe mfamasia aliyesajiliwa au fundi wa dawa aliyeandikishwa -- kwa kawaida huwezi kumiliki duka la dawa kama mwekezaji tu asiye mfamasia. Msimamizi mfamasia aliyeteuliwa pia anahitaji leseni yake ya kila mwaka ya kufanya kazi kutoka PPB.\n'
+        '\n'
+        '**Mchakato**: sajili majengo yako na PPB, kisha pitisha ukaguzi wa majengo unaoangalia rafu sahihi, mzunguko wa hewa, eneo la kutolea dawa tofauti na counter ya mauzo, kabati la sumu lenye kufuli, jokofu kwa bidhaa zinazohitaji baridi, na alama ya Msalaba wa Kijani. Leseni hutolewa baada ya ukaguzi wenye mafanikio na lazima zihuishwe kila mwaka (leseni zote za PPB huisha Desemba 31).'
+    )
     ),
     "ca_license": (
         "Si kila kampuni ya teknolojia inahitaji hii -- **Communications "
@@ -1163,23 +1112,17 @@ CANNED_ANSWERS_SW = {
         "kupitia ofisi za KEPROBA au makeitkenya.go.ke."
     ),
     "no_permit_penalty": (
-        "Kuendesha biashara bila kibali halali cha kaunti ni kinyume cha "
-        "sheria nchini Kenya, chini ya **Sheria ya Serikali za Kaunti ya "
-        "2012** pamoja na Sheria ya Fedha na Leseni za Biashara za kaunti "
-        "yako.\n\n**Madhara yanaweza kujumuisha**:\n"
-        "- **Faini**: mara nyingi kati ya KES 50,000-200,000, ingawa hii "
-        "inatofautiana sana kwa kaunti\n"
-        "- **Amri za kufunga**: wakaguzi wa kaunti wanaweza kutoa amri ya "
-        "kufunga mara moja, wakifunga biashara yako mpaka utii\n"
-        "- **Kifungo kinachowezekana**: katika hali mbaya au za "
-        "kurudia, wakurugenzi/wamiliki wanaweza kukabiliwa na mashtaka ya "
-        "jinai binafsi\n"
-        "- **Malipo ya nyuma ya adhabu**: juu ya ada ya kibali chenyewe "
-        "ukisha tii\n\n"
-        "Kaunti nyingi huruhusu muda wa neema (kawaida siku 30-60 baada "
-        "ya kuisha) kabla ya adhabu kuanza kwa kibali kilichoisha muda -- "
-        "lakini kuendesha bila kibali kabisa tangu mwanzo kunabeba hatari "
-        "kamili tangu siku ya kwanza."
+        (
+        'Kuendesha biashara bila kibali halali cha kaunti ni kinyume cha sheria nchini Kenya, chini ya **Sheria ya Serikali za Kaunti ya 2012** pamoja na Sheria ya Fedha na Leseni za Biashara za kaunti yako.\n'
+        '\n'
+        '**Madhara yanaweza kujumuisha**:\n'
+        '- **Faini**: kiasi huwekwa na sheria ya kila kaunti na hutofautiana sana -- thibitisha ratiba ya adhabu ya kaunti yako\n'
+        '- **Amri za kufunga**: wakaguzi wa kaunti wanaweza kutoa amri ya kufunga mara moja, wakifunga biashara yako mpaka utii\n'
+        '- **Kifungo kinachowezekana**: katika hali mbaya au za kurudia, wakurugenzi/wamiliki wanaweza kukabiliwa na mashtaka ya jinai binafsi\n'
+        '- **Malipo ya nyuma ya adhabu**: juu ya ada ya kibali chenyewe ukisha tii\n'
+        '\n'
+        'Baadhi ya kaunti huruhusu muda wa neema baada ya kibali kuisha kabla ya adhabu kuanza -- angalia sheria za kaunti yako -- lakini kuendesha bila kibali kabisa tangu mwanzo kunabeba hatari kamili tangu siku ya kwanza.'
+    )
     ),
     "sole_prop_vs_limited": (
         "Tofauti kuu ni **dhima na utengano**. **Umiliki binafsi** si "
@@ -1241,24 +1184,16 @@ CANNED_ANSWERS_SW = {
     )
     ),
     "food_business_license": (
-        "Biashara ya chakula (mkahawa, cafe, mkate, duka) inahitaji "
-        "tabaka kadhaa, juu ya kibali chako cha kawaida cha kaunti "
-        "(Single/Unified Business Permit):\n\n"
-        "- **Cheti cha Afya/Usafi wa Chakula**: kinatolewa na idara ya "
-        "afya ya kaunti, kikithibitisha majengo yako yanafikia viwango "
-        "vya usafi -- kawaida KES 2,000-5,000, kinahitajika kabla ya "
-        "kufungua\n"
-        "- **Cheti cha Afya cha Mshughulikiaji wa Chakula**: kinahitajika "
-        "kwa **kila mfanyakazi binafsi** anayeshughulikia chakula, "
-        "kinapatikana baada ya uchunguzi wa afya (karibu KES 1,000 kwa "
-        "mtu)\n"
-        "- **Cheti cha Usalama wa Moto**: cha lazima kwa biashara zote, "
-        "kinahitaji vizima moto na ukaguzi wa idara ya moto ya kaunti\n"
-        "- **Mahususi kwa mikahawa**: usajili na **Tourism Regulatory "
-        "Authority (TRA)** chini ya Sheria ya Utalii ya 2011, ikiwa "
-        "unaendesha kama mkahawa\n\n"
-        "Ikiwa unatengeneza au kufunga bidhaa za chakula kwa mauzo, "
-        "utahitaji pia uthibitisho wa **KEBS** (Standardization Mark)."
+        (
+        'Biashara ya chakula (mkahawa, cafe, mkate, duka) inahitaji tabaka kadhaa, juu ya kibali chako cha kawaida cha kaunti (Single/Unified Business Permit):\n'
+        '\n'
+        '- **Cheti cha Afya/Usafi wa Chakula**: kinatolewa na idara ya afya ya kaunti, kikithibitisha majengo yako yanafikia viwango vya usafi, kinahitajika kabla ya kufungua (ada inatofautiana kwa kaunti)\n'
+        '- **Cheti cha Afya cha Mshughulikiaji wa Chakula**: kinahitajika kwa **kila mfanyakazi binafsi** anayeshughulikia chakula, kinapatikana baada ya uchunguzi wa afya\n'
+        '- **Cheti cha Usalama wa Moto**: cha lazima kwa biashara zote, kinahitaji vizima moto na ukaguzi wa idara ya moto ya kaunti\n'
+        '- **Mahususi kwa mikahawa**: usajili na **Tourism Regulatory Authority (TRA)** chini ya Sheria ya Utalii ya 2011, ikiwa unaendesha kama mkahawa\n'
+        '\n'
+        'Ikiwa unatengeneza au kufunga bidhaa za chakula kwa mauzo, utahitaji pia uthibitisho wa **KEBS** (Standardization Mark).'
+    )
     ),
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) "
