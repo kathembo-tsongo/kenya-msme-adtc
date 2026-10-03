@@ -883,25 +883,19 @@ CANNED_ANSWERS_SW = {
         "kuwa hali za kibinafsi zinaweza kuathiri ustahiki."
     ),
     "paye_bands": (
-        "**Viwango vya kodi ya PAYE nchini Kenya** hupanda kwa hatua, "
-        "hutumika kila mwezi (Sheria ya Fedha 2023):\n\n"
-        "- **10%** kwa KES 24,000 za kwanza\n"
-        "- **25%** kwa KES 8,333 zinazofuata (KES 24,001-32,333)\n"
-        "- **30%** kwa KES 32,334-500,000\n"
-        "- **32.5%** kwa KES 500,001-800,000\n"
-        "- **35%** zaidi ya KES 800,000\n\n"
-        "Kila mfanyakazi mkazi anastahili **msamaha binafsi wa KES 2,400 "
-        "kwa mwezi** (KES 28,800 kwa mwaka), unaotolewa kutoka kodi "
-        "iliyokokotolewa. Wasio wakazi hawastahili msamaha huu. PAYE "
-        "hukokotolewa kwa mapato yanayotozwa kodi baada ya makato ya "
-        "NSSF, SHIF, na Ushuru wa Nyumba za Bei Nafuu.\n\n"
-        "**Tarehe ya mwisho ya kuwasilisha**: PAYE iliyokatwa kwa "
-        "mshahara wa mwezi fulani lazima iwasilishwe KRA ifikapo "
-        "**tarehe 9 ya mwezi unaofuata** (mfano, PAYE ya Januari "
-        "inatakiwa ifikapo tarehe 9 Februari), ikiwasilishwa kupitia "
-        "fomu ya P10 kwenye iTax. Kuchelewesha malipo kunatoza **faini "
-        "ya 25%** ya kodi inayodaiwa, pamoja na **riba ya 2% kwa "
-        "mwezi** ya kiasi kisicholipwa."
+        (
+        '**Viwango vya kodi ya PAYE nchini Kenya** hupanda kwa hatua, hutumika kila mwezi (Sheria ya Fedha 2023):\n'
+        '\n'
+        '- **10%** kwa KES 24,000 za kwanza\n'
+        '- **25%** kwa KES 8,333 zinazofuata (KES 24,001-32,333)\n'
+        '- **30%** kwa KES 32,334-500,000\n'
+        '- **32.5%** kwa KES 500,001-800,000\n'
+        '- **35%** zaidi ya KES 800,000\n'
+        '\n'
+        'Kila mfanyakazi mkazi anastahili **msamaha binafsi wa KES 2,400 kwa mwezi** (KES 28,800 kwa mwaka), unaotolewa kutoka kodi iliyokokotolewa. Wasio wakazi hawastahili msamaha huu. PAYE hukokotolewa kwa mapato yanayotozwa kodi baada ya makato ya NSSF, SHIF, na Ushuru wa Nyumba za Bei Nafuu.\n'
+        '\n'
+        '**Tarehe ya mwisho ya kuwasilisha**: PAYE iliyokatwa kwa mshahara wa mwezi fulani lazima iwasilishwe KRA ifikapo **tarehe 9 ya mwezi unaofuata** (mfano, PAYE ya Januari inatakiwa ifikapo tarehe 9 Februari), ikiwasilishwa kupitia fomu ya P10 kwenye iTax. **Kuchelewa kuwasilisha** ritani ya PAYE: **25%** ya kodi inayodaiwa au **KES 10,000**, kiasi kilicho kikubwa zaidi. **Kuchelewa kulipa**: **5%** ya kodi inayodaiwa, pamoja na riba ya **1% kwa mwezi** hadi ilipwe yote.'
+    )
     ),
     "paye_remit": (
         "**Jinsi mwajiri anavyolipa PAYE kwa KRA**:\n\n"
@@ -923,20 +917,15 @@ CANNED_ANSWERS_SW = {
         "wako wa malipo, kwa kuwa maelezo yanaweza kubadilishwa."
     ),
     "housing_levy": (
-        "**Ushuru wa Nyumba za Bei Nafuu (AHL)** nchini Kenya:\n\n"
-        "- **1.5%** ya mshahara wa jumla kutoka kwa mfanyakazi\n"
-        "- **1.5%** ya mshahara wa jumla inayolingana kutoka kwa mwajiri\n"
-        "- **Jumla: 3%** ya mshahara wa jumla kwa kila mfanyakazi, kila "
-        "mwezi\n\n"
-        "**Hakuna kiwango cha chini cha mapato** kinachotakiwa -- "
-        "hutumika kwa wafanyakazi wote wenye mshahara wa jumla. "
-        "Wachangiaji wa sekta isiyo rasmi na wanaojiajiri hulipa 1.5% ya "
-        "mapato yaliyotangazwa bila mchango wa mwajiri, wakijisajili "
-        "kupitia tovuti ya AHL/Boma Yangu. Malipo yanatakiwa kufikishwa "
-        "ndani ya siku 9 za kazi baada ya mwisho wa mwezi kupitia iTax "
-        "ya KRA. Watu wakazi wanaolipa AHL wanastahili msamaha wa nyumba "
-        "za bei nafuu. Kuchelewesha malipo kunatoza faini ya 3% kwa "
-        "mwezi ya kiasi kisicholipwa."
+        (
+        '**Ushuru wa Nyumba za Bei Nafuu (AHL)** nchini Kenya:\n'
+        '\n'
+        '- **1.5%** ya mshahara wa jumla kutoka kwa mfanyakazi\n'
+        '- **1.5%** ya mshahara wa jumla inayolingana kutoka kwa mwajiri\n'
+        '- **Jumla: 3%** ya mshahara wa jumla kwa kila mfanyakazi, kila mwezi\n'
+        '\n'
+        '**Hakuna kiwango cha chini cha mapato** kinachotakiwa -- hutumika kwa wafanyakazi wote wenye mshahara wa jumla. Wachangiaji wa sekta isiyo rasmi na wanaojiajiri hulipa 1.5% ya mapato yaliyotangazwa bila mchango wa mwajiri, wakijisajili kupitia tovuti ya AHL/Boma Yangu. Malipo yanatakiwa kufikishwa ndani ya siku 9 za kazi baada ya mwisho wa mwezi kupitia iTax ya KRA. Ushuru unaokatwa kutoka kwa mshahara ni makato yanayoruhusiwa wakati wa kukokotoa PAYE. Kuchelewesha malipo kunatoza faini ya 3% kwa mwezi ya kiasi kisicholipwa.'
+    )
     ),
     "minimum_wage": (
         "**Kenya haina mshahara mmoja wa chini wa kitaifa.** Viwango "
