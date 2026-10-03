@@ -225,10 +225,13 @@ CANNED_ANSWERS = {
         "under the Employment Act."
     ),
     "capital": (
-        "**Minimum share capital for a private limited company in Kenya**:\n\n"
-        "- There is **no legally mandated minimum** share capital requirement\n"
-        "- Most companies register with a nominal capital (commonly KES 100,000, though this is a convention, not a legal floor)\n"
-        "- Stamp duty is charged at **1% of nominal share capital**"
+        (
+        '**Minimum share capital for a private limited company in Kenya**:\n'
+        '\n'
+        '- There is **no legally mandated minimum** share capital requirement\n'
+        '- Most companies register with a nominal capital (commonly KES 100,000, though this is a convention, not a legal floor)\n'
+        '- No stamp duty is charged on the initial nominal share capital at registration (exempt since Legal Notice 60 of 2016); stamp duty of **1%** applies if you later **increase** the share capital'
+    )
     ),
     "yedf": (
         "**Youth Enterprise Development Fund (YEDF)**:\n\n"
@@ -354,22 +357,13 @@ CANNED_ANSWERS = {
     )
     ),
     "minimum_wage": (
-        "**Kenya does not have a single national minimum wage.** Rates "
-        "are set by occupation, sector, and geographic zone under "
-        "periodic Regulation of Wages Orders (Labour Institutions Act), "
-        "typically revised around Labour Day (1st May).\n\n"
-        "As a reference point: the general (unskilled) labourer minimum "
-        "in Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret was set at "
-        "**KES 18,047.40 per month** under the May 2026 Wage Order "
-        "(Legal Notices No. 95 and 96), with lower rates in other zones. "
-        "Skilled occupations (e.g. drivers, artisans, cashiers) and "
-        "sector-specific roles (agricultural, security, domestic work) "
-        "have their own, generally higher, statutory minimums.\n\n"
-        "Because rates vary by role and location and are revised "
-        "periodically, confirm the exact current figure for your "
-        "specific occupation and zone via the Ministry of Labour and "
-        "Social Protection or the current Kenya Gazette Wage Order, "
-        "rather than relying on a single number."
+        (
+        '**Kenya does not have a single national minimum wage.** Rates are set by occupation, sector, and geographic zone under periodic Regulation of Wages Orders (Labour Institutions Act), typically revised around Labour Day (1st May).\n'
+        '\n'
+        'As a reference point: the general (unskilled) labourer minimum in Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret was set at **KES 18,047.40 per month** (exclusive of housing allowance) under the May 2026 Wage Order (Legal Notices No. 95 and 96), with lower rates in other zones. Skilled occupations (e.g. drivers, artisans, cashiers) and sector-specific roles (agricultural, security, domestic work) have their own, generally higher, statutory minimums.\n'
+        '\n'
+        'Because rates vary by role and location and are revised periodically, confirm the exact current figure for your specific occupation and zone via the Ministry of Labour and Social Protection or the current Kenya Gazette Wage Order, rather than relying on a single number.'
+    )
     ),
     "nssf_penalty": (
         "**NSSF late payment penalty in Kenya**: a penalty of **5% of the "
@@ -626,20 +620,13 @@ CANNED_ANSWERS = {
     "barber_salon_taxes": 'Tax obligations for a barber or salon business in Kenya depend on your annual turnover and on whether you employ staff -- not on the trade itself:\n\n- **Turnover Tax (TOT)**: 1.5% of gross sales if your annual turnover is more than KES 1,000,000 but does not exceed KES 25,000,000. It is charged on gross sales with **no expense deductions**. For example, KES 2,000,000 of annual sales means KES 30,000 of TOT (2,000,000 x 1.5%). Below KES 1,000,000 you are exempt from TOT.\n- **VAT**: if your turnover reaches KES 5,000,000 and you deal in vatable supplies, you must also register for VAT.\n- **If you employ staff**: PAYE (bands from 10% to 35%, less KES 2,400 monthly personal relief), NSSF (6% employee + 6% employer), SHIF (2.75% of gross pay) and the Housing Levy (1.5% employee + 1.5% employer) -- ask about your "payroll obligations" for the full list.\n- **County permit**: a single business permit from your county government; the category and fee vary by county.\n\nWhere you operate affects your county permit and fees, but the national tax rules above are the same in every county. Confirm your specific position via iTax (itax.kra.go.ke).',
     "sole_prop_llc_mistakes": "Common mistakes when moving from a sole proprietorship to a limited company:\n\n- **Expecting a direct conversion**: Kenya has no one-step conversion. It is two separate actions -- cease your business name (Form BN6 on eCitizen) and register a new private limited company (Forms CR1, CR2, CR8 plus the Articles/Memorandum of Association).\n- **Carrying over your personal KRA PIN**: the new company needs its own separate company PIN, applied for via iTax as a 'Non-Individual' taxpayer.\n- **Applying for the company PIN too early**: every director and shareholder must already have their own individual KRA PIN before the company PIN application can go through.\n- **Budgeting for only one charge**: expect two separate government charges -- business name cessation and company registration.\n- **Delaying because of share capital**: there is no legal minimum share capital requirement.\n\nConfirm the current forms and fees directly on eCitizen before you file.",
     "etims_general": (
-        "**eTIMS** (electronic Tax Invoice Management System) is KRA's "
-        "system for generating tax-compliant, verifiable electronic "
-        "invoices/receipts -- it's required for VAT-registered businesses, "
-        "and for anyone wanting business expenses to be tax-deductible, "
-        "since KRA only accepts eTIMS-generated invoices as valid proof of "
-        "purchase.\n\n**Why your business needs it**: without eTIMS "
-        "invoices, your business expenses may not be deductible for tax "
-        "purposes, and customers who need to claim their own input VAT or "
-        "expense deductions can't do so from a non-eTIMS invoice -- making "
-        "it harder to sell to other VAT-registered businesses.\n\nFor "
-        "smaller businesses, the free **eTIMS Lite** option (via web "
-        "portal or USSD *222#) is the simplest way to comply without "
-        "buying equipment. Non-compliance penalties can reach up to **KES "
-        "1,000,000 or 10% of the tax involved**, whichever is higher."
+        (
+        "**eTIMS** (electronic Tax Invoice Management System) is KRA's system for generating tax-compliant, verifiable electronic invoices/receipts -- it's required for all persons carrying on business unless exempted (Tax Procedures (Electronic Tax Invoice) Regulations, 2024), and KRA only accepts eTIMS-generated invoices as valid proof of purchase for deducting business expenses.\n"
+        '\n'
+        "**Why your business needs it**: without eTIMS invoices, your business expenses may not be deductible for tax purposes, and customers who need to claim their own input VAT or expense deductions can't do so from a non-eTIMS invoice -- making it harder to sell to other VAT-registered businesses.\n"
+        '\n'
+        'For smaller businesses, the free **eTIMS Lite** option on the KRA eTIMS portal is the simplest way to comply without buying equipment. Non-compliance carries a penalty of **two times the tax due** (Tax Procedures (Electronic Tax Invoice) Regulations, 2024).'
+    )
     ),
     "sacco_vs_bank": (
         (
@@ -744,11 +731,13 @@ CANNED_ANSWERS_SW = {
         "Sheria ya Ajira."
     ),
     "capital": (
-        "**Mtaji wa chini wa hisa kwa kampuni binafsi ya dhima ndogo nchini Kenya**:\n\n"
-        "- **Hakuna** mtaji wa chini wa hisa unaotakiwa kisheria\n"
-        "- Kampuni nyingi husajiliwa na mtaji wa kawaida (mara nyingi KES 100,000, "
-        "ingawa hii ni desturi tu, si kiwango cha kisheria)\n"
-        "- Ushuru wa stempu hutozwa kwa **1% ya mtaji wa hisa wa kawaida**"
+        (
+        '**Mtaji wa chini wa hisa kwa kampuni binafsi ya dhima ndogo nchini Kenya**:\n'
+        '\n'
+        '- **Hakuna** mtaji wa chini wa hisa unaotakiwa kisheria\n'
+        '- Kampuni nyingi husajiliwa na mtaji wa kawaida (mara nyingi KES 100,000, ingawa hii ni desturi tu, si kiwango cha kisheria)\n'
+        '- Hakuna ushuru wa stempu kwa mtaji wa awali wa hisa wakati wa kusajili kampuni (msamaha tangu Tangazo la Kisheria Na. 60 la 2016); ushuru wa stempu wa **1%** hutozwa ukiongeza mtaji wa hisa baadaye'
+    )
     ),
     "yedf": (
         "**Mfuko wa Maendeleo ya Wafanyabiashara Vijana (YEDF)**:\n\n"
@@ -1159,18 +1148,11 @@ CANNED_ANSWERS_SW = {
         "moja kwa moja."
     ),
     "etims_general": (
-        "**eTIMS** (electronic Tax Invoice Management System) ni mfumo "
-        "wa KRA wa kutengeneza risiti/ankara za kielektroniki "
-        "zinazokubalika kikodi -- unahitajika kwa biashara "
-        "zilizosajiliwa VAT, na kwa mtu yeyote anayetaka gharama za "
-        "biashara zikubaliwe kikodi, kwani KRA hukubali tu ankara "
-        "zilizotengenezwa na eTIMS kama uthibitisho halali wa "
-        "ununuzi.\n\n**Kwa nini biashara yako inahitaji**: bila ankara "
-        "za eTIMS, gharama zako za biashara huenda zisikubaliwe kikodi, "
-        "na wateja wanaohitaji kudai VAT yao wenyewe hawawezi kufanya "
-        "hivyo kutoka ankara isiyo ya eTIMS. Kwa biashara ndogo, chaguo "
-        "la bure la **eTIMS Lite** (kupitia tovuti au USSD *222#) ni "
-        "njia rahisi zaidi ya kutii bila kununua vifaa."
+        (
+        '**eTIMS** (electronic Tax Invoice Management System) ni mfumo wa KRA wa kutengeneza risiti/ankara za kielektroniki zinazokubalika kikodi -- unahitajika kwa watu wote wanaofanya biashara isipokuwa waliosamehewa (Kanuni za Taratibu za Kodi (Ankara za Kielektroniki), 2024), na KRA hukubali tu ankara zilizotengenezwa na eTIMS kama uthibitisho halali wa ununuzi wa kukata gharama za biashara.\n'
+        '\n'
+        '**Kwa nini biashara yako inahitaji**: bila ankara za eTIMS, gharama zako za biashara huenda zisikubaliwe kikodi, na wateja wanaohitaji kudai VAT yao wenyewe hawawezi kufanya hivyo kutoka ankara isiyo ya eTIMS. Kwa biashara ndogo, chaguo la bure la **eTIMS Lite** (kupitia tovuti au USSD *222#) ni njia rahisi zaidi ya kutii bila kununua vifaa.'
+    )
     ),
     "sacco_vs_bank": (
         (
