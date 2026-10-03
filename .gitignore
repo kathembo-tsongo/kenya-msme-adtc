@@ -59,3 +59,10 @@ test_q67.py
 update_report_*.py
 venv/
 laptop.txt
+*_patch.py
+add_sources.py
+tidy_parens.py
+rafiki_pack_new.db
+eval_routing.csv
+figure_audit.tsv
+group*.txt
