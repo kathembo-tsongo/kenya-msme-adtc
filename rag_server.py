@@ -234,12 +234,15 @@ CANNED_ANSWERS = {
     )
     ),
     "yedf": (
-        "**Youth Enterprise Development Fund (YEDF)**:\n\n"
+        (
+        '**Youth Enterprise Development Fund (YEDF)**:\n'
+        '\n'
         "- **Eligibility**: age 18-34 (that is, under 35, the Constitution's definition of youth, Article 260)\n"
-        "- **Rausha loan**: KES 100,000 (group startup funding)\n"
-        "- **Inua loan**: KES 200,000-1,000,000 (business expansion)\n"
-        "- **Vuka loan**: up to KES 5,000,000 at 8% p.a.\n\n"
-        "Apply via youthfund.go.ke, Form 1A, with your county/constituency details."
+        '- **Vuka loan**: for youth who want to start or expand a business -- up to **KES 5,000,000** at **8%** interest, available to individuals, companies and partnerships\n'
+        '- **Other loans**: YEDF also offers other products, such as the Agri-Biz loan for agribusiness. Products and amounts change, so check the current list at youthfund.go.ke\n'
+        '\n'
+        'Apply at a YEDF office at your county headquarters, or start at youthfund.go.ke.'
+    )
     ),
     "loan": (
         "**Startup loan options in Kenya**:\n\n"
@@ -446,15 +449,13 @@ CANNED_ANSWERS = {
         "parastatals."
     ),
     "hustler_fund_business": (
-        "The basic **Personal Loan** tier (KES 500 to KES 50,000, 8% per "
-        "annum, repayable in 14 days) can be used for business or personal "
-        "needs, accessible via *254# on your **M-PESA**-registered line -- you'll need ""a valid **Kenyan national ID** and an active SIM card, no collateral required. ""\n\nFor business specifically, Hustler "
-        "Fund also offers group-based **Biashara/Enterprise loans** (for "
-        "chamas, cooperatives, or registered groups) and higher-tier loans "
-        "for **registered businesses with a KRA PIN**, both at the same 8% "
-        "per annum rate but with larger amounts and longer repayment periods "
-        "than the personal tier. Your loan limit and access to higher tiers "
-        "grows with consistent on-time repayment history."
+        (
+        'The Hustler Fund **Personal Finance loan** gives **KES 500 to KES 50,000**, depending on your credit score, at interest **capped at 8% per annum** (pro-rated), repayable in **14 days**. It can be used for business or personal needs, and no collateral is required.\n'
+        '\n'
+        '**To access it**: dial ***254#** on your registered line. You need to be a Kenyan citizen aged 18 or above, with a valid national ID, an active mobile money account (M-PESA, Airtel Money or T-Kash), and a SIM card that has been active for at least 90 days.\n'
+        '\n'
+        'The Fund has also announced Micro, SME and Start-up loan products; check *254# or the official Hustler Fund channels for what is currently available. Your loan limit depends on your scoring.'
+    )
     ),
     "sole_prop_to_llc": (
         "Kenya doesn't have a single-step way to convert a business -- there's no direct 'conversion' process, practically, it's two "
@@ -479,20 +480,19 @@ CANNED_ANSWERS = {
         "with all documents in order typically takes **5-10 working days**."
     ),
     "wef": (
-        "The **Women Enterprise Fund (WEF)** is a real, distinct government agency "
-        "(established 2007, under the Ministry of Public Service, Youth & Gender "
-        "Affairs) -- not to be confused with YEDF (youth-focused) or the Hustler "
-        "Fund. **Eligibility: any Kenyan woman aged 18 or older**, applying "
-        "individually or as part of a registered group.\n\n"
-        "**Key products**:\n"
-        "- **Tuinuke Chama Loan** (via the Constituency Women Enterprise Scheme): "
-        "for registered women's groups of 10-30 members (at least 70% women, "
-        "100% women in leadership), registered with Social Services for at "
-        "least 3 months, with a bank/SACCO account -- low-cost with a small "
-        "administration charge\n"
-        "- **LPO Financing**: for individual women-owned businesses needing to "
-        "fulfill purchase orders or tenders\n\n"
-        "Apply through WEF's regional offices, or online at wef.go.ke."
+        (
+        'The **Women Enterprise Fund (WEF)** is a government fund that lends to Kenyan women -- separate from YEDF (for youth) and the Hustler Fund.\n'
+        '\n'
+        "**Tuinuke loan** (for women's groups):\n"
+        '- The group must be a registered self-help group of **10-30 women**, all aged 18 or above\n'
+        '- Registered with the Department of Social Services or the Micro and Small Enterprises Authority (MSEA) for **at least three months**\n'
+        "- Has an active **commercial bank account**, and members complete WEF's financial literacy training\n"
+        '- Each member may belong to only one WEF-funded group\n'
+        '- Loans grow by cycle: **KES 100,000** (6 months), **200,000** (9 months), **350,000** (12 months), **500,000** (15 months), **750,000** (18 months)\n'
+        '- A one-time **administrative fee of 6%** is charged upfront\n'
+        '\n'
+        'WEF also has products for individual women-owned businesses; check the current list and apply at a WEF office or at wef.go.ke.'
+    )
     ),
     "unified_business_permit": (
         (
@@ -740,12 +740,15 @@ CANNED_ANSWERS_SW = {
     )
     ),
     "yedf": (
-        "**Mfuko wa Maendeleo ya Wafanyabiashara Vijana (YEDF)**:\n\n"
-        "- **Sifa**: umri wa miaka 18-34 (yaani chini ya miaka 35, kwa mujibu wa Katiba, Kifungu cha 260)\n"
-        "- **Mkopo wa Rausha**: KES 100,000 (ufadhili wa kuanzisha kikundi)\n"
-        "- **Mkopo wa Inua**: KES 200,000-1,000,000 (upanuzi wa biashara)\n"
-        "- **Mkopo wa Vuka**: hadi KES 5,000,000 kwa asilimia 8 kwa mwaka\n\n"
-        "Omba kupitia youthfund.go.ke, Fomu 1A, ukiwa na maelezo ya kaunti/jimbo lako."
+        (
+        '**Mfuko wa Maendeleo ya Biashara za Vijana (YEDF)**:\n'
+        '\n'
+        '- **Sifa**: umri wa miaka 18-34 (yaani chini ya miaka 35, kwa mujibu wa Katiba, Kifungu cha 260)\n'
+        '- **Mkopo wa Vuka**: kwa vijana wanaotaka kuanzisha au kupanua biashara -- hadi **KES 5,000,000** kwa riba ya **8%**, kwa watu binafsi, makampuni na ubia\n'
+        '- **Mikopo mingine**: YEDF pia hutoa bidhaa nyingine, kama mkopo wa Agri-Biz kwa biashara za kilimo. Bidhaa na viwango hubadilika, hivyo angalia orodha ya sasa kwenye youthfund.go.ke\n'
+        '\n'
+        'Omba katika ofisi ya YEDF iliyo makao makuu ya kaunti yako, au anza kwenye youthfund.go.ke.'
+    )
     ),
     "loan": (
         "**Chaguo za mikopo ya kuanzisha biashara nchini Kenya**:\n\n"
@@ -951,21 +954,19 @@ CANNED_ANSWERS_SW = {
         "nyaraka zote sahihi kwa kawaida huchukua **siku 5-10 za kazi**."
     ),
     "wef": (
-        "**Women Enterprise Fund (WEF)** ni shirika halisi na tofauti la "
-        "serikali (lilianzishwa 2007, chini ya Wizara ya Utumishi wa Umma, "
-        "Vijana na Mambo ya Jinsia) -- lisichanganywe na YEDF (inayolenga "
-        "vijana) au Hustler Fund. **Sifa: mwanamke yeyote wa Kenya mwenye "
-        "miaka 18 au zaidi**, akiomba peke yake au kama sehemu ya kikundi "
-        "kilichosajiliwa.\n\n**Bidhaa kuu**:\n"
-        "- **Mkopo wa Tuinuke Chama** (kupitia Constituency Women "
-        "Enterprise Scheme): kwa vikundi vya wanawake vilivyosajiliwa vya "
-        "wanachama 10-30 (angalau asilimia 70 wanawake, uongozi wa "
-        "asilimia 100 wanawake), vilivyosajiliwa na Huduma za Jamii kwa "
-        "angalau miezi 3, vyenye akaunti ya benki/SACCO -- gharama ndogo "
-        "yenye ada ndogo ya utawala\n"
-        "- **Ufadhili wa LPO**: kwa biashara za wanawake binafsi "
-        "zinazohitaji kutimiza maagizo ya ununuzi au zabuni\n\n"
-        "Omba kupitia ofisi za kanda za WEF, au mtandaoni kwenye wef.go.ke."
+        (
+        '**Mfuko wa Biashara za Wanawake (WEF)** ni mfuko wa serikali unaokopesha wanawake wa Kenya -- tofauti na YEDF (kwa vijana) na Hustler Fund.\n'
+        '\n'
+        '**Mkopo wa Tuinuke** (kwa vikundi vya wanawake):\n'
+        '- Kikundi lazima kiwe kikundi cha kujisaidia kilichosajiliwa chenye **wanawake 10-30**, wote wenye umri wa miaka 18 au zaidi\n'
+        '- Kimesajiliwa na Idara ya Huduma za Jamii au Micro and Small Enterprises Authority (MSEA) kwa **angalau miezi mitatu**\n'
+        '- Kina **akaunti hai ya benki ya biashara**, na wanachama hukamilisha mafunzo ya elimu ya fedha ya WEF\n'
+        '- Kila mwanachama anaweza kuwa katika kikundi kimoja tu kinachofadhiliwa na WEF\n'
+        '- Mikopo hukua kwa mzunguko: **KES 100,000** (miezi 6), **200,000** (miezi 9), **350,000** (miezi 12), **500,000** (miezi 15), **750,000** (miezi 18)\n'
+        '- **Ada ya usimamizi ya 6%** hutozwa mara moja mwanzoni\n'
+        '\n'
+        'WEF pia ina bidhaa kwa biashara za wanawake binafsi; angalia orodha ya sasa na uombe katika ofisi ya WEF au kwenye wef.go.ke.'
+    )
     ),
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) "
@@ -1194,17 +1195,13 @@ CANNED_ANSWERS_SW = {
         "kaunti, na mashirika ya umma."
     ),
     "hustler_fund_business": (
-        "Kiwango cha msingi cha **Personal Loan** (KES 500 hadi KES "
-        "50,000, riba ya asilimia 8 kwa mwaka, kurejeshwa ndani ya siku "
-        "14) kinaweza kutumika kwa biashara au mahitaji binafsi, "
-        "kinapatikana kupitia *254# kwenye laini yako iliyosajiliwa ya **M-PESA** -- utahitaji ""**kitambulisho cha taifa cha Kenya** na SIM kadi inayotumika, hakuna dhamana inayohitajika. ""\n\nKwa biashara hasa, Hustler Fund "
-        "pia inatoa mikopo ya **Biashara/Enterprise** kwa vikundi (chama, "
-        "ushirika, au vikundi vilivyosajiliwa) na mikopo ya kiwango cha "
-        "juu zaidi kwa **biashara zilizosajiliwa zenye PIN ya KRA**, zote "
-        "kwa riba ile ile ya asilimia 8 kwa mwaka lakini kwa kiasi kikubwa "
-        "zaidi na muda mrefu zaidi wa kurejesha kuliko kiwango cha "
-        "binafsi. Kiwango chako cha mkopo na uwezo wa kufikia viwango vya "
-        "juu zaidi hukua kwa historia thabiti ya kurejesha kwa wakati."
+        (
+        '**Mkopo wa Personal Finance** wa Hustler Fund hutoa **KES 500 hadi KES 50,000**, kulingana na alama zako za mkopo, kwa riba **isiyozidi 8% kwa mwaka** (hukokotolewa kwa uwiano), unaolipwa ndani ya **siku 14**. Unaweza kutumika kwa biashara au mahitaji binafsi, bila dhamana.\n'
+        '\n'
+        '**Kuupata**: piga ***254#** kwenye laini yako iliyosajiliwa. Unahitaji kuwa raia wa Kenya mwenye umri wa miaka 18 au zaidi, kitambulisho halali cha taifa, akaunti hai ya pesa za simu (M-PESA, Airtel Money au T-Kash), na laini iliyotumika kwa angalau siku 90.\n'
+        '\n'
+        'Mfuko pia umetangaza mikopo ya Micro, SME na Start-up; angalia *254# au njia rasmi za Hustler Fund kujua kinachopatikana sasa. Kiwango chako cha mkopo kinategemea alama zako.'
+    )
     ),
     "business_insurance": (
         "Sekta ya bima nchini Kenya inasimamiwa na **Insurance Regulatory "
