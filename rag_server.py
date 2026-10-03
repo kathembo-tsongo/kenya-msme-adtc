@@ -540,9 +540,34 @@ CANNED_ANSWERS = {
         "interest, which is far less costly than filing-plus-payment "
         "penalties combined)."
     ),
-    "compliance_software": "There isn't one package you are required to use, but these are the official systems most Kenyan MSMEs need for compliance:\n\n- **eTIMS** (KRA's electronic tax invoice system): required for VAT-registered businesses, and needed for your business expenses to be tax-deductible. The free **eTIMS Lite** option (web portal or USSD *222#) is the simplest way for a small business to comply without buying equipment.\n- **KRA iTax (itax.kra.go.ke)**: KRA's portal for filing returns, including the monthly PAYE return (P10) if you have employees.\n- **NSSF Employer Self-Service portal (selfservice.nssf.or.ke)**: register as an employer and manage your NSSF obligations if you employ staff.\n\nIf you also want accounting or payroll software on top of these, I can't recommend a specific product, but check that it calculates the current PAYE bands, NSSF tiers, SHIF (2.75% of gross pay) and Housing Levy (1.5% each for employee and employer) correctly, and that it can issue eTIMS-compliant invoices.",
-    "regulations_not_exhaustive": 'No -- there isn\'t a single complete list, because what applies depends on your business type, your turnover and whether you employ people. These are the baseline items that apply to most Kenyan businesses:\n\n- **Registration**: register your business name (eCitizen/BRS) and get a KRA PIN\n- **County permit**: a single business permit from your county government -- the category and fee vary by county\n- **Income tax regime**: Turnover Tax (1.5% of gross sales) if your annual turnover is between KES 1,000,000 and KES 25,000,000; VAT registration once your annual taxable turnover exceeds KES 5,000,000\n- **eTIMS**: KRA\'s e-invoicing system, required for VAT-registered businesses and needed for your expenses to be tax-deductible (the free eTIMS Lite option is the simplest for small businesses)\n- **If you employ people**: NSSF (6% employee + 6% employer), PAYE, SHIF (2.75% of gross pay) and the Housing Levy (1.5% employee + 1.5% employer), plus written contracts and leave records -- ask about your "payroll obligations" for the full list\n\nSome sectors also need their own licences (for example food businesses or pharmacies). Tell me your specific business type and I\'ll give you the requirements I can verify for it.',
-    "relocation_county": "Kenya has counties rather than states, and moving your business from one county to another mostly changes your **county licensing**, not your national taxes.\n\n- **National taxes stay the same**: Turnover Tax (1.5% of gross sales for turnover between KES 1,000,000 and KES 25,000,000), VAT (once taxable turnover reaches KES 5,000,000) and, if you employ staff, PAYE, NSSF, SHIF and the Housing Levy are set nationally and collected through KRA. They don't depend on which county you operate from.\n- **County licensing changes**: a single business permit is issued by each county government, and the category and fee vary by county. In your new county you will need a permit from that county's business licensing office.\n\nConfirm the exact category and fee with your new county.",
+    "compliance_software": (
+        "There isn't one package you are required to use, but these are the official systems most Kenyan MSMEs need for compliance:\n"
+        '\n'
+        "- **eTIMS** (KRA's electronic tax invoice system): required for all persons carrying on business, unless exempted -- not only VAT-registered businesses -- and needed for your business expenses to be tax-deductible. The free **eTIMS Lite** option is the simplest way for a small business to comply without buying equipment.\n"
+        "- **KRA iTax (itax.kra.go.ke)**: KRA's portal for filing returns, including the monthly PAYE return (P10) if you have employees.\n"
+        '- **NSSF Employer Self-Service portal (selfservice.nssf.or.ke)**: register as an employer and manage your NSSF obligations if you employ staff.\n'
+        '\n'
+        "If you also want accounting or payroll software on top of these, I can't recommend a specific product, but check that it calculates the current PAYE bands, NSSF tiers, SHIF (2.75% of gross pay) and Housing Levy (1.5% each for employee and employer) correctly, and that it can issue eTIMS-compliant invoices."
+    ),
+    "regulations_not_exhaustive": (
+        "No -- there isn't a single complete list, because what applies depends on your business type, your turnover and whether you employ people. These are the baseline items that apply to most Kenyan businesses:\n"
+        '\n'
+        '- **Registration**: register your business name (eCitizen/BRS) and get a KRA PIN\n'
+        '- **County permit**: a single business permit from your county government -- the category and fee vary by county\n'
+        '- **Income tax regime**: Turnover Tax (1.5% of gross sales) if your annual turnover is between KES 1,000,000 and KES 25,000,000; VAT registration once your annual taxable turnover reaches KES 5,000,000\n'
+        "- **eTIMS**: KRA's e-invoicing system, required for all persons carrying on business unless exempted, and needed for your expenses to be tax-deductible (the free eTIMS Lite option is the simplest for small businesses)\n"
+        '- **If you employ people**: NSSF (6% employee + 6% employer), PAYE, SHIF (2.75% of gross pay) and the Housing Levy (1.5% employee + 1.5% employer), plus written contracts and leave records -- ask about your "payroll obligations" for the full list\n'
+        '\n'
+        "Some sectors also need their own licences (for example food businesses or pharmacies). Tell me your specific business type and I'll give you the requirements I can verify for it."
+    ),
+    "relocation_county": (
+        'Kenya has counties rather than states, and moving your business from one county to another mostly changes your **county licensing**, not your national taxes.\n'
+        '\n'
+        "- **National taxes stay the same**: Turnover Tax (1.5% of gross sales for turnover between KES 1,000,000 and KES 25,000,000), VAT (once taxable turnover reaches KES 5,000,000) and, if you employ staff, PAYE, NSSF, SHIF and the Housing Levy are set nationally and collected through KRA. They don't depend on which county you operate from.\n"
+        "- **County licensing changes**: a single business permit is issued by each county government, and the category and fee vary by county. In your new county you will need a permit from that county's business licensing office.\n"
+        '\n'
+        'Confirm the exact category and fee with your new county.'
+    ),
     "barber_salon_taxes": 'Tax obligations for a barber or salon business in Kenya depend on your annual turnover and on whether you employ staff -- not on the trade itself:\n\n- **Turnover Tax (TOT)**: 1.5% of gross sales if your annual turnover is more than KES 1,000,000 but does not exceed KES 25,000,000. It is charged on gross sales with **no expense deductions**. For example, KES 2,000,000 of annual sales means KES 30,000 of TOT (2,000,000 x 1.5%). Below KES 1,000,000 you are exempt from TOT.\n- **VAT**: if your turnover reaches KES 5,000,000 and you deal in vatable supplies, you must also register for VAT.\n- **If you employ staff**: PAYE (bands from 10% to 35%, less KES 2,400 monthly personal relief), NSSF (6% employee + 6% employer), SHIF (2.75% of gross pay) and the Housing Levy (1.5% employee + 1.5% employer) -- ask about your "payroll obligations" for the full list.\n- **County permit**: a single business permit from your county government; the category and fee vary by county.\n\nWhere you operate affects your county permit and fees, but the national tax rules above are the same in every county. Confirm your specific position via iTax (itax.kra.go.ke).',
     "sole_prop_llc_mistakes": "Common mistakes when moving from a sole proprietorship to a limited company:\n\n- **Expecting a direct conversion**: Kenya has no one-step conversion. It is two separate actions -- cease your business name (Form BN6 on eCitizen) and register a new private limited company (Forms CR1, CR2, CR8 plus the Articles/Memorandum of Association).\n- **Carrying over your personal KRA PIN**: the new company needs its own separate company PIN, applied for via iTax as a 'Non-Individual' taxpayer.\n- **Applying for the company PIN too early**: every director and shareholder must already have their own individual KRA PIN before the company PIN application can go through.\n- **Budgeting for only one charge**: expect two separate government charges -- business name cessation and company registration.\n- **Delaying because of share capital**: there is no legal minimum share capital requirement.\n\nConfirm the current forms and fees directly on eCitizen before you file.",
     "etims_general": (
@@ -573,30 +598,19 @@ CANNED_ANSWERS = {
         "If you manufacture or package food products for sale (not just serve food on-site), you'll also need **KEBS** certification (Standardization Mark) specific to packaged/processed goods."
     ),
     "employee_compliance_checklist": (
-        "For a trading enterprise with permanent staff, here's what to maintain:\n\n"
-        "**Employment contracts**: a written contract (or at minimum a written "
-        "statement of particulars, required within 2 months of start date for "
-        "any employment lasting more than 3 months) covering start date, job "
-        "description, salary, working hours, and leave entitlement.\n\n"
-        "**Statutory deductions, per employee, per month**:\n"
-        "- **NSSF**: 6% employee + 6% employer (matched), Tier I up to KES "
-        "9,000, Tier II up to KES 108,000\n"
-        "- **PAYE**: progressive bands from 10% to 35%, less KES 2,400 "
-        "personal relief\n"
-        "- **SHIF** (Social Health Insurance Fund -- this replaced NHIF in "
-        "October 2024): 2.75% of gross pay, employee-side only, no cap\n"
-        "- **Housing Levy**: 1.5% employee + 1.5% employer, no minimum "
-        "income threshold\n\n"
-        "**Leave records**: minimum 21 working days of annual leave per 12 "
-        "months of service (Employment Act Section 28).\n\n"
-        "**Payroll records**: document each employee's monthly salary and "
-        "all deductions above, and remit them on time -- NSSF and PAYE are "
-        "due by the 9th of the following month, the Housing Levy by the 9th "
-        "working day after month-end (declared on the PAYE return), and you "
-        "should confirm the SHIF due date with the Social Health Authority. "
-        "Keep these records available for inspection, and keep "
-        "each employee's written contract and particulars for five years "
-        "after their employment ends (Employment Act)."
+        "For a trading enterprise with permanent staff, here's what to maintain:\n"
+        '\n'
+        '**Employment contracts**: a written contract for any employment of three months or more (Employment Act, Section 9), covering start date, job description, salary, working hours, and leave entitlement.\n'
+        '\n'
+        '**Statutory deductions, per employee, per month**:\n'
+        '- **NSSF**: 6% employee + 6% employer (matched), Tier I up to KES 9,000, Tier II up to KES 108,000\n'
+        '- **PAYE**: progressive bands from 10% to 35%, less KES 2,400 personal relief\n'
+        '- **SHIF** (Social Health Insurance Fund -- this replaced NHIF in October 2024): 2.75% of gross pay, employee-side only, no cap\n'
+        '- **Housing Levy**: 1.5% employee + 1.5% employer, no minimum income threshold\n'
+        '\n'
+        '**Leave records**: minimum 21 working days of annual leave per 12 months of service (Employment Act Section 28).\n'
+        '\n'
+        "**Payroll records**: document each employee's monthly salary and all deductions above, and remit them on time -- NSSF and PAYE are due by the 9th of the following month, the Housing Levy by the 9th working day after month-end (declared on the PAYE return), and you should confirm the SHIF due date with the Social Health Authority. Keep these records available for inspection, and keep each employee's written contract and particulars for five years after their employment ends (Employment Act)."
     ),
     "business_insurance": (
         "Kenya's insurance industry is regulated by the **Insurance "
@@ -1090,6 +1104,11 @@ CANNED_SOURCES = {
     'vat': ('KRA (VAT guide)', 'https://www.kra.go.ke/images/publications/VAT_8112023.pdf', '2026-10-03'),
     'tcc_application': ('KRA', 'https://www.kra.go.ke/business/business-compliance-penalties/business-how-to-file/tax-compliance', '2026-10-03'),
     'nssf_penalty': ('NSSF', 'https://www.nssf.or.ke/?p=1094', '2026-10-03'),
+    'compliance_software': ('KRA, SHA', 'https://www.rsm.global/kenya/news/kenya-tax-alert-tax-procedures-electronic-tax-invoice-regulations-2024', '2026-10-03'),
+    'regulations_not_exhaustive': ('KRA, NSSF, SHA', 'https://www.kra.go.ke/images/publications/VAT_8112023.pdf', '2026-10-03'),
+    'employee_compliance_checklist': ('Employment Act 2007; KRA, NSSF, SHA', 'https://www.a-mla.org/en/country/pdf/1903', '2026-10-03'),
+    'barber_salon_taxes': ('KRA, NSSF, SHA', 'https://www.kra.go.ke/individual/filing-paying/types-of-taxes/turnover-tax-tot', '2026-10-03'),
+    'relocation_county': ('KRA', 'https://www.kra.go.ke/individual/filing-paying/types-of-taxes/turnover-tax-tot', '2026-10-03'),
 }
 
 TOPIC_KEYWORDS = {
