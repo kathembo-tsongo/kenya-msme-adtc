@@ -430,11 +430,16 @@ CANNED_ANSWERS = {
         'The Fund has also announced Micro, SME and Start-up loan products; check *254# or the official Hustler Fund channels for what is currently available. Your loan limit depends on your scoring.'
     ),
     "sole_prop_to_llc": (
-        "Kenya has no single-step way to convert a sole proprietorship into a company. In practice it is two separate actions: **(1) cease your existing business name** by filing **Form BN6** on eCitizen, and **(2) register a new private limited company** using **Forms CR1, CR2, CR8** plus the Memorandum and Articles of Association (BRS provides standard templates). You can usually reserve and reuse the same name, now with 'Limited' or 'Ltd' added.\n"
+        'You can move a sole proprietorship (a registered business name) to a private limited company on the Business Registration Service portal (brsv2.ecitizen.go.ke) in **two linked steps**:\n'
         '\n'
-        "**KRA PIN**: your sole proprietorship used your **personal KRA PIN**. The new company needs its **own company PIN**, applied for on iTax as a 'Non-Individual' taxpayer -- and every director and shareholder must already have their own individual KRA PIN.\n"
+        '1. **Cease the business name**: under your business, choose Maintain -> Cessation of Business Name, select "convert" as the reason, and upload the signed **Form BN 6**. The fee is **KES 250**.\n'
+        "2. **Convert**: once the cessation is approved, an option to start the conversion appears. Choose private limited company, fill in the new company's details, submit and pay the registration fee.\n"
         '\n'
-        '**Fees and time**: expect two government charges -- one for ceasing the business name and one for registering the company. Check the current fees on eCitizen before you apply, since they change. There is **no legal minimum share capital**.'
+        "You can apply to keep the same name with 'Limited' or 'Ltd' added, subject to BRS approval.\n"
+        '\n'
+        '**KRA PIN**: your sole proprietorship used your **personal KRA PIN**. The company is a separate taxpayer with its **own KRA PIN**, issued with its incorporation documents -- and every director and shareholder must already have their own individual KRA PIN.\n'
+        '\n'
+        '**Fees**: expect two government charges -- KES 250 for the cessation and the company registration fee. Check the current fees on the BRS portal before you apply, since they change. There is **no legal minimum share capital**.'
     ),
     "wef": (
         'The **Women Enterprise Fund (WEF)** is a government fund that lends to Kenyan women -- separate from YEDF (for youth) and the Hustler Fund.\n'
@@ -569,7 +574,17 @@ CANNED_ANSWERS = {
         'Confirm the exact category and fee with your new county.'
     ),
     "barber_salon_taxes": 'Tax obligations for a barber or salon business in Kenya depend on your annual turnover and on whether you employ staff -- not on the trade itself:\n\n- **Turnover Tax (TOT)**: 1.5% of gross sales if your annual turnover is more than KES 1,000,000 but does not exceed KES 25,000,000. It is charged on gross sales with **no expense deductions**. For example, KES 2,000,000 of annual sales means KES 30,000 of TOT (2,000,000 x 1.5%). Below KES 1,000,000 you are exempt from TOT.\n- **VAT**: if your turnover reaches KES 5,000,000 and you deal in vatable supplies, you must also register for VAT.\n- **If you employ staff**: PAYE (bands from 10% to 35%, less KES 2,400 monthly personal relief), NSSF (6% employee + 6% employer), SHIF (2.75% of gross pay) and the Housing Levy (1.5% employee + 1.5% employer) -- ask about your "payroll obligations" for the full list.\n- **County permit**: a single business permit from your county government; the category and fee vary by county.\n\nWhere you operate affects your county permit and fees, but the national tax rules above are the same in every county. Confirm your specific position via iTax (itax.kra.go.ke).',
-    "sole_prop_llc_mistakes": "Common mistakes when moving from a sole proprietorship to a limited company:\n\n- **Expecting a direct conversion**: Kenya has no one-step conversion. It is two separate actions -- cease your business name (Form BN6 on eCitizen) and register a new private limited company (Forms CR1, CR2, CR8 plus the Articles/Memorandum of Association).\n- **Carrying over your personal KRA PIN**: the new company needs its own separate company PIN, applied for via iTax as a 'Non-Individual' taxpayer.\n- **Applying for the company PIN too early**: every director and shareholder must already have their own individual KRA PIN before the company PIN application can go through.\n- **Budgeting for only one charge**: expect two separate government charges -- business name cessation and company registration.\n- **Delaying because of share capital**: there is no legal minimum share capital requirement.\n\nConfirm the current forms and fees directly on eCitizen before you file.",
+    "sole_prop_llc_mistakes": (
+        'Common mistakes when moving from a sole proprietorship to a limited company:\n'
+        '\n'
+        '- **Expecting a one-click conversion**: on the Business Registration Service portal (brsv2.ecitizen.go.ke) it is two linked steps. First cease your business name, choosing "convert" as the reason and uploading the signed **Form BN 6** (fee **KES 250**). Only after the cessation is approved does the option to convert to a company appear; you then fill in the new company\'s details and pay the registration fee.\n'
+        "- **Carrying over your personal KRA PIN**: the company is a separate taxpayer with its own KRA PIN, issued with its incorporation documents. Don't file the company's taxes under your personal PIN.\n"
+        '- **Starting before everyone has a PIN**: every director and shareholder must already have their own individual KRA PIN before the company can be registered.\n'
+        '- **Budgeting for only one charge**: expect two separate government charges -- the business name cessation (KES 250) and the company registration.\n'
+        '- **Delaying because of share capital**: there is no legal minimum share capital requirement.\n'
+        '\n'
+        'Confirm the current steps and fees on the BRS portal before you file.'
+    ),
     "etims_general": (
         "**eTIMS** (electronic Tax Invoice Management System) is KRA's system for generating tax-compliant, verifiable electronic invoices/receipts -- it's required for all persons carrying on business unless exempted (Tax Procedures (Electronic Tax Invoice) Regulations, 2024), and KRA only accepts eTIMS-generated invoices as valid proof of purchase for deducting business expenses.\n"
         '\n'
@@ -849,11 +864,16 @@ CANNED_ANSWERS_SW = {
         "**Jinsi ya kuomba**: tembelea m-pesaforbusiness.co.ke ubofye 'Apply Now', au tembelea duka la Safaricom. Utahitaji kitambulisho cha taifa, KRA PIN, hati za usajili wa biashara (kulingana na kama wewe ni mfanyabiashara binafsi, ubia au kampuni), na maelezo ya akaunti ya benki ya kupokea malipo. Ukishaidhinishwa, utapokea namba yako na hatua za kuiwasha kwa SMS. Angalia ada za sasa kwenye tovuti ya Safaricom kabla ya kuchagua."
     ),
     "sole_prop_to_llc": (
-        "Kenya haina njia ya hatua moja ya kubadilisha biashara ya mtu binafsi kuwa kampuni. Kwa vitendo ni hatua mbili tofauti: **(1) sitisha jina la biashara yako ya sasa** kwa kuwasilisha **Fomu BN6** kwenye eCitizen, na **(2) sajili kampuni mpya ya dhima ndogo** kwa kutumia **Fomu CR1, CR2, CR8** pamoja na Memorandum na Articles of Association (BRS hutoa violezo vya kawaida). Kwa kawaida unaweza kuhifadhi na kutumia jina lilelile, sasa likiwa na 'Limited' au 'Ltd'.\n"
+        'Unaweza kuhamisha biashara ya mtu binafsi (jina la biashara lililosajiliwa) kuwa kampuni ya kibinafsi (private limited company) kwenye tovuti ya Huduma ya Usajili wa Biashara (brsv2.ecitizen.go.ke) kwa **hatua mbili zinazofuatana**:\n'
         '\n'
-        "**KRA PIN**: biashara yako ya mtu binafsi ilitumia **KRA PIN yako binafsi**. Kampuni mpya inahitaji **PIN yake ya kampuni**, inayoombwa kwenye iTax kama mlipa kodi wa 'Non-Individual' -- na kila mkurugenzi na mwanahisa lazima tayari awe na KRA PIN yake binafsi.\n"
+        '1. **Sitisha jina la biashara**: chini ya biashara yako, chagua Maintain -> Cessation of Business Name, chagua "convert" kama sababu, na upakie **Fomu BN 6** iliyotiwa sahihi. Ada ni **KES 250**.\n'
+        '2. **Badilisha**: usitishaji ukishaidhinishwa, chaguo la kuanza ubadilishaji hujitokeza. Chagua private limited company, jaza maelezo ya kampuni mpya, wasilisha na ulipe ada ya usajili.\n'
         '\n'
-        '**Ada na muda**: tarajia ada mbili za serikali -- moja ya kusitisha jina la biashara na moja ya kusajili kampuni. Angalia ada za sasa kwenye eCitizen kabla ya kuomba, kwa kuwa hubadilika. **Hakuna kiwango cha chini cha kisheria** cha mtaji wa hisa.'
+        "Unaweza kuomba kutumia jina lilelile likiongezewa 'Limited' au 'Ltd', kwa idhini ya BRS.\n"
+        '\n'
+        '**PIN ya KRA**: biashara yako ya mtu binafsi ilitumia **PIN yako binafsi ya KRA**. Kampuni ni mlipakodi tofauti mwenye **PIN yake ya KRA**, inayotolewa pamoja na hati zake za usajili -- na kila mkurugenzi na mwanahisa lazima awe tayari na PIN yake binafsi ya KRA.\n'
+        '\n'
+        '**Ada**: tarajia malipo mawili ya serikali -- KES 250 kwa usitishaji na ada ya usajili wa kampuni. Angalia ada za sasa kwenye tovuti ya BRS kabla ya kuomba, kwa kuwa hubadilika. **Hakuna kiwango cha chini cha mtaji wa hisa** kinachohitajika kisheria.'
     ),
     "wef": (
         '**Mfuko wa Biashara za Wanawake (WEF)** ni mfuko wa serikali unaokopesha wanawake wa Kenya -- tofauti na YEDF (kwa vijana) na Hustler Fund.\n'
@@ -1074,6 +1094,70 @@ CANNED_ANSWERS_SW = {
         "**kampuni ya bima au wakala aliyeidhinishwa** (angalia orodha ya "
         "IRA ya watoa huduma walioidhinishwa kwenye ira.go.ke), si KRA."
     ),
+    'barber_salon_taxes': (
+        'Wajibu wa kodi kwa biashara ya kinyozi au saluni nchini Kenya unategemea mauzo yako ya mwaka na kama una wafanyakazi -- si aina ya biashara yenyewe:\n'
+        '\n'
+        '- **Kodi ya Mauzo (TOT)**: 1.5% ya mauzo ghafi ikiwa mauzo yako ya mwaka ni zaidi ya KES 1,000,000 lakini hayazidi KES 25,000,000. Hutozwa kwa mauzo ghafi **bila kutoa gharama**. Kwa mfano, mauzo ya mwaka ya KES 2,000,000 yanamaanisha TOT ya KES 30,000 (2,000,000 x 1.5%). Chini ya KES 1,000,000 hulipi TOT.\n'
+        '- **VAT**: mauzo yako yakifikia KES 5,000,000 na unauza bidhaa au huduma zinazotozwa VAT, lazima pia ujisajili kwa VAT.\n'
+        '- **Ukiwa na wafanyakazi**: PAYE (viwango kuanzia 10% hadi 35%, ukitoa nafuu ya kibinafsi ya KES 2,400 kwa mwezi), NSSF (6% mfanyakazi + 6% mwajiri), SHIF (2.75% ya mshahara ghafi) na Ushuru wa Nyumba (1.5% mfanyakazi + 1.5% mwajiri) -- uliza kuhusu "wajibu wa mishahara" kupata orodha kamili.\n'
+        '- **Kibali cha kaunti**: kibali kimoja cha biashara kutoka serikali ya kaunti yako; aina na ada hutofautiana kwa kila kaunti.\n'
+        '\n'
+        'Mahali unapofanyia biashara huathiri kibali na ada za kaunti, lakini sheria za kodi za kitaifa hapo juu ni sawa katika kila kaunti. Thibitisha hali yako kupitia iTax (itax.kra.go.ke).'
+    ),
+    'compliance_software': (
+        'Hakuna programu moja unayolazimika kutumia, lakini hii ndiyo mifumo rasmi ambayo biashara nyingi ndogo nchini Kenya zinahitaji kwa utiifu:\n'
+        '\n'
+        '- **eTIMS** (mfumo wa KRA wa ankara za kodi za kielektroniki): unahitajika kwa watu wote wanaofanya biashara, isipokuwa walioondolewa -- si biashara zilizosajiliwa kwa VAT pekee -- na unahitajika ili gharama za biashara yako zikubalike kupunguzwa kwenye kodi. Chaguo la bure la **eTIMS Lite** ndilo njia rahisi zaidi kwa biashara ndogo kutii bila kununua vifaa.\n'
+        '- **KRA iTax (itax.kra.go.ke)**: tovuti ya KRA ya kuwasilisha ritani, ikiwemo ritani ya kila mwezi ya PAYE (P10) ikiwa una wafanyakazi.\n'
+        '- **Tovuti ya Huduma Binafsi ya Waajiri ya NSSF (selfservice.nssf.or.ke)**: jisajili kama mwajiri na simamia wajibu wako wa NSSF ikiwa una wafanyakazi.\n'
+        '\n'
+        'Ukitaka pia programu ya uhasibu au mishahara juu ya hii, siwezi kupendekeza bidhaa mahususi, lakini hakikisha inakokotoa kwa usahihi viwango vya sasa vya PAYE, ngazi za NSSF, SHIF (2.75% ya mshahara ghafi) na Ushuru wa Nyumba (1.5% kila mmoja kwa mfanyakazi na mwajiri), na kwamba inaweza kutoa ankara zinazokubalika na eTIMS.'
+    ),
+    'employee_compliance_checklist': (
+        'Kwa biashara ya uuzaji yenye wafanyakazi wa kudumu, haya ndiyo unayopaswa kudumisha:\n'
+        '\n'
+        '**Mikataba ya ajira**: mkataba wa maandishi kwa ajira yoyote ya miezi mitatu au zaidi (Sheria ya Ajira, Kifungu cha 9), unaoonyesha tarehe ya kuanza, maelezo ya kazi, mshahara, saa za kazi, na haki ya likizo.\n'
+        '\n'
+        '**Makato ya kisheria, kwa kila mfanyakazi, kila mwezi**:\n'
+        '- **NSSF**: 6% mfanyakazi + 6% mwajiri (sawa), Ngazi ya I hadi KES 9,000, Ngazi ya II hadi KES 108,000\n'
+        '- **PAYE**: viwango vinavyopanda kuanzia 10% hadi 35%, ukitoa nafuu ya kibinafsi ya KES 2,400\n'
+        '- **SHIF** (Mfuko wa Bima ya Afya ya Jamii -- ulichukua nafasi ya NHIF Oktoba 2024): 2.75% ya mshahara ghafi, upande wa mfanyakazi pekee, bila kikomo\n'
+        '- **Ushuru wa Nyumba**: 1.5% mfanyakazi + 1.5% mwajiri, bila kiwango cha chini cha mapato\n'
+        '\n'
+        '**Rekodi za likizo**: angalau siku 21 za kazi za likizo ya mwaka kwa kila miezi 12 ya huduma (Sheria ya Ajira, Kifungu cha 28).\n'
+        '\n'
+        '**Rekodi za mishahara**: andika mshahara wa kila mwezi wa kila mfanyakazi na makato yote hapo juu, na uyalipe kwa wakati -- NSSF na PAYE hulipwa kabla ya tarehe 9 ya mwezi unaofuata, Ushuru wa Nyumba kabla ya siku ya 9 ya kazi baada ya mwisho wa mwezi (hutangazwa kwenye ritani ya PAYE), na thibitisha tarehe ya SHIF na Mamlaka ya Afya ya Jamii (SHA). Weka rekodi hizi tayari kwa ukaguzi, na uhifadhi mkataba wa maandishi na maelezo ya kila mfanyakazi kwa miaka mitano baada ya ajira yake kuisha (Sheria ya Ajira).'
+    ),
+    'regulations_not_exhaustive': (
+        'Hapana -- hakuna orodha moja kamili, kwa sababu kinachokuhusu kinategemea aina ya biashara yako, mauzo yako na kama una wafanyakazi. Haya ndiyo mambo ya msingi yanayohusu biashara nyingi nchini Kenya:\n'
+        '\n'
+        '- **Usajili**: sajili jina la biashara yako (eCitizen/BRS) na upate PIN ya KRA\n'
+        '- **Kibali cha kaunti**: kibali kimoja cha biashara kutoka serikali ya kaunti yako -- aina na ada hutofautiana kwa kila kaunti\n'
+        '- **Mfumo wa kodi ya mapato**: Kodi ya Mauzo (1.5% ya mauzo ghafi) ikiwa mauzo yako ya mwaka ni kati ya KES 1,000,000 na KES 25,000,000; usajili wa VAT mara mauzo yako ya mwaka yanayotozwa kodi yanapofikia KES 5,000,000\n'
+        '- **eTIMS**: mfumo wa KRA wa ankara za kielektroniki, unaohitajika kwa watu wote wanaofanya biashara isipokuwa walioondolewa, na unahitajika ili gharama zako zikubalike kupunguzwa kwenye kodi (chaguo la bure la eTIMS Lite ndilo rahisi zaidi kwa biashara ndogo)\n'
+        '- **Ukiwa na wafanyakazi**: NSSF (6% mfanyakazi + 6% mwajiri), PAYE, SHIF (2.75% ya mshahara ghafi) na Ushuru wa Nyumba (1.5% mfanyakazi + 1.5% mwajiri), pamoja na mikataba ya maandishi na rekodi za likizo -- uliza kuhusu "wajibu wa mishahara" kupata orodha kamili\n'
+        '\n'
+        'Baadhi ya sekta pia zinahitaji leseni zao (kwa mfano biashara za chakula au maduka ya dawa). Niambie aina ya biashara yako na nitakupa mahitaji ninayoweza kuthibitisha kwa ajili yake.'
+    ),
+    'relocation_county': (
+        'Kenya ina kaunti badala ya majimbo, na kuhamisha biashara yako kutoka kaunti moja hadi nyingine hubadilisha zaidi **leseni za kaunti**, si kodi zako za kitaifa.\n'
+        '\n'
+        '- **Kodi za kitaifa hazibadiliki**: Kodi ya Mauzo (1.5% ya mauzo ghafi kwa mauzo kati ya KES 1,000,000 na KES 25,000,000), VAT (mauzo yanayotozwa kodi yakifikia KES 5,000,000) na, ukiwa na wafanyakazi, PAYE, NSSF, SHIF na Ushuru wa Nyumba zimewekwa kitaifa na hukusanywa kupitia KRA. Hazitegemei kaunti unayofanyia biashara.\n'
+        '- **Leseni za kaunti hubadilika**: kibali kimoja cha biashara hutolewa na kila serikali ya kaunti, na aina na ada hutofautiana kwa kila kaunti. Katika kaunti yako mpya utahitaji kibali kutoka ofisi ya leseni za biashara ya kaunti hiyo.\n'
+        '\n'
+        'Thibitisha aina na ada kamili na kaunti yako mpya.'
+    ),
+    'sole_prop_llc_mistakes': (
+        'Makosa ya kawaida wakati wa kuhama kutoka biashara ya mtu binafsi kwenda kampuni ya kibinafsi (limited company):\n'
+        '\n'
+        '- **Kutarajia ubadilishaji wa hatua moja**: kwenye tovuti ya Huduma ya Usajili wa Biashara (brsv2.ecitizen.go.ke) ni hatua mbili zinazofuatana. Kwanza sitisha jina la biashara yako, ukichagua "convert" kama sababu na kupakia **Fomu BN 6** iliyotiwa sahihi (ada **KES 250**). Usitishaji ukishaidhinishwa ndipo chaguo la kuibadilisha kuwa kampuni hujitokeza; kisha jaza maelezo ya kampuni mpya na ulipe ada ya usajili.\n'
+        '- **Kuendelea kutumia PIN yako binafsi ya KRA**: kampuni ni mlipakodi tofauti mwenye PIN yake ya KRA, inayotolewa pamoja na hati zake za usajili. Usiwasilishe kodi za kampuni kwa PIN yako binafsi.\n'
+        '- **Kuanza kabla kila mtu hajapata PIN**: kila mkurugenzi na mwanahisa lazima awe tayari na PIN yake binafsi ya KRA kabla kampuni haijasajiliwa.\n'
+        '- **Kupanga bajeti ya malipo moja tu**: tarajia malipo mawili tofauti ya serikali -- usitishaji wa jina la biashara (KES 250) na usajili wa kampuni.\n'
+        '- **Kuchelewa kwa sababu ya mtaji wa hisa**: hakuna kiwango cha chini cha mtaji wa hisa kinachohitajika kisheria.\n'
+        '\n'
+        'Thibitisha hatua na ada za sasa kwenye tovuti ya BRS kabla ya kuwasilisha.'
+    ),
 }
 
 
@@ -1109,6 +1193,8 @@ CANNED_SOURCES = {
     'employee_compliance_checklist': ('Employment Act 2007; KRA, NSSF, SHA', 'https://www.a-mla.org/en/country/pdf/1903', '2026-10-03'),
     'barber_salon_taxes': ('KRA, NSSF, SHA', 'https://www.kra.go.ke/individual/filing-paying/types-of-taxes/turnover-tax-tot', '2026-10-03'),
     'relocation_county': ('KRA', 'https://www.kra.go.ke/individual/filing-paying/types-of-taxes/turnover-tax-tot', '2026-10-03'),
+    'sole_prop_llc_mistakes': ('Business Registration Service', 'https://brs.go.ke/wp-content/uploads/2026/05/Step-by-Step-Guide_Cessation-Conversion.pdf', '2026-10-03'),
+    'sole_prop_to_llc': ('Business Registration Service', 'https://brs.go.ke/wp-content/uploads/2026/05/Step-by-Step-Guide_Cessation-Conversion.pdf', '2026-10-03'),
 }
 
 TOPIC_KEYWORDS = {
