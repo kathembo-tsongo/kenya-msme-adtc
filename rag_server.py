@@ -256,11 +256,13 @@ CANNED_ANSWERS = {
         "3. Once approved, you'll receive a business registration certificate"
     ),
     "kra_pin": (
-        "**Getting a KRA PIN**:\n\n"
-        "1. Go to iTax at itax.kra.go.ke\n"
-        "2. Log in / register using your national ID\n"
-        "3. Click \"Register\" -- your PIN is issued once you complete registration\n\n"
-        "You'll need this PIN before registering for VAT, PAYE, or any other tax obligation."
+        '**Getting a KRA PIN** (free):\n'
+        '\n'
+        '1. Go to iTax at **itax.kra.go.ke** and choose **New PIN Registration**\n'
+        '2. Choose **Individual**, then fill in your national ID number and date of birth (your name fills in automatically), plus your address, phone number and email address\n'
+        '3. Verify your email with the one-time code (OTP) sent to it, submit, and download your **PIN certificate** -- the PIN is 11 characters, starting with A\n'
+        '\n'
+        "You'll need this PIN to register a business name and before registering for VAT, PAYE, or any other tax obligation."
     ),
     "vat": (
         "**VAT registration threshold in Kenya**:\n\n"
@@ -371,12 +373,12 @@ CANNED_ANSWERS = {
         "liable for unpaid contributions."
     ),
     "mpesa_paybill_till": (
-        '**Getting an M-Pesa Paybill or Till number** -- apply through **Safaricom**, not a bank:\n'
+        '**Getting an M-PESA Paybill or Till number** -- apply to **Safaricom**, not a bank:\n'
         '\n'
         "- **Till Number (Buy Goods)**: for retail and point-of-sale (shops, restaurants, kiosks); the merchant pays a transaction fee set in Safaricom's published tariff, which changes from time to time\n"
         '- **Paybill Number**: for collections that need an account or reference number (rent, school fees, utilities, subscriptions)\n'
         '\n'
-        "**How to apply**: visit m-pesaforbusiness.co.ke and click 'Apply Now', or visit a Safaricom shop. You'll need your national ID, KRA PIN, business registration documents (depending on whether you are a sole proprietor, partnership or company), and bank account details for settlement. Once approved, you receive your number and activation steps by SMS. Check the current charges on Safaricom's website before you choose."
+        "**How to apply**: all applications go through Safaricom's online portal, **m-pesaforbusiness.co.ke/apply**, and only the business owner (or an aggregator) can apply. Each business type -- sole proprietor, partnership or company -- has its own list of required documents shown on the portal. For a Paybill you also give a bank account, and funds can only be withdrawn to that account. Safaricom says applications are processed within 24 hours of complete documents; track the status on the portal, and the number's details are sent to you once it is active. Check the current charges on Safaricom's website before you choose."
     ),
     "class_r_permit": (
         'Go to the **Kenya eFNS portal** on eCitizen and apply for a **Class R Permit** -- the permit for East African Community nationals (Burundi, DR Congo, Rwanda, South Sudan, Tanzania, Uganda) to live, work, trade or run a business in Kenya. **The permit is free**: the government has confirmed that no one should charge an EAC citizen for it. If you stay beyond 90 days you must also register as a foreign national, which is a separate process -- check its current fee on eFNS.\n'
@@ -467,9 +469,9 @@ CANNED_ANSWERS = {
         '**Process**: register your premises with PPB, then pass a premises inspection covering proper shelving, ventilation, a dispensing area separate from the sales counter, a lockable poisons cabinet, a refrigerator for cold-chain products, and Green Cross signage. Licenses are issued after a successful inspection and must be renewed annually (all PPB licenses expire December 31). Confirm the current ownership and premises requirements with PPB before you invest.'
     ),
     "ca_license": (
-        "Not every tech startup needs this -- the **Communications Authority of Kenya (CA)** licenses telecommunications, broadcasting, internet service provision and postal/courier operators, not general software or app businesses. If your startup only builds an app or website, without running telecom infrastructure or providing regulated network or content services, you likely don't need a CA licence.\n"
+        "Not every tech startup needs this -- the **Communications Authority of Kenya (CA)** licenses telecommunications, broadcasting, postal/courier services and related equipment, not general software or app businesses. If your startup only builds an app or website, without running telecom infrastructure or providing regulated network or content services, you likely don't need a CA licence.\n"
         '\n'
-        "If you do fall into a regulated category, CA's Unified Licensing Framework covers three main types: **Network Facilities Provider**, **Application Service Provider** and **Content Service Provider** (plus separate licences for broadcasting, equipment type-approval and courier/postal services). Applications need a cover letter to the Director of Licensing, your certificate of registration, company documents (CR12 for companies) and a list of directors. Foreign-owned companies must meet CA's local-ownership requirement -- confirm the current percentage, fees and processing times with CA (ca.go.ke) before you apply."
+        "If you do fall into a regulated category, CA's Unified Licensing Framework includes **Network Facilities Provider** (infrastructure), **Applications Service Provider** and **Content Service Provider** licences, plus separate licences for broadcasting, postal/courier services and equipment type approval. A foreign-owned licensee must issue **at least 20% of its shares to Kenyans** within three years of getting the licence. Confirm the application requirements, fees and processing times with CA (ca.go.ke) before you apply."
     ),
     "nssf_registration": (
         "**As an employer**, register on the NSSF Employer Self-Service portal (selfservice.nssf.or.ke) -- choose 'Employer Registration' if you have never registered. Get your **KRA PIN first**, since you'll need it during registration. Once approved, you receive an employer number.\n"
@@ -704,12 +706,13 @@ CANNED_ANSWERS_SW = {
         "3. Baada ya kuidhinishwa, utapokea cheti cha usajili wa biashara"
     ),
     "kra_pin": (
-        "**Kupata namba ya PIN ya KRA**:\n\n"
-        "1. Nenda iTax kwenye itax.kra.go.ke\n"
-        "2. Ingia / jisajili kwa kutumia kitambulisho chako cha taifa\n"
-        "3. Bofya \"Register\" -- PIN yako hutolewa mara tu unapomaliza usajili\n\n"
-        "Utahitaji PIN hii kabla ya kusajili kwa VAT, PAYE, au wajibu mwingine "
-        "wowote wa kodi."
+        '**Kupata PIN ya KRA** (bure):\n'
+        '\n'
+        '1. Nenda iTax kwenye **itax.kra.go.ke** na uchague **New PIN Registration**\n'
+        '2. Chagua **Individual**, kisha jaza nambari ya kitambulisho chako cha taifa na tarehe ya kuzaliwa (jina lako hujazwa lenyewe), pamoja na anwani, nambari ya simu na barua pepe\n'
+        '3. Thibitisha barua pepe yako kwa nambari ya siri ya mara moja (OTP) inayotumwa kwake, wasilisha, na upakue **cheti chako cha PIN** -- PIN ina herufi 11, ikianza na A\n'
+        '\n'
+        'Utahitaji PIN hii kusajili jina la biashara na kabla ya kujisajili kwa VAT, PAYE, au wajibu mwingine wowote wa kodi.'
     ),
     "vat": (
         "**Kiwango cha lazima cha kusajili VAT nchini Kenya**:\n\n"
@@ -846,12 +849,12 @@ CANNED_ANSWERS_SW = {
         "kampuni wanaweza kuwajibika binafsi kwa michango isiyolipwa."
     ),
     "mpesa_paybill_till": (
-        '**Kupata namba ya Paybill au Till ya M-Pesa** -- omba kupitia **Safaricom**, si benki:\n'
+        '**Kupata nambari ya M-PESA Paybill au Till** -- omba kwa **Safaricom**, si benki:\n'
         '\n'
-        '- **Namba ya Till (Buy Goods)**: kwa mauzo ya rejareja (maduka, mikahawa, vibanda); mfanyabiashara hulipa ada ya muamala iliyowekwa katika viwango vilivyochapishwa na Safaricom, ambavyo hubadilika mara kwa mara\n'
-        '- **Namba ya Paybill**: kwa makusanyo yanayohitaji namba ya akaunti au kumbukumbu (kodi ya nyumba, karo, huduma, usajili)\n'
+        '- **Nambari ya Till (Buy Goods)**: kwa biashara za rejareja na mauzo ya papo hapo (maduka, mikahawa, vibanda); mfanyabiashara hulipa ada ya muamala iliyowekwa kwenye viwango vilivyochapishwa na Safaricom, ambavyo hubadilika mara kwa mara\n'
+        '- **Nambari ya Paybill**: kwa makusanyo yanayohitaji nambari ya akaunti au kumbukumbu (kodi ya nyumba, ada za shule, huduma, usajili)\n'
         '\n'
-        "**Jinsi ya kuomba**: tembelea m-pesaforbusiness.co.ke ubofye 'Apply Now', au tembelea duka la Safaricom. Utahitaji kitambulisho cha taifa, KRA PIN, hati za usajili wa biashara (kulingana na kama wewe ni mfanyabiashara binafsi, ubia au kampuni), na maelezo ya akaunti ya benki ya kupokea malipo. Ukishaidhinishwa, utapokea namba yako na hatua za kuiwasha kwa SMS. Angalia ada za sasa kwenye tovuti ya Safaricom kabla ya kuchagua."
+        '**Jinsi ya kuomba**: maombi yote hufanywa kupitia tovuti ya Safaricom, **m-pesaforbusiness.co.ke/apply**, na ni mmiliki wa biashara (au aggregator) pekee anayeweza kuomba. Kila aina ya biashara -- mtu binafsi, ubia au kampuni -- ina orodha yake ya nyaraka zinazohitajika inayoonyeshwa kwenye tovuti. Kwa Paybill pia unatoa akaunti ya benki, na pesa zinaweza kutolewa kwenda akaunti hiyo pekee. Safaricom inasema maombi hushughulikiwa ndani ya saa 24 baada ya nyaraka kamili; fuatilia hali ya ombi lako kwenye tovuti, na maelezo ya nambari hutumwa kwako ikishaanza kufanya kazi. Angalia ada za sasa kwenye tovuti ya Safaricom kabla ya kuchagua.'
     ),
     "sole_prop_to_llc": (
         'Unaweza kuhamisha biashara ya mtu binafsi (jina la biashara lililosajiliwa) kuwa kampuni ya kibinafsi (private limited company) kwenye tovuti ya Huduma ya Usajili wa Biashara (brsv2.ecitizen.go.ke) kwa **hatua mbili zinazofuatana**:\n'
@@ -950,9 +953,9 @@ CANNED_ANSWERS_SW = {
         '**Mchakato**: sajili majengo yako na PPB, kisha pitisha ukaguzi wa majengo unaoangalia rafu sahihi, mzunguko wa hewa, eneo la kutolea dawa tofauti na counter ya mauzo, kabati la sumu lenye kufuli, jokofu kwa bidhaa zinazohitaji baridi, na alama ya Msalaba wa Kijani. Leseni hutolewa baada ya ukaguzi wenye mafanikio na lazima zihuishwe kila mwaka (leseni zote za PPB huisha Desemba 31). Thibitisha masharti ya sasa ya umiliki na majengo na PPB kabla ya kuwekeza.'
     ),
     "ca_license": (
-        'Si kila kampuni changa ya teknolojia inahitaji hili -- **Mamlaka ya Mawasiliano ya Kenya (CA)** hutoa leseni kwa watoa huduma za mawasiliano ya simu, utangazaji, intaneti na posta/courier, si kwa biashara za programu au apps za kawaida. Ikiwa kampuni yako inatengeneza app au tovuti tu, bila kuendesha miundombinu ya mawasiliano au kutoa huduma za mtandao au maudhui zinazodhibitiwa, huenda huhitaji leseni ya CA.\n'
+        'Si kila kampuni changa ya teknolojia inahitaji hii -- **Mamlaka ya Mawasiliano ya Kenya (CA)** hutoa leseni kwa mawasiliano ya simu, utangazaji, huduma za posta/usafirishaji wa vifurushi na vifaa vinavyohusiana, si biashara za kawaida za programu au apps. Ikiwa kampuni yako inatengeneza app au tovuti tu, bila kuendesha miundombinu ya mawasiliano au kutoa huduma za mtandao au maudhui zinazodhibitiwa, huenda huhitaji leseni ya CA.\n'
         '\n'
-        'Ikiwa uko katika aina inayodhibitiwa, Mfumo wa Leseni wa Pamoja wa CA una aina tatu kuu: **Network Facilities Provider**, **Application Service Provider** na **Content Service Provider** (pamoja na leseni tofauti za utangazaji, idhini ya vifaa na huduma za posta/courier). Maombi yanahitaji barua kwa Mkurugenzi wa Leseni, cheti cha usajili, hati za kampuni (CR12 kwa makampuni) na orodha ya wakurugenzi. Makampuni yanayomilikiwa na wageni lazima yatimize sharti la umiliki wa ndani la CA -- thibitisha asilimia ya sasa, ada na muda wa kushughulikia na CA (ca.go.ke) kabla ya kuomba.'
+        'Ikiwa uko katika kundi linalodhibitiwa, Mfumo wa Leseni Moja wa CA unajumuisha leseni za **Network Facilities Provider** (miundombinu), **Applications Service Provider** na **Content Service Provider**, pamoja na leseni tofauti za utangazaji, huduma za posta/vifurushi na uidhinishaji wa vifaa. Mwenye leseni anayemilikiwa na wageni lazima atoe **angalau 20% ya hisa zake kwa Wakenya** ndani ya miaka mitatu baada ya kupata leseni. Thibitisha mahitaji ya maombi, ada na muda wa kushughulikia na CA (ca.go.ke) kabla ya kuomba.'
     ),
     "nssf_registration": (
         "**Kama mwajiri**, jisajili kwenye tovuti ya NSSF Employer Self-Service (selfservice.nssf.or.ke) -- chagua 'Employer Registration' ikiwa hujawahi kusajiliwa. Pata **KRA PIN kwanza**, kwa kuwa utaihitaji wakati wa usajili. Ukishaidhinishwa, utapokea namba ya mwajiri.\n"
@@ -1181,6 +1184,9 @@ CANNED_SOURCES = {
     'termination': ('Employment Act 2007', 'https://www.a-mla.org/en/country/pdf/1903', '2026-10-03'),
     'business_insurance': ('Work Injury Benefits Act 2007', 'https://new.kenyalaw.org/akn/ke/act/2007/13/eng@2022-12-31', '2026-10-03'),
     'unified_business_permit': ('Nairobi City County', 'https://nairobi.go.ke/transition-to-unified-business-permit-nairobi-county-implements-no-cash-policy-encourages-digital-payments', '2026-10-03'),
+    'kra_pin': ('KRA (PIN registration guide)', 'https://www.kra.go.ke/images/publications/Step-By-Step-Guide-for-Application-Of-PIN-Without-Obligation-2025.pdf', '2026-10-03'),
+    'mpesa_paybill_till': ('Safaricom (M-PESA Paybill FAQs)', 'https://safaricom.co.ke/media-center-landing/frequently-asked-questions/m-pesa-paybill', '2026-10-03'),
+    'ca_license': ('Communications Authority of Kenya', 'https://www.ca.go.ke/node/236', '2026-10-03'),
 }
 
 TOPIC_KEYWORDS = {
