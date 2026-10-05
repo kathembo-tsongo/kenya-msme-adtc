@@ -637,6 +637,18 @@ CANNED_ANSWERS = {
         "specifics with a **licensed insurer or broker** (check the IRA's "
         "list of licensed providers at ira.go.ke), not KRA."
     ),
+    'start_business': (
+        '**Starting a small business in Kenya** -- the basic steps:\n'
+        '\n'
+        '1. **Get a KRA PIN** (free, on iTax at itax.kra.go.ke). You need it for the steps that follow.\n'
+        '2. **Register your business name** on eCitizen through the Business Registration Service (BRS), with your national ID and KRA PIN. If you want a limited company instead, ask about "sole proprietorship vs limited company".\n'
+        '3. **Get a single business permit from your county government** before you start operating -- the category and fee vary by county (in Nairobi it is the Unified Business Permit).\n'
+        '4. **Sector licences**: some businesses also need their own licence, for example food businesses or pharmacies.\n'
+        '5. **Tax**: if your annual turnover is above KES 1,000,000 and up to KES 25,000,000 you pay Turnover Tax (1.5% of gross sales); register for VAT once taxable turnover reaches KES 5,000,000. eTIMS invoicing applies to all persons carrying on business unless exempted.\n'
+        '6. **If you employ people**: register as an employer with NSSF, and deduct PAYE, NSSF, SHIF (which replaced NHIF in October 2024) and the Housing Levy.\n'
+        '\n'
+        'So yes -- register and get your county permit before you start operating; operating without a county permit is illegal. Ask about any step for the details.'
+    ),
 }
 
 
@@ -1144,6 +1156,18 @@ CANNED_ANSWERS_SW = {
         '\n'
         'Thibitisha hatua na ada za sasa kwenye tovuti ya BRS kabla ya kuwasilisha.'
     ),
+    'start_business': (
+        '**Kuanzisha biashara ndogo nchini Kenya** -- hatua za msingi:\n'
+        '\n'
+        '1. **Pata PIN ya KRA** (bure, kwenye iTax: itax.kra.go.ke). Unaihitaji kwa hatua zinazofuata.\n'
+        '2. **Sajili jina la biashara yako** kwenye eCitizen kupitia Huduma ya Usajili wa Biashara (BRS), ukitumia kitambulisho chako cha taifa na PIN ya KRA. Ukitaka kampuni (limited company) badala yake, uliza kuhusu "biashara ya mtu binafsi au kampuni".\n'
+        '3. **Pata kibali kimoja cha biashara kutoka serikali ya kaunti yako** kabla ya kuanza kufanya biashara -- aina na ada hutofautiana kwa kila kaunti (Nairobi ni Unified Business Permit).\n'
+        '4. **Leseni za sekta**: baadhi ya biashara zinahitaji pia leseni zao, kwa mfano biashara za chakula au maduka ya dawa.\n'
+        '5. **Kodi**: ikiwa mauzo yako ya mwaka ni zaidi ya KES 1,000,000 hadi KES 25,000,000 unalipa Kodi ya Mauzo (1.5% ya mauzo ghafi); jisajili kwa VAT mauzo yanayotozwa kodi yanapofikia KES 5,000,000. Ankara za eTIMS zinahitajika kwa watu wote wanaofanya biashara isipokuwa walioondolewa.\n'
+        '6. **Ukiajiri watu**: jisajili kama mwajiri na NSSF, na ukate PAYE, NSSF, SHIF (iliyochukua nafasi ya NHIF Oktoba 2024) na Ushuru wa Nyumba.\n'
+        '\n'
+        'Kwa hiyo ndiyo -- jisajili na upate kibali cha kaunti kabla ya kuanza kufanya biashara; kufanya biashara bila kibali cha kaunti ni kinyume cha sheria. Uliza kuhusu hatua yoyote kwa maelezo zaidi.'
+    ),
 }
 
 
@@ -1235,6 +1259,7 @@ TOPIC_KEYWORDS = {
     "sacco_vs_bank": ["saccos offer loans differently", "sacco vs bank", "sacco or bank loan", "difference between sacco and bank", "saccos differently from commercial banks", "tofauti kati ya sacco na benki"],
     "business_insurance": ["insurance does a", "business insurance", "insurance for my business", "what insurance", "bima ya biashara", "bima gani", "nahitaji bima"],
     "registration": ["register a business name", "business name registration", "steps to register a business", "register a small business", "register a business in kenya", "how to register a business", "start a business in kenya", "steps to start a business", "kusajili biashara", "naweza kusajili biashara", "jinsi ya kusajili biashara", "kuanzisha biashara", "nataka kusajili", 'regista biznes', 'register biznes', 'biznes name',],
+    'start_business': ['start a business', 'start a small business', 'starting a business', 'start my business', 'open a business', 'set up a business', 'begin a business', 'is it a must to register', 'must i register', 'must register', 'register before', 'before i start', 'start operating', 'kuanzisha biashara', 'kuanza biashara', 'kufungua biashara', 'nataka kuanza biashara'],
 }
 
 
