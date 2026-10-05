@@ -252,6 +252,8 @@ CANNED_ANSWERS = {
     "registration": (
         '**Registering a business name in Kenya** (Business Registration Service, BRS):\n'
         '\n'
+        '**You need**: a copy of your **national ID** (or passport if you are not Kenyan), your **KRA PIN**, and a recent passport-size photo.\n'
+        '\n'
         '1. Log in to the BRS portal on eCitizen (brsv2.ecitizen.go.ke) and choose **Companies Registry Services**, then **Make Application** and **Registration of a Business Name**\n'
         '2. Enter **three to five** preferred business names, in order of priority, for review and approval\n'
         '3. Fill in the details asked for, then sign the auto-generated registration form, scan it and upload it\n'
@@ -496,6 +498,7 @@ CANNED_ANSWERS = {
         'Operating without a valid county business permit is illegal in Kenya. Each county sets its own permit rules and penalties in its own laws.\n'
         '\n'
         '**What can happen**:\n'
+        '- **Closure or seizure of goods**: county laws can let licensing officers close an unlicensed business -- in Kiambu, for example, a licensing officer can order closure of the business or seizure of goods, and the penalty is **20% of the licence fee for every month** of default\n'
         '- **A fine, imprisonment, or both** on conviction -- in Nairobi, a person who fails to renew a licence and continues to operate commits an offence, with a fine of up to **KES 50,000**, imprisonment of up to **3 months**, or both\n'
         "- Other counties set their own amounts -- confirm your county's penalty schedule\n"
         '\n'
@@ -644,7 +647,7 @@ CANNED_ANSWERS = {
         '**Starting a small business in Kenya** -- the basic steps:\n'
         '\n'
         '1. **Get a KRA PIN** (free, on iTax at itax.kra.go.ke).\n'
-        '2. **Register your business name** on eCitizen through the Business Registration Service (BRS), and pay the KES 950 fee. If you want a limited company instead, ask about "sole proprietorship vs limited company".\n'
+        '2. **Register your business name** on eCitizen through the Business Registration Service (BRS), with your national ID and KRA PIN, and pay the KES 950 fee. If you want a limited company instead, ask about "sole proprietorship vs limited company".\n'
         '3. **Get a single business permit from your county government** before you start operating -- the category and fee vary by county (in Nairobi it is the Unified Business Permit).\n'
         '4. **Sector licences**: some businesses also need their own licence, for example food businesses or pharmacies.\n'
         '5. **Tax**: if your annual turnover is above KES 1,000,000 and up to KES 25,000,000 you pay Turnover Tax (1.5% of gross sales); register for VAT once taxable turnover reaches KES 5,000,000. eTIMS invoicing applies to all persons carrying on business unless exempted.\n'
@@ -714,6 +717,8 @@ CANNED_ANSWERS_SW = {
     ),
     "registration": (
         '**Kusajili jina la biashara nchini Kenya** (Huduma ya Usajili wa Biashara, BRS):\n'
+        '\n'
+        '**Unahitaji**: nakala ya **kitambulisho chako cha taifa** (au pasipoti kama si Mkenya), **PIN yako ya KRA**, na picha ya hivi karibuni ya ukubwa wa pasipoti.\n'
         '\n'
         '1. Ingia kwenye tovuti ya BRS kupitia eCitizen (brsv2.ecitizen.go.ke) na uchague **Companies Registry Services**, kisha **Make Application** na **Registration of a Business Name**\n'
         '2. Andika majina **matatu hadi matano** ya biashara unayopendelea, kwa mpangilio wa kipaumbele, ili yakaguliwe na kuidhinishwa\n'
@@ -992,6 +997,7 @@ CANNED_ANSWERS_SW = {
         'Kufanya biashara bila kibali halali cha biashara cha kaunti ni kinyume cha sheria nchini Kenya. Kila kaunti huweka masharti na adhabu zake za vibali katika sheria zake.\n'
         '\n'
         '**Kinachoweza kutokea**:\n'
+        "- **Kufungwa au kunyang'anywa bidhaa**: sheria za kaunti zinaweza kuwaruhusu maafisa wa leseni kufunga biashara isiyo na leseni -- Kiambu, kwa mfano, afisa wa leseni anaweza kuamuru biashara ifungwe au bidhaa zichukuliwe, na adhabu ni **20% ya ada ya leseni kwa kila mwezi** wa kuchelewa\n"
         '- **Faini, kifungo, au vyote viwili** ukipatikana na hatia -- Nairobi, mtu asiyehuisha leseni yake na kuendelea kufanya biashara anatenda kosa, na anaweza kutozwa faini ya hadi **KES 50,000**, kifungo cha hadi **miezi 3**, au vyote viwili\n'
         '- Kaunti nyingine huweka viwango vyao -- thibitisha adhabu za kaunti yako\n'
         '\n'
@@ -1163,7 +1169,7 @@ CANNED_ANSWERS_SW = {
         '**Kuanzisha biashara ndogo nchini Kenya** -- hatua za msingi:\n'
         '\n'
         '1. **Pata PIN ya KRA** (bure, kwenye iTax: itax.kra.go.ke).\n'
-        '2. **Sajili jina la biashara yako** kwenye eCitizen kupitia Huduma ya Usajili wa Biashara (BRS), na ulipe ada ya KES 950. Ukitaka kampuni (limited company) badala yake, uliza kuhusu "biashara ya mtu binafsi au kampuni".\n'
+        '2. **Sajili jina la biashara yako** kwenye eCitizen kupitia Huduma ya Usajili wa Biashara (BRS), ukitumia kitambulisho chako cha taifa na PIN ya KRA, na ulipe ada ya KES 950. Ukitaka kampuni (limited company) badala yake, uliza kuhusu "biashara ya mtu binafsi au kampuni".\n'
         '3. **Pata kibali kimoja cha biashara kutoka serikali ya kaunti yako** kabla ya kuanza kufanya biashara -- aina na ada hutofautiana kwa kila kaunti (Nairobi ni Unified Business Permit).\n'
         '4. **Leseni za sekta**: baadhi ya biashara zinahitaji pia leseni zao, kwa mfano biashara za chakula au maduka ya dawa.\n'
         '5. **Kodi**: ikiwa mauzo yako ya mwaka ni zaidi ya KES 1,000,000 hadi KES 25,000,000 unalipa Kodi ya Mauzo (1.5% ya mauzo ghafi); jisajili kwa VAT mauzo yanayotozwa kodi yanapofikia KES 5,000,000. Ankara za eTIMS zinahitajika kwa watu wote wanaofanya biashara isipokuwa walioondolewa.\n'
@@ -1214,8 +1220,8 @@ CANNED_SOURCES = {
     'kra_pin': ('KRA (PIN registration guide)', 'https://www.kra.go.ke/images/publications/Step-By-Step-Guide-for-Application-Of-PIN-Without-Obligation-2025.pdf', '2026-10-03'),
     'mpesa_paybill_till': ('Safaricom (M-PESA Paybill FAQs)', 'https://safaricom.co.ke/media-center-landing/frequently-asked-questions/m-pesa-paybill', '2026-10-03'),
     'ca_license': ('Communications Authority of Kenya', 'https://www.ca.go.ke/node/236', '2026-10-03'),
-    'registration': ('BRS (FAQs)', 'https://brs.go.ke/wp-content/uploads/2024/05/FAQs.pdf', '2026-10-05'),
-    'no_permit_penalty': ('KRA (Nairobi County permits notice)', 'https://www.kra.go.ke/news-center/public-notices/1086-renewal-of-nairobi-county-permits-and-licences', '2026-10-05'),
+    'registration': ('BRS (FAQs); Strathmore iBizAfrica', 'https://brs.go.ke/wp-content/uploads/2024/05/FAQs.pdf', '2026-10-05'),
+    'no_permit_penalty': ('KRA (Nairobi notice); Kiambu Trade Licence Act 2016', 'https://www.kra.go.ke/news-center/public-notices/1086-renewal-of-nairobi-county-permits-and-licences', '2026-10-05'),
     'nssf_registration': ('NSSF (employer obligations)', 'https://www.nssf.or.ke/new-nssf-rates-employer-obligations', '2026-10-05'),
     'start_business': ('KenInvest; BRS, KRA, NSSF, SHA', 'https://eprocedures.investkenya.go.ke/menu/1?l=en', '2026-10-05'),
 }
