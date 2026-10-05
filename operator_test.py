@@ -44,6 +44,9 @@ QUESTIONS = [
     ("paye rates 2026", "paye_bands"),
     ("hustler fund limit", "hustler_fund_business"),
     ("hw do i regista biznes", "registration"),
+    ("is it a must to register for my business before I start operating?", "start_business"),
+    ("how do I start a small business here in kenya", "start_business"),
+    ("nataka kuanza biashara", "start_business"),
 ]
 
 # --- same rules as Responder.detectLang in the app (keep in sync) ---
