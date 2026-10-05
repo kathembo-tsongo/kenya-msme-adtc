@@ -1213,6 +1213,53 @@ CANNED_SOURCES = {
     'ca_license': ('Communications Authority of Kenya', 'https://www.ca.go.ke/node/236', '2026-10-03'),
 }
 
+# Contextual follow-ups: after <topic>, a short question containing a cue word goes to <related topic>.
+# Used by query_pack.contextual_topic() and Router.kt; built into the pack's followups table.
+CANNED_FOLLOWUPS = {
+    'vat': {
+        'vat_penalty': ['late', 'penalty', 'penalties', 'fine', 'chelewa', 'faini', 'adhabu'],
+    },
+    'paye_bands': {
+        'paye_remit': ['when', 'due', 'deadline', 'remit', 'submit', 'late', 'penalty', 'lini', 'tarehe'],
+    },
+    'paye_remit': {
+        'paye_bands': ['rate', 'band', 'how much', 'kiasi', 'kiwango'],
+    },
+    'nssf': {
+        'nssf_penalty': ['late', 'penalty', 'fine', 'chelewa', 'faini'],
+        'nssf_registration': ['register', 'sajili'],
+    },
+    'loan': {
+        'hustler_fund_business': ['hustler', 'limit', '254'],
+        'yedf': ['youth', 'vijana', 'yedf'],
+        'wef': ['women', 'wanawake', 'wef'],
+    },
+    'license': {
+        'unified_business_permit': ['nairobi'],
+        'food_business_license': ['food', 'chakula', 'restaurant', 'hotel'],
+        'pharmacy_license': ['chemist', 'pharmacy', 'dawa'],
+        'no_permit_penalty': ['without', 'penalty', 'fine', 'bila'],
+    },
+    'food_business_license': {
+        'unified_business_permit': ['nairobi'],
+    },
+    'unified_business_permit': {
+        'no_permit_penalty': ['late', 'penalty', 'without', 'fine', 'bila'],
+    },
+    'start_business': {
+        'registration': ['register', 'name', 'sajili', 'jina'],
+        'license': ['permit', 'licence', 'license', 'kibali', 'leseni'],
+        'kra_pin': ['pin'],
+        'turnover_tax': ['tax', 'kodi'],
+    },
+    'registration': {
+        'sole_prop_vs_limited': ['limited', 'company', 'kampuni'],
+    },
+    'turnover_tax': {
+        'vat': ['vat'],
+    },
+}
+
 TOPIC_KEYWORDS = {
     "nssf_penalty": ["nssf penalty", "late nssf", "nssf late payment", "penalty for late nssf", "nssf fine", "adhabu ya nssf", "faini ya nssf kuchelewa"],
     "mpesa_paybill_till": ["paybill", "till number", "buy goods till", "set up paybill", "mpesa business", "namba ya paybill", "namba ya till", "kuweka paybill"],

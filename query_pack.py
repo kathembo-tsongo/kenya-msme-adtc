@@ -313,6 +313,26 @@ ACTION = {
 }
 
 
+# Short follow-ups that lean on the previous question ("and for the father?", "what about Nairobi?", "na ...").
+ELLIPTIC = re.compile(r"^(and|but|so|what about|what if|how about|how much|how long|how many|when|where|"
+                      r"na|je|vipi|basi|halafu)\b|\b(it|this|that|them|those|hiyo|hii|hizo|hilo|hayo)\b")
+
+
+def contextual_topic(db, query, prev_topic):
+    """Topic for a short follow-up with no keyword of its own, given the previous topic -- or None (new question)."""
+    q = query.lower()
+    if len(words(q)) > 8:
+        return None
+    try:
+        rows = db.execute("SELECT target, cue FROM followups WHERE topic = ? ORDER BY ord", (prev_topic,)).fetchall()
+    except Exception:
+        rows = []
+    for target, cue in rows:
+        if cue in q:
+            return target
+    return prev_topic if ELLIPTIC.search(q) else None
+
+
 def route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
     """Decide how the app answers one question. Returns a dict; 'kind' is a key of ACTION."""
     load_config(db)
@@ -340,11 +360,17 @@ def route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
         return r
 
     matches = canned_matches(db, query)
+    contextual = None
+    if not matches and prev_topic:
+        contextual = contextual_topic(db, query, prev_topic)
+        if contextual:
+            matches = [contextual]
+            r["contextual"] = prev_topic
     if matches:
         topic = matches[0]
         answer, en, sw = canned_answer(db, topic, lang)
         r.update(kind="VERIFIED", topic=topic, also_matched=matches[1:], answer=answer)
-        extra = uncovered_terms(query, topic, f"{en or ''} {sw or ''}", db)
+        extra = [] if contextual else uncovered_terms(query, topic, f"{en or ''} {sw or ''}", db)
         idfs = term_idfs(db, extra)
         specific = [t for t in extra if idfs[t] >= MIN_SPECIFIC_IDF]
         if specific:

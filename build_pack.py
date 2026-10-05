@@ -31,7 +31,7 @@ from collections import defaultdict
 
 import query_pack as qp
 
-WANTED = ["CANNED_ANSWERS", "CANNED_ANSWERS_SW", "TOPIC_KEYWORDS", "DIGEST_OVERRIDE_KEYWORDS", "CANNED_SOURCES"]
+WANTED = ["CANNED_ANSWERS", "CANNED_ANSWERS_SW", "TOPIC_KEYWORDS", "DIGEST_OVERRIDE_KEYWORDS", "CANNED_SOURCES", "CANNED_FOLLOWUPS"]
 TEXT_KEYS = ("text", "content", "chunk", "page_content")
 SOURCE_KEYS = ("source", "file", "filename", "doc", "document", "path")
 KB_KEYS = ("kb", "category", "collection", "folder")
@@ -185,6 +185,14 @@ def write_pack(out, lit, chunks, meta, general):
     """)
 
     # Provenance: where each verified answer was checked (optional in rag_server.py).
+    # Contextual follow-ups (optional in rag_server.py).
+    db.execute("CREATE TABLE followups(topic TEXT, target TEXT, cue TEXT, ord INTEGER)")
+    _n = 0
+    for topic, targets in lit.get("CANNED_FOLLOWUPS", {}).items():
+        for target, cues in targets.items():
+            for cue in cues:
+                _n += 1
+                db.execute("INSERT INTO followups VALUES (?,?,?,?)", (topic, target, cue.lower(), _n))
     db.execute("CREATE TABLE canned_sources(topic TEXT PRIMARY KEY, source TEXT NOT NULL, "
                "url TEXT NOT NULL, checked TEXT NOT NULL)")
     for topic, (source, url, checked) in lit.get("CANNED_SOURCES", {}).items():
