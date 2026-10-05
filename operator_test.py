@@ -56,7 +56,7 @@ tafadhali habari asante ninawezaje nitasajili kupata kuanza kufungua biashara mk
 unaweza tunaweza wateja mteja duka dukani maduka bidhaa faida hasara mauzo zaidi kwangu kwenye au pia sasa kila bila
 hadi kama lakini kuhusu nina sina nani namna ndio hapana pesa fedha mtaji soko sokoni kampuni kusajili kulipa ushuru
 mshahara wafanyakazi mfanyakazi kibali jina shilingi kiasi ngapi gharama bei chakula kilimo mwaka mwezi siku wangu
-yetu yako ili hivyo bado ipo kiwango viwango cha vya ipi""".split())
+yetu yako ili hivyo bado ipo kiwango viwango cha vya ipi nauza ninauza tunauza niko tuko ninafanya""".split())
 EN = set("the is how what do i my for to and can of a in are does should which where when hello hi thanks thank".split())
 
 
