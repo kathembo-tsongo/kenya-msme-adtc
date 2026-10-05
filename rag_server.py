@@ -655,6 +655,17 @@ CANNED_ANSWERS = {
         '\n'
         'So yes -- register and get your county permit before you start operating; operating without a county permit is illegal. Ask about any step for the details.'
     ),
+    'afcfta': (
+        '**Exporting to other African countries under the AfCFTA** (African Continental Free Trade Area):\n'
+        '\n'
+        "The AfCFTA was established in 2018 to create a single continental market of the 55 African Union member states. To export at the lower AfCFTA tariffs, your goods need an **AfCFTA certificate of origin**. In Kenya it is issued by **KRA's Customs & Border Control Department**.\n"
+        '\n'
+        '1. **Register as an exporter** with KRA Customs: fill in the registration form at a Rules of Origin office (Nairobi, Mombasa, Nakuru, Eldoret or Kisumu), with your business registration certificate, KRA PIN and relevant business licences\n'
+        '2. KRA checks that your goods meet the AfCFTA **rules of origin** (Annex 2 to the Protocol on Trade in Goods) before approving you\n'
+        '3. Once approved you get a reference number, and you can buy certificates of origin at **USD 3** each\n'
+        '\n'
+        'For export guidance, market information and trade fairs, ask about **KEPROBA**.'
+    ),
 }
 
 
@@ -1177,6 +1188,17 @@ CANNED_ANSWERS_SW = {
         '\n'
         'Kwa hiyo ndiyo -- jisajili na upate kibali cha kaunti kabla ya kuanza kufanya biashara; kufanya biashara bila kibali cha kaunti ni kinyume cha sheria. Uliza kuhusu hatua yoyote kwa maelezo zaidi.'
     ),
+    'afcfta': (
+        '**Kuuza bidhaa katika nchi nyingine za Afrika chini ya AfCFTA** (Eneo Huru la Biashara la Bara la Afrika):\n'
+        '\n'
+        'AfCFTA ilianzishwa mwaka 2018 ili kuunda soko moja la bara kwa nchi 55 wanachama wa Umoja wa Afrika. Ili kuuza nje kwa ushuru wa chini wa AfCFTA, bidhaa zako zinahitaji **cheti cha asili cha AfCFTA** (certificate of origin). Nchini Kenya hutolewa na **Idara ya Forodha na Udhibiti wa Mipaka ya KRA** (Customs & Border Control).\n'
+        '\n'
+        '1. **Jisajili kama msafirishaji bidhaa nje** na Forodha ya KRA: jaza fomu ya usajili katika ofisi ya Rules of Origin (Nairobi, Mombasa, Nakuru, Eldoret au Kisumu), ukiwa na cheti cha usajili wa biashara, PIN ya KRA na leseni za biashara zinazohusika\n'
+        '2. KRA hukagua kwamba bidhaa zako zinatimiza **kanuni za asili** za AfCFTA (Annex 2 ya Protocol on Trade in Goods) kabla ya kukuidhinisha\n'
+        '3. Ukiidhinishwa utapata nambari ya kumbukumbu, na unaweza kununua vyeti vya asili kwa **USD 3** kila kimoja\n'
+        '\n'
+        'Kwa mwongozo wa kuuza nje, taarifa za masoko na maonyesho ya biashara, uliza kuhusu **KEPROBA**.'
+    ),
 }
 
 
@@ -1224,6 +1246,7 @@ CANNED_SOURCES = {
     'no_permit_penalty': ('KRA (Nairobi notice); Kiambu Trade Licence Act 2016', 'https://www.kra.go.ke/news-center/public-notices/1086-renewal-of-nairobi-county-permits-and-licences', '2026-10-05'),
     'nssf_registration': ('NSSF (employer obligations)', 'https://www.nssf.or.ke/new-nssf-rates-employer-obligations', '2026-10-05'),
     'start_business': ('KenInvest; BRS, KRA, NSSF, SHA', 'https://eprocedures.investkenya.go.ke/menu/1?l=en', '2026-10-05'),
+    'afcfta': ('KRA (AfCFTA FAQs)', 'https://www.kra.go.ke/helping-tax-payers/faqs/the-african-continental-free-trade-area-afcfta', '2026-10-05'),
 }
 
 # Contextual follow-ups: after <topic>, a short question containing a cue word goes to <related topic>.
@@ -1320,6 +1343,7 @@ TOPIC_KEYWORDS = {
     "business_insurance": ["insurance does a", "business insurance", "insurance for my business", "what insurance", "bima ya biashara", "bima gani", "nahitaji bima"],
     "registration": ["register a business name", "business name registration", "steps to register a business", "register a small business", "register a business in kenya", "how to register a business", "start a business in kenya", "steps to start a business", "kusajili biashara", "naweza kusajili biashara", "jinsi ya kusajili biashara", "kuanzisha biashara", "nataka kusajili", 'regista biznes', 'register biznes', 'biznes name',],
     'start_business': ['start a business', 'start a small business', 'starting a business', 'start my business', 'open a business', 'set up a business', 'begin a business', 'is it a must to register', 'must i register', 'must register', 'register before', 'before i start', 'start operating', 'kuanzisha biashara', 'kuanza biashara', 'kufungua biashara', 'nataka kuanza biashara'],
+    'afcfta': ['afcfta', 'african continental free trade', 'continental free trade area', 'other african countries', 'export to africa', 'export to african countries', 'afcfta certificate of origin', 'rules of origin', 'eneo huru la biashara', 'nchi nyingine za afrika', 'kuuza nje afrika'],
 }
 
 
