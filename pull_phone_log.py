@@ -15,7 +15,8 @@ from collections import Counter
 
 PKG = "com.example.llama.aichat"
 REMOTE = "files/rafiki_log.jsonl"
-FIELDS = ["time", "question", "lang", "route", "topic", "confidence", "sources", "model", "ms", "answer"]
+FIELDS = ["time", "participant", "question", "lang", "route", "topic", "suggest", "confidence", "sources",
+          "model", "ms", "pack", "app", "answer"]
 
 
 def main():
