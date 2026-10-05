@@ -47,6 +47,7 @@ QUESTIONS = [
     ("is it a must to register for my business before I start operating?", "start_business"),
     ("how do I start a small business here in kenya", "start_business"),
     ("nataka kuanza biashara", "start_business"),
+    ("kiwango cha VAT", "vat"),
 ]
 
 # --- same rules as Responder.detectLang in the app (keep in sync) ---
@@ -55,7 +56,7 @@ tafadhali habari asante ninawezaje nitasajili kupata kuanza kufungua biashara mk
 unaweza tunaweza wateja mteja duka dukani maduka bidhaa faida hasara mauzo zaidi kwangu kwenye au pia sasa kila bila
 hadi kama lakini kuhusu nina sina nani namna ndio hapana pesa fedha mtaji soko sokoni kampuni kusajili kulipa ushuru
 mshahara wafanyakazi mfanyakazi kibali jina shilingi kiasi ngapi gharama bei chakula kilimo mwaka mwezi siku wangu
-yetu yako ili hivyo bado ipo""".split())
+yetu yako ili hivyo bado ipo kiwango viwango cha vya ipi""".split())
 EN = set("the is how what do i my for to and can of a in are does should which where when hello hi thanks thank".split())
 
 

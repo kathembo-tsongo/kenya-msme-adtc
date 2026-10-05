@@ -265,10 +265,11 @@ CANNED_ANSWERS = {
         "You'll need this PIN to register a business name and before registering for VAT, PAYE, or any other tax obligation."
     ),
     "vat": (
-        "**VAT registration threshold in Kenya**:\n\n"
-        "- Mandatory once your annual taxable turnover exceeds **KES 5,000,000 (5 million)**\n"
-        "- The standard VAT rate is **16%**, charged on your taxable sales\n"
-        "- Register via iTax (itax.kra.go.ke)"
+        '**VAT registration threshold in Kenya**:\n'
+        '\n'
+        '- Mandatory once your annual taxable turnover reaches **KES 5,000,000 (5 million)** or more\n'
+        '- The standard VAT rate is **16%**, charged on your taxable sales\n'
+        '- Register via iTax (itax.kra.go.ke)'
     ),
     "vat_penalty": (
         "**Penalties for late VAT filing and payment in Kenya**:\n\n"
@@ -727,11 +728,11 @@ CANNED_ANSWERS_SW = {
         'Utahitaji PIN hii kusajili jina la biashara na kabla ya kujisajili kwa VAT, PAYE, au wajibu mwingine wowote wa kodi.'
     ),
     "vat": (
-        "**Kiwango cha lazima cha kusajili VAT nchini Kenya**:\n\n"
-        "- Ni lazima pindi mauzo yako ya mwaka yanayotozwa kodi yanapozidi "
-        "**KES 5,000,000**\n"
-        "- Kiwango cha kawaida cha VAT ni **16%**, kinachotozwa kwenye mauzo yako yanayotozwa kodi\n"
-        "- Jisajili kupitia iTax (itax.kra.go.ke)"
+        '**Kiwango cha usajili wa VAT nchini Kenya**:\n'
+        '\n'
+        '- Ni lazima kujisajili mauzo yako ya mwaka yanayotozwa kodi yanapofikia **KES 5,000,000 (milioni 5)** au zaidi\n'
+        '- Kiwango cha kawaida cha VAT ni **16%**, kinachotozwa kwenye mauzo yako yanayotozwa kodi\n'
+        '- Jisajili kupitia iTax (itax.kra.go.ke)'
     ),
     "vat_penalty": (
         "**Adhabu za kuchelewa kuwasilisha na kulipa VAT nchini Kenya**:\n\n"
