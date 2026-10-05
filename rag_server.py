@@ -250,10 +250,14 @@ CANNED_ANSWERS = {
         '5. **Commercial banks** -- usually require a registered business, financial records, and collateral for larger amounts'
     ),
     "registration": (
-        "**Registering a business name in Kenya**:\n\n"
-        "1. Search for name availability via the eCitizen portal (ecitizen.go.ke) or the Business Registration Service (brs.go.ke)\n"
-        "2. Submit your registration with your national ID and KRA PIN\n"
-        "3. Once approved, you'll receive a business registration certificate"
+        '**Registering a business name in Kenya** (Business Registration Service, BRS):\n'
+        '\n'
+        '1. Log in to the BRS portal on eCitizen (brsv2.ecitizen.go.ke) and choose **Companies Registry Services**, then **Make Application** and **Registration of a Business Name**\n'
+        '2. Enter **three to five** preferred business names, in order of priority, for review and approval\n'
+        '3. Fill in the details asked for, then sign the auto-generated registration form, scan it and upload it\n'
+        '4. Submit and pay **KES 950** -- the payment prompt comes to your phone\n'
+        '\n'
+        'For help, the BRS line is 011 112 7000.'
     ),
     "kra_pin": (
         '**Getting a KRA PIN** (free):\n'
@@ -475,11 +479,11 @@ CANNED_ANSWERS = {
         "If you do fall into a regulated category, CA's Unified Licensing Framework includes **Network Facilities Provider** (infrastructure), **Applications Service Provider** and **Content Service Provider** licences, plus separate licences for broadcasting, postal/courier services and equipment type approval. A foreign-owned licensee must issue **at least 20% of its shares to Kenyans** within three years of getting the licence. Confirm the application requirements, fees and processing times with CA (ca.go.ke) before you apply."
     ),
     "nssf_registration": (
-        "**As an employer**, register on the NSSF Employer Self-Service portal (selfservice.nssf.or.ke) -- choose 'Employer Registration' if you have never registered. Get your **KRA PIN first**, since you'll need it during registration. Once approved, you receive an employer number.\n"
+        "**As an employer**: every employer who engages **one or more employees** must register with NSSF as a contributing employer. On the NSSF Self Service portal (selfservice.nssf.or.ke), choose **'Employer Registration'** if you have no NSSF registration number yet and complete the form. Then print the application notification and take it to your nearest NSSF office for certification; the office gives you a PIN key to activate your online account.\n"
         '\n'
-        '**Registration is mandatory** for every employer with one or more employees -- including casual, temporary and part-time workers, not only permanent staff. Failing to register is an offence under the NSSF Act 2013.\n'
+        '**For your employees**: you must also make sure every employee is promptly registered as an NSSF member.\n'
         '\n'
-        '**For each employee**: they register at any NSSF office with their national ID, passport or Alien Card and an introduction letter from you, and receive an NSSF membership number that you use when remitting their contributions.'
+        '**After registering**: deduct and remit contributions, and submit monthly returns, by the **9th day of the following month**. An employer who fails to meet these obligations commits an offence.'
     ),
     "keproba": (
         "**KEPROBA** (Kenya Export Promotion and Branding Agency) is a state corporation (formed 2019, merging the former Export Promotion Council and Brand Kenya Board) that supports Kenyan exporters and promotes 'Brand Kenya' internationally.\n"
@@ -489,15 +493,13 @@ CANNED_ANSWERS = {
         "Note: the Investment and Export Promotion Authority Bill, 2026 proposes merging KEPROBA with the Kenya Investment Authority, so check the agency's current name and contacts before you go."
     ),
     "no_permit_penalty": (
-        "Operating without a valid county business permit is illegal in Kenya, under the **County Governments Act 2012** combined with each county's own Finance Act and Trade Licensing Act (Nairobi's trade licensing, for example, falls under its own County Trade Licensing Act).\n"
+        'Operating without a valid county business permit is illegal in Kenya. Each county sets its own permit rules and penalties in its own laws.\n'
         '\n'
-        '**Consequences can include**:\n'
-        "- **Fines**: the amount is set by each county's law and varies significantly -- confirm your county's penalty schedule\n"
-        '- **Closure orders**: county inspectors can issue an immediate closure order, shutting your business until you comply\n'
-        '- **Possible imprisonment**: in serious or repeated cases, directors/owners can face criminal prosecution personally, not just the business\n'
-        '- **Back-payment of penalties**: on top of the permit fee itself once you do comply\n'
+        '**What can happen**:\n'
+        '- **A fine, imprisonment, or both** on conviction -- in Nairobi, a person who fails to renew a licence and continues to operate commits an offence, with a fine of up to **KES 50,000**, imprisonment of up to **3 months**, or both\n'
+        "- Other counties set their own amounts -- confirm your county's penalty schedule\n"
         '\n'
-        "Some counties allow a grace period after a permit expires before penalties apply -- check your county's rules -- but operating with no permit at all from the start carries the fuller risk above from day one."
+        'Get your permit before you start operating, and renew it on time.'
     ),
     "sole_prop_vs_limited": (
         "The core difference is **liability and separateness**. A **sole "
@@ -641,8 +643,8 @@ CANNED_ANSWERS = {
     'start_business': (
         '**Starting a small business in Kenya** -- the basic steps:\n'
         '\n'
-        '1. **Get a KRA PIN** (free, on iTax at itax.kra.go.ke). You need it for the steps that follow.\n'
-        '2. **Register your business name** on eCitizen through the Business Registration Service (BRS), with your national ID and KRA PIN. If you want a limited company instead, ask about "sole proprietorship vs limited company".\n'
+        '1. **Get a KRA PIN** (free, on iTax at itax.kra.go.ke).\n'
+        '2. **Register your business name** on eCitizen through the Business Registration Service (BRS), and pay the KES 950 fee. If you want a limited company instead, ask about "sole proprietorship vs limited company".\n'
         '3. **Get a single business permit from your county government** before you start operating -- the category and fee vary by county (in Nairobi it is the Unified Business Permit).\n'
         '4. **Sector licences**: some businesses also need their own licence, for example food businesses or pharmacies.\n'
         '5. **Tax**: if your annual turnover is above KES 1,000,000 and up to KES 25,000,000 you pay Turnover Tax (1.5% of gross sales); register for VAT once taxable turnover reaches KES 5,000,000. eTIMS invoicing applies to all persons carrying on business unless exempted.\n'
@@ -711,12 +713,14 @@ CANNED_ANSWERS_SW = {
         '5. **Benki za biashara** -- kwa kawaida huhitaji biashara iliyosajiliwa, rekodi za fedha, na dhamana kwa kiasi kikubwa'
     ),
     "registration": (
-        "**Kusajili jina la biashara nchini Kenya**:\n\n"
-        "1. Tafuta upatikanaji wa jina kupitia tovuti ya eCitizen (ecitizen.go.ke) "
-        "au Huduma ya Usajili wa Biashara (brs.go.ke)\n"
-        "2. Wasilisha usajili wako ukiwa na kitambulisho chako cha taifa na namba "
-        "ya PIN ya KRA\n"
-        "3. Baada ya kuidhinishwa, utapokea cheti cha usajili wa biashara"
+        '**Kusajili jina la biashara nchini Kenya** (Huduma ya Usajili wa Biashara, BRS):\n'
+        '\n'
+        '1. Ingia kwenye tovuti ya BRS kupitia eCitizen (brsv2.ecitizen.go.ke) na uchague **Companies Registry Services**, kisha **Make Application** na **Registration of a Business Name**\n'
+        '2. Andika majina **matatu hadi matano** ya biashara unayopendelea, kwa mpangilio wa kipaumbele, ili yakaguliwe na kuidhinishwa\n'
+        '3. Jaza taarifa zinazohitajika, kisha tia sahihi fomu ya usajili inayotolewa na mfumo, ichanganue (scan) na uipakie\n'
+        '4. Wasilisha na ulipe **KES 950** -- ombi la malipo litakuja kwenye simu yako\n'
+        '\n'
+        'Kwa msaada, piga BRS: 011 112 7000.'
     ),
     "kra_pin": (
         '**Kupata PIN ya KRA** (bure):\n'
@@ -971,11 +975,11 @@ CANNED_ANSWERS_SW = {
         'Ikiwa uko katika kundi linalodhibitiwa, Mfumo wa Leseni Moja wa CA unajumuisha leseni za **Network Facilities Provider** (miundombinu), **Applications Service Provider** na **Content Service Provider**, pamoja na leseni tofauti za utangazaji, huduma za posta/vifurushi na uidhinishaji wa vifaa. Mwenye leseni anayemilikiwa na wageni lazima atoe **angalau 20% ya hisa zake kwa Wakenya** ndani ya miaka mitatu baada ya kupata leseni. Thibitisha mahitaji ya maombi, ada na muda wa kushughulikia na CA (ca.go.ke) kabla ya kuomba.'
     ),
     "nssf_registration": (
-        "**Kama mwajiri**, jisajili kwenye tovuti ya NSSF Employer Self-Service (selfservice.nssf.or.ke) -- chagua 'Employer Registration' ikiwa hujawahi kusajiliwa. Pata **KRA PIN kwanza**, kwa kuwa utaihitaji wakati wa usajili. Ukishaidhinishwa, utapokea namba ya mwajiri.\n"
+        "**Kama mwajiri**: kila mwajiri aliye na **mfanyakazi mmoja au zaidi** lazima ajisajili na NSSF kama mwajiri anayechangia. Kwenye tovuti ya NSSF Self Service (selfservice.nssf.or.ke), chagua **'Employer Registration'** kama bado huna nambari ya usajili ya NSSF, na ujaze fomu. Kisha chapisha taarifa ya maombi na uipeleke ofisi ya NSSF iliyo karibu nawe ili ithibitishwe; ofisi itakupa PIN key ya kuwezesha akaunti yako ya mtandaoni.\n"
         '\n'
-        '**Usajili ni wa lazima** kwa kila mwajiri mwenye mfanyakazi mmoja au zaidi -- pamoja na vibarua, wafanyakazi wa muda na wa muda mfupi, si wa kudumu pekee. Kutojisajili ni kosa chini ya Sheria ya NSSF ya 2013.\n'
+        '**Kwa wafanyakazi wako**: lazima pia uhakikishe kila mfanyakazi anasajiliwa mara moja kama mwanachama wa NSSF.\n'
         '\n'
-        '**Kwa kila mfanyakazi**: hujisajili katika ofisi yoyote ya NSSF kwa kitambulisho cha taifa, pasipoti au Alien Card na barua ya utambulisho kutoka kwako, na hupata namba ya uanachama ya NSSF unayoitumia unapowasilisha michango yao.'
+        '**Baada ya kujisajili**: kata na uwasilishe michango, na uwasilishe ripoti za kila mwezi, kufikia **tarehe 9 ya mwezi unaofuata**. Mwajiri asiyetimiza wajibu huu anatenda kosa.'
     ),
     "keproba": (
         "**KEPROBA** (Kenya Export Promotion and Branding Agency) ni shirika la serikali (lililoundwa 2019, likiunganisha Export Promotion Council ya zamani na Brand Kenya Board) linalosaidia wafanyabiashara wa Kenya kuuza nje na kuendeleza 'Brand Kenya' kimataifa.\n"
@@ -985,15 +989,13 @@ CANNED_ANSWERS_SW = {
         'Kumbuka: Mswada wa Investment and Export Promotion Authority, 2026 unapendekeza kuunganisha KEPROBA na Kenya Investment Authority, hivyo thibitisha jina la sasa la shirika na mawasiliano yake kabla ya kwenda.'
     ),
     "no_permit_penalty": (
-        'Kuendesha biashara bila kibali halali cha kaunti ni kinyume cha sheria nchini Kenya, chini ya **Sheria ya Serikali za Kaunti ya 2012** pamoja na Sheria ya Fedha na Leseni za Biashara za kaunti yako.\n'
+        'Kufanya biashara bila kibali halali cha biashara cha kaunti ni kinyume cha sheria nchini Kenya. Kila kaunti huweka masharti na adhabu zake za vibali katika sheria zake.\n'
         '\n'
-        '**Madhara yanaweza kujumuisha**:\n'
-        '- **Faini**: kiasi huwekwa na sheria ya kila kaunti na hutofautiana sana -- thibitisha ratiba ya adhabu ya kaunti yako\n'
-        '- **Amri za kufunga**: wakaguzi wa kaunti wanaweza kutoa amri ya kufunga mara moja, wakifunga biashara yako mpaka utii\n'
-        '- **Kifungo kinachowezekana**: katika hali mbaya au za kurudia, wakurugenzi/wamiliki wanaweza kukabiliwa na mashtaka ya jinai binafsi\n'
-        '- **Malipo ya nyuma ya adhabu**: juu ya ada ya kibali chenyewe ukisha tii\n'
+        '**Kinachoweza kutokea**:\n'
+        '- **Faini, kifungo, au vyote viwili** ukipatikana na hatia -- Nairobi, mtu asiyehuisha leseni yake na kuendelea kufanya biashara anatenda kosa, na anaweza kutozwa faini ya hadi **KES 50,000**, kifungo cha hadi **miezi 3**, au vyote viwili\n'
+        '- Kaunti nyingine huweka viwango vyao -- thibitisha adhabu za kaunti yako\n'
         '\n'
-        'Baadhi ya kaunti huruhusu muda wa neema baada ya kibali kuisha kabla ya adhabu kuanza -- angalia sheria za kaunti yako -- lakini kuendesha bila kibali kabisa tangu mwanzo kunabeba hatari kamili tangu siku ya kwanza.'
+        'Pata kibali chako kabla ya kuanza biashara, na ukihuishe kwa wakati.'
     ),
     "sole_prop_vs_limited": (
         "Tofauti kuu ni **dhima na utengano**. **Umiliki binafsi** si "
@@ -1160,8 +1162,8 @@ CANNED_ANSWERS_SW = {
     'start_business': (
         '**Kuanzisha biashara ndogo nchini Kenya** -- hatua za msingi:\n'
         '\n'
-        '1. **Pata PIN ya KRA** (bure, kwenye iTax: itax.kra.go.ke). Unaihitaji kwa hatua zinazofuata.\n'
-        '2. **Sajili jina la biashara yako** kwenye eCitizen kupitia Huduma ya Usajili wa Biashara (BRS), ukitumia kitambulisho chako cha taifa na PIN ya KRA. Ukitaka kampuni (limited company) badala yake, uliza kuhusu "biashara ya mtu binafsi au kampuni".\n'
+        '1. **Pata PIN ya KRA** (bure, kwenye iTax: itax.kra.go.ke).\n'
+        '2. **Sajili jina la biashara yako** kwenye eCitizen kupitia Huduma ya Usajili wa Biashara (BRS), na ulipe ada ya KES 950. Ukitaka kampuni (limited company) badala yake, uliza kuhusu "biashara ya mtu binafsi au kampuni".\n'
         '3. **Pata kibali kimoja cha biashara kutoka serikali ya kaunti yako** kabla ya kuanza kufanya biashara -- aina na ada hutofautiana kwa kila kaunti (Nairobi ni Unified Business Permit).\n'
         '4. **Leseni za sekta**: baadhi ya biashara zinahitaji pia leseni zao, kwa mfano biashara za chakula au maduka ya dawa.\n'
         '5. **Kodi**: ikiwa mauzo yako ya mwaka ni zaidi ya KES 1,000,000 hadi KES 25,000,000 unalipa Kodi ya Mauzo (1.5% ya mauzo ghafi); jisajili kwa VAT mauzo yanayotozwa kodi yanapofikia KES 5,000,000. Ankara za eTIMS zinahitajika kwa watu wote wanaofanya biashara isipokuwa walioondolewa.\n'
@@ -1212,6 +1214,10 @@ CANNED_SOURCES = {
     'kra_pin': ('KRA (PIN registration guide)', 'https://www.kra.go.ke/images/publications/Step-By-Step-Guide-for-Application-Of-PIN-Without-Obligation-2025.pdf', '2026-10-03'),
     'mpesa_paybill_till': ('Safaricom (M-PESA Paybill FAQs)', 'https://safaricom.co.ke/media-center-landing/frequently-asked-questions/m-pesa-paybill', '2026-10-03'),
     'ca_license': ('Communications Authority of Kenya', 'https://www.ca.go.ke/node/236', '2026-10-03'),
+    'registration': ('BRS (FAQs)', 'https://brs.go.ke/wp-content/uploads/2024/05/FAQs.pdf', '2026-10-05'),
+    'no_permit_penalty': ('KRA (Nairobi County permits notice)', 'https://www.kra.go.ke/news-center/public-notices/1086-renewal-of-nairobi-county-permits-and-licences', '2026-10-05'),
+    'nssf_registration': ('NSSF (employer obligations)', 'https://www.nssf.or.ke/new-nssf-rates-employer-obligations', '2026-10-05'),
+    'start_business': ('KenInvest; BRS, KRA, NSSF, SHA', 'https://eprocedures.investkenya.go.ke/menu/1?l=en', '2026-10-05'),
 }
 
 # Contextual follow-ups: after <topic>, a short question containing a cue word goes to <related topic>.
