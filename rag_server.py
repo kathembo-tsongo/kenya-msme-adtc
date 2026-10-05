@@ -291,11 +291,13 @@ CANNED_ANSWERS = {
         "Skipping notice or the hearing step -- even with a valid reason -- can make a dismissal unfair. Redundancy has additional rules (labour office notification, selection criteria, severance pay)."
     ),
     "license": (
-        "**Business/trade licenses in Kenya** are administered at the **county level**, not nationally -- exact categories and fees vary by county.\n\n"
-        "General process:\n"
-        "1. Register your business name first (eCitizen/BRS)\n"
-        "2. Apply for a single business permit through your specific county government's business licensing office\n\n"
-        "Confirm the exact category and fee with your specific county, since it genuinely varies."
+        '**Business/trade licences in Kenya** are a **county** function: the Constitution (Fourth Schedule, Part 2) lists trade licences among the functions of county governments, so each county sets its own process, categories and fees.\n'
+        '\n'
+        'General process:\n'
+        '1. Register your business name (eCitizen/BRS) -- ask about "register a business name"\n'
+        '2. Apply for a single business permit through your county government; Nairobi, Kisumu, Mombasa and Uasin Gishu have self-service portals\n'
+        '\n'
+        'Confirm the exact category and fee with your county.'
     ),
     "turnover_tax": (
         "**Turnover Tax (TOT)** applies to resident persons and corporates in "
@@ -469,11 +471,11 @@ CANNED_ANSWERS = {
         "The fee depends on your business category and size, and is set by the county's Finance Act -- confirm your exact category's fee on the portal before you pay. It runs on a **January-December annual cycle**; the permit is renewed every year; check the portal for the current deadline, since late payment attracts penalties. Other counties issue their own single business permit through their own systems -- check with your county."
     ),
     "pharmacy_license": (
-        'Operating a pharmacy or chemist shop requires licensing from the **Pharmacy and Poisons Board (PPB)**, the national medicines regulator under the Pharmacy and Poisons Act (Cap 244) -- this is in addition to, not instead of, your county Single Business Permit (the fee varies by county).\n'
+        "Operating a pharmacy or chemist requires your premises to be registered and licensed by the **Pharmacy and Poisons Board (PPB)**, under the Pharmacy and Poisons Act (Cap 244). Like any business, you also need your county's single business permit.\n"
         '\n'
-        "**Key requirement**: a pharmacy must be owned and run under a registered pharmacist or enrolled pharmaceutical technologist. If you register it as a company, the superintendent pharmacist must be the majority shareholder -- you can't own or control a pharmacy purely as a non-pharmacist investor. The designated superintendent pharmacist also needs their own annual practicing license from PPB.\n"
+        "**Who can own and run it**: the premises must have a **superintendent** in direct control -- a registered pharmacist, or an enrolled pharmaceutical technologist with at least 3 years' experience after enrolment. **All** holders of a financial interest in the pharmacy business must be registered pharmacists or enrolled pharmaceutical technologists; ownership by non-pharmacy professionals is not allowed (exemptions may be given for pharmacies in hospitals or medical centres, and those owned by not-for-profit or faith-based organisations). The superintendent also needs their own practising licence, which expires at the end of each practising year.\n"
         '\n'
-        '**Process**: register your premises with PPB, then pass a premises inspection covering proper shelving, ventilation, a dispensing area separate from the sales counter, a lockable poisons cabinet, a refrigerator for cold-chain products, and Green Cross signage. Licenses are issued after a successful inspection and must be renewed annually (all PPB licenses expire December 31). Confirm the current ownership and premises requirements with PPB before you invest.'
+        '**Process**: apply to PPB to register the premises; the regional PPB office then inspects them, and the final review happens after the inspection. All PPB licences expire on **31 December** of the year they are issued and are renewed annually. Confirm the current requirements with PPB before you invest.'
     ),
     "ca_license": (
         "Not every tech startup needs this -- the **Communications Authority of Kenya (CA)** licenses telecommunications, broadcasting, postal/courier services and related equipment, not general software or app businesses. If your startup only builds an app or website, without running telecom infrastructure or providing regulated network or content services, you likely don't need a CA licence.\n"
@@ -488,11 +490,11 @@ CANNED_ANSWERS = {
         '**After registering**: deduct and remit contributions, and submit monthly returns, by the **9th day of the following month**. An employer who fails to meet these obligations commits an offence.'
     ),
     "keproba": (
-        "**KEPROBA** (Kenya Export Promotion and Branding Agency) is a state corporation (formed 2019, merging the former Export Promotion Council and Brand Kenya Board) that supports Kenyan exporters and promotes 'Brand Kenya' internationally.\n"
+        '**KEPROBA** (Kenya Export Promotion and Branding Agency) was established in August 2019 (Kenya Gazette Supplement No. 117) as the successor to the Export Promotion Council and the Brand Kenya Board. It supports Kenyan exporters and promotes Brand Kenya.\n'
         '\n'
-        "**What it actually offers**: guidance on export procedures and documentation, market intelligence and market-entry requirements for target countries, capacity-building through export training and coaching, organized trade missions and trade fair participation, and support with **product development and branding** -- including packaging, labelling, and brand positioning to help your goods resonate with international buyers. It particularly prioritizes bringing youth- and women-led producer groups into the export process. Reach out through KEPROBA's offices or makeitkenya.go.ke to access these services.\n"
+        '**What it offers** includes export readiness training, market intelligence, and support to take part in international trade fairs; supporting women exporters is one of its priorities. Contact: Anniversary Towers (1st and 16th floors), University Way, Nairobi; phone +254 20 222 8539; or makeitkenya.go.ke.\n'
         '\n'
-        "Note: the Investment and Export Promotion Authority Bill, 2026 proposes merging KEPROBA with the Kenya Investment Authority, so check the agency's current name and contacts before you go."
+        "Note: in August 2026 Parliament invited public views on the Investment and Export Promotion Authority Bill, 2026, which would merge KEPROBA with the Kenya Investment Authority -- check the agency's current name and contacts before you go."
     ),
     "no_permit_penalty": (
         'Operating without a valid county business permit is illegal in Kenya. Each county sets its own permit rules and penalties in its own laws.\n'
@@ -505,22 +507,11 @@ CANNED_ANSWERS = {
         'Get your permit before you start operating, and renew it on time.'
     ),
     "sole_prop_vs_limited": (
-        "The core difference is **liability and separateness**. A **sole "
-        "proprietorship** isn't a separate legal entity from you -- you and "
-        "the business are the same in law, meaning you carry **unlimited "
-        "personal liability** for business debts, and you use your own "
-        "**personal KRA PIN**. It's fast and cheap to set up, with no "
-        "minimum capital.\n\nA **limited company** is a separate legal "
-        "person from its owners -- shareholders' liability is generally "
-        "limited to what they've invested in shares, and the company gets "
-        "its **own separate KRA PIN**, its own bank account, and can enter "
-        "contracts, sue, or be sued in its own name. There's **no legal "
-        "minimum share capital** required to register one, though it "
-        "involves more paperwork (Memorandum/Articles of Association, "
-        "CR1/CR2/CR8 forms) and ongoing compliance (annual returns to BRS) "
-        "than a sole proprietorship. Many businesses start as sole "
-        "proprietorships and convert to a limited company as they grow, "
-        "specifically to gain that liability protection."
+        "The core difference is **legal separateness**. A **sole proprietorship** (a registered business name) is **not a legal entity** -- in law the business is not separate from you, and it does not get the limited liability that a company's members have. It is the simplest form: you register a business name on eCitizen for KES 950.\n"
+        '\n'
+        "A **limited company** is a **body corporate** -- a separate legal person from its owners -- and its members' liability is limited to any amount unpaid on their shares. Registering one takes more paperwork: an application (form CR1), a memorandum of association (CR2), articles of association, a statement of capital and initial shareholding, and statements of proposed officers and of beneficial owners (Companies Act 2015, section 13). After that the company must file an **annual return** with BRS every year (form CR29).\n"
+        '\n'
+        'To move from one to the other, ask about "convert a sole proprietorship to a limited company".'
     ),
     "late_filing_penalty": (
         "Penalties depend on which return and whether it's late filing or "
@@ -601,14 +592,15 @@ CANNED_ANSWERS = {
         '- **Check the SACCO is licensed** on the SASRA website (sasra.go.ke)'
     ),
     "food_business_license": (
-        'A food business (restaurant, cafe, bakery, shop) needs several layers, on top of your standard county business permit. **In Nairobi**, the Unified Business Permit combines the business, fire, food, health and advertising licences into one application, so the premises health and fire approvals below come with it; in other counties, check whether they are separate:\n'
+        'A food business (restaurant, cafe, bakery, shop) needs these on top of your county business permit:\n'
         '\n'
-        '- **Health/Food Hygiene Certificate**: issued by your county health department, confirming your premises meet hygiene standards, required before opening (the fee varies by county)\n'
-        "- **Food Handler's Health Certificate**: required for **every individual employee** who handles food, obtained after a medical check-up\n"
-        '- **Fire Safety Certificate**: mandatory for all businesses, requiring fire extinguishers and a county fire department inspection, renewed annually\n'
-        '- **Restaurant-specific**: registration with the **Tourism Regulatory Authority (TRA)** under the Tourism Act 2011, if you operate as a restaurant\n'
+        '- **Food hygiene licence**: under the Food Hygiene Regulations, no one may use premises to sell, prepare, package, store or display food for sale without a licence, granted only when the health authority is satisfied with the premises. Licensing businesses that sell food to the public is a county function.\n'
+        '- **Staff medical examinations**: in food plants, every employee must have a thorough medical examination before employment and at least every 12 months, and their health certificates must be kept on site.\n'
+        '- **Fire safety**: fire services are a county function, so ask your county about its fire permit (for Nairobi, Doing Business Kenya lists a fire permit licence at an estimated KES 4,500).\n'
+        '- **Restaurants**: a licence from the **Tourism Regulatory Authority (TRA)** -- restaurants and food and beverage services are Class B tourism enterprises.\n'
+        '- **If you manufacture food products**: the **KEBS Standardization Mark** is mandatory for locally manufactured products.\n'
         '\n'
-        "If you manufacture or package food products for sale (not just serve food on-site), you'll also need **KEBS** certification (Standardization Mark) specific to packaged/processed goods."
+        '**In Nairobi**, the Unified Business Permit combines several licences and permits (such as trade licences and health certificates) into one permit, depending on the business type.'
     ),
     "employee_compliance_checklist": (
         "For a trading enterprise with permanent staff, here's what to maintain:\n"
@@ -774,15 +766,13 @@ CANNED_ANSWERS_SW = {
         "malipo ya kiinua mgongo)."
     ),
     "license": (
-        "**Leseni za biashara/kibiashara nchini Kenya** zinasimamiwa katika "
-        "**ngazi ya kaunti**, si kitaifa -- aina na ada halisi hutofautiana kwa "
-        "kaunti.\n\n"
-        "Mchakato wa jumla:\n"
-        "1. Sajili jina la biashara yako kwanza (eCitizen/BRS)\n"
-        "2. Omba kibali kimoja cha biashara kupitia ofisi ya leseni za biashara "
-        "ya kaunti yako mahususi\n\n"
-        "Thibitisha aina na ada halisi na kaunti yako mahususi, kwa kuwa "
-        "hutofautiana kikweli."
+        '**Leseni za biashara nchini Kenya** ni jukumu la **kaunti**: Katiba (Jedwali la Nne, Sehemu ya 2) inaorodhesha leseni za biashara kati ya majukumu ya serikali za kaunti, kwa hiyo kila kaunti huweka utaratibu, aina na ada zake.\n'
+        '\n'
+        'Utaratibu wa jumla:\n'
+        '1. Sajili jina la biashara yako (eCitizen/BRS) -- uliza kuhusu "kusajili jina la biashara"\n'
+        '2. Omba kibali kimoja cha biashara kupitia serikali ya kaunti yako; Nairobi, Kisumu, Mombasa na Uasin Gishu zina tovuti za kujihudumia\n'
+        '\n'
+        'Thibitisha aina na ada kamili na kaunti yako.'
     ),
     "turnover_tax": (
         "**Kodi ya Mauzo (Turnover Tax - TOT)** inahusu watu na makampuni "
@@ -979,11 +969,11 @@ CANNED_ANSWERS_SW = {
         'Ada inategemea aina na ukubwa wa biashara yako, na huwekwa na Sheria ya Fedha ya kaunti -- thibitisha ada halisi ya aina yako kwenye tovuti kabla ya kulipa. Inafuata mzunguko wa **Januari-Desemba**; kibali huhuishwa kila mwaka; angalia tarehe ya mwisho ya sasa kwenye tovuti, kwa kuwa kuchelewa kulipa kunavutia adhabu. Kaunti nyingine hutoa kibali chao kimoja cha biashara kupitia mifumo yao -- wasiliana na kaunti yako.'
     ),
     "pharmacy_license": (
-        'Kuendesha duka la dawa au kemisti kunahitaji leseni kutoka **Pharmacy and Poisons Board (PPB)**, msimamizi wa kitaifa wa dawa chini ya Sheria ya Dawa na Sumu (Cap 244) -- hii ni pamoja na, si badala ya, Single Business Permit ya kaunti yako (ada inatofautiana kwa kaunti).\n'
+        'Kuendesha duka la dawa (pharmacy au chemist) kunahitaji majengo yako yasajiliwe na kupewa leseni na **Bodi ya Famasia na Sumu (Pharmacy and Poisons Board, PPB)**, chini ya Sheria ya Famasia na Sumu (Cap 244). Kama biashara nyingine yoyote, unahitaji pia kibali kimoja cha biashara cha kaunti yako.\n'
         '\n'
-        '**Sharti muhimu**: duka la dawa lazima limilikiwe na kuendeshwa chini ya mfamasia aliyesajiliwa au fundi wa dawa aliyeandikishwa. Ukilisajili kama kampuni, msimamizi mfamasia lazima awe mwanahisa mwenye hisa nyingi -- huwezi kumiliki au kudhibiti duka la dawa kama mwekezaji tu asiye mfamasia. Msimamizi mfamasia aliyeteuliwa pia anahitaji leseni yake ya kila mwaka ya kufanya kazi kutoka PPB.\n'
+        '**Nani anaweza kumiliki na kuliendesha**: majengo lazima yawe na **msimamizi (superintendent)** anayesimamia moja kwa moja -- mfamasia aliyesajiliwa, au fundi wa famasia (pharmaceutical technologist) aliyeandikishwa mwenye uzoefu wa angalau miaka 3 baada ya kuandikishwa. **Wote** wenye maslahi ya kifedha katika biashara ya duka la dawa lazima wawe wafamasia waliosajiliwa au mafundi wa famasia walioandikishwa; umiliki na watu wasio wataalamu wa famasia hauruhusiwi (msamaha unaweza kutolewa kwa maduka ya dawa ya hospitali au vituo vya matibabu, na yale yanayomilikiwa na mashirika yasiyo ya faida au ya kidini). Msimamizi pia anahitaji leseni yake ya kufanya kazi, inayoisha mwishoni mwa kila mwaka wa kazi.\n'
         '\n'
-        '**Mchakato**: sajili majengo yako na PPB, kisha pitisha ukaguzi wa majengo unaoangalia rafu sahihi, mzunguko wa hewa, eneo la kutolea dawa tofauti na counter ya mauzo, kabati la sumu lenye kufuli, jokofu kwa bidhaa zinazohitaji baridi, na alama ya Msalaba wa Kijani. Leseni hutolewa baada ya ukaguzi wenye mafanikio na lazima zihuishwe kila mwaka (leseni zote za PPB huisha Desemba 31). Thibitisha masharti ya sasa ya umiliki na majengo na PPB kabla ya kuwekeza.'
+        '**Utaratibu**: omba PPB kusajili majengo; ofisi ya PPB ya eneo lako itayakagua, na mapitio ya mwisho hufanyika baada ya ukaguzi. Leseni zote za PPB huisha tarehe **31 Desemba** ya mwaka zilipotolewa na huhuishwa kila mwaka. Thibitisha masharti ya sasa na PPB kabla ya kuwekeza.'
     ),
     "ca_license": (
         'Si kila kampuni changa ya teknolojia inahitaji hii -- **Mamlaka ya Mawasiliano ya Kenya (CA)** hutoa leseni kwa mawasiliano ya simu, utangazaji, huduma za posta/usafirishaji wa vifurushi na vifaa vinavyohusiana, si biashara za kawaida za programu au apps. Ikiwa kampuni yako inatengeneza app au tovuti tu, bila kuendesha miundombinu ya mawasiliano au kutoa huduma za mtandao au maudhui zinazodhibitiwa, huenda huhitaji leseni ya CA.\n'
@@ -998,11 +988,11 @@ CANNED_ANSWERS_SW = {
         '**Baada ya kujisajili**: kata na uwasilishe michango, na uwasilishe ripoti za kila mwezi, kufikia **tarehe 9 ya mwezi unaofuata**. Mwajiri asiyetimiza wajibu huu anatenda kosa.'
     ),
     "keproba": (
-        "**KEPROBA** (Kenya Export Promotion and Branding Agency) ni shirika la serikali (lililoundwa 2019, likiunganisha Export Promotion Council ya zamani na Brand Kenya Board) linalosaidia wafanyabiashara wa Kenya kuuza nje na kuendeleza 'Brand Kenya' kimataifa.\n"
+        '**KEPROBA** (Kenya Export Promotion and Branding Agency) ilianzishwa Agosti 2019 (Kenya Gazette Supplement Na. 117) kuchukua nafasi ya Export Promotion Council na Brand Kenya Board. Inasaidia wauzaji bidhaa nje wa Kenya na kutangaza chapa ya Kenya (Brand Kenya).\n'
         '\n'
-        '**Kile kinachotolewa**: mwongozo wa taratibu na nyaraka za usafirishaji, taarifa za soko na sharti za kuingia katika nchi lengwa, ujenzi wa uwezo kupitia mafunzo ya usafirishaji, ujumbe wa kibiashara na ushiriki katika maonyesho ya biashara, na msaada wa **maendeleo ya bidhaa na branding** -- ikiwa ni pamoja na ufungashaji, uwekaji lebo, na uwekaji nafasi ya chapa kwa wanunuzi wa kimataifa. Wasiliana kupitia ofisi za KEPROBA au makeitkenya.go.ke.\n'
+        '**Huduma zake** ni pamoja na mafunzo ya kujiandaa kuuza nje, taarifa za masoko, na msaada wa kushiriki maonyesho ya kimataifa ya biashara; kusaidia wanawake wanaouza nje ni moja ya vipaumbele vyake. Mawasiliano: Anniversary Towers (ghorofa ya 1 na ya 16), University Way, Nairobi; simu +254 20 222 8539; au makeitkenya.go.ke.\n'
         '\n'
-        'Kumbuka: Mswada wa Investment and Export Promotion Authority, 2026 unapendekeza kuunganisha KEPROBA na Kenya Investment Authority, hivyo thibitisha jina la sasa la shirika na mawasiliano yake kabla ya kwenda.'
+        'Kumbuka: Agosti 2026 Bunge lilialika maoni ya umma kuhusu Mswada wa Investment and Export Promotion Authority, 2026, ambao ungeunganisha KEPROBA na Kenya Investment Authority -- thibitisha jina na mawasiliano ya sasa ya shirika kabla ya kwenda.'
     ),
     "no_permit_penalty": (
         'Kufanya biashara bila kibali halali cha biashara cha kaunti ni kinyume cha sheria nchini Kenya. Kila kaunti huweka masharti na adhabu zake za vibali katika sheria zake.\n'
@@ -1015,20 +1005,11 @@ CANNED_ANSWERS_SW = {
         'Pata kibali chako kabla ya kuanza biashara, na ukihuishe kwa wakati.'
     ),
     "sole_prop_vs_limited": (
-        "Tofauti kuu ni **dhima na utengano**. **Umiliki binafsi** si "
-        "chombo tofauti cha kisheria kutoka kwako -- wewe na biashara ni "
-        "kitu kimoja kisheria, ikimaanisha unabeba **dhima kamili "
-        "binafsi** kwa madeni ya biashara, na unatumia **PIN yako "
-        "binafsi ya KRA**. Ni haraka na nafuu kuanzisha, bila mtaji wa "
-        "chini.\n\n**Kampuni ya kikomo** ni mtu tofauti wa kisheria "
-        "kutoka kwa wamiliki wake -- dhima ya wanahisa kwa kawaida "
-        "inakomea kwa kiasi walichowekeza katika hisa, na kampuni "
-        "inapata **PIN yake tofauti ya KRA**, akaunti yake ya benki, na "
-        "inaweza kuingia mikataba au kushtakiwa kwa jina lake. **Hakuna "
-        "mtaji wa chini wa hisa unaotakiwa kisheria**, ingawa inahusisha "
-        "makaratasi zaidi (Memorandum/Articles of Association, fomu za "
-        "CR1/CR2/CR8) na uzingatiaji unaoendelea (marejesho ya kila "
-        "mwaka kwa BRS) kuliko umiliki binafsi."
+        'Tofauti kuu ni **kujitegemea kisheria**. **Biashara ya mtu binafsi** (jina la biashara lililosajiliwa) **si chombo cha kisheria** -- kisheria biashara haijatengana na wewe, na haipati ukomo wa dhima (limited liability) walio nao wanachama wa kampuni. Ndiyo njia rahisi zaidi: unasajili jina la biashara kwenye eCitizen kwa KES 950.\n'
+        '\n'
+        '**Kampuni (limited company)** ni **shirika lenye hadhi ya kisheria** -- mtu wa kisheria aliyetengana na wamiliki wake -- na dhima ya wanachama wake ni kiasi ambacho bado hakijalipwa kwenye hisa zao tu. Kuisajili kunahitaji makaratasi zaidi: ombi (fomu CR1), memorandum of association (CR2), articles of association, taarifa ya mtaji na hisa za mwanzo, na taarifa za maafisa watarajiwa na za wamiliki halisi (Sheria ya Makampuni 2015, kifungu cha 13). Baada ya hapo kampuni lazima iwasilishe **ritani ya mwaka (annual return)** kwa BRS kila mwaka (fomu CR29).\n'
+        '\n'
+        'Kuhama kutoka moja hadi nyingine, uliza kuhusu "kubadilisha biashara ya mtu binafsi kuwa kampuni".'
     ),
     "late_filing_penalty": (
         "Adhabu zinategemea marejesho gani na kama ni kuchelewa "
@@ -1064,14 +1045,15 @@ CANNED_ANSWERS_SW = {
         '- **Hakikisha SACCO ina leseni** kwenye tovuti ya SASRA (sasra.go.ke)'
     ),
     "food_business_license": (
-        'Biashara ya chakula (mkahawa, cafe, duka la mikate, duka) inahitaji tabaka kadhaa, juu ya kibali chako cha kawaida cha kaunti. **Nairobi**, Unified Business Permit inaunganisha leseni za biashara, moto, chakula, afya na matangazo katika maombi moja, hivyo idhini za afya na moto za majengo zilizo hapa chini huja nayo; katika kaunti nyingine, angalia kama ni tofauti:\n'
+        'Biashara ya chakula (mgahawa, mkahawa, mikate, duka) inahitaji haya juu ya kibali cha biashara cha kaunti yako:\n'
         '\n'
-        '- **Cheti cha Afya/Usafi wa Chakula**: kinatolewa na idara ya afya ya kaunti, kikithibitisha majengo yako yanafikia viwango vya usafi, kinahitajika kabla ya kufungua (ada inatofautiana kwa kaunti)\n'
-        '- **Cheti cha Afya cha Mshughulikiaji wa Chakula**: kinahitajika kwa **kila mfanyakazi binafsi** anayeshughulikia chakula, kinapatikana baada ya uchunguzi wa afya\n'
-        '- **Cheti cha Usalama wa Moto**: cha lazima kwa biashara zote, kinahitaji vizima moto na ukaguzi wa idara ya moto ya kaunti\n'
-        '- **Mahususi kwa mikahawa**: usajili na **Tourism Regulatory Authority (TRA)** chini ya Sheria ya Utalii ya 2011, ikiwa unaendesha kama mkahawa\n'
+        '- **Leseni ya usafi wa chakula**: chini ya Kanuni za Usafi wa Chakula (Food Hygiene Regulations), hakuna mtu anayeruhusiwa kutumia majengo kuuza, kutayarisha, kufunga, kuhifadhi au kuonyesha chakula cha kuuza bila leseni, inayotolewa tu mamlaka ya afya inaporidhika na majengo. Kutoa leseni kwa biashara zinazouza chakula kwa umma ni jukumu la kaunti.\n'
+        '- **Uchunguzi wa afya wa wafanyakazi**: katika viwanda vya chakula, kila mfanyakazi lazima afanyiwe uchunguzi kamili wa afya kabla ya kuajiriwa na angalau kila miezi 12, na vyeti vyao vya afya vihifadhiwe mahali pa kazi.\n'
+        '- **Usalama wa moto**: huduma za zimamoto ni jukumu la kaunti, kwa hiyo uliza kaunti yako kuhusu kibali chake cha moto (kwa Nairobi, Doing Business Kenya inaonyesha leseni ya kibali cha moto kwa makadirio ya KES 4,500).\n'
+        '- **Migahawa**: leseni kutoka **Mamlaka ya Udhibiti wa Utalii (Tourism Regulatory Authority, TRA)** -- migahawa na huduma za chakula na vinywaji ni biashara za utalii za Daraja B.\n'
+        '- **Ukitengeneza bidhaa za chakula**: **Alama ya Ubora ya KEBS (Standardization Mark)** ni lazima kwa bidhaa zinazotengenezwa nchini.\n'
         '\n'
-        'Ikiwa unatengeneza au kufunga bidhaa za chakula kwa mauzo, utahitaji pia uthibitisho wa **KEBS** (Standardization Mark).'
+        '**Nairobi**, Unified Business Permit huunganisha leseni na vibali kadhaa (kama leseni za biashara na vyeti vya afya) kuwa kibali kimoja, kulingana na aina ya biashara.'
     ),
     "agpo": (
         "**AGPO** (Access to Government Procurement Opportunities) "
@@ -1247,6 +1229,11 @@ CANNED_SOURCES = {
     'nssf_registration': ('NSSF (employer obligations)', 'https://www.nssf.or.ke/new-nssf-rates-employer-obligations', '2026-10-05'),
     'start_business': ('KenInvest; BRS, KRA, NSSF, SHA', 'https://eprocedures.investkenya.go.ke/menu/1?l=en', '2026-10-05'),
     'afcfta': ('KRA (AfCFTA FAQs)', 'https://www.kra.go.ke/helping-tax-payers/faqs/the-african-continental-free-trade-area-afcfta', '2026-10-05'),
+    'license': ('Constitution of Kenya (Fourth Schedule); Doing Business Kenya', 'https://www.igrtc.go.ke/sites/default/files/2024-10/COK%20Fourth%20Schedule.pdf', '2026-10-05'),
+    'pharmacy_license': ('Pharmacy and Poisons Board (premises guidelines, FAQ)', 'https://web.pharmacyboardkenya.org/download/guidelines-for-registration-and-licensing-of-premises/?wpdmdl=4423', '2026-10-05'),
+    'keproba': ('KNA (Gazette 2019); State Dept. for Trade; The Star (2026 bill)', 'https://www.kenyanews.go.ke/new-agency-takes-over-epc-and-brand-kenya-roles/', '2026-10-05'),
+    'sole_prop_vs_limited': ('Companies Act 2015; BRS (FAQs, forms)', 'https://new.kenyalaw.org/akn/ke/act/2015/17/eng@2024-12-27', '2026-10-05'),
+    'food_business_license': ('Food Hygiene Regulations; TRA; KEBS; Nairobi County', 'https://new.kenyalaw.org/akn/ke/act/ln/1978/106/eng@2022-12-31', '2026-10-05'),
 }
 
 # Contextual follow-ups: after <topic>, a short question containing a cue word goes to <related topic>.
@@ -1341,7 +1328,7 @@ TOPIC_KEYWORDS = {
     "etims_general": ["what is etims", "why does my business need etims", "why do i need etims", "etims ni nini", "kwa nini nahitaji etims", 'etims for', 'is etims', 'who needs etims', 'etims small',],
     "sacco_vs_bank": ["saccos offer loans differently", "sacco vs bank", "sacco or bank loan", "difference between sacco and bank", "saccos differently from commercial banks", "tofauti kati ya sacco na benki"],
     "business_insurance": ["insurance does a", "business insurance", "insurance for my business", "what insurance", "bima ya biashara", "bima gani", "nahitaji bima"],
-    "registration": ["register a business name", "business name registration", "steps to register a business", "register a small business", "register a business in kenya", "how to register a business", "start a business in kenya", "steps to start a business", "kusajili biashara", "naweza kusajili biashara", "jinsi ya kusajili biashara", "kuanzisha biashara", "nataka kusajili", 'regista biznes', 'register biznes', 'biznes name',],
+    "registration": ['register a business name', 'business name registration', 'steps to register a business', 'register a small business', 'register a business in kenya', 'how to register a business', 'start a business in kenya', 'steps to start a business', 'kusajili biashara', 'naweza kusajili biashara', 'jinsi ya kusajili biashara', 'kuanzisha biashara', 'nataka kusajili', 'regista biznes', 'register biznes', 'biznes name', 'documents to register a business', 'documents do i need to register', 'documents needed to register', 'documents required to register', 'requirements to register a business', 'requirements for registering', 'what do i need to register', 'nyaraka za kusajili biashara', 'mahitaji ya kusajili biashara'],
     'start_business': ['start a business', 'start a small business', 'starting a business', 'start my business', 'open a business', 'set up a business', 'begin a business', 'is it a must to register', 'must i register', 'must register', 'register before', 'before i start', 'start operating', 'kuanzisha biashara', 'kuanza biashara', 'kufungua biashara', 'nataka kuanza biashara'],
     'afcfta': ['afcfta', 'african continental free trade', 'continental free trade area', 'other african countries', 'export to africa', 'export to african countries', 'afcfta certificate of origin', 'rules of origin', 'eneo huru la biashara', 'nchi nyingine za afrika', 'kuuza nje afrika', 'export under afcfta', 'exporting under afcfta', 'export under the afcfta', 'under afcfta', 'under the afcfta', 'afcfta export', 'afcfta exports', 'trade under afcfta', 'kuuza nje chini ya afcfta'],
 }

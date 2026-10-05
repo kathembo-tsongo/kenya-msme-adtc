@@ -47,6 +47,7 @@ QUESTIONS = [
     ("is it a must to register for my business before I start operating?", "start_business"),
     ("how do I start a small business here in kenya", "start_business"),
     ("nataka kuanza biashara", "start_business"),
+    ("what documents do I need to register a business", "registration"),
     ("how do I export under afcfta", "afcfta"),
     ("can I sell my products to other african countries", "afcfta"),
     ("kiwango cha VAT", "vat"),
