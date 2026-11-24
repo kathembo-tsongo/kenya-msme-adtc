@@ -37,6 +37,8 @@ STRONG_NORM, STRONG_COVERAGE, STRONG_FOCUS_TF = 0.65, 0.7, 2
 PARTIAL_NORM, PARTIAL_COVERAGE = 0.45, 0.5
 CANNED_SEARCH_NORM, CANNED_SEARCH_COVERAGE = 0.4, 0.6
 MIN_SPECIFIC_IDF = 4.5   # a follow-up only fires for words at least this specific
+MIN_LEFTOVER_DF = 3      # in a glossary-translated question, a leftover word found in fewer chunks
+                         # than this is untranslated Kiswahili, not content: it is not searched
 
 STOPWORDS = set("""
 ku na ya la wa za cha vya kwa ni
@@ -83,7 +85,17 @@ paybill till county government regulation regulations regulated
 pochi safaricom ecitizen brs cbk kebs nema kephis keproba
 kodi ushuru leseni kibali vibali usajili sajili kusajili kujisajili adhabu faini sheria
 mkopo mikopo riba bima mshahara wafanyakazi mfanyakazi likizo serikali kaunti
-""".split())
+""".split()) | set("""
+company companies director directors shareholder shareholders partnership partnerships llp
+incorporation incorporate proprietorship limited certificate trademark patent copyright returns filing nil reserve
+reservation registrar
+standards inspection fire safety food handler handlers data protection odpc supplier suppliers
+procurement importing exporting
+withholding rental corporate capital gains exempt exemption excise stamp deadline
+overtime notice injury wiba sick pension retirement redundancy severance gratuity casual
+disability disabilities ncpwd inua jamii cash transfer elderly hospital hospitals first aid
+collateral guarantee credit crb grant grants chama foreigner foreigners foreign
+""".split())  # the six study domains' core legal vocabulary (proposal, domain scope)
 
 
 # Bilingual glossary (glossary_sw_en.tsv): Kiswahili term -> English search words. The documents
@@ -131,7 +143,8 @@ def config_values():
             k1=K1, b=B, strong_norm=STRONG_NORM, strong_coverage=STRONG_COVERAGE,
             strong_focus_tf=STRONG_FOCUS_TF, partial_norm=PARTIAL_NORM,
             partial_coverage=PARTIAL_COVERAGE, canned_search_norm=CANNED_SEARCH_NORM,
-            canned_search_coverage=CANNED_SEARCH_COVERAGE, min_specific_idf=MIN_SPECIFIC_IDF),
+            canned_search_coverage=CANNED_SEARCH_COVERAGE, min_specific_idf=MIN_SPECIFIC_IDF,
+            min_leftover_df=MIN_LEFTOVER_DF),
     }
 
 
@@ -142,7 +155,7 @@ def load_config(db):
     """Override the module defaults with the pack's config table (once per pack)."""
     global _loaded_from, STOPWORDS, SMALL_TALK, FACTUAL_WORDS, REFERENTIAL, APP_INFO, CLARIFICATION, GLOSSARY
     global K1, B, STRONG_NORM, STRONG_COVERAGE, STRONG_FOCUS_TF, PARTIAL_NORM, PARTIAL_COVERAGE
-    global CANNED_SEARCH_NORM, CANNED_SEARCH_COVERAGE, MIN_SPECIFIC_IDF
+    global CANNED_SEARCH_NORM, CANNED_SEARCH_COVERAGE, MIN_SPECIFIC_IDF, MIN_LEFTOVER_DF
     if _loaded_from is db:
         return
     _loaded_from = db
@@ -161,6 +174,7 @@ def load_config(db):
     PARTIAL_NORM, PARTIAL_COVERAGE = t["partial_norm"], t["partial_coverage"]
     CANNED_SEARCH_NORM, CANNED_SEARCH_COVERAGE = t["canned_search_norm"], t["canned_search_coverage"]
     MIN_SPECIFIC_IDF = t["min_specific_idf"]
+    MIN_LEFTOVER_DF = t.get("min_leftover_df", MIN_LEFTOVER_DF)
 
 
 # ---------------------------------------------------------------- text helpers
@@ -250,6 +264,59 @@ def canned_matches(db, query):
     return []
 
 
+NEGATIONS = {"no", "not", "without", "bila"}
+
+
+def light_stem(t):
+    """Plural and -ing endings only: licenses/licences -> license/licence, filing -> fil.
+    Negations (no / not / without / bila) all become "no"."""
+    if t in NEGATIONS:
+        return "no"
+    if len(t) <= 4:
+        return t
+    if t.endswith("ies"):
+        return t[:-3] + "y"
+    if t.endswith("es") and t[:-2].endswith(("ss", "x", "ch", "sh")):
+        return t[:-2]
+    if t.endswith("s") and not t.endswith("ss"):
+        return t[:-1]
+    if t.endswith("ing") and len(t) >= 6:
+        return t[:-3]
+    return t
+
+
+def canned_matches_glossary(db, tokens, added=()):
+    """Second chance for a Kiswahili question that matched no keyword phrase: a topic matches
+    when ALL content words of one of its multi-word keywords appear among the question's
+    glossary English words and remaining words, in any order, plurals and -ing ignored.
+    A one-word keyword ("termination") counts only if the glossary supplied that word. The keyword
+    must contain at least one factual (regulatory) word -- verified answers are all regulatory,
+    so "sell my products" alone never reaches one -- and negations ("no business permit") are
+    kept as words the question must contain.
+    Same ranking as canned_matches(). Only used when the glossary added words."""
+    have = {light_stem(t) for t in tokens}
+    from_glossary = {light_stem(t) for t in added}
+    factual = {light_stem(t) for t in FACTUAL_WORDS}
+    rows = db.execute(
+        "SELECT topic, priority, keyword FROM topic_keywords ORDER BY priority, rowid").fetchall()
+    general = {t for (t,) in db.execute("SELECT topic FROM general_topics")}
+    best = {}
+    for topic, priority, kw in rows:
+        need = [light_stem(t) for t in words(kw) if t not in STOPWORDS or t in NEGATIONS]
+        if not any(t in factual for t in need):
+            continue
+        ok = all(t in have for t in need) if len(need) >= 2 else \
+            (len(need) == 1 and need[0] in from_glossary)
+        if ok:
+            if topic not in best or len(kw) > best[topic][0]:
+                best[topic] = (len(kw), priority)
+    return sorted(best, key=lambda t: (t in general, -best[t][0], best[t][1]))
+
+
+def general_topic_set(db):
+    return {t for (t,) in db.execute("SELECT topic FROM general_topics")}
+
+
 def canned_source(db, topic):
     """(source, url, checked) for a verified answer, or None (also for packs built before sources)."""
     try:
@@ -298,6 +365,24 @@ def term_idfs(db, terms, table="chunks_fts"):
         else:
             out[t] = 0.0
     return out
+
+
+def term_df(db, t, table="chunks_fts"):
+    """Number of chunks containing the term (0 if none)."""
+    row = db.execute(f"SELECT matchinfo({table}, 'pcnalx') FROM {table} "
+                     f"WHERE {table} MATCH ? LIMIT 1", (t,)).fetchone()
+    return parse_matchinfo(row[0], 1)[3][0][1] if row else 0
+
+
+def drop_untranslated(db, terms, expanded):
+    """For a glossary-translated question: keep the glossary's English words, and of the leftover
+    words only those found in at least MIN_LEFTOVER_DF chunks. Unknown leftovers would otherwise
+    get the highest weight and make every passage look like a partial match."""
+    if not expanded:
+        return terms
+    english = set(query_terms(" ".join(expanded), 99))
+    kept = [t for t in terms if t in english or term_df(db, t) >= MIN_LEFTOVER_DF]
+    return kept or terms
 
 
 def search(db, terms, top_k, focus=None, table="chunks_fts"):
@@ -446,6 +531,7 @@ def _route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
     r = dict(kind="", topic="", also_matched=[], confidence="", focus="", hits=[], answer="",
              followup=None, suggest="", expanded=[], domain="")
     terms, r["expanded"] = search_terms(query)
+    terms = drop_untranslated(db, terms, r["expanded"])
 
     if is_small_talk(query):
         r["kind"] = "CHAT"
@@ -467,6 +553,15 @@ def _route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
         return r
 
     matches = canned_matches(db, query)
+    general_only = bool(matches) and all(t in general_topic_set(db) for t in matches)
+    if r["expanded"] and (not matches or general_only):
+        # no keyword phrase matched, or only an umbrella topic ("nssf"): give the glossary a
+        # chance to find a more specific verified answer ("adhabu ... nssf" -> nssf_penalty)
+        added, used = glossary_expand(query)
+        gm = canned_matches_glossary(db, added + [w for w in words(query) if w not in used], added)
+        if gm and (not matches or gm[0] not in general_topic_set(db)):
+            matches = gm + [t for t in matches if t not in gm]
+            r["via_glossary"] = True
     contextual = None
     if not matches and prev_topic:
         contextual = contextual_topic(db, query, prev_topic)

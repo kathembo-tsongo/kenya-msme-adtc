@@ -77,7 +77,7 @@ usalama wa moto	fire safety	compliance
 zimamoto	fire	compliance
 usalama wa chakula	food safety	compliance
 mazingira	environment	compliance
-viwango	standards	compliance
+viwango	rates standards	compliance	
 alama ya ubora	standardization mark quality	compliance
 sheria	law act	compliance
 kanuni	regulations rules	compliance
@@ -192,6 +192,10 @@ asilimia	percent rate	general
 kiasi gani	-	general	
 kila mwezi	monthly	general
 kila mwaka	annual	general
+kiwango	rate	general	
+saa za ziada	overtime	social_security	
+huduma ya kwanza	first aid	health_social	
+raia wa kigeni	foreigner foreign national	compliance	
 # ---------------------------------------------------------------- verb roots
 # A leading * marks a ROOT matched inside a word (nitasajili, tutasajili, kusajiliwa -> sajili).
 # Roots are checked only on words no phrase above has used. English "-" means: drop the word
@@ -201,6 +205,8 @@ kila mwaka	annual	general
 *kopa	borrow loan	financing	
 *ajiri	employ hire	social_security	
 *fukuz	dismiss termination	social_security	
+*achish	termination dismissal	social_security	
+*badilish	convert change	general	
 *stahili	entitled eligible	general	
 *hitaji	-	general	
 *weza	-	general	

@@ -1,0 +1,119 @@
+Pack: /home/dieudonne/Programming Projects/kenya-msme-adtc/rafiki_pack.db | test set: /home/dieudonne/Programming Projects/kenya-msme-adtc/eval/test_set.csv | 108 rows, 216 questions
+
+Routing outcome by language
+                      correct suggested  answered  declined     wrong     n
+  en                      44%       12%       16%        8%       20%   108
+  sw                      24%        8%        6%       31%       31%   108
+
+Routing outcome by domain (both languages)
+                      correct suggested  answered  declined     wrong     n
+  registration            22%        8%        8%        8%       53%    36
+  compliance              36%       11%       14%       19%       19%    36
+  taxation                31%       14%        8%       25%       22%    36
+  social_security         56%        3%        3%       19%       19%    36
+  health_social           28%        6%       19%       25%       22%    36
+  financing               31%       19%       11%       22%       17%    36
+
+Cross-lingual parity: 49/108 pairs (45%) get the same route and topic in English and Kiswahili
+  registration 9/18 | compliance 6/18 | taxation 5/18 | social_security 11/18 | health_social 8/18 | financing 10/18
+
+Retrieval: no expected_source filled in yet -- fill that column to score retrieval
+
+REG-02 sw [wrong] want VERIFIED start_business | got VERIFIED registration | Ni hatua gani nifuate kuanzisha biashara ndogo?
+REG-04 sw [wrong] want VERIFIED sole_prop_vs_limited | got ADVISORY | Kuna tofauti gani kati ya biashara ya mtu mmoja na kampuni ya dhima ndogo?
+REG-05 sw [wrong] want VERIFIED sole_prop_to_llc | got ADVISORY | Nawezaje kubadilisha biashara yangu ya mtu mmoja kuwa kampuni ya dhima ndogo?
+REG-06 en [wrong] want VERIFIED sole_prop_llc_mistakes | got ADVISORY | What mistakes should I avoid when converting to a limited company?
+REG-06 sw [wrong] want VERIFIED sole_prop_llc_mistakes | got ADVISORY | Ni makosa gani niepuke ninapobadilisha biashara kuwa kampuni ya dhima ndogo?
+REG-07 en [wrong] want VERIFIED registration | got FACTUAL WEAK | My shop has no official name yet. How do I make it legal?
+REG-07 sw [wrong] want VERIFIED registration | got ADVISORY | Duka langu bado halina jina rasmi. Nitalifanyaje kuwa halali?
+REG-08 en [wrong] want VERIFIED sole_prop_vs_limited | got ADVISORY | Should I run my salon alone or form a company with my partner?
+REG-08 sw [wrong] want VERIFIED sole_prop_vs_limited | got ADVISORY | Je, niendeshe saluni yangu peke yangu au nianzishe kampuni na mbia wangu?
+REG-09 sw [declined] want FACTUAL | got FACTUAL WEAK | Usajili wa jina la biashara kwenye eCitizen huchukua muda gani?
+REG-10 sw [declined] want FACTUAL | got FACTUAL WEAK | Inagharimu kiasi gani kusajili jina la biashara?
+REG-11 en [wrong] want FACTUAL | got ADVISORY | How many directors does a private company need in Kenya?
+REG-11 sw [wrong] want FACTUAL | got ADVISORY | Kampuni binafsi nchini Kenya inahitaji wakurugenzi wangapi?
+REG-13 en [wrong] want FACTUAL | got ADVISORY | What is a limited liability partnership?
+REG-13 sw [wrong] want FACTUAL | got ADVISORY | Ubia wa dhima ndogo ni nini?
+REG-14 en [wrong] want FACTUAL | got ADVISORY | Do I need to file annual returns for my company?
+REG-14 sw [wrong] want FACTUAL | got ADVISORY | Je, ninahitaji kuwasilisha ritani za kila mwaka kwa kampuni yangu?
+REG-15 en [wrong] want FACTUAL | got ADVISORY | How do I reserve a company name?
+REG-15 sw [wrong] want FACTUAL | got ADVISORY | Nawezaje kuhifadhi jina la kampuni?
+REG-17 en [wrong] want FACTUAL | got ADVISORY | Can a foreigner own a business name in Kenya?
+REG-17 sw [wrong] want FACTUAL | got ADVISORY | Je, raia wa kigeni anaweza kumiliki jina la biashara nchini Kenya?
+REG-18 sw [declined] want FACTUAL | got FACTUAL WEAK | Nimepoteza cheti changu cha usajili. Nifanye nini?
+COM-06 sw [wrong] want VERIFIED agpo | got VERIFIED yedf | Biashara inayomilikiwa na vijana inawezaje kunufaika na AGPO?
+COM-08 sw [wrong] want VERIFIED relocation_county | got FACTUAL WEAK | Nini hubadilika nikihamishia biashara yangu kaunti nyingine?
+COM-09 en [wrong] want VERIFIED no_permit_penalty | got FACTUAL WEAK | County officers found me trading without papers. What can they do?
+COM-09 sw [wrong] want VERIFIED no_permit_penalty | got FACTUAL WEAK | Maafisa wa kaunti wamenikuta nikifanya biashara bila vibali. Wanaweza kufanya nini?
+COM-10 en [wrong] want VERIFIED food_business_license | got ADVISORY | I want to open a small restaurant. Which papers do I need?
+COM-10 sw [wrong] want VERIFIED food_business_license | got FACTUAL WEAK | Nataka kufungua mgahawa mdogo. Ninahitaji vibali gani?
+COM-11 en [declined] want FACTUAL | got FACTUAL WEAK | Do food handlers need a medical certificate?
+COM-11 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, wanaoshughulikia chakula wanahitaji cheti cha afya?
+COM-12 sw [wrong] want FACTUAL | got ADVISORY | Je, ninahitaji cheti cha usalama wa moto kwa duka langu?
+COM-13 sw [declined] want FACTUAL | got FACTUAL WEAK | Ni lini ninahitaji alama ya ubora ya KEBS?
+COM-14 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, biashara yangu inahitaji leseni ya NEMA?
+COM-15 sw [declined] want FACTUAL | got FACTUAL WEAK | Sheria ya Ulinzi wa Data inahitaji nini kutoka kwa biashara ndogo?
+COM-17 sw [declined] want FACTUAL | got FACTUAL WEAK | Ninahitaji nyaraka gani kuagiza bidhaa kuingia Kenya?
+COM-18 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, ninahitaji leseni kuuza mitumba sokoni?
+TAX-02 sw [wrong] want VERIFIED vat | got FACTUAL WEAK | Kiwango cha mauzo cha kujisajili kwa VAT ni kipi?
+TAX-03 sw [wrong] want VERIFIED vat_penalty | got VERIFIED late_filing_penalty | Adhabu ya kuchelewa kuwasilisha ritani za VAT ni gani?
+TAX-05 sw [wrong] want VERIFIED paye_bands | got FACTUAL PARTIAL | Viwango vya kodi ya PAYE ni vipi?
+TAX-09 en [wrong] want VERIFIED vat | got FACTUAL WEAK | My sales are growing. At what point must I start charging VAT?
+TAX-09 sw [wrong] want VERIFIED vat | got FACTUAL WEAK | Mauzo yangu yanaongezeka. Ni wakati gani lazima nianze kutoza VAT?
+TAX-10 en [wrong] want VERIFIED kra_pin | got FACTUAL PARTIAL | I have never paid tax. What is the first thing I need from KRA?
+TAX-10 sw [wrong] want VERIFIED kra_pin | got FACTUAL WEAK | Sijawahi kulipa kodi. Ni kitu gani cha kwanza ninachohitaji kutoka KRA?
+TAX-11 sw [declined] want FACTUAL | got FACTUAL WEAK | Tarehe ya mwisho ya kuwasilisha ritani za kodi ya mapato ya mwaka ni lini?
+TAX-12 sw [declined] want FACTUAL | got FACTUAL WEAK | Kiwango cha kodi ya zuio kwa ada za ushauri ni kipi?
+TAX-13 en [wrong] want FACTUAL | got ADVISORY | How is rental income taxed?
+TAX-13 sw [declined] want FACTUAL | got FACTUAL WEAK | Mapato ya kodi ya nyumba yanatozwa kodi vipi?
+TAX-14 sw [declined] want FACTUAL | got FACTUAL WEAK | Kiwango cha kodi ya mapato kwa kampuni ya mkaazi ni kipi?
+TAX-15 sw [declined] want FACTUAL | got FACTUAL WEAK | Nawezaje kuwasilisha ritani tupu kwenye iTax?
+TAX-16 sw [declined] want FACTUAL | got FACTUAL WEAK | Ni bidhaa gani zisizotozwa VAT?
+TAX-17 sw [declined] want FACTUAL | got FACTUAL WEAK | Kiwango cha kodi ya faida ya mtaji ni kipi?
+TAX-18 en [declined] want FACTUAL | got FACTUAL WEAK | Can KRA close my shop if I do not pay tax?
+TAX-18 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, KRA inaweza kufunga duka langu nisipolipa kodi?
+SOC-02 sw [wrong] want VERIFIED nssf_registration | got VERIFIED nssf | Nawezaje kusajili wafanyakazi wangu kwa NSSF?
+SOC-03 sw [wrong] want VERIFIED nssf_penalty | got VERIFIED nssf | Adhabu ya kuchelewa kulipa NSSF ni gani?
+SOC-09 sw [wrong] want VERIFIED termination | got FACTUAL WEAK | Nawezaje kumwachisha kazi mfanyakazi kwa njia halali?
+SOC-10 en [wrong] want VERIFIED maternity_paternity_leave | got ADVISORY | My worker is expecting a baby. How much time off must I give her?
+SOC-10 sw [wrong] want VERIFIED maternity_paternity_leave | got FACTUAL WEAK | Mfanyakazi wangu anatarajia mtoto. Lazima nimpe muda gani wa mapumziko?
+SOC-11 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, ninahitaji mkataba wa maandishi kwa kibarua?
+SOC-12 en [declined] want FACTUAL | got FACTUAL WEAK | How much notice must I give before ending a contract?
+SOC-12 sw [declined] want FACTUAL | got FACTUAL WEAK | Ni notisi ya muda gani lazima nitoe kabla ya kumaliza mkataba?
+SOC-13 en [wrong] want FACTUAL | got ADVISORY | Am I required to pay overtime?
+SOC-13 sw [wrong] want FACTUAL | got ADVISORY | Je, ninalazimika kulipa saa za ziada?
+SOC-14 en [declined] want FACTUAL | got FACTUAL WEAK | What must an employer do when a worker is injured at work?
+SOC-14 sw [declined] want FACTUAL | got FACTUAL WEAK | Mwajiri anapaswa kufanya nini mfanyakazi anapoumia kazini?
+SOC-15 sw [declined] want FACTUAL | got FACTUAL WEAK | Mfanyakazi anapata siku ngapi za likizo ya ugonjwa?
+SOC-16 sw [declined] want FACTUAL | got FACTUAL WEAK | Mwajiri lazima ahifadhi kumbukumbu gani kwa kila mfanyakazi?
+HSS-02 en [wrong] want VERIFIED shif_rate | got FACTUAL PARTIAL | How much health insurance do I deduct from my worker's salary?
+HSS-02 sw [wrong] want VERIFIED shif_rate | got FACTUAL WEAK | Ninakata kiasi gani cha bima ya afya kutoka mshahara wa mfanyakazi wangu?
+HSS-04 en [declined] want FACTUAL | got FACTUAL WEAK | How do I register my family with the Social Health Authority?
+HSS-04 sw [declined] want FACTUAL | got FACTUAL WEAK | Nawezaje kusajili familia yangu kwa Mamlaka ya Afya ya Jamii?
+HSS-06 sw [declined] want FACTUAL | got FACTUAL WEAK | Mfuko wa Huduma ya Afya ya Msingi unashughulikia huduma gani?
+HSS-08 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, kuna msamaha wa kodi kwa watu wenye ulemavu?
+HSS-09 sw [declined] want FACTUAL | got FACTUAL WEAK | Nawezaje kujisajili na Baraza la Kitaifa la Watu Wenye Ulemavu?
+HSS-11 en [wrong] want FACTUAL | got ADVISORY | What is the Inua Jamii programme?
+HSS-11 sw [wrong] want FACTUAL | got ADVISORY | Mpango wa Inua Jamii ni nini?
+HSS-12 en [wrong] want FACTUAL | got ADVISORY | Who qualifies for the older persons cash transfer?
+HSS-12 sw [wrong] want FACTUAL | got ADVISORY | Nani anastahili kupata pesa za msaada kwa wazee?
+HSS-13 en [wrong] want FACTUAL | got ADVISORY | What first aid requirements apply to a workplace?
+HSS-13 sw [wrong] want FACTUAL | got ADVISORY | Ni mahitaji gani ya huduma ya kwanza yanayohusu mahali pa kazi?
+HSS-16 en [declined] want FACTUAL | got FACTUAL WEAK | Which hospitals accept SHA cover?
+HSS-16 sw [declined] want FACTUAL | got FACTUAL WEAK | Ni hospitali gani zinazokubali bima ya SHA?
+HSS-17 en [declined] want FACTUAL | got FACTUAL WEAK | Can I use SHA cover for my employees' hospital bills?
+HSS-17 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, naweza kutumia bima ya SHA kulipia bili za hospitali za wafanyakazi wangu?
+FIN-01 en [wrong] want VERIFIED loan | got VERIFIED start_business | How can I get a loan to start my business?
+FIN-01 sw [wrong] want VERIFIED loan | got VERIFIED registration | Ninawezaje kupata mkopo wa kuanzisha biashara yangu?
+FIN-05 sw [wrong] want VERIFIED sacco_vs_bank | got FACTUAL WEAK | Kuna tofauti gani kati ya mkopo wa SACCO na wa benki?
+FIN-08 en [wrong] want VERIFIED yedf | got FACTUAL WEAK | I am 25 and want government money to expand my kiosk. Where do I go?
+FIN-08 sw [wrong] want VERIFIED yedf | got FACTUAL WEAK | Nina miaka 25 na nataka pesa za serikali kupanua kibanda changu. Niende wapi?
+FIN-09 sw [declined] want FACTUAL | got FACTUAL WEAK | Mfuko wa Hasla unatoza riba ya kiasi gani?
+FIN-12 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, programu za mikopo ya kidijitali zinasimamiwa na Benki Kuu?
+FIN-13 en [wrong] want FACTUAL | got ADVISORY | What is the Credit Guarantee Scheme for MSMEs?
+FIN-13 sw [declined] want FACTUAL | got FACTUAL WEAK | Mpango wa Dhamana ya Mikopo kwa biashara ndogo na za kati ni nini?
+FIN-14 sw [declined] want FACTUAL | got FACTUAL WEAK | Kuorodheshwa na ofisi ya marejeleo ya mikopo kunaathirije maombi yangu ya mkopo?
+FIN-17 en [declined] want FACTUAL | got FACTUAL WEAK | Can I get a grant instead of a loan for my business?
+FIN-17 sw [declined] want FACTUAL | got FACTUAL WEAK | Je, naweza kupata ruzuku badala ya mkopo kwa biashara yangu?
+FIN-18 en [declined] want FACTUAL | got FACTUAL WEAK | A lender is charging me very high interest. Where can I complain?
+FIN-18 sw [declined] want FACTUAL | got FACTUAL WEAK | Mkopeshaji ananitoza riba kubwa sana. Ninaweza kulalamika wapi?
