@@ -340,7 +340,37 @@ def retrieve(db, terms, top_k, focus=None):
     for h in hits:
         h["kb"], h["source"], h["body"] = db.execute(
             "SELECT kb, source, body FROM chunks WHERE id = ?", (h["docid"],)).fetchone()
+        h["domain"] = chunk_domain_of(db, h["docid"])
     return hits, idfs, focus
+
+
+def chunk_domain_of(db, docid):
+    """A chunk's domain, or "" for packs built before domains."""
+    try:
+        return db.execute("SELECT domain FROM chunks WHERE id = ?", (docid,)).fetchone()[0] or ""
+    except sqlite3.OperationalError:
+        return ""
+
+
+def topic_domain(db, topic):
+    """A verified answer's domain, or "" for packs built before domains."""
+    try:
+        row = db.execute("SELECT domain FROM topic_domain WHERE topic = ?", (topic,)).fetchone()
+        return row[0] if row else ""
+    except sqlite3.OperationalError:
+        return ""
+
+
+def answer_domain(db, r):
+    """The domain an answer belongs to, for the evaluation log: the verified topic's domain,
+    else the top passage's domain (also for a SUGGEST, whose topic is still unconfirmed),
+    else "general"."""
+    t = r.get("topic")
+    if t:
+        return topic_domain(db, t) or "general"
+    if r.get("hits"):
+        return r["hits"][0].get("domain") or "general"
+    return "general"
 
 
 def confidence(hits):
@@ -400,11 +430,21 @@ def contextual_topic(db, query, prev_topic):
     return prev_topic if ELLIPTIC.search(q) else None
 
 
+NO_DOMAIN_KINDS = {"CHAT", "APP_INFO", "NOT_UNDERSTOOD"}
+
+
 def route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
-    """Decide how the app answers one question. Returns a dict; 'kind' is a key of ACTION."""
+    """Decide how the app answers one question. Returns a dict; 'kind' is a key of ACTION,
+    'domain' is one of the six study domains, "general", or "" (chat, clock, not understood)."""
+    r = _route(db, query, lang, prev_topic, prev_query, k)
+    r["domain"] = "" if r["kind"] in NO_DOMAIN_KINDS else answer_domain(db, r)
+    return r
+
+
+def _route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
     load_config(db)
     r = dict(kind="", topic="", also_matched=[], confidence="", focus="", hits=[], answer="",
-             followup=None, suggest="", expanded=[])
+             followup=None, suggest="", expanded=[], domain="")
     terms, r["expanded"] = search_terms(query)
 
     if is_small_talk(query):
@@ -482,7 +522,7 @@ def parity_line(query, r):
 def show_hits(hits, focus):
     for i, h in enumerate(hits, 1):
         print(f"  #{i} score {h['score']:.1f} norm {h['norm']:.0%} cov {h['coverage']:.0%} "
-              f"'{focus}' x{h['focus_tf']} [{h['kb'] or '?'}] {h['source'] or '(no source)'}")
+              f"'{focus}' x{h['focus_tf']} [{h['kb'] or '?'}|{h.get('domain') or '?'}] {h['source'] or '(no source)'}")
         print("     " + re.sub(r"\s+", " ", h["body"])[:300] + ("..." if len(h["body"]) > 300 else ""))
 
 
@@ -523,7 +563,7 @@ def main():
     print(f"ROUTE: {r['kind']}" + (f"  topic: {r['topic']}" if r["topic"] else "")
           + (f"  suggest: {r['suggest']} (passages: {r['confidence']})" if r["suggest"] else "")
           + f"  [{ms:.1f} ms]")
-    print(f"  action: {ACTION[r['kind']]}")
+    print(f"  action: {ACTION[r['kind']]}" + (f"  [domain: {r['domain']}]" if r["domain"] else ""))
     if r.get("expanded"):
         print(f"  glossary added: {' '.join(r['expanded'])}")
     if r["also_matched"]:

@@ -29,13 +29,14 @@ import sys
 import warnings
 from collections import defaultdict
 
+import domains
 import query_pack as qp
 
 WANTED = ["CANNED_ANSWERS", "CANNED_ANSWERS_SW", "TOPIC_KEYWORDS", "DIGEST_OVERRIDE_KEYWORDS", "CANNED_SOURCES", "CANNED_FOLLOWUPS"]
 TEXT_KEYS = ("text", "content", "chunk", "page_content")
 SOURCE_KEYS = ("source", "file", "filename", "doc", "document", "path")
 KB_KEYS = ("kb", "category", "collection", "folder")
-PACK_FORMAT = "3"   # 2: adds the routing `config` table; 3: adds the bilingual glossary to it
+PACK_FORMAT = "4"   # 2: routing `config` table; 3: bilingual glossary; 4: domains (chunks.domain, topic_domain)
 
 
 # ---------------------------------------------------------------- extraction
@@ -179,7 +180,8 @@ def write_pack(out, lit, chunks, meta, general):
         CREATE TABLE config_list(key TEXT NOT NULL, pos INTEGER NOT NULL, item TEXT NOT NULL);
         CREATE TABLE config_num(key TEXT PRIMARY KEY, value REAL NOT NULL);
         CREATE TABLE config_str(key TEXT PRIMARY KEY, value TEXT NOT NULL);
-        CREATE TABLE chunks(id INTEGER PRIMARY KEY, kb TEXT, source TEXT, body TEXT NOT NULL);
+        CREATE TABLE chunks(id INTEGER PRIMARY KEY, kb TEXT, source TEXT, body TEXT NOT NULL, domain TEXT);
+        CREATE TABLE topic_domain(topic TEXT PRIMARY KEY, domain TEXT NOT NULL);
         CREATE VIRTUAL TABLE chunks_fts USING fts4(content="chunks", body, tokenize=porter);
         CREATE VIRTUAL TABLE canned_fts USING fts4(body, tokenize=porter);
     """)
@@ -214,6 +216,10 @@ def write_pack(out, lit, chunks, meta, general):
         db.execute("INSERT INTO canned_fts(docid, body) VALUES (?,?)",
                    (rowid, f"{topic.replace('_', ' ')} {kws} {a_en or ''} {a_sw or ''}"))
 
+    # The study's six domains: every verified answer has one (domains.TOPIC_DOMAIN).
+    for (topic,) in db.execute("SELECT topic FROM canned").fetchall():
+        db.execute("INSERT INTO topic_domain VALUES (?,?)", (topic, domains.TOPIC_DOMAIN[topic]))
+
     for kw in lit["DIGEST_OVERRIDE_KEYWORDS"]:
         db.execute("INSERT INTO digest_override_keywords VALUES (?)", (kw,))
 
@@ -233,8 +239,8 @@ def write_pack(out, lit, chunks, meta, general):
         else:
             db.execute("INSERT INTO config_str VALUES (?,?)", (key, value))
 
-    db.executemany("INSERT INTO chunks(kb, source, body) VALUES (?,?,?)",
-                   [(kb, src, text) for text, src, kb in chunks])
+    db.executemany("INSERT INTO chunks(kb, source, body, domain) VALUES (?,?,?,?)",
+                   [(kb, src, text, domains.chunk_domain(kb, src)[0]) for text, src, kb in chunks])
     db.execute("INSERT INTO chunks_fts(docid, body) SELECT id, body FROM chunks")
     db.execute("INSERT INTO chunks_fts(chunks_fts) VALUES('optimize')")
 
@@ -279,6 +285,12 @@ def main():
     if sw_missing:
         print(f"NOTE: {len(sw_missing)} topics have no Kiswahili answer (English will be shown): {sw_missing}")
 
+    missing, empty = domains.check_topics(set(en) | set(sw))
+    if missing:
+        sys.exit(f"ERROR: verified answers with no domain -- add them to TOPIC_DOMAIN in domains.py: {missing}")
+    if empty:
+        print(f"NOTE: domains with no verified answer yet: {empty}")
+
     general = [t.strip() for t in args.general.split(",") if t.strip()]
     unknown = [t for t in general if t not in kw]
     if unknown:
@@ -308,6 +320,10 @@ def main():
         "boilerplate_lines_removed": len(boiler),
         "glossary_entries": len(qp.GLOSSARY),
     }
+    by_domain = {d: 0 for d in domains.ALL_LABELS}
+    for _, src, kb in chunks:
+        by_domain[domains.chunk_domain(kb, src)[0]] += 1
+    meta["chunks_by_domain"] = ",".join(f"{d}={n}" for d, n in by_domain.items())
     meta["general_topics"] = ",".join(general)
     write_pack(args.out, lit, chunks, meta, general)
     size_mb = os.path.getsize(args.out) / 1e6
