@@ -1,0 +1,225 @@
+# Bilingual glossary: Kiswahili term -> English search words (one entry per line, tab-separated).
+# Used for cross-lingual retrieval: the official documents are in English, so a Kiswahili
+# question is searched with these English words added and the matched Kiswahili words removed.
+# Columns: kiswahili <TAB> english <TAB> domain <TAB> reviewed
+#   domain: registration | compliance | taxation | social_security | health_social | financing | general
+#   reviewed: blank = draft; put the reviewer's initials and date once a Kiswahili speaker has checked it
+# Matching is on whole words, longest entry first, lowercase. Keep entries in plain words (no punctuation).
+kiswahili	english	domain	reviewed
+# ---------------------------------------------------------------- taxation
+kodi ya mapato	income tax	taxation
+kodi ya ongezeko la thamani	vat value added tax	taxation
+kodi ya mauzo	turnover tax	taxation
+kodi ya zuio	withholding tax	taxation
+kodi ya mshahara	paye tax salary	taxation
+kodi ya faida ya mtaji	capital gains tax	taxation
+mapato ya kodi ya nyumba	rental income tax	taxation
+kodi ya nyumba	rent	general
+kodi ya majengo	land rates property	compliance
+ushuru wa bidhaa	excise duty	taxation
+ushuru wa forodha	customs duty	taxation
+ushuru wa stempu	stamp duty	taxation
+kodi	tax	taxation
+ushuru	tax duty levy	taxation
+ritani ya kodi	tax return	taxation
+mrejesho wa kodi	tax return	taxation
+kuwasilisha ritani	file return	taxation
+ritani	return	taxation
+cheti cha kuzingatia kodi	tax compliance certificate	taxation
+cheti cha utiifu wa kodi	tax compliance certificate	taxation
+pin ya kra	kra pin	taxation
+nambari ya pin	pin	taxation
+ankara	invoice	taxation
+ankara za kielektroniki	electronic tax invoice etims	taxation
+risiti	receipt invoice	taxation
+makato	deductions	taxation
+msamaha wa kodi	tax exemption relief	taxation
+# ---------------------------------------------------------------- registration
+usajili wa biashara	business registration	registration
+kusajili biashara	register business	registration
+kusajili jina la biashara	register business name	registration
+jina la biashara	business name	registration
+usajili	registration	registration
+kusajili	register	registration
+kujisajili	register	registration
+sajili	register	registration
+kampuni binafsi	private limited company	registration
+kampuni ya dhima ndogo	limited company	registration
+kampuni	company	registration
+biashara ya mtu mmoja	sole proprietorship	registration
+mmiliki pekee	sole proprietor	registration
+ubia	partnership	registration
+cheti cha usajili	certificate registration	registration
+cheti cha kuanzishwa	certificate incorporation	registration
+kitambulisho cha taifa	national id	registration
+kitambulisho	id identity	registration
+mkurugenzi	director	registration
+wakurugenzi	directors	registration
+mbia	shareholder partner	registration
+wanahisa	shareholders	registration
+hisa	shares	registration
+alama ya biashara	trademark	registration
+hakimiliki	copyright	registration
+# ---------------------------------------------------------------- compliance (licences, permits, standards)
+kibali kimoja cha biashara	unified business permit	compliance
+kibali cha biashara	business permit	compliance
+leseni ya biashara	business licence	compliance
+kibali cha kufanya kazi	work permit	compliance
+kibali cha kazi	work permit	compliance
+leseni	licence license	compliance
+kibali	permit	compliance
+vibali	permits	compliance
+serikali ya kaunti	county government	compliance
+kaunti	county	compliance
+cheti cha afya	health certificate	compliance
+afya ya umma	public health	compliance
+usalama wa moto	fire safety	compliance
+zimamoto	fire	compliance
+usalama wa chakula	food safety	compliance
+mazingira	environment	compliance
+viwango	standards	compliance
+alama ya ubora	standardization mark quality	compliance
+sheria	law act	compliance
+kanuni	regulations rules	compliance
+mkataba	contract	compliance
+adhabu	penalty	compliance
+faini	fine penalty	compliance
+kuchelewa	late	compliance
+zabuni	tender	compliance
+zabuni za serikali	government tenders procurement	compliance
+manunuzi ya umma	public procurement	compliance
+uagizaji	import	compliance
+kuagiza bidhaa	import goods	compliance
+kuuza nje	export	compliance
+mauzo ya nje	exports	compliance
+forodha	customs	compliance
+# ---------------------------------------------------------------- social security and employment
+hifadhi ya jamii	social security nssf	social_security
+mfuko wa taifa wa hifadhi ya jamii	nssf national social security fund	social_security
+mchango	contribution	social_security
+michango	contributions	social_security
+pensheni	pension	social_security
+kustaafu	retirement	social_security
+mwajiri	employer	social_security
+waajiri	employers	social_security
+mfanyakazi	employee	social_security
+wafanyakazi	employees	social_security
+ajira	employment	social_security
+kuajiri	employ hire	social_security
+mshahara wa chini	minimum wage	social_security
+mshahara	salary wage	social_security
+mishahara	salaries wages	social_security
+likizo ya mwaka	annual leave	social_security
+likizo ya uzazi	maternity leave	social_security
+likizo ya baba	paternity leave	social_security
+likizo ya ugonjwa	sick leave	social_security
+likizo	leave	social_security
+kipindi cha majaribio	probation	social_security
+kufukuzwa kazi	termination dismissal	social_security
+kufuta kazi	termination dismissal	social_security
+kuachishwa kazi	termination redundancy	social_security
+notisi	notice	social_security
+fidia	compensation	social_security
+ajali kazini	work injury	social_security
+ushuru wa nyumba	housing levy	social_security
+nyumba za bei nafuu	affordable housing levy	social_security
+# ---------------------------------------------------------------- health and social services
+bima ya afya	health insurance shif	health_social
+mamlaka ya afya ya jamii	social health authority sha	health_social
+huduma za afya	health services	health_social
+hospitali	hospital	health_social
+matibabu	medical treatment	health_social
+ulemavu	disability	health_social
+watu wenye ulemavu	persons with disabilities	health_social
+huduma za kijamii	social services	health_social
+msaada wa kijamii	social assistance	health_social
+wazee	older persons elderly	health_social
+# ---------------------------------------------------------------- financing
+mkopo	loan	financing
+mikopo	loans	financing
+riba	interest rate	financing
+dhamana	collateral guarantee	financing
+akiba	savings	financing
+kuweka akiba	savings	financing
+chama	chama group savings	financing
+benki	bank	financing
+ruzuku	grant	financing
+mfuko wa vijana	youth enterprise development fund yedf	financing
+mfuko wa wanawake	women enterprise fund wef	financing
+mfuko wa hasla	hustler fund	financing
+mfuko	fund	financing
+mtaji	capital	financing
+deni	debt	financing
+madeni	debts	financing
+fedha	finance money	financing
+pesa	money	financing
+malipo	payment	financing
+kulipa	pay	financing
+bima	insurance	financing
+# ---------------------------------------------------------------- general business
+biashara ndogo	small business	general
+biashara	business	general
+mapato	income revenue	general
+faida	profit	general
+hasara	loss	general
+gharama	cost	general
+ada	fee	general
+bei	price	general
+mauzo	sales	general
+mteja	customer	general
+wateja	customers	general
+bidhaa	goods products	general
+huduma	services	general
+duka la dawa	pharmacy	health_social
+dawa	medicine pharmacy	health_social
+duka	shop	general
+soko	market	general
+masoko	marketing	general
+kutangaza	advertise marketing	general
+hesabu	accounts	general
+kumbukumbu za hesabu	bookkeeping records	general
+rekodi	records	general
+chakula	food	general
+mgahawa	restaurant	general
+kinyozi	barber	general
+saluni	salon	general
+kilimo	agriculture farming	general
+ofisi	office	general
+fomu	form	general
+mtandaoni	online	general
+tovuti	website	general
+asilimia	percent rate	general
+kiasi gani	-	general	
+kila mwezi	monthly	general
+kila mwaka	annual	general
+# ---------------------------------------------------------------- verb roots
+# A leading * marks a ROOT matched inside a word (nitasajili, tutasajili, kusajiliwa -> sajili).
+# Roots are checked only on words no phrase above has used. English "-" means: drop the word
+# from the search (filler verbs such as "need", "can", "get", which only add noise).
+*sajili	register	registration	
+*lipa	pay	financing	
+*kopa	borrow loan	financing	
+*ajiri	employ hire	social_security	
+*fukuz	dismiss termination	social_security	
+*stahili	entitled eligible	general	
+*hitaji	-	general	
+*weza	-	general	
+*patikana	-	general	
+*pata	-	general	
+*taka	-	general	
+*jua	-	general	
+*tumia	-	general	
+*fanya	-	general	
+kutoka	-	general	
+jinsi	-	general	
+gani	-	general	
+*uzaje	sell	general	
+kuuza	sell	general	
+nauza	sell	general	
+zangu	-	general	
+changu	-	general	
+vyangu	-	general	
+langu	-	general	
+wengi	-	general	
+zaidi	-	general	
+muda gani	how long	general	

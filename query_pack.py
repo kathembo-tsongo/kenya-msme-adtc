@@ -24,6 +24,7 @@ Usage:
 import argparse
 import json
 import math
+import os
 import re
 import sqlite3
 import struct
@@ -85,6 +86,32 @@ mkopo mikopo riba bima mshahara wafanyakazi mfanyakazi likizo serikali kaunti
 """.split())
 
 
+# Bilingual glossary (glossary_sw_en.tsv): Kiswahili term -> English search words. The documents
+# are in English, so a Kiswahili question is searched with the English words added and the
+# matched Kiswahili words removed. Longest entry first, so "kodi ya mapato" wins over "kodi".
+def load_glossary(path=os.path.join(os.path.dirname(os.path.abspath(__file__)), "glossary_sw_en.tsv")):
+    entries = {}
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            if not line.strip() or line.startswith("#") or line.startswith("kiswahili\t"):
+                continue
+            cols = line.rstrip("\n").split("\t")
+            root = cols[0].strip().startswith("*")
+            sw = ("*" if root else "") + " ".join(re.findall(r"[a-z0-9]+", cols[0].lower()))
+            en = cols[1].strip() if len(cols) > 1 else ""
+            en = "-" if en == "-" else " ".join(re.findall(r"[a-z0-9]+", en.lower()))
+            if sw.strip("*") and en:
+                entries[sw] = en  # a later duplicate wins
+    # phrases first (most words, then longest), then roots (longest first)
+    return sorted(entries.items(),
+                  key=lambda e: (e[0].startswith("*"), -len(e[0].split()), -len(e[0]), e[0]))
+
+
+GLOSSARY = load_glossary()
+
+
 # ---------------------------------------------------------------- shared config
 # The constants above are the defaults. build_pack.py writes them into the pack's
 # `config` table, and route() loads them back from whatever pack it is given. The
@@ -98,6 +125,8 @@ def config_values():
         "referential": list(REFERENTIAL),
         "app_info_regex": APP_INFO.pattern,
         "clarification_regex": CLARIFICATION.pattern,
+        # "kiswahili<TAB>english", already in matching order (longest first)
+        "glossary": [f"{sw}\t{en}" for sw, en in GLOSSARY],
         "thresholds": dict(
             k1=K1, b=B, strong_norm=STRONG_NORM, strong_coverage=STRONG_COVERAGE,
             strong_focus_tf=STRONG_FOCUS_TF, partial_norm=PARTIAL_NORM,
@@ -111,7 +140,7 @@ _loaded_from = None
 
 def load_config(db):
     """Override the module defaults with the pack's config table (once per pack)."""
-    global _loaded_from, STOPWORDS, SMALL_TALK, FACTUAL_WORDS, REFERENTIAL, APP_INFO, CLARIFICATION
+    global _loaded_from, STOPWORDS, SMALL_TALK, FACTUAL_WORDS, REFERENTIAL, APP_INFO, CLARIFICATION, GLOSSARY
     global K1, B, STRONG_NORM, STRONG_COVERAGE, STRONG_FOCUS_TF, PARTIAL_NORM, PARTIAL_COVERAGE
     global CANNED_SEARCH_NORM, CANNED_SEARCH_COVERAGE, MIN_SPECIFIC_IDF
     if _loaded_from is db:
@@ -124,6 +153,8 @@ def load_config(db):
     STOPWORDS, SMALL_TALK = set(cfg["stopwords"]), set(cfg["small_talk"])
     FACTUAL_WORDS, REFERENTIAL = set(cfg["factual_words"]), list(cfg["referential"])
     APP_INFO, CLARIFICATION = re.compile(cfg["app_info_regex"]), re.compile(cfg["clarification_regex"])
+    # packs built before the glossary have none: cross-lingual expansion is then off
+    GLOSSARY = [tuple(e.split("\t", 1)) for e in cfg.get("glossary", [])]
     t = cfg["thresholds"]
     K1, B = t["k1"], t["b"]
     STRONG_NORM, STRONG_COVERAGE, STRONG_FOCUS_TF = t["strong_norm"], t["strong_coverage"], t["strong_focus_tf"]
@@ -147,6 +178,42 @@ def query_terms(query, limit=12):
     return terms[:limit]
 
 
+def glossary_expand(query):
+    """(English words to add, Kiswahili words they replace) for the glossary entries in the query.
+    Whole-word matches only, longest entry first; a matched phrase is consumed so a shorter
+    entry inside it ("kodi" in "kodi ya mapato") cannot match again."""
+    q = " " + " ".join(words(query)) + " "
+    added, used = [], set()
+    for sw, en in GLOSSARY:
+        if sw.startswith("*"):
+            continue
+        if f" {sw} " in q:
+            if en != "-":
+                added.extend(en.split())
+            used.update(sw.split())
+            q = q.replace(f" {sw} ", " | ")
+    roots = [(sw[1:], en) for sw, en in GLOSSARY if sw.startswith("*")]
+    for w in q.split():
+        if w == "|" or w in used:
+            continue
+        for root, en in roots:
+            if root in w:
+                if en != "-":
+                    added.extend(en.split())
+                used.add(w)
+                break
+    return added, used
+
+
+def search_terms(query, limit=12):
+    """Query terms for retrieval: glossary English words first, then the question's own words
+    minus the Kiswahili words the glossary replaced. An English question with no glossary
+    match gets exactly query_terms(query)."""
+    added, used = glossary_expand(query)
+    rest = [w for w in words(query) if w not in used]
+    return query_terms(" ".join(added + rest), limit), added
+
+
 def is_small_talk(query):
     w = words(query)
     return bool(w) and all(t in SMALL_TALK for t in w)
@@ -157,8 +224,8 @@ def is_referential(query):
     return any(p in q for p in REFERENTIAL)
 
 
-def is_factual(query):
-    return any(t in FACTUAL_WORDS or t.rstrip("s") in FACTUAL_WORDS for t in words(query))
+def is_factual(query, extra=()):
+    return any(t in FACTUAL_WORDS or t.rstrip("s") in FACTUAL_WORDS for t in list(words(query)) + list(extra))
 
 
 # ---------------------------------------------------------------- verified answers
@@ -337,8 +404,8 @@ def route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
     """Decide how the app answers one question. Returns a dict; 'kind' is a key of ACTION."""
     load_config(db)
     r = dict(kind="", topic="", also_matched=[], confidence="", focus="", hits=[], answer="",
-             followup=None, suggest="")
-    terms = query_terms(query)
+             followup=None, suggest="", expanded=[])
+    terms, r["expanded"] = search_terms(query)
 
     if is_small_talk(query):
         r["kind"] = "CHAT"
@@ -381,7 +448,7 @@ def route(db, query, lang="en", prev_topic=None, prev_query=None, k=3):
     # Verified answers are all regulatory, so only factual questions are searched against
     # them -- and a search match is only ever a SUGGESTION the operator confirms, never
     # asserted as the verified answer (it was wrong about half the time on real questions).
-    factual = is_factual(query)
+    factual = is_factual(query, r["expanded"])
     if factual:
         chits, _, _ = search(db, terms, 1, table="canned_fts")
         if chits and chits[0]["focus_tf"] >= 1 and chits[0]["norm"] >= CANNED_SEARCH_NORM \
@@ -457,6 +524,8 @@ def main():
           + (f"  suggest: {r['suggest']} (passages: {r['confidence']})" if r["suggest"] else "")
           + f"  [{ms:.1f} ms]")
     print(f"  action: {ACTION[r['kind']]}")
+    if r.get("expanded"):
+        print(f"  glossary added: {' '.join(r['expanded'])}")
     if r["also_matched"]:
         print(f"  also matched: {r['also_matched']}")
     if r["answer"]:

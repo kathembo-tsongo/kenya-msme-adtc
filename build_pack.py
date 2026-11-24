@@ -35,7 +35,7 @@ WANTED = ["CANNED_ANSWERS", "CANNED_ANSWERS_SW", "TOPIC_KEYWORDS", "DIGEST_OVERR
 TEXT_KEYS = ("text", "content", "chunk", "page_content")
 SOURCE_KEYS = ("source", "file", "filename", "doc", "document", "path")
 KB_KEYS = ("kb", "category", "collection", "folder")
-PACK_FORMAT = "2"   # 2: adds the routing `config` table
+PACK_FORMAT = "3"   # 2: adds the routing `config` table; 3: adds the bilingual glossary to it
 
 
 # ---------------------------------------------------------------- extraction
@@ -306,6 +306,7 @@ def main():
         "canned_count": len(set(en) | set(sw)),
         "chunk_count": len(chunks),
         "boilerplate_lines_removed": len(boiler),
+        "glossary_entries": len(qp.GLOSSARY),
     }
     meta["general_topics"] = ",".join(general)
     write_pack(args.out, lit, chunks, meta, general)
