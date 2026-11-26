@@ -13,12 +13,24 @@ template baked into the GGUF (the old ADTC digest), which the phone does not use
 
 Laptop timings are NOT phone timings: report speed, speed drift and memory from the phone run.
 
+Answer language (--answer-lang):
+  en        today's phone behaviour: every model answer is written in English, and Kiswahili users get
+            the "answers only in English" note in the footer (the baseline).
+  operator  the model answers in the operator's language: Kiswahili questions get Kiswahili answers,
+            and the English-only note is dropped. This is what Chapter 3 promises; the phone's
+            Responder.kt gets the same change once the base model is chosen.
+
+Prompt format (--template): the phone sends Qwen's ChatML. Gemma models need Gemma's own turn format
+(no system role: the system prompt goes at the top of the user turn). "auto" reads the loaded
+model's chat template from llama-server's /props and picks chatml or gemma.
+
 Start the model first (same file as the phone, 4 threads, temperature 0.3):
     ./llama.cpp/build/bin/llama-server -m model/msme-qwen2.5-1.5b-Q4_K_M.gguf --port 8090 -c 4096 --threads 4
 
 Then (from kenya-msme-adtc/):
     python3 eval/run_laptop_eval.py --limit 10            # a quick trial
     python3 eval/run_laptop_eval.py --passes 3            # full run (continues if interrupted)
+    python3 eval/run_laptop_eval.py --answer-lang operator --model-only   # Kiswahili model comparison
     python3 eval/score_phone_eval.py eval/laptop_runs/rafiki_eval_laptop_<run>.jsonl
 """
 import argparse
@@ -87,9 +99,25 @@ def footer(lang, en, sw):
     return "\n\n---\n" + pick(lang, en, sw)
 
 
-def model_footer(lang, en, sw):
+def model_footer(lang, en, sw, answered_in=None):
+    """answered_in = the language the model was told to write in; the English-only note is added only
+    when a Kiswahili operator got an English answer."""
+    english_note = lang == "sw" and (answered_in or "en") != "sw"
     return footer(lang, en, sw) + ("\n*Kumbuka: majibu yanayoandikwa na modeli kwa sasa yanapatikana kwa "
-                                   "Kiingereza pekee.*" if lang == "sw" else "")
+                                   "Kiingereza pekee.*" if english_note else "")
+
+
+# How each prompt says which language to write in. The extracts and verified facts stay in English
+# (that is what the pack holds), so the Kiswahili instruction says so explicitly.
+WRITE_IN = {
+    "en": "Answer in English",
+    "sw": "Answer in Kiswahili (Swahili), not English, even though the extracts and facts are in English "
+          "(keep names of offices, laws and websites as they are)",
+}
+ONLY_THIS = {
+    "en": "Answer only this question, in English.",
+    "sw": "Answer only this question, in Kiswahili (Swahili), not English.",
+}
 
 
 def title(source):
@@ -217,8 +245,10 @@ def fmt_date(iso):
 class Responder:
     """Single-question port of Responder.kt (fresh conversation for every question)."""
 
-    def __init__(self, db, system, facts):
+    def __init__(self, db, system, facts, answer_lang="en"):
         self.db, self.system, self.facts = db, system, facts
+        self.answer_lang = answer_lang
+        self.out = "en"   # language the model is told to write in, set per question in respond()
         self.as_of = db.execute("SELECT value FROM meta WHERE key = 'as_of'").fetchone()[0]
         commit = db.execute("SELECT value FROM meta WHERE key = 'source_commit'").fetchone()
         self.pack_id = " @ ".join(x for x in (self.as_of, commit[0] if commit else "") if x)
@@ -267,6 +297,7 @@ class Responder:
         """Returns (trace, reply) with reply = ("text", text) or ("model", prompt, footer, check_against)."""
         self.ctx_business = self.ctx_place = ""
         lang = detect_lang(q)
+        self.out = lang if self.answer_lang == "operator" else "en"
         if COMPLAINT.search(q.lower()):
             return dict(lang=lang, route="COMPLAINT"), ("text", "complaint reply")
         if self.learn_context(q) and (not q.lower().strip().endswith("?") and not QUESTION_START.search(q.lower().strip())
@@ -278,7 +309,8 @@ class Responder:
             return dict(lang=lang, route="NO-QUESTION"), ("text", "no question")
 
         r = qp.route(self.db, q, lang)
-        trace = dict(lang=lang, lang_mix=lang_mix(q), expanded=" ".join(r.get("expanded", [])), route=r["kind"],
+        trace = dict(lang=lang, answer_lang=self.out, lang_mix=lang_mix(q),
+                     expanded=" ".join(r.get("expanded", [])), route=r["kind"],
                      topic=r["topic"], domain=r.get("domain", ""), confidence=r["confidence"], suggest=r["suggest"],
                      sources="; ".join(h["source"] for h in r["hits"][:2]))
         k = r["kind"]
@@ -309,11 +341,12 @@ class Responder:
                 lang, f"✅ *Based on verified figures (accurate as of {fmt_date(self.as_of)}). Confirm with "
                       f"{office(q, lang)} for your own case.*",
                 f"✅ *Kulingana na takwimu zilizothibitishwa (sahihi hadi {fmt_date(self.as_of)}). Thibitisha na "
-                f"{office(q, lang)} kwa hali yako.*"), None)
+                f"{office(q, lang)} kwa hali yako.*", self.out), None)
         background = r["hits"][0] if r["hits"] and r["confidence"] == "STRONG" else None
         return trace, ("model", self.advisory_prompt(q, background), model_footer(
             lang, "💡 *General advice, not verified information.*",
-            "💡 *Ushauri wa jumla, si taarifa iliyothibitishwa.*"), background["body"] if background else "")
+            "💡 *Ushauri wa jumla, si taarifa iliyothibitishwa.*", self.out),
+            background["body"] if background else "")
 
     def verified(self, r, q, lang):
         topic = r["topic"]
@@ -348,13 +381,13 @@ class Responder:
             names = "; ".join(title(x) for x in srcs)
             prompt = ("Answer the question using ONLY the document extracts below. If they do not contain the answer, "
                       "say so in one sentence. Do not add any figure, fee, rate, date, phone number or website that is not "
-                      "in the extracts. Answer in English, in at most 120 words, as short numbered steps where possible.\n\n"
+                      f"in the extracts. {WRITE_IN[self.out]}, in at most 120 words, as short numbered steps where possible.\n\n"
                       "Extracts:\n" + "\n".join(f"[{i + 1}] ({title(h['source'])}) {excerpt(h['body'], 700)}"
                                                 for i, h in enumerate(used))
                       + "\n\n" + self.context_line() + f"Question: {q}")
             return ("model", prompt, model_footer(
                 lang, f"📄 *From: {names}. Confirm with {office(q, lang)} before acting.*",
-                f"📄 *Chanzo: {names}. Thibitisha na {office(q, lang)} kabla ya kuchukua hatua.*"),
+                f"📄 *Chanzo: {names}. Thibitisha na {office(q, lang)} kabla ya kuchukua hatua.*", self.out),
                 "\n".join(h["body"] for h in used))
         if r["confidence"] == "PARTIAL":
             s = pick(lang, "I found documents that may only partly answer this:",
@@ -374,7 +407,7 @@ class Responder:
         facts = relevant[:4] if relevant else self.facts
         return ("Answer the question using ONLY the verified facts below, exactly as stated. If they do not cover "
                 "the question, say so in one sentence. When asked to calculate a KES amount, compute it step by step "
-                "and double-check the arithmetic. Answer in English, in at most 120 words.\n\n"
+                f"and double-check the arithmetic. {WRITE_IN[self.out]}, in at most 120 words.\n\n"
                 "Verified facts:\n" + "\n".join(facts) + "\n\n" + self.context_line() + f"Question: {q}")
 
     def advisory_prompt(self, q, background):
@@ -383,15 +416,51 @@ class Responder:
                 "statistics or other figures, and do not state facts about specific named businesses, places or people. "
                 "If the question is not about business, answer briefly and kindly.\n\n"
                 + (f"Background (from a stored document): {excerpt(background['body'], 600)}\n\n" if background else "")
-                + self.context_line() + f"Question: {q}\n\nAnswer only this question, in English.")
+                + self.context_line() + f"Question: {q}\n\n{ONLY_THIS[self.out]}")
 
 
 # ---------------------------------------------------------------- model call
-def complete(url, system, prompt, n_predict, temperature):
-    text = (f"<|im_start|>system\n{system}<|im_end|>\n<|im_start|>user\n{prompt}<|im_end|>\n"
-            f"<|im_start|>assistant\n")
+TEMPLATES = {
+    # Qwen ChatML -- exactly what the phone sends.
+    "chatml": (lambda system, prompt: f"<|im_start|>system\n{system}<|im_end|>\n<|im_start|>user\n{prompt}"
+                                      f"<|im_end|>\n<|im_start|>assistant\n",
+               ["<|im_end|>", "<|endoftext|>"]),
+    # Gemma 2/3: no system role, so the system prompt opens the user turn (as Gemma's own template does).
+    # llama-server adds <bos> itself when it tokenizes the prompt.
+    "gemma": (lambda system, prompt: f"<start_of_turn>user\n{system}\n\n{prompt}<end_of_turn>\n"
+                                     f"<start_of_turn>model\n",
+              ["<end_of_turn>", "<eos>"]),
+}
+
+
+def server_props(url):
+    """Model file and chat template of the model llama-server has loaded ({} if /props is unavailable)."""
+    try:
+        with urllib.request.urlopen(url.rstrip("/") + "/props", timeout=10) as resp:
+            return json.loads(resp.read())
+    except Exception:
+        return {}
+
+
+def pick_template(choice, props):
+    if choice != "auto":
+        return choice
+    tpl = props.get("chat_template", "") or ""
+    name = os.path.basename(props.get("model_path", "") or "").lower()
+    return "gemma" if "<start_of_turn>" in tpl or "gemma" in name else "chatml"
+
+
+def model_tag(props):
+    """Short model name for file names and reports, e.g. msme-qwen2.5-1.5b-Q4_K_M."""
+    name = os.path.basename(props.get("model_path", "") or "")
+    return os.path.splitext(name)[0] or "unknown-model"
+
+
+def complete(url, system, prompt, n_predict, temperature, template="chatml"):
+    build, stop = TEMPLATES[template]
+    text = build(system, prompt)
     body = json.dumps(dict(prompt=text, n_predict=n_predict, temperature=temperature, cache_prompt=False,
-                           stop=["<|im_end|>", "<|endoftext|>"])).encode()
+                           stop=stop)).encode()
     req = urllib.request.Request(url.rstrip("/") + "/completion", data=body,
                                  headers={"Content-Type": "application/json"})
     t0 = time.time()
@@ -411,13 +480,29 @@ def main():
     ap.add_argument("--split", choices=["all", "dev", "test"], default="all")
     ap.add_argument("--temperature", type=float, default=0.3, help="phone default: 0.3")
     ap.add_argument("--n-predict", type=int, default=300, help="phone default: 300")
-    ap.add_argument("--out", help="output file (default: eval/laptop_runs/rafiki_eval_laptop_<time>.jsonl); "
-                                  "an existing file is continued")
+    ap.add_argument("--answer-lang", choices=["en", "operator"], default="en",
+                    help="en = model always writes English (today's phone); operator = Kiswahili questions get "
+                         "Kiswahili answers")
+    ap.add_argument("--template", choices=["auto", "chatml", "gemma"], default="auto",
+                    help="prompt format; auto = chosen from the loaded model's chat template")
+    ap.add_argument("--model-only", action="store_true",
+                    help="only questions routed to the model (skip verified answers, suggestions, declines): "
+                         "for comparing models")
+    ap.add_argument("--out", help="output file (default: eval/laptop_runs/rafiki_eval_laptop_<time>[_<model>_<lang>]"
+                                  ".jsonl); an existing file is continued")
     a = ap.parse_args()
+
+    props = server_props(a.server)
+    if not props:
+        raise SystemExit(f"Could not reach llama-server at {a.server}. Start it first (see the top of this file).")
+    template, tag = pick_template(a.template, props), model_tag(props)
+    print(f"Model {tag} | prompt format {template} | answers in "
+          f"{'the operator language' if a.answer_lang == 'operator' else 'English'}"
+          f"{' | model-routed questions only' if a.model_only else ''}")
 
     system, facts = read_rafiki(a.rafiki_kt)
     db = sqlite3.connect(a.db)
-    resp = Responder(db, system, facts)
+    resp = Responder(db, system, facts, a.answer_lang)
     items = []
     for i, row in enumerate(csv.DictReader(open(a.tests, encoding="utf-8"))):
         split = "dev" if i % 2 == 0 else "test"
@@ -431,15 +516,25 @@ def main():
 
     os.makedirs(os.path.join(HERE, "laptop_runs"), exist_ok=True)
     run = dt.datetime.now().strftime("%Y-%m-%dT%H%M")
-    out = a.out or os.path.join(HERE, "laptop_runs", f"rafiki_eval_laptop_{run}.jsonl")
+    default_plain = a.answer_lang == "en" and not a.model_only and tag == "msme-qwen2.5-1.5b-Q4_K_M"
+    suffix = "" if default_plain else f"_{tag}_{'sw' if a.answer_lang == 'operator' else 'en'}"
+    out = a.out or os.path.join(HERE, "laptop_runs", f"rafiki_eval_laptop_{run}{suffix}.jsonl")
     done = set()
     if os.path.exists(out):
         for l in open(out, encoding="utf-8"):
             if l.strip().startswith("{"):
                 o = json.loads(l)
+                if o.get("model_file", tag) != tag or o.get("answer_mode", a.answer_lang) != a.answer_lang:
+                    raise SystemExit(f"{out} was made with {o.get('model_file')} ({o.get('answer_mode')} answers); "
+                                     f"the server has {tag} loaded. Use another --out, or load that model.")
                 run = o.get("run", run)
                 done.add((o.get("pass"), o.get("id"), o.get("lang")))
         print(f"Continuing {out}: {len(done)} answers already there")
+
+    if a.model_only:   # routing is deterministic, so a question routed elsewhere is never a model answer
+        before = len(items)
+        items = [it for it in items if resp.respond(it[2])[1][0] == "model"]
+        print(f"{len(items)} of {before} questions reach the model")
 
     total, n = len(items) * a.passes, len(done)
     with open(out, "a", encoding="utf-8") as f:
@@ -451,13 +546,14 @@ def main():
                 trace, reply = resp.respond(q)
                 o = dict(run=run, **{"pass": p}, seq=seq, id=qid, lang=lang, question=q,
                          time=dt.datetime.now().isoformat(timespec="seconds"), device="laptop",
-                         pack=resp.pack_id, **{("lang_detected" if k == "lang" else k): v for k, v in trace.items()})
+                         pack=resp.pack_id, model_file=tag, template=template, answer_mode=a.answer_lang,
+                         **{("lang_detected" if k == "lang" else k): v for k, v in trace.items()})
                 if reply[0] == "text":
                     o.update(model="no", answer=reply[1], total_ms=0)
                 else:
                     _, prompt, foot, check = reply
                     try:
-                        content, tim, ms = complete(a.server, system, prompt, a.n_predict, a.temperature)
+                        content, tim, ms = complete(a.server, system, prompt, a.n_predict, a.temperature, template)
                     except Exception as e:
                         raise SystemExit(f"\nCould not reach llama-server at {a.server} ({e}). Start it first "
                                          f"(see the top of this file); the run continues where it stopped.")
