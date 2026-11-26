@@ -12,6 +12,23 @@ have been moved into `legacy/` for reference and are not required to run or
 evaluate this submission. Everything needed for the ADTC submission (the
 offline model, RAG retrieval, and web UI) lives in the repository root.
 
+## Related repository: the Android app
+
+The project is one system in two repositories:
+
+| Repository | Role |
+|---|---|
+| **kenya-msme-adtc** (this one) | Research and evaluation: knowledge base, verified answers, router source (`query_pack.py`), fine-tuned model, knowledge-pack builder, test set and evaluation scripts |
+| **[rafiki-wa-biashara-mobile](https://github.com/kathembo-tsongo/rafiki-wa-biashara-mobile)** | The offline Android app operators use in the pilot and usability study |
+
+How they connect:
+
+- **Router.** `query_pack.py` is the single source of truth for routing. The app's `Router.kt` is a line-for-line port of `route()`, and `query_pack.py --parity` produces the same output as the phone's self-test, so the two can be diffed.
+- **Knowledge pack.** `build_pack.py` writes `rafiki_pack.db` (verified answers, keywords, glossary, corpus chunks and the routing word lists). It is copied into the app's `assets/` before the APK is built.
+- **Model.** The same `msme-qwen2.5-1.5b-Q4_K_M.gguf` from `download_model.sh` runs on the laptop (llama-server) and on the phone (llama.cpp Android).
+- **Evaluation.** `eval/run_laptop_eval.py` runs the 216-question test set (108 English, 108 Kiswahili) through the same routes on the laptop, and `eval/score_phone_eval.py` scores laptop and phone runs the same way. `pull_phone_log.py` brings the phone's pilot log back here for analysis.
+- **Versions.** Every phone log line records the pack version (with this repository's commit) and the app version.
+
 ## Architecture
 
 Browser (webui/index.html)
